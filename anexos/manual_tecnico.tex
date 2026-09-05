@@ -35,10 +35,12 @@ La solución se organiza en tres capas. La Capa de Presentación se implementa c
 
 El frontend se comunica con el backend mediante HTTPS y cargas JSON. El backend valida permisos, ejecuta reglas contables, registra auditoría y consulta PostgreSQL. Los archivos XML o Excel de FEL/SAT deben validarse en el servidor antes de almacenarse o procesarse. Las credenciales no deben guardarse en el navegador ni incluirse en el código fuente.
 
-\begin{figure}[H]\centering
-\caption{Arquitectura lógica del Sistema Web.}
-\includegraphics[width=0.92\linewidth]{../imagenes/Arquitectura.png}
-\caption*{Nota. Elaboración propia con base en la arquitectura definida para el proyecto.}
+\begin{figure}[H]
+    \centering
+    \caption{Arquitectura lógica del Sistema Web.}
+    \label{fig:manual_tecnico_arquitectura}
+    \includegraphics[width=0.92\linewidth]{imagenes/Arquitectura.png}
+    \caption*{Nota. Elaboración propia con base en la arquitectura definida para el proyecto.}
 \end{figure}
 
 \subsection{Módulos funcionales}
@@ -63,10 +65,12 @@ Proveedor se relaciona con Factura y puede tener una cuenta contable asociada. U
 
 Las tablas deben utilizar identificadores UUID o enteros autogenerados, fechas con zona horaria cuando corresponda, campos monetarios con tipo NUMERIC(14,2), estados controlados y restricciones de integridad. Las operaciones de generación de partidas deben ejecutarse dentro de transacciones PostgreSQL y verificar que el total del Debe sea igual al total del Haber.
 
-\begin{figure}[H]\centering
-\caption{Modelo de base de datos PostgreSQL.}
-\includegraphics[width=0.92\linewidth]{../imagenes/diagramabd.png}
-\caption*{Nota. Elaboración propia para el diseño de persistencia del Sistema Web.}
+\begin{figure}[H]
+    \centering
+    \caption{Modelo de base de datos PostgreSQL.}
+    \label{fig:manual_tecnico_diagramabd}
+    \includegraphics[width=0.92\linewidth]{imagenes/diagramabd.png}
+    \caption*{Nota. Elaboración propia para el diseño de persistencia del Sistema Web.}
 \end{figure}
 
 \subsection{Reglas contables y de integridad}
@@ -155,10 +159,12 @@ Los respaldos de PostgreSQL deben incluir al menos una copia completa y copias d
 \subsection{Evidencias visuales}
 Las capturas incorporadas al paquete fueron tomadas del prototipo navegable y se conservan en la carpeta de imágenes. Las versiones anotadas del Manual de Usuario agregan números rojos y recuadros para explicar cada control. Las láminas agrupadas de componentes se mantienen como material complementario del Capítulo III.
 
-\begin{figure}[H]\centering
-\caption{Componentes visuales agrupados del sistema.}
-\includegraphics[width=0.92\linewidth]{../imagenes/elementos_04_tablas_tarjetas.png}
-\caption*{Nota. Elaboración propia a partir de los componentes del prototipo.}
+\begin{figure}[H]
+    \centering
+    \caption{Componentes visuales agrupados del sistema.}
+    \label{fig:manual_tecnico_elementos_04_tablas_tarjetas}
+    \includegraphics[width=0.92\linewidth]{imagenes/elementos_04_tablas_tarjetas.png}
+    \caption*{Nota. Elaboración propia a partir de los componentes del prototipo.}
 \end{figure}
 
 \subsection{Matriz mínima de pruebas técnicas}

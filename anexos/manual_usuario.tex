@@ -1,0 +1,285 @@
+% Manual de Usuario del Sistema Web de gestión contable.
+% Este archivo se incorpora desde anexos/apendice.tex como Apéndice A.
+% Las capturas anotadas utilizan numeración correlativa y pasos operativos.
+\begin{titlepage}
+\thispagestyle{empty}
+\begin{center}
+\vspace*{2cm}
+{\Large\textbf{APÉNDICE A}}\par
+\vspace{1.5cm}
+{\Large\textbf{MANUAL DE USUARIO}}\par
+\vspace{0.8cm}
+{\large Sistema Web de gestión contable}\par
+\vspace{2cm}
+\begin{minipage}{0.82\textwidth}
+\centering
+Guía para el ingreso al sistema, consulta y registro de facturas FEL/SAT, cheques posfechados, caja chica, viáticos, proveedores, calendario, nomenclatura contable y reportes.
+\end{minipage}
+\vfill
+Documento complementario del trabajo de graduación\par
+\end{center}
+\end{titlepage}
+\section{Manual de Usuario}
+\label{ap:manual_usuario}
+\setlength{\parindent}{1.27cm}
+\setlength{\parskip}{0pt}
+\setstretch{2.0}
+
+\subsection{Introducción}
+Este manual orienta al usuario final en el uso del Sistema Web para el control de facturas FEL/SAT, cheques posfechados, caja chica, viáticos, proveedores, nomenclatura contable, calendario y reportes. Cada pantalla se presenta con una captura del prototipo funcional y una versión anotada. Los números rojos de la imagen corresponden directamente a los pasos descritos debajo de ella.
+
+Los datos que aparecen en las figuras son demostrativos. El usuario debe aplicar, además, las políticas internas de autorización, revisión y resguardo de documentos contables.
+
+\subsection{Requisitos de acceso}
+Se requiere un equipo de escritorio o portátil, navegador web actualizado, conexión a la red institucional, resolución recomendada mínima de 1280\,$\times$\,720 píxeles y credenciales habilitadas por el administrador. Para utilizar las funciones contables, el usuario debe contar con el perfil y permisos asignados por la organización.
+
+\subsection{Ingreso al sistema}
+Abra el navegador, escriba la dirección web proporcionada por el administrador y espere a que se muestre la pantalla de acceso.
+
+\begin{figure}[H]\centering
+\caption{Pantalla de acceso con anotaciones numeradas.}
+\includegraphics[width=0.92\linewidth]{../imagenes/manual_anotadas/pantalla_01_login_anotada.png}
+\caption*{Nota. Elaboración propia a partir del prototipo funcional.}
+\end{figure}
+
+\begin{enumerate}
+\item escriba el nombre de usuario o el correo electrónico habilitado.
+\item escriba la contraseña sin agregar espacios al inicio o al final.
+\item active ``Recordarme'' únicamente si el equipo es institucional y cumple las políticas de seguridad.
+\item presione ``Ingresar al sistema''.
+\item El sistema validará las credenciales y mostrará el Panel principal. Si aparece un mensaje de error, revise los datos y solicite apoyo al administrador cuando sea necesario.
+\end{enumerate}
+
+\subsection{Panel principal}
+El Panel principal concentra la información operativa del período contable seleccionado.
+
+\begin{figure}[H]\centering
+\caption{Panel principal con anotaciones numeradas.}
+\includegraphics[width=0.92\linewidth]{../imagenes/manual_anotadas/pantalla_02_dashboard_anotada.png}
+\caption*{Nota. Elaboración propia a partir del prototipo funcional.}
+\end{figure}
+
+\begin{enumerate}
+\item verifique el período contable activo.
+\item utilice ``Buscar'' para localizar información visible del sistema.
+\item consulte las alertas operativas pendientes.
+\item revise los indicadores de compromisos, vencimientos, facturas y saldo de Caja chica.
+\item presione ``Actualizar'' para refrescar la información mostrada.
+\item revise las alertas y seleccione la que requiera atención.
+\item Para cambiar de módulo, seleccione una opción del menú lateral, por ejemplo ``Facturas FEL'', ``Cheques'', ``Caja chica'', ``Viáticos'', ``Proveedores'', ``Calendario'', ``Nomenclatura'' o ``Reportes''.
+\end{enumerate}
+
+\subsection{Facturas FEL/SAT}
+Este módulo permite importar archivos XML o Excel descargados del portal SAT, revisar comprobantes y detectar duplicados o documentos que requieren revisión.
+
+\begin{figure}[H]\centering
+\caption{Módulo de Facturas FEL/SAT con anotaciones numeradas.}
+\includegraphics[width=0.92\linewidth]{../imagenes/manual_anotadas/pantalla_03_facturas_fel_anotada.png}
+\caption*{Nota. Elaboración propia a partir del prototipo funcional.}
+\end{figure}
+
+\begin{enumerate}
+\item confirme que se encuentra en ``Facturas FEL''.
+\item presione ``Importar archivo'' para iniciar la carga.
+\item arrastre el archivo FEL al área indicada o presione ``Seleccionar archivo''.
+\item espere a que el sistema lea el XML o Excel y actualice los indicadores.
+\item consulte el catálogo centralizado y revise comprobante, proveedor, fecha, monto y estado.
+\item utilice ``Editar'', ``Aprobar'' o ``Eliminar'' cuando esas acciones estén habilitadas para el registro.
+\item Si una factura no puede clasificarse automáticamente, diríjase a la asignación correspondiente y seleccione manualmente una cuenta de Nomenclatura.
+\end{enumerate}
+
+\subsection{Cheques posfechados}
+El módulo registra los cheques, sus bancos, fechas, clientes, estados y la información relacionada con la factura.
+
+\begin{figure}[H]\centering
+\caption{Módulo de Cheques con anotaciones numeradas.}
+\includegraphics[width=0.92\linewidth]{../imagenes/manual_anotadas/pantalla_04_cheques_anotada.png}
+\caption*{Nota. Elaboración propia a partir del prototipo funcional.}
+\end{figure}
+
+\begin{enumerate}
+\item revise el resumen de compromisos, próximo depósito y cheques depositados.
+\item filtre la tabla por estado mediante la lista desplegable.
+\item presione ``Registrar bancos'' para mantener los bancos disponibles.
+\item presione ``Nuevo'' para registrar un cheque.
+\item revise la tabla con número de cheque, cliente, banco del cheque, banco de depósito, fecha de recepción, fecha de depósito, recepción de rechazo, monto y estado.
+\item presione ``Asignación'' en el cheque que desea consultar.
+\item revise la fecha de factura, número de factura, visitador, número de recibo y días vencidos.
+\item repita la consulta para otro cheque cuando necesite comparar sus datos antes de registrar o dar seguimiento.
+\end{enumerate}
+
+\subsection{Caja chica}
+Caja chica permite llamar una factura FEL por número, registrar recibos u otros documentos, asignar la cuenta contable y preparar la partida.
+
+\begin{figure}[H]\centering
+\caption{Módulo de Caja chica con anotaciones numeradas.}
+\includegraphics[width=0.92\linewidth]{../imagenes/manual_anotadas/pantalla_05_caja_chica_anotada.png}
+\caption*{Nota. Elaboración propia a partir del prototipo funcional.}
+\end{figure}
+
+\begin{enumerate}
+\item revise el fondo asignado, disponible, facturas asignadas y partidas generadas.
+\item escriba el número de factura FEL y presione ``Asignar factura''.
+\item presione ``Nuevo recibo'' para registrar un documento que no proviene de FEL.
+\item complete la fecha, descripción, tipo de documento, número, nombre y valor del movimiento.
+\item revise la cuenta contable sugerida para el movimiento.
+\item cuando la cuenta no sea reconocida, seleccione manualmente una cuenta registrada en Nomenclatura.
+\item use ``Editar'' para corregir la descripción o los datos del movimiento y ``Eliminar'' solamente con autorización.
+\item revise la tabla de Movimientos antes de generar la partida.
+\item verifique los importes del Debe y las cuentas de gasto e IVA.
+\item revise la contrapartida en el Haber y presione ``Imprimir resumen'' para preparar el documento.
+\end{enumerate}
+
+\subsection{Viáticos}
+Viáticos administra colaboradores, territorios, giras, categorías de gasto y partidas automáticas.
+
+\begin{figure}[H]\centering
+\caption{Módulo de Viáticos con anotaciones numeradas.}
+\includegraphics[width=0.92\linewidth]{../imagenes/manual_anotadas/pantalla_06_viaticos_anotada.png}
+\caption*{Nota. Elaboración propia a partir del prototipo funcional.}
+\end{figure}
+
+\begin{enumerate}
+\item revise las giras abiertas, anticipos, reintegros y facturas pendientes de pago.
+\item presione ``Agregar territorio'' cuando deba asociar un territorio a un colaborador.
+\item seleccione el colaborador, el territorio y la semana de gira.
+\item 5 y 6, seleccione la categoría ``Viáticos'', ``Movilidad'' o ``Actividades'' y presione ``Asignar facturas''.
+\item Recuerde que Movilidad está disponible durante la primera semana del mes según la regla del sistema.
+\item registre bonos u otros gastos indicando nombre, descripción y monto.
+\item revise la partida semanal y presione ``Generar partida semanal''.
+\item presione ``Generar cuenta transitoria'' para agrupar facturas pendientes de pago.
+\end{enumerate}
+
+\subsection{Asignación de facturas}
+Esta pantalla permite vincular una factura con un colaborador, una gira, una categoría y una cuenta contable.
+
+\begin{figure}[H]\centering
+\caption{Pantalla de asignación de facturas con anotaciones numeradas.}
+\includegraphics[width=0.92\linewidth]{../imagenes/manual_anotadas/pantalla_07_asignacion_facturas_anotada.png}
+\caption*{Nota. Elaboración propia a partir del prototipo funcional.}
+\end{figure}
+
+\begin{enumerate}
+\item confirme la categoría y la gira seleccionadas.
+\item escriba el número de factura.
+\item seleccione la cuenta contable. Si el sistema no la reconoce, elija una cuenta registrada en Nomenclatura.
+\item seleccione el colaborador.
+\item seleccione la gira o territorio correspondiente.
+\item presione ``Guardar asignación''.
+\item confirme que la factura aparezca en la tabla de facturas asignadas con su estado correcto.
+\end{enumerate}
+
+\subsection{Proveedores}
+Proveedores administra el registro por NIT, las condiciones de crédito, las retenciones, la cartera y las partidas.
+
+\begin{figure}[H]\centering
+\caption{Módulo de Proveedores con anotaciones numeradas.}
+\includegraphics[width=0.92\linewidth]{../imagenes/manual_anotadas/pantalla_08_proveedores_anotada.png}
+\caption*{Nota. Elaboración propia a partir del prototipo funcional.}
+\end{figure}
+
+\begin{enumerate}
+\item presione ``Nuevo proveedor'' para iniciar el registro.
+\item escriba el NIT. El sistema consultará el nombre comercial y el nombre de registro disponibles.
+\item revise la cartera con proveedor, NIT, cuenta contable, crédito, vencimiento, saldo y estado.
+\item confirme la cuenta de Nomenclatura asociada al proveedor.
+\item presione ``Desplegar'' para consultar las facturas mensuales.
+\item presione ``Generar partida dentro del mes'' para obligaciones pagaderas en el período.
+\item presione ``Generar partida transitoria'' para facturas pendientes de pago.
+\end{enumerate}
+
+\subsection{Calendario operativo}
+Calendario presenta depósitos, pagos, cheques, giras y otras actividades por período.
+
+\begin{figure}[H]\centering
+\caption{Módulo de Calendario con anotaciones numeradas.}
+\includegraphics[width=0.92\linewidth]{../imagenes/manual_anotadas/pantalla_09_calendario_anotada.png}
+\caption*{Nota. Elaboración propia a partir del prototipo funcional.}
+\end{figure}
+
+\begin{enumerate}
+\item revise el mes y año mostrados.
+\item utilice las flechas para cambiar de período.
+\item presione ``Mes'' para conservar la vista mensual.
+\item consulte los eventos ubicados en cada fecha, como ``Pago proveedor'' y ``Cheque''.
+\item presione ``Actividad'' para registrar una nueva actividad cuando tenga autorización.
+\end{enumerate}
+
+\subsection{Nomenclatura contable}
+Nomenclatura contiene las cuentas que alimentan las sugerencias y partidas del sistema.
+
+\begin{figure}[H]\centering
+\caption{Módulo de Nomenclatura con anotaciones numeradas.}
+\includegraphics[width=0.92\linewidth]{../imagenes/manual_anotadas/pantalla_10_nomenclatura_anotada.png}
+\caption*{Nota. Elaboración propia a partir del prototipo funcional.}
+\end{figure}
+
+\begin{enumerate}
+\item presione ``Nueva cuenta'' cuando corresponda crear una cuenta.
+\item presione ``Nuevo registro'' para abrir el formulario de cuenta.
+\item escriba código y nombre y seleccione la naturaleza Debe o Haber.
+\item guarde el registro y verifique que la cuenta aparezca en el catálogo.
+\item consulte el código, nombre, naturaleza y estado de cada cuenta.
+\item abra ``Opciones'' para administrar el registro según sus permisos.
+\end{enumerate}
+
+\subsection{Reportes}
+Reportes permite seleccionar el tipo de información, el período y los filtros para obtener indicadores.
+
+\begin{figure}[H]\centering
+\caption{Módulo de Reportes con anotaciones numeradas.}
+\includegraphics[width=0.92\linewidth]{../imagenes/manual_anotadas/pantalla_11_reportes_anotada.png}
+\caption*{Nota. Elaboración propia a partir del prototipo funcional.}
+\end{figure}
+
+\begin{enumerate}
+\item confirme que se encuentra en ``Reportes e indicadores''.
+\item seleccione el tipo de reporte.
+\item seleccione el rango de fechas.
+\item presione ``Aplicar filtros''.
+\item presione ``Exportar'' para descargar o preparar el reporte autorizado.
+\end{enumerate}
+
+\subsection{Resumen de Caja chica}
+El resumen presenta los movimientos que se imprimirán o archivarán.
+
+\begin{figure}[H]\centering
+\caption{Resumen de Caja chica con anotaciones numeradas.}
+\includegraphics[width=0.92\linewidth]{../imagenes/manual_anotadas/pantalla_12_resumen_caja_anotada.png}
+\caption*{Nota. Elaboración propia a partir del prototipo funcional.}
+\end{figure}
+
+\begin{enumerate}
+\item confirme el título y la fecha del resumen.
+\item presione ``Imprimir / guardar PDF''.
+\item verifique que el documento incluya fecha, tipo de documento, número, nombre, descripción y monto.
+\item revise el total de movimientos antes de imprimir o guardar el archivo.
+\end{enumerate}
+
+\subsection{Mensajes de error y solución}
+Cuando las credenciales sean rechazadas, vuelva a escribir el usuario y la contraseña. Si una factura no puede clasificarse, asígnele manualmente una cuenta de Nomenclatura. Si falta un dato obligatorio, complete el campo señalado antes de guardar. Si una partida no cuadra, revise Debe, Haber, IVA, retenciones y descuentos. Si la pantalla no carga, actualice el navegador y comuníquese con soporte si el problema persiste.
+
+\subsection{Recomendaciones de seguridad}
+Mantenga sus credenciales bajo resguardo, cierre sesión al terminar, revise los documentos antes de aprobarlos y no elimine información sin autorización. Verifique siempre que la cuenta contable corresponda al gasto y que la operación se registre en el período correcto.
+
+\subsection{Anexos del manual}
+El paquete contiene las doce capturas reales del prototipo, las doce versiones anotadas con números rojos y recuadros, y las láminas agrupadas de componentes visuales.
+
+
+\subsection{Flujo recomendado de trabajo}
+Para mantener la trazabilidad contable, inicie el período revisando el Panel principal, importe las facturas FEL/SAT, verifique los cheques y registre las operaciones de Caja chica. Posteriormente, asigne las facturas de viáticos, actualice la cartera de proveedores, revise el Calendario y genere los reportes autorizados.
+
+\subsection{Cierre de operaciones}
+Antes de cerrar el período, confirme que las facturas tengan una cuenta de Nomenclatura, que las partidas estén cuadradas, que los cheques tengan el estado correcto y que las facturas pendientes se encuentren identificadas como partidas transitorias. Guarde los reportes autorizados según las políticas internas.
+
+\subsection{Glosario básico}
+\begin{description}
+\item[FEL/SAT] Factura electrónica y documentos tributarios consultados o importados desde la información del SAT.
+\item[Nomenclatura] Catálogo de cuentas contables utilizado para clasificar gastos y construir partidas.
+\item[Partida transitoria] Registro contable temporal utilizado cuando una factura está pendiente de pago.
+\item[Viático] Gasto asociado a una gira, colaborador, territorio y semana de trabajo.
+\item[Arqueo o resumen] Documento de revisión de movimientos y saldo de Caja chica.
+\end{description}
+
+\subsection{Anexos del Manual de Usuario}
+Los anexos del manual corresponden a las capturas anotadas de las pantallas del sistema y a la lámina de referencia de componentes visuales. Estos materiales sirven para identificar los campos y botones descritos en cada procedimiento; no sustituyen las políticas internas de autorización ni los registros contables oficiales.

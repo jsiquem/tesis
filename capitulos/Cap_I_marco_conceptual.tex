@@ -1,0 +1,103 @@
+% =========================================================
+% CAPÍTULO I: MARCO CONCEPTUAL
+% =========================================================
+
+\section{Capítulo I - Marco Conceptual}
+
+\subsection{Planteamiento del Problema}
+
+\subsubsection{Antecedentes del Problema}
+
+La empresa dedicada a la importación y comercialización de productos farmacéuticos, equipo y suministros médicos, inició sus operaciones en el año 2009. Desde sus inicios, la organización adoptó una estructura administrativa orientada al cumplimiento de los requerimientos contables y fiscales del país de Guatemala, apoyándose en herramientas tecnológicas que permitieran registrar y controlar adecuadamente sus operaciones financieras. Con el crecimiento progresivo de la empresa y el incremento en el volumen de transacciones, se implementó el sistema contable de la empresa, el cual ha sido utilizado durante aproximadamente siete años como la plataforma principal para la gestión contable.
+
+A lo largo del tiempo, dicho sistema permitió cumplir adecuadamente con procesos formales como la emisión de facturas, generación de cheques para pagos a proveedores, la generación de libros contables y la realización de conciliaciones bancarias, registro de depósitos, débitos, entre otros registros contables. Sin embargo, varias actividades de apoyo, tales como el registro de cheques posfechados, el control de facturas de proveedores, el reintegro de viáticos y la administración de la caja chica, continuaron realizándose de forma manual mediante hojas de cálculo en programas como Excel y documentación física, práctica que se mantuvo funcional dentro del esquema operativo de la empresa y careciendo de un método de alertas que logren notificar oportunamente el control de estos documentos, ya que el sistema está más enfocado en el registro de partidas utilizando el modelo de las nomenclaturas bancarias, es decir que cada partida contable contenga un código identificador.
+
+\subsubsection{Descripción del Problema}
+
+En la actualidad, el área contable, enfrenta el reto de mejorar el control y la eficiencia en el manejo de documentos contables complementarios que no son gestionados directamente por el sistema contable de la empresa. El uso de herramientas externas y procesos manuales, así como la carencia de notificaciones dificulta la visualización oportuna de fechas de pago, depósitos de cheques posfechados y correcta aplicación de impuestos y retenciones, lo que abre la oportunidad de fortalecer los mecanismos de control interno.
+
+Un ejemplo que podemos indicar sobre el problema sucedió con un proveedor el cual le proporciona a la empresa, material de empaque. Dicho proveedor tiene un acuerdo que consiste en el crédito para pago de sus facturas con un periodo de cuarenta y cinco días, lo cual equivale a un mes y medio, pero en una ocasión se colocó de manera errónea la fecha de pago dentro de un calendario físico, de tal manera que dicha factura se pagó una semana después de lo acordado.
+
+El principal punto de mejora identificado radica en la necesidad de contar con un sistema complementario que permita centralizar esta información, automatizar cálculos y considerar variables como días de crédito, días hábiles y feriados, sin sustituir el sistema principal, sino reforzándolo. También el poder dejar un registro de estos documentos. Esta mejora permitirá optimizar los procesos existentes, mantener la metodología actual de la empresa y reducir la probabilidad de errores operativos en el área contable.
+
+Otras mejoras que considerar, serían el ahorro de memoria y la prevención de la perdida de archivos en del, ya que en su mayoría se utilizan archivos de Excel estos los generan de manera progresiva llegando a tener hasta diez archivos de Excel dentro del mes, prácticas que se consideran anticuadas.
+
+\subsection{Justificación}
+
+La realización del presente proyecto se considera pertinente debido a la oportunidad de generar mejoras significativas en la gestión contable, particularmente en el control de documentos y procesos complementarios al sistema principal. La implementación de un sistema de apoyo permitirá automatizar tareas repetitivas, mejorar la precisión en los cálculos contables y facilitar el seguimiento oportuno de compromisos financieros.
+
+Los principales departamentos beneficiados serán el área contable y administrativa, ya que se optimizará el tiempo destinado al registro y control de documentos, permitiendo enfocar los esfuerzos en actividades de análisis y toma de decisiones. Para el desarrollo del proyecto se utilizará la metodología RUP, la cual se tomó en cuenta por sus principios claves los que consisten en ser interactivo e incremental (el software se desarrolla en pequeñas entregas), es centrado en riesgos, (busca detectar riesgos desde las primeras etapas para poderlos mitigar), usa el modelado UML, (ayuda a modelar el sistema y documentarlo), gestiona la calidad (controla la calidad en todas las entregas).
+
+Asimismo, se emplearán tecnologías como Python para la lógica del sistema, se optó por esta tecnología ya que es un sistema de programación considerado de alto nivel, por su dinamismo y tener una sintaxis más simple y limpia. Se toma Angular para la interfaz de usuario, considerado un Framework rápido y escalable e ideal para interfaces complejas. También PostgreSQL como base de datos relacional, por su alta estabilidad, robustes y cumolimiento extirco de las propiedades ACID(Atomicidad, Consistencia, Aislamiento y Durabilidad), aspectos indispensables para un sistema financiero.
+
+\subsection{Objetivos}
+
+\subsubsection{Objetivo General}
+
+Desarrollar de una aplicación Web para el control de cheques, caja chica, viáticos y alertas de pagos a proveedores en una distribuidora farmacéutica utilizando sistema en Angular, Python y PostgreSQL.
+
+\subsubsection{Objetivos Específicos}
+
+Analizar los procesos contables actuales relacionados con el manejo de documentos complementarios para identificar oportunidades de mejora y estandarización.
+
+Diseñar un sistema que permita registrar y controlar facturas, cheques postfechados y caja chica de manera centralizada y estructurada.
+
+Implementar funcionalidades que automaticen el cálculo de fechas de pago considerando días de crédito, días hábiles y feriados.
+
+Generar partidas contables automáticas que faciliten la integración de la información con el sistema contable interno de la empresa.
+
+Evaluar el impacto del sistema complementario en la reducción de errores y optimización del tiempo del área contable.
+
+Dejar un registro de los documentos contables para la realización de los reintegros de caja chica, reintegro de viáticos y pago a proveedores.
+
+\subsection{Preguntas de la Investigación}
+
+1. ¿Qué problema se identificó y como se pretende dar solución?
+
+El sistema actual de la empresa está más enfocado en registros puramente contables, considerando al contador como un ente encargado únicamente de registrar las partidas contables, mas no toma en consideración el registro de documentos de respaldo.
+
+El proyecto que se propone desarrollar ayudara para poder dejar registro de estos documentos de respaldo, así como un sistema de notificaciones para el control de estos.
+
+2. ¿Quiénes serán beneficiados al terminar el proyecto?
+
+El mayor beneficiario sería el área contable y administrativa junto al departamento de auditoría interna, ya que con este proyecto se tendrá mayor control.
+
+3. ¿Se utilizará alguna metodología de desarrollo?
+
+Utilizaremos la metodología RUP la cual está diseñada para poder realizar el proyecto por fases de una manera eficaz, esto con el fin de poder identificar posibles errores y logarlos corregir, también se decide esta metodología por su alta escalabilidad, por lo que nuestro proyecto podría crecer si es necesario.
+
+4. ¿Cuántas personas se encuentran involucradas?
+
+Con respecto a las personas que va dirigida al proyecto serian dos. El administrador y el contador de la empresa, ya que ellos son los que están más enfocados en el control de estos documentos contables.
+
+De manera indirecta involucraríamos a una persona la cual es el auditor interno de la empresa farmacéutica. por medio de consultas y reportes, generados por el contador.
+
+A nivel de proyecto estará involucrado el desarrollador quien destinará todo el proceso de este.
+
+5. ¿Cuánto tiempo se necesita para terminarlo?
+
+Se estable un plazo de unos seis meses aproximados, ya que conlleva toda la documentación, creación de fases y pruebas.
+
+6. ¿Los recursos con los que actualmente se cuentan son suficientes?
+
+Por la magnitud del proyecto se puede considerar los recursos adecuados.
+
+7. ¿Se capacitará al personal al finalizar el proyecto?
+
+Si, se realizara un cronograma de actividades para realizar las visitas y capacitaciones de las personas involucradas.
+
+8. ¿Qué beneficios traerá a la empresa el implementar el proyecto?
+
+El mayor beneficio sería el mejor control de los documentos contables, como también el dejar un registro de los mismo. También se reducirían los errores de cálculos y el tiempo que toma el registro de estos.
+
+9. ¿Cuál es la importancia de implementar este tipo de proyecto?
+
+Reforzar el sistema principal de la empresa, y reducir las tareas repetitivas que realiza el contador, también las correctas fechas para depósitos o pagos a proveedores.
+
+10. ¿Se considera que el proyecto pueda ser operativo para la empresa a futuro?
+
+Si, se considera que el sistema servirá de mucho apoyo al área contable, porque reduciría la carga de trabajo y tiempo, también eliminaría el uso continuo de archivos en Excel.
+
+\subsection{Hipótesis}
+
+Desarrollar e implementar un sistema complementario de control contable contribuirá a mejorar la eficiencia, el control y la precisión en el manejo de documentos contables en una empresa de Distribución de productos farmacéuticos.

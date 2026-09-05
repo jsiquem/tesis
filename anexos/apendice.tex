@@ -1,0 +1,18 @@
+% Apéndices y anexos. Este archivo se incorpora una sola vez desde main.tex.
+% La clase article utiliza section como unidad de apéndice; por ello A y B corresponden a los manuales.
+\appendix
+\renewcommand{\thesection}{\Alph{section}}
+\renewcommand{\thefigure}{\thesection\arabic{figure}}
+\renewcommand{\thetable}{\thesection\arabic{table}}
+\setcounter{section}{0}
+\setcounter{figure}{0}
+\setcounter{table}{0}
+\input{manual_usuario}
+\clearpage
+\setcounter{figure}{0}
+\setcounter{table}{0}
+\input{manual_tecnico}
+\clearpage
+\setcounter{figure}{0}
+\setcounter{table}{0}
+\input{encuestas}

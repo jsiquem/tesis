@@ -1,0 +1,164 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage{tocloft}
+
+% =========================================================
+% FUENTE: Times New Roman 12pt (archivo real vía fontspec)
+% =========================================================
+% IMPORTANTE:
+% 1) El compilador de este proyecto debe estar en XeLaTeX
+%    (Menú -> Compiler -> XeLaTeX), NO en pdfLaTeX.
+% 2) Debes subir 4 archivos .ttf a una carpeta llamada "fonts"
+%    dentro de tu proyecto de Overleaf: times.ttf, timesbd.ttf,
+%    timesi.ttf y timesbi.ttf (ver instrucciones abajo).
+\usepackage{fontspec}
+\setmainfont{Times New Roman}[
+    Path           = fonts/,
+    Extension      = .ttf,
+    UprightFont    = times,
+    BoldFont       = timesbd,
+    ItalicFont     = timesi,
+    BoldItalicFont = timesbi
+]
+
+\usepackage[spanish,es-tabla]{babel} 
+\usepackage{graphicx}
+\usepackage{setspace} 
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% Hace que las matemáticas (subíndices, variables, fórmulas simples)
+% usen la misma Times New Roman en vez de la fuente por defecto,
+% ya que Times New Roman no trae una fuente matemática OpenType.
+% (Se carga DESPUÉS de amsmath/amssymb, como recomienda el paquete)
+\usepackage{mathastext}
+
+\usepackage{booktabs,longtable,array} 
+\usepackage{calc}
+\usepackage{tikz}
+\usepackage{pdflscape}
+\usepackage{xltabular}
+\usepackage{etoolbox}
+\AtBeginEnvironment{tabular}{\setstretch{1.15}\setlength{\parindent}{0pt}}
+\AtBeginEnvironment{tabularx}{\setstretch{1.15}\setlength{\parindent}{0pt}}
+\usepackage{float}
+\usepackage{csquotes} 
+\usepackage[style=apa, backend=biber]{biblatex}
+\usepackage{colortbl}
+\usepackage{multirow}
+\usepackage{xcolor}
+\usepackage{pgfgantt}
+
+\usepackage{fancyhdr}
+\setlength{\headheight}{15pt}
+% Hemos quitado el \pagestyle{fancy} de aquí para que no afecte el inicio del documento
+\fancyhf{}                         % Limpia encabezados y pies de página por defecto
+\rhead{\thepage}                   % Mueve el número a la parte superior derecha
+\renewcommand{\headrulewidth}{0pt} % Quita la línea horizontal del encabezado
+
+% Configuración de márgenes institucionales UMG
+\usepackage{geometry}
+\geometry{
+    letterpaper,
+    left=2.5cm,  
+    right=2.5cm,
+    top=2.5cm,
+    bottom=2.5cm
+}
+
+% Configuración de enlaces dinámicos e índice
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,  
+    urlcolor=blue,
+    pdfcreator={LaTeX}
+}
+
+% Quitar sangría inicial por defecto y definir espacio entre párrafos
+% Configuración de párrafos según Normas APA 7
+\setlength{\parindent}{1.27cm} % Sangría de primera línea (0.5 pulgadas)
+\setlength{\parskip}{0pt}      % Sin espacio adicional entre párrafos
+\setstretch{2.0}               % Interlineado 2.0 o 1.5 según te pidan
+
+% =========================================================
+% CONFIGURACIÓN DE TÍTULOS Y NIVELES (APA 7)
+% =========================================================
+\usepackage{titlesec}
+
+\titleformat{\section}[block]{\centering\bfseries\normalsize}{}{0pt}{}
+\titleformat{\subsection}[block]{\bfseries\normalsize}{\thesubsection}{0.5em}{}
+\titleformat{\subsubsection}[block]{\bfseries\itshape\normalsize}{\thesubsubsection}{0.5em}{}
+\titleformat{\paragraph}[runin]{\bfseries\normalsize}{\theparagraph}{0.5em}{}[.]
+\titlespacing{\paragraph}{\parindent}{1ex}{1em}
+\titleformat{\subparagraph}[runin]{\bfseries\itshape\normalsize}{\thesubparagraph}{0.5em}{}[.]
+\titlespacing{\subparagraph}{\parindent}{1ex}{1em}
+
+\usepackage[labelsep=newline, justification=raggedright, singlelinecheck=false, labelfont=bf, textfont=it, font={stretch=2.0}]{caption}
+
+
+% =========================================================
+% LISTADO DE TABLAS Y FIGURAS
+% =========================================================
+\usepackage{tocloft}
+
+\renewcommand{\cftfigpresnum}{\figurename\space}
+\renewcommand{\cftfigaftersnumb}{\hspace{0.6em}}
+\setlength{\cftfignumwidth}{4.2em}
+
+\renewcommand{\cfttabpresnum}{\tablename\space}
+\renewcommand{\cfttabaftersnumb}{\hspace{0.6em}}
+\setlength{\cfttabnumwidth}{4.2em}
+
+% Oculta el número de capítulo en el Índice general
+\usepackage{titletoc}
+\titlecontents{section}[0pt]{\vspace{6pt}\bfseries}{}{}{\titlerule*[0.5pc]{.}\contentspage}
+
+\begin{document}
+
+% Aseguramos que los preliminares usen el estilo por defecto (número abajo al centro)
+\pagestyle{plain}
+
+% =========================================================
+% INCLUSIÓN DE SECCIONES PRELIMINARES
+% =========================================================
+\include{preliminares/portada}
+\include{preliminares/autoridades}
+\include{preliminares/autorizacion}
+
+% =========================================================
+% ÍNDICES Y NUMERACIÓN ROMANA
+% =========================================================
+\newpage
+\pagenumbering{Roman} % Inicia numeración en números romanos (I, II, III...)
+\setcounter{page}{1}  
+
+\tableofcontents 
+\newpage
+\listoftables    
+\newpage
+\listoffigures   
+\newpage
+
+% =========================================================
+% INTRODUCCIÓN
+% =========================================================
+\include{preliminares/introduccion}
+
+% =========================================================
+% INICIO DEL CONTENIDO PRINCIPAL (Numeración Arábiga)
+% =========================================================
+\newpage
+\pagenumbering{arabic} % Cambia a números normales (1, 2, 3...)
+\setcounter{page}{11}   % He ajustado esto a 1, a menos que obligatoriamente te pidan empezar en 7
+\pagestyle{fancy}      % A PARTIR DE AQUÍ se activa el número arriba a la derecha
+
+\include{capitulos/Cap_I_marco_conceptual}
+\include{capitulos/Cap_II_marco_teorico}
+\include{capitulos/Cap_III_marco_metodologico}
+\include{capitulos/Cap_IV_desarrollo_meto}
+\include{capitulos/Cap_V_anlisis_resultados}
+\include{preliminares/Conclusion_Recomendacion}
+\include{preliminares/referencias}
+\include{anexos/apendice}
+
+\end{document}

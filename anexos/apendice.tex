@@ -7,6 +7,9 @@
 \setcounter{section}{0}
 \setcounter{figure}{0}
 \setcounter{table}{0}
+% Los manuales y anexos conservan sus captions y contadores, pero no se incorporan
+% a los índices generales de figuras y tablas de la tesis.
+\captionsetup{list=false}
 \input{anexos/manual_usuario}
 \clearpage
 \setcounter{figure}{0}
@@ -16,3 +19,4 @@
 \setcounter{figure}{0}
 \setcounter{table}{0}
 \input{anexos/encuestas}
+\captionsetup{list=true}

@@ -52,8 +52,10 @@
 \setlength{\headheight}{15pt}
 % Hemos quitado el \pagestyle{fancy} de aquí para que no afecte el inicio del documento
 \fancyhf{}                         % Limpia encabezados y pies de página por defecto
-\rhead{\thepage}                   % Mueve el número a la parte superior derecha
-\renewcommand{\headrulewidth}{0pt} % Quita la línea horizontal del encabezado
+\rhead{}                              % Sin número en el encabezado
+\fancyfoot[C]{\thepage}              % Número de página en el pie, centrado
+\renewcommand{\headrulewidth}{0pt}  % Quita la línea horizontal del encabezado
+\renewcommand{\footrulewidth}{0pt}  % Sin línea en el pie
 
 % Configuración de márgenes institucionales UMG
 \usepackage{geometry}
@@ -109,11 +111,8 @@
 \renewcommand{\cfttabaftersnumb}{\hspace{0.6em}}
 \setlength{\cfttabnumwidth}{4.2em}
 
-% Conserva la numeración y la jerarquía de secciones en el Índice general.
-\usepackage{titletoc}
-\titlecontents{section}[0pt]{\vspace{6pt}\bfseries}{\contentslabel{3.2em}}{}{\titlerule*[0.5pc]{.}\contentspage}
-\titlecontents{subsection}[2em]{\vspace{2pt}}{\contentslabel{3.8em}}{}{\titlerule*[0.5pc]{.}\contentspage}
-\titlecontents{subsubsection}[4em]{\vspace{1pt}}{\contentslabel{4.8em}}{}{\titlerule*[0.5pc]{.}\contentspage}
+% El índice general utiliza el formato institucional estándar de la clase article.
+% La profundidad se controla con tocdepth y las entradas manuales con addcontentsline.
 
 \begin{document}
 
@@ -121,8 +120,8 @@
 % Los apéndices se excluyen más adelante desde su punto de inclusión.
 \setcounter{tocdepth}{3}
 
-% Aseguramos que los preliminares usen el estilo por defecto (número abajo al centro)
-\pagestyle{plain}
+% El documento conserva el número de página en el pie, incluido el índice.
+\pagestyle{fancy}
 
 % =========================================================
 % INCLUSIÓN DE SECCIONES PRELIMINARES

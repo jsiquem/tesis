@@ -50,12 +50,20 @@
 
 \usepackage{fancyhdr}
 \setlength{\headheight}{15pt}
-% Hemos quitado el \pagestyle{fancy} de aquí para que no afecte el inicio del documento
-\fancyhf{}                         % Limpia encabezados y pies de página por defecto
-\rhead{}                              % Sin número en el encabezado
-\fancyfoot[C]{\thepage}              % Número de página en el pie, centrado
-\renewcommand{\headrulewidth}{0pt}  % Quita la línea horizontal del encabezado
-\renewcommand{\footrulewidth}{0pt}  % Sin línea en el pie
+% Estilo preliminar: numeración romana en el pie centrado.
+\fancypagestyle{preliminares}{%
+  \fancyhf{}
+  \fancyfoot[C]{\thepage}
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+}
+% Estilo del cuerpo y apéndices: numeración arábiga en el extremo superior derecho.
+\fancypagestyle{cuerpo}{%
+  \fancyhf{}
+  \fancyhead[R]{\thepage}
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+}
 
 % Configuración de márgenes institucionales UMG
 \usepackage{geometry}
@@ -134,8 +142,8 @@
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{3}
 
-% El documento conserva el número de página en el pie, incluido el índice.
-\pagestyle{fancy}
+% Las páginas preliminares utilizan numeración romana en el pie.
+\pagestyle{preliminares}
 
 % =========================================================
 % INCLUSIÓN DE SECCIONES PRELIMINARES
@@ -169,7 +177,7 @@
 \newpage
 \pagenumbering{arabic} % Cambia a números normales (1, 2, 3...)
 \setcounter{page}{11}   % He ajustado esto a 1, a menos que obligatoriamente te pidan empezar en 7
-\pagestyle{fancy}      % Conserva el número de página centrado en el pie
+\pagestyle{cuerpo}      % Capítulos y apéndices: número arábigo arriba a la derecha
 
 \include{capitulos/Cap_I_marco_conceptual}
 \include{capitulos/Cap_II_marco_teorico}
@@ -179,6 +187,8 @@
 \include{preliminares/Conclusion_Recomendacion}
 \include{preliminares/referencias}
 
+% Los apéndices continúan el cuerpo principal con numeración arábiga.
+\pagestyle{cuerpo}
 % Los apéndices son material complementario y no se incorporan al índice general.
 \setcounter{tocdepth}{0}
 \include{anexos/apendice}

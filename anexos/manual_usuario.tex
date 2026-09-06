@@ -1,8 +1,9 @@
 % Manual de Usuario del Sistema Web de gestión contable.
 % Este archivo se incorpora directamente desde main.tex como Apéndice A.
 % Las capturas anotadas utilizan numeración correlativa y pasos operativos.
-\begin{titlepage}
-\thispagestyle{empty}
+\section{Apéndice}\label{Apendice}
+
+\subsection{Manual de Usuario}\label{Manual-de-Usuario}
 \begin{center}
 \vspace*{2cm}
 {\Large\textbf{APÉNDICE A}}\par
@@ -18,28 +19,27 @@ Guía para el ingreso al sistema, consulta y registro de facturas FEL/SAT, chequ
 \vfill
 Documento complementario del trabajo de graduación\par
 \end{center}
-\end{titlepage}
-\section{Manual de Usuario}
-\label{ap:manual_usuario}
+
+
 \setlength{\parindent}{1.27cm}
 \setlength{\parskip}{0pt}
 \setstretch{2.0}
 
-\subsection{Introducción}
+\subsubsection{Introducción}
 Este manual orienta al usuario final en el uso del Sistema Web para el control de facturas FEL/SAT, cheques posfechados, caja chica, viáticos, proveedores, nomenclatura contable, calendario y reportes. Cada pantalla se presenta con una captura del prototipo funcional y una versión anotada. Los números rojos de la imagen corresponden directamente a los pasos descritos debajo de ella.
 
 Los datos que aparecen en las figuras son demostrativos. El usuario debe aplicar, además, las políticas internas de autorización, revisión y resguardo de documentos contables.
 
-\subsection{Requisitos del sistema}
+\subsubsection{Requisitos del sistema}
 El sistema requiere un equipo de escritorio o portátil con navegador web actualizado, conexión a la red institucional, resolución recomendada mínima de 1280\,$\times$\,720 píxeles y credenciales habilitadas por el administrador. Para utilizar las funciones contables, el usuario debe contar con el perfil y permisos asignados por la organización.
 
-\subsection{Acceso al sistema}
+\subsubsection{Acceso al sistema}
 Abra el navegador, escriba la dirección web proporcionada por el administrador y espere a que se muestre la pantalla de acceso.
 
-\subsection{Ingreso al sistema}
+\subsubsection{Ingreso al sistema}
 En la sección de acceso, siga los pasos ilustrados en la captura anotada para ingresar al sistema.
 
-\subsection{Descripción general del sistema}
+\subsubsection{Descripción general del sistema}
 El Sistema Web organiza en un menú lateral los módulos de Facturas FEL/SAT, Cheques, Caja chica, Viáticos, Proveedores, Calendario, Nomenclatura y Reportes. El Panel principal presenta alertas e indicadores del período activo, mientras que cada módulo permite registrar, consultar y dar seguimiento a las operaciones autorizadas.
 
 \begin{figure}[H]
@@ -58,10 +58,10 @@ El Sistema Web organiza en un menú lateral los módulos de Facturas FEL/SAT, Ch
 \item El sistema validará las credenciales y mostrará el Panel principal. Si aparece un mensaje de error, revise los datos y solicite apoyo al administrador cuando sea necesario.
 \end{enumerate}
 
-\subsection{Uso del sistema}
+\subsubsection{Uso del sistema}
 Las instrucciones siguientes describen las operaciones principales del sistema mediante capturas anotadas. Realice cada paso en el orden indicado y verifique el mensaje mostrado antes de continuar.
 
-\subsection{Panel principal}
+\subsubsection{Panel principal}
 El Panel principal concentra la información operativa del período contable seleccionado.
 
 \begin{figure}[H]
@@ -82,7 +82,7 @@ El Panel principal concentra la información operativa del período contable sel
 \item Para cambiar de módulo, seleccione una opción del menú lateral, por ejemplo ``Facturas FEL'', ``Cheques'', ``Caja chica'', ``Viáticos'', ``Proveedores'', ``Calendario'', ``Nomenclatura'' o ``Reportes''.
 \end{enumerate}
 
-\subsection{Facturas FEL/SAT}
+\subsubsection{Facturas FEL/SAT}
 Este módulo permite importar archivos XML o Excel descargados del portal SAT, revisar comprobantes y detectar duplicados o documentos que requieren revisión.
 
 \begin{figure}[H]
@@ -103,7 +103,7 @@ Este módulo permite importar archivos XML o Excel descargados del portal SAT, r
 \item Si una factura no puede clasificarse automáticamente, diríjase a la asignación correspondiente y seleccione manualmente una cuenta de Nomenclatura.
 \end{enumerate}
 
-\subsection{Cheques posfechados}
+\subsubsection{Cheques posfechados}
 El módulo registra los cheques, sus bancos, fechas, clientes, estados y la información relacionada con la factura.
 
 \begin{figure}[H]
@@ -125,7 +125,7 @@ El módulo registra los cheques, sus bancos, fechas, clientes, estados y la info
 \item Repita la consulta para otro cheque cuando necesite comparar sus datos antes de registrar o dar seguimiento.
 \end{enumerate}
 
-\subsection{Caja chica}
+\subsubsection{Caja chica}
 Caja chica permite llamar una factura FEL por número, registrar recibos u otros documentos, asignar la cuenta contable y preparar la partida.
 
 \begin{figure}[H]
@@ -149,7 +149,7 @@ Caja chica permite llamar una factura FEL por número, registrar recibos u otros
 \item revise la contrapartida en el Haber y presione ``Imprimir resumen'' para preparar el documento.
 \end{enumerate}
 
-\subsection{Viáticos}
+\subsubsection{Viáticos}
 Viáticos administra colaboradores, territorios, giras, categorías de gasto y partidas automáticas.
 
 \begin{figure}[H]
@@ -171,7 +171,7 @@ Viáticos administra colaboradores, territorios, giras, categorías de gasto y p
 \item Haga clic en ``Generar cuenta transitoria'' para agrupar facturas pendientes de pago.
 \end{enumerate}
 
-\subsection{Asignación de facturas}
+\subsubsection{Asignación de facturas}
 Esta pantalla permite vincular una factura con un colaborador, una gira, una categoría y una cuenta contable.
 
 \begin{figure}[H]
@@ -192,7 +192,7 @@ Esta pantalla permite vincular una factura con un colaborador, una gira, una cat
 \item confirme que la factura aparezca en la tabla de facturas asignadas con su estado correcto.
 \end{enumerate}
 
-\subsection{Proveedores}
+\subsubsection{Proveedores}
 Proveedores administra el registro por NIT, las condiciones de crédito, las retenciones, la cartera y las partidas.
 
 \begin{figure}[H]
@@ -213,7 +213,7 @@ Proveedores administra el registro por NIT, las condiciones de crédito, las ret
 \item presione ``Generar partida transitoria'' para facturas pendientes de pago.
 \end{enumerate}
 
-\subsection{Calendario operativo}
+\subsubsection{Calendario operativo}
 Calendario presenta depósitos, pagos, cheques, giras y otras actividades por período.
 
 \begin{figure}[H]
@@ -232,7 +232,7 @@ Calendario presenta depósitos, pagos, cheques, giras y otras actividades por pe
 \item presione ``Actividad'' para registrar una nueva actividad cuando tenga autorización.
 \end{enumerate}
 
-\subsection{Nomenclatura contable}
+\subsubsection{Nomenclatura contable}
 Nomenclatura contiene las cuentas que alimentan las sugerencias y partidas del sistema.
 
 \begin{figure}[H]
@@ -252,7 +252,7 @@ Nomenclatura contiene las cuentas que alimentan las sugerencias y partidas del s
 \item abra ``Opciones'' para administrar el registro según sus permisos.
 \end{enumerate}
 
-\subsection{Reportes}
+\subsubsection{Reportes}
 Reportes permite seleccionar el tipo de información, el período y los filtros para obtener indicadores.
 
 \begin{figure}[H]
@@ -271,7 +271,7 @@ Reportes permite seleccionar el tipo de información, el período y los filtros 
 \item presione ``Exportar'' para descargar o preparar el reporte autorizado.
 \end{enumerate}
 
-\subsection{Resumen de Caja chica}
+\subsubsection{Resumen de Caja chica}
 El resumen presenta los movimientos que se imprimirán o archivarán.
 
 \begin{figure}[H]
@@ -289,19 +289,19 @@ El resumen presenta los movimientos que se imprimirán o archivarán.
 \item revise el total de movimientos antes de imprimir o guardar el archivo.
 \end{enumerate}
 
-\subsection{Mensajes de error y solución}
+\subsubsection{Mensajes de error y solución}
 Cuando las credenciales sean rechazadas, vuelva a escribir el usuario y la contraseña. Si una factura no puede clasificarse, asígnele manualmente una cuenta de Nomenclatura. Si falta un dato obligatorio, complete el campo señalado antes de guardar. Si una partida no cuadra, revise Debe, Haber, IVA, retenciones y descuentos. Si la pantalla no carga, actualice el navegador y comuníquese con soporte si el problema persiste.
 
-\subsection{Recomendaciones de seguridad}
+\subsubsection{Recomendaciones de seguridad}
 Mantenga sus credenciales bajo resguardo, cierre sesión al terminar, revise los documentos antes de aprobarlos y no elimine información sin autorización. Verifique siempre que la cuenta contable corresponda al gasto y que la operación se registre en el período correcto.
 
-\subsection{Flujo recomendado de trabajo}
+\subsubsection{Flujo recomendado de trabajo}
 Para mantener la trazabilidad contable, inicie el período revisando el Panel principal, importe las facturas FEL/SAT, verifique los cheques y registre las operaciones de Caja chica. Posteriormente, asigne las facturas de viáticos, actualice la cartera de proveedores, revise el Calendario y genere los reportes autorizados.
 
-\subsection{Cierre de operaciones}
+\subsubsection{Cierre de operaciones}
 Antes de cerrar el período, confirme que las facturas tengan una cuenta de Nomenclatura, que las partidas estén cuadradas, que los cheques tengan el estado correcto y que las facturas pendientes se encuentren identificadas como partidas transitorias. Guarde los reportes autorizados según las políticas internas.
 
-\subsection{Glosario básico}
+\subsubsection{Glosario básico}
 \begin{description}
 \item[FEL/SAT] Factura electrónica y documentos tributarios consultados o importados desde la información del SAT.
 \item[Nomenclatura] Catálogo de cuentas contables utilizado para clasificar gastos y construir partidas.
@@ -310,5 +310,5 @@ Antes de cerrar el período, confirme que las facturas tengan una cuenta de Nome
 \item[Arqueo o resumen] Documento de revisión de movimientos y saldo de Caja chica.
 \end{description}
 
-\subsection{Anexos del manual}
+\subsubsection{Anexos del manual}
 Los anexos del manual corresponden a las capturas anotadas de las pantallas del sistema y a la lámina de referencia de componentes visuales. Estos materiales sirven para identificar los campos y botones descritos en cada procedimiento; no sustituyen las políticas internas de autorización ni los registros contables oficiales. Las imágenes se conservan en la carpeta de evidencias del repositorio y deben mantenerse sincronizadas con la versión aprobada del prototipo.

@@ -87,13 +87,26 @@
 % =========================================================
 \usepackage{titlesec}
 
+% Nivel 1: Centrado y Negrita (Usaremos \section para esto)
+% Se quita la etiqueta numerada ("1.") para que solo se muestre el texto
+% que escribas dentro de \section{...} (ej. "Capítulo I - Marco Conceptual")
 \titleformat{\section}[block]{\centering\bfseries\normalsize}{}{0pt}{}
+
+% Nivel 2: Alineado a la izquierda y Negrita (Usaremos \subsection)
 \titleformat{\subsection}[block]{\bfseries\normalsize}{\thesubsection}{0.5em}{}
+
+% Nivel 3: Alineado a la izquierda, Negrita y Cursiva (Usaremos \subsubsection)
 \titleformat{\subsubsection}[block]{\bfseries\itshape\normalsize}{\thesubsubsection}{0.5em}{}
+
+% Nivel 4: Con sangría, Negrita, termina con punto (Usaremos \paragraph)
 \titleformat{\paragraph}[runin]{\bfseries\normalsize}{\theparagraph}{0.5em}{}[.]
 \titlespacing{\paragraph}{\parindent}{1ex}{1em}
+
+% Nivel 5: Con sangría, Negrita, Cursiva, termina con punto (Usaremos \subparagraph)
 \titleformat{\subparagraph}[runin]{\bfseries\itshape\normalsize}{\thesubparagraph}{0.5em}{}[.]
 \titlespacing{\subparagraph}{\parindent}{1ex}{1em}
+
+
 
 \usepackage[labelsep=newline, justification=raggedright, singlelinecheck=false, labelfont=bf, textfont=it, font={stretch=2.0}]{caption}
 

@@ -187,10 +187,42 @@
 \include{preliminares/Conclusion_Recomendacion}
 \include{preliminares/referencias}
 
-% Los apéndices continúan el cuerpo principal con numeración arábiga.
+% =========================================================
+% APÉNDICES Y ANEXOS
+% =========================================================
+% Los apéndices continúan la paginación arábiga del cuerpo principal.
+% Sus figuras y tablas se numeran con letras, pero no aparecen en los
+% índices generales de figuras y tablas, según la guía institucional.
+\clearpage
+\appendix
+\renewcommand{\thesection}{\Alph{section}}
+\renewcommand{\thefigure}{\thesection\arabic{figure}}
+\renewcommand{\thetable}{\thesection\arabic{table}}
+\setcounter{section}{0}
+\setcounter{figure}{0}
+\setcounter{table}{0}
+\setcounter{tocdepth}{0}
+\captionsetup{list=false}
 \pagestyle{cuerpo}
-% Los apéndices son material complementario y no se incorporan al índice general.
 
-\include{anexos/apendice}
+\thispagestyle{cuerpo}
+\begin{center}
+\vspace*{3cm}
+{\Large\bfseries APÉNDICES\par}
+\vspace{1cm}
+{\normalsize Material complementario de la tesis\par}
+\end{center}
+\clearpage
+
+\input{anexos/manual_usuario}
+\clearpage
+\setcounter{figure}{0}
+\setcounter{table}{0}
+\input{anexos/manual_tecnico}
+\clearpage
+\setcounter{figure}{0}
+\setcounter{table}{0}
+\input{anexos/encuestas}
+\captionsetup{list=true}
 
 \end{document}

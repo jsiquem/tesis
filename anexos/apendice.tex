@@ -7,7 +7,20 @@
 \setcounter{section}{0}
 \setcounter{figure}{0}
 \setcounter{table}{0}
-% Los manuales y anexos conservan sus captions y contadores, pero no se incorporan
+
+% Encabezado general solicitado por la guía antes del primer manual.
+% Se presenta como página independiente y no se incorpora al índice general.
+\clearpage
+\thispagestyle{fancy}
+\begin{center}
+\vspace*{3cm}
+{\Large\bfseries APÉNDICES\par}
+\vspace{1cm}
+{\normalsize Material complementario de la tesis\par}
+\end{center}
+\clearpage
+
+% Los manuales y anexos conservan sus captions, pero no se incorporan
 % a los índices generales de figuras y tablas de la tesis.
 \captionsetup{list=false}
 \input{anexos/manual_usuario}

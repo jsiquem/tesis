@@ -25,6 +25,9 @@ Documento complementario del trabajo de graduación\par
 \setlength{\parskip}{0pt}
 \setstretch{2.0}
 
+\subsection{Introducción}
+Este manual documenta la construcción, configuración, despliegue y mantenimiento del Sistema Web de gestión contable. Está dirigido al personal técnico, desarrolladores y responsables de soporte.
+
 \subsection{Propósito y alcance}
 Este manual describe la arquitectura, configuración, base de datos, seguridad, operación y mantenimiento del Sistema Web de gestión contable. Está dirigido al personal técnico, desarrolladores y responsables de soporte. La documentación se rige por las especificaciones de la tesis: \textbf{Angular} para el frontend, \textbf{Python} para el backend y \textbf{PostgreSQL} para la persistencia de datos.
 
@@ -58,7 +61,7 @@ Nomenclatura & Administrar código, nombre, naturaleza y estado de las cuentas c
 Reportes & Consultar indicadores, filtros por período y exportaciones autorizadas. \\
 \end{longtable}
 
-\subsection{Modelo de base de datos PostgreSQL}
+\subsection{Diseño de la base de datos}
 El modelo debe separar catálogos, documentos operativos y resultados contables. Las entidades principales son \texttt{usuarios}, \texttt{roles}, \texttt{permisos}, \texttt{proveedores}, \texttt{colaboradores}, \texttt{territorios}, \texttt{cuentas\_contables}, \texttt{bancos}, \texttt{facturas}, \texttt{cheques}, \texttt{movimientos\_caja\_chica}, \texttt{recibos}, \texttt{giras}, \texttt{liquidaciones\_viaticos}, \texttt{asignaciones\_facturas}, \texttt{partidas\_contables}, \texttt{detalles\_partida} y \texttt{auditoria\_eventos}.
 
 Proveedor se relaciona con Factura y puede tener una cuenta contable asociada. Una Factura puede asignarse exclusivamente a Caja chica o Viáticos. Cheque se relaciona con Cliente, bancos, factura y recibo. Colaborador puede tener varios Territorios y una Gira selecciona un territorio y una semana. Partida contable contiene múltiples Detalles de partida, cada uno con cuenta, naturaleza, Debe y Haber.
@@ -78,7 +81,10 @@ La cuenta asignada al proveedor debe estar registrada en Nomenclatura. Cuando el
 
 La generación dentro del mes utiliza Bancos como contrapartida cuando corresponde al pago del período. La partida transitoria utiliza Cuenta transitoria para documentos pendientes de pago. Retención ISR, Retención IVA y Otros descuentos deben conservarse como líneas independientes en el Haber. Las facturas ya asignadas no deben reutilizarse en otro módulo sin una operación autorizada de reversión.
 
-\subsection{Estructura recomendada del código}
+\subsection{Tecnologías utilizadas}
+La solución utiliza Angular para el frontend, Python para el backend y PostgreSQL para la persistencia. Angular organiza la interfaz como una aplicación de una sola página; Python expone la API y concentra la lógica de negocio; PostgreSQL mantiene la integridad, trazabilidad y consistencia de los datos contables. Las dependencias y versiones exactas deben mantenerse documentadas en los archivos de configuración del proyecto.
+
+\subsection{Estructura del proyecto}
 
 \begin{verbatim}
 frontend-angular/
@@ -151,7 +157,7 @@ El backend Python debe ejecutarse detrás de un servidor ASGI y un proxy inverso
 
 Antes de publicar se debe ejecutar una migración en un entorno de prueba, verificar login, importación FEL, asignación exclusiva, generación de partidas, exportación de reportes y recuperación ante errores. No se deben usar datos de demostración en el ambiente productivo.
 
-\subsection{Mantenimiento y respaldos}
+\subsection{Mantenimiento preventivo y correctivo}
 El mantenimiento preventivo incluye actualizar dependencias con control de versiones, revisar logs, aplicar migraciones, comprobar índices y validar respaldos. El mantenimiento correctivo debe reproducir el incidente, registrar módulo, usuario, fecha y operación, corregir la causa y ejecutar pruebas de regresión.
 
 Los respaldos de PostgreSQL deben incluir al menos una copia completa y copias del esquema. Se debe comprobar periódicamente la restauración en un ambiente separado. Las operaciones destructivas sobre facturas, cheques, movimientos y partidas deben requerir autorización y conservar una entrada de auditoría.
@@ -182,7 +188,7 @@ Reportes & Filtro y exportación & Información correspondiente al período sele
 \end{longtable}
 
 
-\subsection{Procedimiento de instalación}
+\subsection{Acceso e instalación}
 La instalación se realiza en tres capas. Primero se prepara el entorno del frontend Angular y se instalan sus dependencias. Después se configura el servicio backend desarrollado en Python y sus variables de entorno. Finalmente se crea la base de datos PostgreSQL, se aplican las migraciones y se verifica la conexión entre las capas.
 
 \subsection{Configuración por ambientes}
@@ -191,7 +197,7 @@ El proyecto debe separar los ambientes de desarrollo, pruebas y producción. Cad
 \subsection{Respaldo y recuperación}
 El responsable técnico debe programar respaldos de PostgreSQL, verificar periódicamente que los archivos puedan restaurarse y documentar la fecha, responsable y resultado de cada prueba. Antes de una actualización, debe realizarse un respaldo completo y conservarse una copia fuera del servidor principal.
 
-\subsection{Mantenimiento preventivo}
+\subsection{Lista de verificación de mantenimiento}
 El mantenimiento incluye actualizar dependencias de Angular y Python, revisar logs, verificar tareas programadas, comprobar el espacio disponible de PostgreSQL, validar permisos y ejecutar las pruebas funcionales de los módulos FEL/SAT, Cheques, Caja chica, Viáticos, Proveedores, Nomenclatura y Reportes.
 
 \subsection{Pruebas técnicas mínimas}
@@ -208,5 +214,5 @@ Respaldo & La copia puede restaurarse en un ambiente de prueba. & Técnico\\
 \bottomrule
 \end{longtable}
 
-\subsection{Anexos del Manual Técnico}
+\subsection{Anexos técnicos}
 Los anexos técnicos comprenden el diagrama de arquitectura, el modelo de datos PostgreSQL, la matriz mínima de pruebas y las capturas de referencia del sistema. Estos anexos respaldan la explicación técnica y deben mantenerse sincronizados con los cambios aprobados en Angular, Python y PostgreSQL.

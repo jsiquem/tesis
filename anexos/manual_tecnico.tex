@@ -3,7 +3,18 @@
 % Arquitectura declarada: Angular, Python y PostgreSQL.
 \newpage
 
-\subsection{Manual Técnico}\label{ap:manual_tecnico}
+% El Manual Técnico corresponde al Apéndice B.
+% Se avanza la sección para que las figuras y tablas comiencen en B1.
+\setcounter{section}{1}
+\renewcommand{\thesection}{\Alph{section}}
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+\renewcommand{\thefigure}{\thesection\arabic{figure}}
+\renewcommand{\thetable}{\thesection\arabic{table}}
+\setcounter{figure}{0}
+\setcounter{table}{0}
+\captionsetup{list=false}
+
+\section{Manual Técnico}\label{ap:manual_tecnico}
 \begin{center}
 \vspace*{2cm}
 {\Large\textbf{APÉNDICE B}}\par
@@ -216,3 +227,7 @@ Respaldo & La copia puede restaurarse en un ambiente de prueba. & Técnico\\
 
 \subsubsection{Anexos técnicos}
 Los anexos técnicos comprenden el diagrama de arquitectura, el modelo de datos PostgreSQL, la matriz mínima de pruebas y las capturas de referencia del sistema. Estos anexos respaldan la explicación técnica y deben mantenerse sincronizados con los cambios aprobados en Angular, Python y PostgreSQL.
+
+
+\clearpage
+\input{anexos/manual_tecnico_anexos}

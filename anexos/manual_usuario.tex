@@ -6,7 +6,10 @@
 \section{Apéndice}\label{Apendice}
 
 \appendix
-\renewcommand{\thesubsection}{\Alph{subsection}}
+% El Manual de Usuario corresponde al Apéndice A.
+\setcounter{section}{1}
+\renewcommand{\thesection}{\Alph{section}}
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
 \renewcommand{\thefigure}{\thesection\arabic{figure}}
 \renewcommand{\thetable}{\thesection\arabic{table}}
 \setcounter{figure}{0}
@@ -325,3 +328,6 @@ Antes de cerrar el período, confirme que las facturas tengan una cuenta de Nome
 
 \subsubsection{Anexos del manual}
 Los anexos del manual corresponden a las capturas anotadas de las pantallas del sistema y a la lámina de referencia de componentes visuales. Estos materiales sirven para identificar los campos y botones descritos en cada procedimiento; no sustituyen las políticas internas de autorización ni los registros contables oficiales. Las imágenes se conservan en la carpeta de evidencias del repositorio y deben mantenerse sincronizadas con la versión aprobada del prototipo.
+
+\clearpage
+\input{anexos/manual_usuario_anexos}

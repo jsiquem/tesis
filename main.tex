@@ -109,11 +109,17 @@
 \renewcommand{\cfttabaftersnumb}{\hspace{0.6em}}
 \setlength{\cfttabnumwidth}{4.2em}
 
-% Oculta el número de capítulo en el Índice general
+% Conserva la numeración y la jerarquía de secciones en el Índice general.
 \usepackage{titletoc}
-\titlecontents{section}[0pt]{\vspace{6pt}\bfseries}{}{}{\titlerule*[0.5pc]{.}\contentspage}
+\titlecontents{section}[0pt]{\vspace{6pt}\bfseries}{\contentslabel{3.2em}}{}{\titlerule*[0.5pc]{.}\contentspage}
+\titlecontents{subsection}[2em]{\vspace{2pt}}{\contentslabel{3.8em}}{}{\titlerule*[0.5pc]{.}\contentspage}
+\titlecontents{subsubsection}[4em]{\vspace{1pt}}{\contentslabel{4.8em}}{}{\titlerule*[0.5pc]{.}\contentspage}
 
 \begin{document}
+
+% El índice general incluye capítulos, secciones y subsecciones del cuerpo de la tesis.
+% Los apéndices se excluyen más adelante desde su punto de inclusión.
+\setcounter{tocdepth}{3}
 
 % Aseguramos que los preliminares usen el estilo por defecto (número abajo al centro)
 \pagestyle{plain}
@@ -159,6 +165,9 @@
 \include{capitulos/Cap_V_anlisis_resultados}
 \include{preliminares/Conclusion_Recomendacion}
 \include{preliminares/referencias}
+
+% Los apéndices son material complementario y no se incorporan al índice general.
+\setcounter{tocdepth}{0}
 \include{anexos/apendice}
 
 \end{document}

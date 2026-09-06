@@ -195,17 +195,7 @@
 % Los apéndices continúan la paginación arábiga del cuerpo principal.
 % Sus figuras y tablas se numeran con letras, pero no aparecen en los
 % índices generales de figuras y tablas, según la guía institucional.
-\clearpage
-\appendix
-\renewcommand{\thesection}{\Alph{section}}
-\renewcommand{\thefigure}{\thesection\arabic{figure}}
-\renewcommand{\thetable}{\thesection\arabic{table}}
-\setcounter{section}{0}
-\setcounter{figure}{0}
-\setcounter{table}{0}
-\setcounter{tocdepth}{0}
-\captionsetup{list=false}
-\pagestyle{cuerpo}
+
 
 
 \input{anexos/manual_usuario}

@@ -4,12 +4,6 @@
 % =========================================================
 % FUENTE: Times New Roman 12pt (archivo real vía fontspec)
 % =========================================================
-% IMPORTANTE:
-% 1) El compilador de este proyecto debe estar en XeLaTeX
-%    (Menú -> Compiler -> XeLaTeX), NO en pdfLaTeX.
-% 2) Debes subir 4 archivos .ttf a una carpeta llamada "fonts"
-%    dentro de tu proyecto de Overleaf: times.ttf, timesbd.ttf,
-%    timesi.ttf y timesbi.ttf (ver instrucciones abajo).
 \usepackage{fontspec}
 \setmainfont{Times New Roman}[
     Path           = fonts/,
@@ -25,11 +19,6 @@
 \usepackage{setspace} 
 \usepackage{amsmath}
 \usepackage{amssymb}
-
-% Hace que las matemáticas (subíndices, variables, fórmulas simples)
-% usen la misma Times New Roman en vez de la fuente por defecto,
-% ya que Times New Roman no trae una fuente matemática OpenType.
-% (Se carga DESPUÉS de amsmath/amssymb, como recomienda el paquete)
 \usepackage{mathastext}
 
 \usepackage{booktabs,longtable,array} 
@@ -50,6 +39,7 @@
 
 \usepackage{fancyhdr}
 \setlength{\headheight}{15pt}
+
 % Estilo preliminar: numeración romana en el pie centrado.
 \fancypagestyle{preliminares}{%
   \fancyhf{}
@@ -57,6 +47,7 @@
   \renewcommand{\headrulewidth}{0pt}
   \renewcommand{\footrulewidth}{0pt}
 }
+
 % Estilo del cuerpo y apéndices: numeración arábiga en el extremo superior derecho.
 \fancypagestyle{cuerpo}{%
   \fancyhf{}
@@ -84,46 +75,38 @@
     pdfcreator={LaTeX}
 }
 
-% Quitar sangría inicial por defecto y definir espacio entre párrafos
 % Configuración de párrafos según Normas APA 7
-\setlength{\parindent}{1.27cm} % Sangría de primera línea (0.5 pulgadas)
+\setlength{\parindent}{1.27cm} % Sangría de primera línea
 \setlength{\parskip}{0pt}      % Sin espacio adicional entre párrafos
-\setstretch{2.0}               % Interlineado 2.0 o 1.5 según te pidan
+\setstretch{2.0}               % Interlineado 2.0
 
 % =========================================================
 % CONFIGURACIÓN DE TÍTULOS Y NIVELES (APA 7)
 % =========================================================
 \usepackage{titlesec}
 
-% Nivel 1: Centrado y Negrita (Usaremos \section para esto)
-% Se quita la etiqueta numerada ("1.") para que solo se muestre el texto
-% que escribas dentro de \section{...} (ej. "Capítulo I - Marco Conceptual")
+% Nivel 1: Centrado y Negrita
 \titleformat{\section}[block]{\centering\bfseries\normalsize}{}{0pt}{}
 
-% Nivel 2: Alineado a la izquierda y Negrita (Usaremos \subsection)
+% Nivel 2: Alineado a la izquierda y Negrita
 \titleformat{\subsection}[block]{\bfseries\normalsize}{\thesubsection}{0.5em}{}
 
-% Nivel 3: Alineado a la izquierda, Negrita y Cursiva (Usaremos \subsubsection)
+% Nivel 3: Alineado a la izquierda, Negrita y Cursiva
 \titleformat{\subsubsection}[block]{\bfseries\itshape\normalsize}{\thesubsubsection}{0.5em}{}
 
-% Nivel 4: Con sangría, Negrita, termina con punto (Usaremos \paragraph)
+% Nivel 4: Con sangría, Negrita, termina con punto
 \titleformat{\paragraph}[runin]{\bfseries\normalsize}{\theparagraph}{0.5em}{}[.]
 \titlespacing{\paragraph}{\parindent}{1ex}{1em}
 
-% Nivel 5: Con sangría, Negrita, Cursiva, termina con punto (Usaremos \subparagraph)
+% Nivel 5: Con sangría, Negrita, Cursiva, termina con punto
 \titleformat{\subparagraph}[runin]{\bfseries\itshape\normalsize}{\thesubparagraph}{0.5em}{}[.]
 \titlespacing{\subparagraph}{\parindent}{1ex}{1em}
 
-
-
 \usepackage[labelsep=newline, justification=raggedright, singlelinecheck=false, labelfont=bf, textfont=it, font={stretch=2.0}]{caption}
-
 
 % =========================================================
 % LISTADO DE TABLAS Y FIGURAS
 % =========================================================
-\usepackage{tocloft}
-
 \renewcommand{\cftfigpresnum}{\figurename\space}
 \renewcommand{\cftfigaftersnumb}{\hspace{0.6em}}
 \setlength{\cftfignumwidth}{4.2em}
@@ -132,17 +115,11 @@
 \renewcommand{\cfttabaftersnumb}{\hspace{0.6em}}
 \setlength{\cfttabnumwidth}{4.2em}
 
-% El índice general utiliza el formato institucional estándar de la clase article.
-% La profundidad se controla con tocdepth y las entradas manuales con addcontentsline.
-
 \begin{document}
 
-% El índice general incluye capítulos, secciones y subsecciones del cuerpo de la tesis.
-% Los apéndices se excluyen más adelante desde su punto de inclusión.
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{3}
 
-% Las páginas preliminares utilizan numeración romana en el pie.
 \pagestyle{preliminares}
 
 % =========================================================
@@ -156,7 +133,7 @@
 % ÍNDICES Y NUMERACIÓN ROMANA
 % =========================================================
 \newpage
-\pagenumbering{Roman} % Inicia numeración en números romanos (I, II, III...)
+\pagenumbering{Roman}
 \setcounter{page}{1}  
 
 \tableofcontents 
@@ -175,9 +152,9 @@
 % INICIO DEL CONTENIDO PRINCIPAL (Numeración Arábiga)
 % =========================================================
 \newpage
-\pagenumbering{arabic} % Cambia a números normales (1, 2, 3...)
-\setcounter{page}{11}   % He ajustado esto a 1, a menos que obligatoriamente te pidan empezar en 7
-\pagestyle{cuerpo}      % Capítulos y apéndices: número arábigo arriba a la derecha
+\pagenumbering{arabic}
+\setcounter{page}{7}
+\pagestyle{cuerpo}
 
 \include{capitulos/Cap_I_marco_conceptual}
 \include{capitulos/Cap_II_marco_teorico}
@@ -186,11 +163,23 @@
 \include{capitulos/Cap_V_anlisis_resultados}
 \include{preliminares/Conclusion_Recomendacion}
 \include{preliminares/referencias}
+\include{anexos/encuestas}
 
-% Los apéndices continúan el cuerpo principal con numeración arábiga.
-\pagestyle{cuerpo}
-% Los apéndices son material complementario y no se incorporan al índice general.
+% =========================================================
+% APÉNDICES (Numeración de página continua en Arábigos)
+% =========================================================
 
-\include{anexos/apendice}
+\appendix
+\renewcommand{\thesection}{\Alph{section}}
+\counterwithin{figure}{section}
+\counterwithin{table}{section}
+\renewcommand{\thefigure}{\thesection\arabic{figure}}
+\renewcommand{\thetable}{\thesection\arabic{table}}
+
+% Entrada principal en el Índice General
+\addcontentsline{toc}{section}{Apéndice}
+
+\include{anexos/manual_usuario}
+
 
 \end{document}

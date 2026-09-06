@@ -1,10 +1,15 @@
-% Manual de Usuario del Sistema Web de gestión contable.
-% Este archivo se incorpora desde anexos/apendice.tex como Apéndice A.
-% Las capturas anotadas utilizan numeración correlativa y pasos operativos.
-\begin{titlepage}
-\thispagestyle{empty}
+\newpage
+
+\setlength{\parindent}{1.27cm}
+\setlength{\parskip}{0pt}
+\setstretch{2.0}
+
+% Carátula del Manual de Usuario (sin reiniciar el número de página)
 \begin{center}
-\vspace*{2cm}
+\section{Apéndice}\label{Apendice}
+
+\subsection{Manual de Usuario}\label{Manual-de-Usuario}
+\vspace*{1.5cm}
 {\Large\textbf{APÉNDICE A}}\par
 \vspace{1.5cm}
 {\Large\textbf{MANUAL DE USUARIO}}\par
@@ -17,13 +22,9 @@ Guía para el ingreso al sistema, consulta y registro de facturas FEL/SAT, chequ
 \end{minipage}
 \vfill
 Documento complementario del trabajo de graduación\par
+\vspace*{1.5cm}
 \end{center}
-\end{titlepage}
-\section{Manual de Usuario}
-\label{ap:manual_usuario}
-\setlength{\parindent}{1.27cm}
-\setlength{\parskip}{0pt}
-\setstretch{2.0}
+\newpage
 
 \subsection{Introducción}
 Este manual orienta al usuario final en el uso del Sistema Web para el control de facturas FEL/SAT, cheques posfechados, caja chica, viáticos, proveedores, nomenclatura contable, calendario y reportes. Cada pantalla se presenta con una captura del prototipo funcional y una versión anotada. Los números rojos de la imagen corresponden directamente a los pasos descritos debajo de ella.
@@ -312,3 +313,6 @@ Antes de cerrar el período, confirme que las facturas tengan una cuenta de Nome
 
 \subsection{Anexos del manual}
 Los anexos del manual corresponden a las capturas anotadas de las pantallas del sistema y a la lámina de referencia de componentes visuales. Estos materiales sirven para identificar los campos y botones descritos en cada procedimiento; no sustituyen las políticas internas de autorización ni los registros contables oficiales. Las imágenes se conservan en la carpeta de evidencias del repositorio y deben mantenerse sincronizadas con la versión aprobada del prototipo.
+
+\clearpage
+\include{manual_tecnico}

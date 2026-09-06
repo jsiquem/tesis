@@ -1,10 +1,12 @@
-% Manual Técnico del Sistema Web de gestión contable.
-% Este archivo se incorpora desde anexos/apendice.tex como Apéndice B.
-% Arquitectura declarada: Angular, Python y PostgreSQL.
-\begin{titlepage}
-\thispagestyle{empty}
+\newpage
+\setlength{\parindent}{1.27cm}
+\setlength{\parskip}{0pt}
+\setstretch{2.0}
+
+% Carátula del Manual Técnico (sin reiniciar el número de página)
 \begin{center}
-\vspace*{2cm}
+\subsection{Manual Técnico}\label{Manual-Tecnico}
+\vspace*{1.5cm}
 {\Large\textbf{APÉNDICE B}}\par
 \vspace{1.5cm}
 {\Large\textbf{MANUAL TÉCNICO}}\par
@@ -17,13 +19,9 @@ Descripción técnica de la arquitectura, configuración, base de datos, segurid
 \end{minipage}
 \vfill
 Documento complementario del trabajo de graduación\par
+\vspace*{1.5cm}
 \end{center}
-\end{titlepage}
-\section{Manual Técnico}
-\label{ap:manual_tecnico}
-\setlength{\parindent}{1.27cm}
-\setlength{\parskip}{0pt}
-\setstretch{2.0}
+\newpage
 
 \subsection{Introducción}
 Este manual documenta la construcción, configuración, despliegue y mantenimiento del Sistema Web de gestión contable. Está dirigido al personal técnico, desarrolladores y responsables de soporte.
@@ -48,18 +46,41 @@ El frontend se comunica con el backend mediante HTTPS y cargas JSON. El backend 
 
 \subsection{Módulos funcionales}
 
-\begin{longtable}{p{0.24\linewidth}p{0.68\linewidth}}
-\textbf{Módulo} & \textbf{Responsabilidad técnica} \\
-Login & Autenticar al usuario, emitir el token de sesión y aplicar permisos por rol. \\
-Facturas FEL/SAT & Recibir XML o Excel, validar estructura, detectar duplicados, guardar comprobantes y permitir clasificación contable. \\
-Cheques & Registrar cliente, bancos, fechas, estado, recepción de rechazo y asignación de factura. \\
-Caja chica & Llamar facturas FEL por número, registrar recibos, controlar movimientos, aplicar nomenclatura y generar partidas. \\
-Viáticos & Administrar colaboradores, territorios, giras, semanas, categorías, facturas, bonos y partidas semanales o transitorias. \\
-Proveedores & Registrar NIT, crédito, retenciones, descuentos, cartera y partidas dentro del mes o transitorias. \\
-Calendario & Consultar vencimientos, pagos, depósitos, cheques, giras y actividades. \\
-Nomenclatura & Administrar código, nombre, naturaleza y estado de las cuentas contables. \\
-Reportes & Consultar indicadores, filtros por período y exportaciones autorizadas. \\
-\end{longtable}
+{\small
+\setstretch{1.15}
+\setlength{\parindent}{0pt}
+\begin{xltabular}{\linewidth}{
+    >{\raggedright\arraybackslash}p{3.8cm} 
+    >{\raggedright\arraybackslash}X
+}
+    \caption{Responsabilidad técnica por módulo funcional} \label{tab:B_modulos_funcionales} \\
+    \toprule
+    \textbf{Módulo} & \textbf{Responsabilidad técnica} \\
+    \midrule
+    \endfirsthead
+
+    \toprule
+    \textbf{Módulo} & \textbf{Responsabilidad técnica} \\
+    \midrule
+    \endhead
+
+    \bottomrule
+    \endfoot
+
+    \bottomrule
+    \endlastfoot
+
+    Login & Autenticar al usuario, emitir el token de sesión y aplicar permisos por rol. \\
+    Facturas FEL/SAT & Recibir XML o Excel, validar estructura, detectar duplicados, guardar comprobantes y permitir clasificación contable. \\
+    Cheques & Registrar cliente, bancos, fechas, estado, recepción de rechazo y asignación de factura. \\
+    Caja chica & Llamar facturas FEL por número, registrar recibos, controlar movimientos, aplicar nomenclatura y generar partidas. \\
+    Viáticos & Administrar colaboradores, territorios, giras, semanas, categorías, facturas, bonos y partidas semanales o transitorias. \\
+    Proveedores & Registrar NIT, crédito, retenciones, descuentos, cartera y partidas dentro del mes o transitorias. \\
+    Calendario & Consultar vencimientos, pagos, depósitos, cheques, giras y actividades. \\
+    Nomenclatura & Administrar código, nombre, naturaleza y estado de las cuentas contables. \\
+    Reportes & Consultar indicadores, filtros por período y exportaciones autorizadas. \\
+\end{xltabular}
+}
 
 \subsection{Diseño de la base de datos}
 El modelo debe separar catálogos, documentos operativos y resultados contables. Las entidades principales son \texttt{usuarios}, \texttt{roles}, \texttt{permisos}, \texttt{proveedores}, \texttt{colaboradores}, \texttt{territorios}, \texttt{cuentas\_contables}, \texttt{bancos}, \texttt{facturas}, \texttt{cheques}, \texttt{movimientos\_caja\_chica}, \texttt{recibos}, \texttt{giras}, \texttt{liquidaciones\_viaticos}, \texttt{asignaciones\_facturas}, \texttt{partidas\_contables}, \texttt{detalles\_partida} y \texttt{auditoria\_eventos}.
@@ -175,18 +196,41 @@ Las capturas incorporadas al paquete fueron tomadas del prototipo navegable y se
 
 \subsection{Matriz mínima de pruebas técnicas}
 
-\begin{longtable}{p{0.25\linewidth}p{0.34\linewidth}p{0.29\linewidth}}
-\textbf{Módulo} & \textbf{Prueba} & \textbf{Resultado esperado} \\
-Login & Credenciales válidas e inválidas & Acceso autorizado o mensaje controlado. \\
-FEL/SAT & XML duplicado o con error & Rechazo, aviso y conservación de trazabilidad. \\
-Cheques & Cambio de estado y asignación & Estado, fechas y detalle de factura consistentes. \\
-Caja chica & Movimiento sin cuenta reconocida & Solicitud de clasificación manual desde Nomenclatura. \\
-Viáticos & Partida semanal y transitoria & Debe y Haber balanceados y documentos no duplicados. \\
-Proveedores & Vencido y pendiente de pago & Selección correcta entre Bancos y Cuenta transitoria. \\
-Nomenclatura & Cuenta Debe/Haber activa o inactiva & Validación de naturaleza y disponibilidad. \\
-Reportes & Filtro y exportación & Información correspondiente al período seleccionado. \\
-\end{longtable}
+{\small
+\setstretch{1.15}
+\setlength{\parindent}{0pt}
+\begin{xltabular}{\linewidth}{
+    >{\raggedright\arraybackslash}p{2.8cm} 
+    >{\raggedright\arraybackslash}p{4.2cm} 
+    >{\raggedright\arraybackslash}X
+}
+    \caption{Matriz de pruebas funcionales y técnicas} \label{tab:B_matriz_pruebas} \\
+    \toprule
+    \textbf{Módulo} & \textbf{Prueba} & \textbf{Resultado esperado} \\
+    \midrule
+    \endfirsthead
 
+    \toprule
+    \textbf{Módulo} & \textbf{Prueba} & \textbf{Resultado esperado} \\
+    \midrule
+    \endhead
+
+    \bottomrule
+    \endfoot
+
+    \bottomrule
+    \endlastfoot
+
+    Login & Credenciales válidas e inválidas & Acceso autorizado o mensaje controlado. \\
+    FEL/SAT & XML duplicado o con error & Rechazo, aviso y conservación de trazabilidad. \\
+    Cheques & Cambio de estado y asignación & Estado, fechas y detalle de factura consistentes. \\
+    Caja chica & Movimiento sin cuenta reconocida & Solicitud de clasificación manual desde Nomenclatura. \\
+    Viáticos & Partida semanal y transitoria & Debe y Haber balanceados y documentos no duplicados. \\
+    Proveedores & Vencido y pendiente de pago & Selección correcta entre Bancos y Cuenta transitoria. \\
+    Nomenclatura & Cuenta Debe/Haber activa o inactiva & Validación de naturaleza y disponibilidad. \\
+    Reportes & Filtro y exportación & Información correspondiente al período seleccionado. \\
+\end{xltabular}
+}
 
 \subsection{Acceso e instalación}
 La instalación se realiza en tres capas. Primero se prepara el entorno del frontend Angular y se instalan sus dependencias. Después se configura el servicio backend desarrollado en Python y sus variables de entorno. Finalmente se crea la base de datos PostgreSQL, se aplican las migraciones y se verifica la conexión entre las capas.
@@ -201,18 +245,39 @@ El responsable técnico debe programar respaldos de PostgreSQL, verificar perió
 El mantenimiento incluye actualizar dependencias de Angular y Python, revisar logs, verificar tareas programadas, comprobar el espacio disponible de PostgreSQL, validar permisos y ejecutar las pruebas funcionales de los módulos FEL/SAT, Cheques, Caja chica, Viáticos, Proveedores, Nomenclatura y Reportes.
 
 \subsection{Pruebas técnicas mínimas}
-\begin{longtable}{p{3.5cm}p{7.5cm}p{3cm}}
-\caption{Pruebas técnicas mínimas del sistema}\label{tab:B_pruebas_tecnicas}\\
-\toprule
-\textbf{Prueba} & \textbf{Resultado esperado} & \textbf{Responsable}\\
-\midrule
-Conexión a PostgreSQL & El backend establece conexión y registra el resultado sin exponer credenciales. & Técnico\\
-Autenticación & Angular envía la solicitud al backend Python y recibe una respuesta controlada. & Técnico\\
-Importación FEL & El sistema valida el archivo y evita duplicados. & Auxiliar\\
-Partida contable & Debe y Haber coinciden antes de guardar el registro. & Contador\\
-Respaldo & La copia puede restaurarse en un ambiente de prueba. & Técnico\\
-\bottomrule
-\end{longtable}
+
+{\small
+\setstretch{1.15}
+\setlength{\parindent}{0pt}
+\begin{xltabular}{\linewidth}{
+    >{\raggedright\arraybackslash}p{3.5cm} 
+    >{\raggedright\arraybackslash}X 
+    >{\raggedright\arraybackslash}p{2.8cm}
+}
+    \caption{Pruebas técnicas mínimas del sistema} \label{tab:B_pruebas_tecnicas} \\
+    \toprule
+    \textbf{Prueba} & \textbf{Resultado esperado} & \textbf{Responsable} \\
+    \midrule
+    \endfirsthead
+
+    \toprule
+    \textbf{Prueba} & \textbf{Resultado esperado} & \textbf{Responsable} \\
+    \midrule
+    \endhead
+
+    \bottomrule
+    \endfoot
+
+    \bottomrule
+    \endlastfoot
+
+    Conexión a PostgreSQL & El backend establece conexión y registra el resultado sin exponer credenciales. & Técnico \\
+    Autenticación & Angular envía la solicitud al backend Python y recibe una respuesta controlada. & Técnico \\
+    Importación FEL & El sistema valida el archivo y evita duplicados. & Auxiliar \\
+    Partida contable & Debe y Haber coinciden antes de guardar el registro. & Contador \\
+    Respaldo & La copia puede restaurarse en un ambiente de prueba. & Técnico \\
+\end{xltabular}
+}
 
 \subsection{Anexos técnicos}
 Los anexos técnicos comprenden el diagrama de arquitectura, el modelo de datos PostgreSQL, la matriz mínima de pruebas y las capturas de referencia del sistema. Estos anexos respaldan la explicación técnica y deben mantenerse sincronizados con los cambios aprobados en Angular, Python y PostgreSQL.

@@ -1,25 +1,25 @@
 % Manual Técnico del Sistema Web de gestión contable.
 % Este archivo se incorpora directamente desde main.tex como Apéndice B.
-% Arquitectura declarada: Angular, Python y PostgreSQL.
 \newpage
 
-% El Manual Técnico corresponde al Apéndice B.
-% Se avanza la sección para que las figuras y tablas comiencen en B1.
 \setcounter{section}{2}
 \renewcommand{\thesection}{\Alph{section}}
 \renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+\renewcommand{\thesubsubsection}{\thesection.\arabic{subsubsection}}
 \renewcommand{\thefigure}{\thesection\arabic{figure}}
 \renewcommand{\thetable}{\thesection\arabic{table}}
 \setcounter{figure}{0}
 \setcounter{table}{0}
 \setcounter{subsection}{0}
-\setcounter{tocdepth}{0}
+\setcounter{subsubsection}{0}
 \captionsetup{list=false}
 \phantomsection
-\addcontentsline{toc}{section}{Apéndice B Manual Técnico}
-\subsection{Manual Técnico}\label{ap:manual_tecnico}
+\addcontentsline{toc}{subsection}{Apéndice B, Manual Técnico}
+\subsection*{Apendice B, Manual Técnico}\label{ap:manual_tecnico}
 \begin{center}
 \vspace*{2cm}
+{\Large\textbf{APÉNDICE B}}\par
+\vspace{1.5cm}
 {\Large\textbf{MANUAL TÉCNICO}}\par
 \vspace{0.8cm}
 {\large Sistema Web de gestión contable}\par
@@ -55,7 +55,6 @@ El frontend se comunica con el backend mediante HTTPS y cargas JSON. El backend 
     \caption{Arquitectura lógica del Sistema Web.}
     \label{fig:manual_tecnico_arquitectura}
     \includegraphics[width=0.92\linewidth]{imagenes/Arquitectura.png}
-    \caption*{Nota. Elaboración propia con base en la arquitectura definida para el proyecto.}
 \end{figure}
 
 \subsubsection{Módulos funcionales}
@@ -85,7 +84,6 @@ Las tablas deben utilizar identificadores UUID o enteros autogenerados, fechas c
     \caption{Modelo de base de datos PostgreSQL.}
     \label{fig:manual_tecnico_diagramabd}
     \includegraphics[width=0.92\linewidth]{imagenes/diagramabd.png}
-    \caption*{Nota. Elaboración propia para el diseño de persistencia del Sistema Web.}
 \end{figure}
 
 \subsubsection{Reglas contables y de integridad}
@@ -182,7 +180,6 @@ Las capturas incorporadas al paquete fueron tomadas del prototipo navegable y se
     \caption{Componentes visuales agrupados del sistema.}
     \label{fig:manual_tecnico_elementos_04_tablas_tarjetas}
     \includegraphics[width=0.92\linewidth]{imagenes/elementos_04_tablas_tarjetas.png}
-    \caption*{Nota. Elaboración propia a partir de los componentes del prototipo.}
 \end{figure}
 
 \subsubsection{Matriz mínima de pruebas técnicas}

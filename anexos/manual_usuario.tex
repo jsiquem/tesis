@@ -1,8 +1,8 @@
 % Manual de Usuario del Sistema Web de gestión contable.
 % Este archivo se incorpora directamente desde main.tex como Apéndice A.
-% Las capturas anotadas utilizan numeración correlativa y pasos operativos.
 
 \newpage
+\addtocontents{toc}{\protect\setcounter{tocdepth}{2}}
 \section*{Apéndice}\label{Apendice}
 \addcontentsline{toc}{section}{Apéndice}
 
@@ -11,18 +11,19 @@
 \setcounter{section}{1}
 \renewcommand{\thesection}{\Alph{section}}
 \renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+\renewcommand{\thesubsubsection}{\thesection.\arabic{subsubsection}}
 \renewcommand{\thefigure}{\thesection\arabic{figure}}
 \renewcommand{\thetable}{\thesection\arabic{table}}
 \setcounter{figure}{0}
 \setcounter{table}{0}
-\setcounter{tocdepth}{0}
+\setcounter{subsubsection}{0}
 \captionsetup{list=false}
 \pagestyle{cuerpo}
 
 \setcounter{subsection}{0}
 \phantomsection
-\addcontentsline{toc}{section}{Apéndice A Manual de Usuario}
-\subsection{Manual de Usuario}\label{ap:Manual-de-Usuario}
+\addcontentsline{toc}{subsection}{Apéndice A, Manual de usuario}
+\subsection*{Apéndice A Manual de Usuario}\label{ap:Manual-de-Usuario}
 \begin{center}
 \vspace*{2cm}
 {\Large\textbf{APÉNDICE A}}\par
@@ -113,7 +114,6 @@ El Sistema Web organiza en un menú lateral los módulos de Facturas FEL/SAT, Ch
     \caption{Pantalla de acceso con anotaciones numeradas.}
     \label{fig:manual_usuario_pantalla_01_login_anotada}
     \includegraphics[width=0.92\linewidth]{capturas_reales/anotadas/pantalla_01_login_anotada.png}
-    \caption*{Nota. Elaboración propia a partir del prototipo funcional.}
 \end{figure}
 
 \begin{enumerate}
@@ -135,7 +135,6 @@ El Panel principal concentra la información operativa del período contable sel
     \caption{Panel principal con anotaciones numeradas.}
     \label{fig:manual_usuario_pantalla_02_dashboard_anotada}
     \includegraphics[width=0.92\linewidth]{capturas_reales/anotadas/pantalla_02_dashboard_anotada.png}
-    \caption*{Nota. Elaboración propia a partir del prototipo funcional.}
 \end{figure}
 
 \begin{enumerate}
@@ -156,7 +155,6 @@ Este módulo permite importar archivos XML o Excel descargados del portal SAT, r
     \caption{Módulo de Facturas FEL/SAT con anotaciones numeradas.}
     \label{fig:manual_usuario_pantalla_03_facturas_fel_anotada}
     \includegraphics[width=0.92\linewidth]{capturas_reales/anotadas/pantalla_03_facturas_fel_anotada.png}
-    \caption*{Nota. Elaboración propia a partir del prototipo funcional.}
 \end{figure}
 
 \begin{enumerate}
@@ -177,7 +175,6 @@ El módulo registra los cheques, sus bancos, fechas, clientes, estados y la info
     \caption{Módulo de Cheques con anotaciones numeradas.}
     \label{fig:manual_usuario_pantalla_04_cheques_anotada}
     \includegraphics[width=0.92\linewidth]{capturas_reales/anotadas/pantalla_04_cheques_anotada.png}
-    \caption*{Nota. Elaboración propia a partir del prototipo funcional.}
 \end{figure}
 
 \begin{enumerate}
@@ -199,7 +196,6 @@ Caja chica permite llamar una factura FEL por número, registrar recibos u otros
     \caption{Módulo de Caja chica con anotaciones numeradas.}
     \label{fig:manual_usuario_pantalla_05_caja_chica_anotada}
     \includegraphics[width=0.92\linewidth]{capturas_reales/anotadas/pantalla_05_caja_chica_anotada.png}
-    \caption*{Nota. Elaboración propia a partir del prototipo funcional.}
 \end{figure}
 
 \begin{enumerate}
@@ -223,7 +219,6 @@ Viáticos administra colaboradores, territorios, giras, categorías de gasto y p
     \caption{Módulo de Viáticos con anotaciones numeradas.}
     \label{fig:manual_usuario_pantalla_06_viaticos_anotada}
     \includegraphics[width=0.92\linewidth]{capturas_reales/anotadas/pantalla_06_viaticos_anotada.png}
-    \caption*{Nota. Elaboración propia a partir del prototipo funcional.}
 \end{figure}
 
 \begin{enumerate}
@@ -245,7 +240,6 @@ Esta pantalla permite vincular una factura con un colaborador, una gira, una cat
     \caption{Pantalla de asignación de facturas con anotaciones numeradas.}
     \label{fig:manual_usuario_pantalla_07_asignacion_facturas_anotada}
     \includegraphics[width=0.92\linewidth]{capturas_reales/anotadas/pantalla_07_asignacion_facturas_anotada.png}
-    \caption*{Nota. Elaboración propia a partir del prototipo funcional.}
 \end{figure}
 
 \begin{enumerate}
@@ -266,7 +260,6 @@ Proveedores administra el registro por NIT, las condiciones de crédito, las ret
     \caption{Módulo de Proveedores con anotaciones numeradas.}
     \label{fig:manual_usuario_pantalla_08_proveedores_anotada}
     \includegraphics[width=0.92\linewidth]{capturas_reales/anotadas/pantalla_08_proveedores_anotada.png}
-    \caption*{Nota. Elaboración propia a partir del prototipo funcional.}
 \end{figure}
 
 \begin{enumerate}
@@ -287,7 +280,6 @@ Calendario presenta depósitos, pagos, cheques, giras y otras actividades por pe
     \caption{Módulo de Calendario con anotaciones numeradas.}
     \label{fig:manual_usuario_pantalla_09_calendario_anotada}
     \includegraphics[width=0.92\linewidth]{capturas_reales/anotadas/pantalla_09_calendario_anotada.png}
-    \caption*{Nota. Elaboración propia a partir del prototipo funcional.}
 \end{figure}
 
 \begin{enumerate}
@@ -306,7 +298,6 @@ Nomenclatura contiene las cuentas que alimentan las sugerencias y partidas del s
     \caption{Módulo de Nomenclatura con anotaciones numeradas.}
     \label{fig:manual_usuario_pantalla_10_nomenclatura_anotada}
     \includegraphics[width=0.92\linewidth]{capturas_reales/anotadas/pantalla_10_nomenclatura_anotada.png}
-    \caption*{Nota. Elaboración propia a partir del prototipo funcional.}
 \end{figure}
 
 \begin{enumerate}
@@ -326,7 +317,6 @@ Reportes permite seleccionar el tipo de información, el período y los filtros 
     \caption{Módulo de Reportes con anotaciones numeradas.}
     \label{fig:manual_usuario_pantalla_11_reportes_anotada}
     \includegraphics[width=0.92\linewidth]{capturas_reales/anotadas/pantalla_11_reportes_anotada.png}
-    \caption*{Nota. Elaboración propia a partir del prototipo funcional.}
 \end{figure}
 
 \begin{enumerate}
@@ -345,7 +335,6 @@ El resumen presenta los movimientos que se imprimirán o archivarán.
     \caption{Resumen de Caja chica con anotaciones numeradas.}
     \label{fig:manual_usuario_pantalla_12_resumen_caja_anotada}
     \includegraphics[width=0.92\linewidth]{capturas_reales/anotadas/pantalla_12_resumen_caja_anotada.png}
-    \caption*{Nota. Elaboración propia a partir del prototipo funcional.}
 \end{figure}
 
 \begin{enumerate}

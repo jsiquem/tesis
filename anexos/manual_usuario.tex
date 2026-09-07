@@ -50,7 +50,54 @@ Este manual orienta al usuario final en el uso del Sistema Web para el control d
 Los datos que aparecen en las figuras son demostrativos. El usuario debe aplicar, además, las políticas internas de autorización, revisión y resguardo de documentos contables.
 
 \subsubsection{Requisitos del sistema}
-El sistema requiere un equipo de escritorio o portátil con navegador web actualizado, conexión a la red institucional, resolución recomendada mínima de 1280\,$\times$\,720 píxeles y credenciales habilitadas por el administrador. Para utilizar las funciones contables, el usuario debe contar con el perfil y permisos asignados por la organización.
+El correcto funcionamiento y uso del Sistema Web depende de que el equipo del usuario tenga acceso a la red institucional, un navegador actualizado y las credenciales autorizadas. Los requisitos se organizan entre el lado del cliente, utilizado por el personal operativo, y el lado del servidor, administrado por el personal técnico.
+
+\paragraph{Requisitos del lado del cliente}
+El lado del cliente corresponde al equipo desde el cual el usuario consulta y registra información. El sistema debe ejecutarse en un navegador compatible con aplicaciones web modernas y con acceso habilitado a la dirección institucional de la plataforma.
+
+\paragraph{Infraestructura de software del cliente}
+\begin{itemize}
+\item Navegador web actualizado, como Google Chrome, Mozilla Firefox, Microsoft Edge o Safari.
+\item JavaScript habilitado para permitir la ejecución de la interfaz desarrollada en Angular.
+\item Cookies y almacenamiento local habilitados cuando sean necesarios para conservar la sesión autorizada.
+\item Sistema operativo de escritorio compatible con el navegador instalado.
+\item Cuenta de usuario activa, con el perfil y los permisos asignados por la organización.
+\end{itemize}
+
+\paragraph{Conectividad del cliente}
+El equipo debe mantener una conexión estable con la red institucional o con el servicio autorizado para acceder al sistema. Si la conexión se interrumpe durante un registro, el usuario debe verificar si la operación fue guardada antes de repetirla, con el fin de evitar duplicidad de documentos o movimientos.
+
+\paragraph{Requisitos del lado del servidor}
+El lado del servidor debe mantener disponibles los servicios del frontend Angular, el backend desarrollado en Python/FastAPI y la base de datos PostgreSQL. La configuración debe separar las credenciales y variables de los ambientes de desarrollo, pruebas y producción.
+
+\paragraph{Entorno de software del servidor}
+\begin{itemize}
+\item Sistema operativo de servidor compatible con Python, Angular y PostgreSQL.
+\item Runtime de Python y dependencias del backend documentados en el archivo de configuración del proyecto.
+\item Servicio backend Python/FastAPI para autenticación, validación y reglas de negocio.
+\item Servicio de publicación del frontend Angular con conexión segura al backend.
+\item PostgreSQL para almacenar usuarios, facturas, cheques, movimientos, cuentas, proveedores y reportes.
+\item Certificado SSL/TLS y configuración de acceso restringido para proteger la comunicación.
+\end{itemize}
+
+\paragraph{Dimensionamiento de referencia}
+La siguiente tabla presenta una referencia mínima para el ambiente del servidor. El dimensionamiento definitivo debe revisarse según el número de usuarios, el volumen de facturas y las políticas de infraestructura de la organización.
+
+\begin{longtable}{p{4.0cm}p{4.3cm}p{4.3cm}}
+\caption{Requisitos de infraestructura de referencia}\label{tab:A_requisitos_sistema}\\
+\toprule
+\textbf{Componente} & \textbf{Configuración mínima} & \textbf{Configuración recomendada}\\
+\midrule
+Procesador & 1 núcleo virtual de 64 bits & 2 núcleos virtuales o físicos dedicados\\
+Memoria RAM & 2 GB disponibles & 4 GB o superior\\
+Almacenamiento & 10 GB libres para aplicación, logs y configuración & 30 GB libres en unidad de estado sólido\\
+Base de datos & PostgreSQL configurado con respaldo periódico & PostgreSQL con almacenamiento separado y monitoreo\\
+Red & Conexión estable para atender las solicitudes del sistema & Enlace institucional con monitoreo de disponibilidad\\
+Respaldo & Copia periódica de la base de datos & Copia automática externa y prueba de restauración\\
+\bottomrule
+\end{longtable}
+
+\textit{Nota.} Los valores son de referencia para la instalación y deben ajustarse al crecimiento de usuarios, documentos y registros contables.
 
 \subsubsection{Acceso al sistema}
 Abra el navegador, escriba la dirección web proporcionada por el administrador y espere a que se muestre la pantalla de acceso.
@@ -329,8 +376,11 @@ Antes de cerrar el período, confirme que las facturas tengan una cuenta de Nome
 \item[Arqueo o resumen] Documento de revisión de movimientos y saldo de Caja chica.
 \end{description}
 
-\subsubsection{Anexos del manual}
-Los anexos del manual corresponden a las capturas anotadas de las pantallas del sistema y a la lámina de referencia de componentes visuales. Estos materiales sirven para identificar los campos y botones descritos en cada procedimiento; no sustituyen las políticas internas de autorización ni los registros contables oficiales. Las imágenes se conservan en la carpeta de evidencias del repositorio y deben mantenerse sincronizadas con la versión aprobada del prototipo.
+\subsubsection{Seguimiento y trazabilidad de operaciones}
+Cada registro debe revisarse antes de continuar con el siguiente paso. Cuando una operación genere una partida, una asignación o un cambio de estado, conserve el número de documento, la fecha y el módulo en el que se realizó. Esta información facilita la revisión posterior y permite comunicar una incidencia con datos verificables.
 
-\clearpage
-\input{anexos/manual_usuario_anexos}
+\subsubsection{Criterios de revisión antes del cierre}
+Antes de finalizar la jornada o el período, confirme que las operaciones guardadas correspondan al período correcto, que no existan documentos duplicados y que las cuentas contables utilizadas estén activas. Cuando el sistema solicite una asignación manual, seleccione la cuenta que corresponda al gasto y solicite una segunda revisión si la operación afecta una partida contable.
+
+\subsubsection{Atención de incidencias}
+Cuando una operación no produzca el resultado esperado, registre la fecha, el módulo, la acción realizada y el mensaje mostrado. Evite repetir una importación o un registro hasta confirmar que la primera operación no fue guardada. El reporte debe remitirse al responsable designado sin incluir contraseñas, tokens ni información que no sea necesaria para diagnosticar el problema.

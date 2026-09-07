@@ -228,9 +228,11 @@ Respaldo & La copia puede restaurarse en un ambiente de prueba. & Técnico\\
 \bottomrule
 \end{longtable}
 
-\subsubsection{Anexos técnicos}
-Los anexos técnicos comprenden el diagrama de arquitectura, el modelo de datos PostgreSQL, la matriz mínima de pruebas y las capturas de referencia del sistema. Estos anexos respaldan la explicación técnica y deben mantenerse sincronizados con los cambios aprobados en Angular, Python y PostgreSQL.
+\subsubsection{Gestión de logs y errores}
+Los servicios deben registrar los eventos necesarios para diagnosticar autenticación, importación de documentos, asignación de cuentas, generación de partidas y comunicación con PostgreSQL. Los mensajes visibles al usuario deben ser claros y no deben exponer contraseñas, tokens, cadenas de conexión ni trazas internas. Los logs deben conservar fecha, módulo, operación y resultado, de acuerdo con las políticas institucionales de retención.
 
+\subsubsection{Procedimiento de actualización}
+Antes de actualizar Angular, Python, las dependencias del backend o el esquema de PostgreSQL, el responsable técnico debe revisar la versión objetivo, realizar un respaldo y ejecutar las pruebas en un ambiente separado. La actualización debe documentar los archivos modificados, las migraciones aplicadas, el resultado de las pruebas y la posibilidad de regresar a la versión anterior si se detecta una afectación.
 
-\clearpage
-\input{anexos/manual_tecnico_anexos}
+\subsubsection{Control de cambios y continuidad operativa}
+Cada cambio aprobado debe relacionarse con una necesidad funcional, una corrección o una actividad de mantenimiento. Después de publicar una versión, se debe verificar el inicio de sesión, la consulta de facturas, la asignación de cuentas, la generación de partidas y la consulta de reportes. Si el servicio deja de estar disponible, el responsable técnico debe preservar los logs, informar la incidencia y aplicar el procedimiento de recuperación autorizado.

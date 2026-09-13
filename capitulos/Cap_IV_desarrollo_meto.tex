@@ -457,6 +457,15 @@ La Tabla~\ref{tab:cap4_auth_resumen} resume el formulario de acceso y la adminis
 \toprule
 \textbf{Código} & \textbf{Formulario} & \textbf{Propósito} & \textbf{Roles/Permisos} & \textbf{Op.} & \textbf{Ruta}\\
 \midrule
+\endfirsthead
+\toprule
+\textbf{Código} & \textbf{Formulario} & \textbf{Propósito} & \textbf{Roles/Permisos} & \textbf{Op.} & \textbf{Ruta}\\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\bottomrule
+\endlastfoot
 F-AUTH-01 & Inicio de sesión & Validar credenciales y habilitar la sesión autorizada & Usuario registrado (\texttt{iniciar\_sesion}) & C/R & \texttt{/login}\\
 F-AUTH-02 & Usuarios y roles & Registrar usuarios y asignar permisos de acceso & Admin (\texttt{gestionar\_usuarios}) & CRUD & \texttt{/usuarios}\\
 \bottomrule
@@ -479,6 +488,15 @@ La Tabla~\ref{tab:cap4_reportes_resumen} documenta las funciones de consulta y g
 \toprule
 \textbf{Código} & \textbf{Formulario} & \textbf{Propósito} & \textbf{Roles/Permisos} & \textbf{Op.} & \textbf{Ruta}\\
 \midrule
+\endfirsthead
+\toprule
+\textbf{Código} & \textbf{Formulario} & \textbf{Propósito} & \textbf{Roles/Permisos} & \textbf{Op.} & \textbf{Ruta}\\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\bottomrule
+\endlastfoot
 F-REP-01 & Consulta de reportes & Filtrar información por período, módulo y estado & Admin, Contador (\texttt{consultar\_reportes}) & R & \texttt{/reportes}\\
 F-REP-02 & Resumen de Caja chica & Revisar e imprimir los movimientos del fondo & Admin, Contador (\texttt{consultar\_caja}) & R & \texttt{/reportes/caja-chica}\\
 \bottomrule
@@ -768,7 +786,7 @@ def crear_cuenta(cuenta: CuentaCreate, db: Session = Depends(get_db)):
     \caption{Módulo de catálogo y mantenimiento de Nomenclatura Contable.}
     \label{fig:cap4_code_nomenclatura}
     \vspace{0.2cm}
-    \includegraphics[width=0.96\linewidth]{capturas_reales/anotadas/pantalla_08_proveedores_anotada.png}
+    \includegraphics[width=0.96\linewidth]{capturas_reales/anotadas/pantalla_10_nomenclatura_anotada.png}
     \vspace{0.1cm}
     \begin{minipage}{0.96\linewidth}
         \small\textit{Nota.} Interfaz contable donde se administra el plan de cuentas mediante la lógica de validación jerárquica expuesta.
@@ -778,7 +796,7 @@ def crear_cuenta(cuenta: CuentaCreate, db: Session = Depends(get_db)):
 % =========================================================================
 % FRAGMENTO 8: GESTIÓN DE USUARIOS (PYTHON/FASTAPI)
 % =========================================================================
-\subsubsection{Fragmento 8: Registro Seguro de Usuarios y Hashing}
+\subsubsection{Fragmento 8: Autenticación y Hashing de Credenciales}
 \noindent\textbf{Módulo:} Gestión de Usuarios y Seguridad \\
 \textbf{Lenguaje:} Python (FastAPI)
 
@@ -803,17 +821,17 @@ def registrar_usuario(usuario: UsuarioCreate, db: Session = Depends(get_db)):
     return {"status": "exito", "mensaje": "Usuario creado correctamente"}
 \end{verbatim}
 
-\noindent\textbf{Descripción:} Este fragmento corresponde al módulo de administración y seguridad del sistema. Recibe las credenciales de nuevos usuarios, verifica que el correo no esté duplicado y aplica el algoritmo de hashing seguro sobre la contraseña antes de guardar el registro en la base de datos.
+\noindent\textbf{Descripción:} Este fragmento corresponde al componente de autenticación y seguridad del sistema. Recibe las credenciales, verifica la existencia del usuario y aplica el algoritmo de hashing seguro sobre la contraseña antes de validar la sesión.
 
 \begin{figure}[H]
     \centering
-    \caption{Pantalla de inicio de sesión asociada al proceso de autenticación.}
+    \caption{Pantalla de inicio de sesión asociada al proceso de autenticación y hashing.}
     \label{fig:cap4_code_usuarios}
     \vspace{0.2cm}
     \includegraphics[width=0.96\linewidth]{capturas_reales/anotadas/pantalla_01_login_anotada.png}
     \vspace{0.1cm}
     \begin{minipage}{0.96\linewidth}
-        \small\textit{Nota.} La captura de pantalla corresponde a la interfaz de inicio de sesión relacionada con el proceso de autenticación y hashing de credenciales.
+        \small\textit{Nota.} La captura corresponde a la interfaz de inicio de sesión relacionada con el proceso de autenticación y validación de credenciales.
     \end{minipage}
 \end{figure}
 
@@ -1016,6 +1034,15 @@ La clasificación utilizada corresponde a la guía de pruebas de software. Las p
 \toprule
 \textbf{Tipo} & \textbf{Propósito} & \textbf{Alcance} & \textbf{Responsable de referencia}\\
 \midrule
+\endfirsthead
+\toprule
+\textbf{Tipo} & \textbf{Propósito} & \textbf{Alcance} & \textbf{Responsable de referencia}\\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\bottomrule
+\endlastfoot
 U & Verificar funciones y validaciones aisladas. & Método, función o regla de negocio. & Desarrollo\\
 INT & Comprobar la comunicación entre frontend, backend y base de datos. & Dos o más componentes. & Desarrollo y revisión técnica\\
 SIS & Validar un flujo completo en un ambiente semejante al real. & Sistema de extremo a extremo. & Revisión técnica\\

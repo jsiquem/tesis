@@ -450,10 +450,54 @@ El presente capítulo documenta los formularios desarrollados para el Sistema We
 \textbf{Roles/Permisos:} Admin, Contador (\texttt{nomenclatura\_crear}). \\[0.3em]
 \textbf{Campos clave y validaciones críticas:} \texttt{codigo\_cuenta} (Requerido, único, formato estructurado, ej.: \texttt{5.1.01.001}); \texttt{nombre\_cuenta} (Requerido, ej.: ``Gastos de Operación'').
 
+\subsubsection{Módulo: Autenticación y Gestión de Usuarios}
+La Tabla~\ref{tab:cap4_auth_resumen} resume el formulario de acceso y la administración de credenciales y roles.
+\begin{xltabular}{\linewidth}{p{1.8cm}p{3.0cm}X p{2.5cm}p{1.0cm}p{2.0cm}}
+\caption{Resumen de formularios - Módulo: Autenticación y gestión de usuarios}\label{tab:cap4_auth_resumen}\\
+\toprule
+\textbf{Código} & \textbf{Formulario} & \textbf{Propósito} & \textbf{Roles/Permisos} & \textbf{Op.} & \textbf{Ruta}\\
+\midrule
+F-AUTH-01 & Inicio de sesión & Validar credenciales y habilitar la sesión autorizada & Usuario registrado (\texttt{iniciar\_sesion}) & C/R & \texttt{/login}\\
+F-AUTH-02 & Usuarios y roles & Registrar usuarios y asignar permisos de acceso & Admin (\texttt{gestionar\_usuarios}) & CRUD & \texttt{/usuarios}\\
+\bottomrule
+\end{xltabular}
+
+\paragraph{Formulario F-AUTH-01: Inicio de sesión}
+\noindent\textbf{Objetivo:} Validar el usuario y la contraseña antes de permitir el acceso al Panel principal. \textbf{Campos y validaciones:} usuario requerido, contraseña requerida y mensaje controlado para credenciales inválidas. \textbf{Flujo:} ingresar credenciales $\rightarrow$ presionar ``Ingresar al sistema'' $\rightarrow$ validar sesión $\rightarrow$ mostrar el Panel principal.
+
+\begin{figure}[H]
+    \centering
+    \caption{Pantalla de inicio de sesión del sistema.}
+    \label{fig:cap4_auth_pantalla}
+    \includegraphics[width=0.96\linewidth]{capturas_reales/anotadas/pantalla_01_login_anotada.png}
+\end{figure}
+
+\subsubsection{Módulo: Reportes Operativos y Financieros}
+La Tabla~\ref{tab:cap4_reportes_resumen} documenta las funciones de consulta y generación de reportes autorizados.
+\begin{xltabular}{\linewidth}{p{1.8cm}p{3.0cm}X p{2.5cm}p{1.0cm}p{2.0cm}}
+\caption{Resumen de formularios - Módulo: Reportes operativos y financieros}\label{tab:cap4_reportes_resumen}\\
+\toprule
+\textbf{Código} & \textbf{Formulario} & \textbf{Propósito} & \textbf{Roles/Permisos} & \textbf{Op.} & \textbf{Ruta}\\
+\midrule
+F-REP-01 & Consulta de reportes & Filtrar información por período, módulo y estado & Admin, Contador (\texttt{consultar\_reportes}) & R & \texttt{/reportes}\\
+F-REP-02 & Resumen de Caja chica & Revisar e imprimir los movimientos del fondo & Admin, Contador (\texttt{consultar\_caja}) & R & \texttt{/reportes/caja-chica}\\
+\bottomrule
+\end{xltabular}
+
+\paragraph{Formulario F-REP-01: Consulta de reportes}
+\noindent\textbf{Objetivo:} Presentar información consolidada para revisión operativa y financiera. \textbf{Campos y validaciones:} período requerido, módulo opcional y estado válido. \textbf{Flujo:} seleccionar filtros $\rightarrow$ consultar $\rightarrow$ revisar resultados $\rightarrow$ imprimir o guardar el reporte autorizado.
+
+\begin{figure}[H]
+    \centering
+    \caption{Pantalla de reportes operativos y financieros.}
+    \label{fig:cap4_reportes_pantalla}
+    \includegraphics[width=0.96\linewidth]{capturas_reales/anotadas/pantalla_11_reportes_anotada.png}
+\end{figure}
+
 \subsection{4.2 Fragmentos de Código Fuente}
 \label{sec:cap4_fragmentos_codigo}
 
-De conformidad con los lineamientos metodológicos, en este apartado se documenta el desarrollo técnico del sistema mediante ocho fragmentos representativos de código fuente. Cada extracto incluye su especificación de módulo, lenguaje utilizado, bloque de código en fuente monoespaciada, descripción funcional y la evidencia correspondiente a la interfaz de usuario real.
+De conformidad con los lineamientos metodológicos, en este apartado se documenta el desarrollo técnico del sistema mediante ocho fragmentos representativos y demostrativos de código fuente, preparados para ilustrar la lógica correspondiente a cada módulo. Cada extracto incluye su especificación de módulo, lenguaje utilizado, bloque de código en fuente monoespaciada, descripción funcional y la evidencia correspondiente a la interfaz de usuario real.
 
 % =========================================================================
 % FRAGMENTO 1: FACTURAS FEL (PYTHON/FASTAPI)
@@ -763,20 +807,20 @@ def registrar_usuario(usuario: UsuarioCreate, db: Session = Depends(get_db)):
 
 \begin{figure}[H]
     \centering
-    \caption{Formulario web para la creación y administración de usuarios.}
+    \caption{Pantalla de inicio de sesión asociada al proceso de autenticación.}
     \label{fig:cap4_code_usuarios}
     \vspace{0.2cm}
-    \includegraphics[width=0.96\linewidth]{capturas_reales/anotadas/pantalla_10_reportes_anotada.png}
+    \includegraphics[width=0.96\linewidth]{capturas_reales/anotadas/pantalla_01_login_anotada.png}
     \vspace{0.1cm}
     \begin{minipage}{0.96\linewidth}
-        \small\textit{Nota.} La captura de pantalla corresponde al formulario real de administración de usuarios y roles que ejecuta el método de registro seguro.
+        \small\textit{Nota.} La captura de pantalla corresponde a la interfaz de inicio de sesión relacionada con el proceso de autenticación y hashing de credenciales.
     \end{minipage}
 \end{figure}
 
 \subsection{4.3 Objetos de la Base de Datos}
 \label{sec:cap4_objetos_bd}
 
-En esta sección se detallan los objetos desarrollados en el gestor de base de datos relacional para el soporte operativo del sistema web, incluyendo el listado de tablas, procedimientos almacenados, vistas analíticas y disparadores (\textit{triggers}) encargados de velar por la integridad de la información y la automatización de procesos contables.
+En esta sección se presenta el inventario provisional de objetos de PostgreSQL utilizado como referencia para el desarrollo del sistema web. La nomenclatura y las descripciones se incluyen para organizar la implementación; deberán contrastarse con el esquema definitivo y ajustarse cuando se disponga del script de creación de la base de datos. El inventario comprende tablas, procedimientos almacenados, vistas y disparadores (\textit{triggers}) relacionados con la integridad y automatización de los procesos contables.
 
 \subsubsection{Listado de Tablas}
 
@@ -945,31 +989,46 @@ En esta sección se detallan los objetos desarrollados en el gestor de base de d
 
 \subsubsection{Esquema Entidad-Relación (Diagrama E-R)}
 
-A continuación, se presenta el esquema relacional que modela la estructura de datos integrada de los módulos del sistema, ilustrando las relaciones, llaves primarias y llaves foráneas constituidas11].
+A continuación, se presenta el esquema relacional provisional que modela la estructura de datos integrada de los módulos del sistema, ilustrando las relaciones, llaves primarias y llaves foráneas previstas.
 
 \begin{figure}[H]
     \centering
     \caption{Esquema Entidad-Relación del modelo de base de datos relacional.}
     \label{fig:cap4_diagrama_er}
     \vspace{0.2cm}
-    \includegraphics[width=0.96\linewidth]{capturas_reales/anotadas/diagrama_er_sistema.png}
+    \includegraphics[width=0.96\linewidth]{imagenes/diagramabd.png}
     \vspace{0.1cm}
     \begin{minipage}{0.96\linewidth}
-        \small\textit{Nota.} Diagrama Entidad-Relación global que representa las tablas, llaves primarias, foráneas y cardinalidades implementadas en el motor de base de datos relacional11].
+        \small El diagrama debe sustituirse por el esquema E-R definitivo cuando se confirme el script de PostgreSQL.
     \end{minipage}
 \end{figure}
 
 \subsection{4.4 Pruebas Realizadas}
 \label{sec:cap4_pruebas_realizadas}
 
-En la presente sección se documenta el plan de pruebas ejecutado para la validación funcional, de integración, de sistema y de aceptación de la plataforma web. De acuerdo con la metodología establecida, la verificación técnica de los componentes se estructuró de manera individual por cada módulo del sistema, incorporando el registro detallado de los casos de prueba, la matriz numérica de métricas de desempeño y la representación gráfica con su respectiva interpretación operativa.
+En la presente sección se documenta el plan de pruebas definido para la validación funcional, de integración, de sistema y de aceptación de la plataforma web. Las tablas, métricas y gráficas incluidas en esta versión contienen datos demostrativos provisionales para mostrar el formato solicitado por la guía. No deben interpretarse como resultados definitivos: antes de la entrega final, deberán sustituirse por los valores obtenidos en la ejecución real y conservarse la evidencia correspondiente de cada prueba. La verificación técnica se organiza por módulo e incorpora el caso, los datos, los pasos, el resultado esperado, el resultado obtenido y el estado.
+
+\paragraph{Clasificación de las pruebas}
+La clasificación utilizada corresponde a la guía de pruebas de software. Las pruebas unitarias (U) verifican funciones aisladas; las de integración (INT) revisan la comunicación entre componentes; las de sistema (SIS) validan los flujos completos; y las de aceptación (ACEP) comprueban el cumplimiento de los criterios de negocio.
+
+\begin{xltabular}{\linewidth}{p{1.8cm}X p{3.2cm}p{3.0cm}}
+\caption{Clasificación de pruebas aplicada al sistema}\label{tab:cap4_tipos_prueba}\\
+\toprule
+\textbf{Tipo} & \textbf{Propósito} & \textbf{Alcance} & \textbf{Responsable de referencia}\\
+\midrule
+U & Verificar funciones y validaciones aisladas. & Método, función o regla de negocio. & Desarrollo\\
+INT & Comprobar la comunicación entre frontend, backend y base de datos. & Dos o más componentes. & Desarrollo y revisión técnica\\
+SIS & Validar un flujo completo en un ambiente semejante al real. & Sistema de extremo a extremo. & Revisión técnica\\
+ACEP & Confirmar que el sistema satisface una necesidad operativa. & Flujo crítico y criterio de negocio. & Usuario responsable y revisión técnica\\
+\bottomrule
+\end{xltabular}
 
 % =========================================================================
 % MÓDULO 1: AUTENTICACIÓN Y SEGURIDAD (AUTH)
 % =========================================================================
 \subsubsection{Módulo 1: Autenticación y Seguridad}
 
-\paragraph{Listado de Casos de Prueba Ejecutados}
+\paragraph{Listado de Casos de Prueba Demostrativos}
 En la Tabla~\ref{tab:cap4_pruebas_auth} se resumen los casos de prueba evaluados sobre el módulo de Autenticación y Seguridad, contemplando pruebas de integración, sistema y pruebas unitarias de cifrado.
 
 {
@@ -987,7 +1046,7 @@ En la Tabla~\ref{tab:cap4_pruebas_auth} se resumen los casos de prueba evaluados
     >{\raggedright\arraybackslash}p{2.0cm} 
     >{\centering\arraybackslash}p{0.8cm}
 }
-    \caption{Casos de prueba ejecutados - Módulo de Autenticación y Seguridad} \label{tab:cap4_pruebas_auth} \\
+    \caption{Casos de prueba demostrativos - Módulo de Autenticación y Seguridad} \label{tab:cap4_pruebas_auth} \\
     \toprule
     \textbf{ID} & \textbf{Módulo} & \textbf{Tipo} & \textbf{Caso} & \textbf{Datos} & \textbf{Pasos} & \textbf{Esperado} & \textbf{Obtenido} & \textbf{Estado} \\
     \midrule
@@ -1014,7 +1073,7 @@ En la Tabla~\ref{tab:cap4_pruebas_auth} se resumen los casos de prueba evaluados
 }
 
 \paragraph{Métricas Numéricas de Desempeño}
-La Tabla~\ref{tab:cap4_metricas_auth} presenta los resultados consolidados de eficiencia y tasa de éxito registrados durante la fase de ejecución del módulo de seguridad.
+La Tabla~\ref{tab:cap4_metricas_auth} presenta los valores demostrativos de eficiencia y tasa de éxito utilizados para ilustrar el diligenciamiento del módulo de seguridad.
 
 {
 \small
@@ -1027,7 +1086,7 @@ La Tabla~\ref{tab:cap4_metricas_auth} presenta los resultados consolidados de ef
     >{\raggedright\arraybackslash}p{2.0cm} 
     >{\raggedright\arraybackslash}p{3.0cm}
 }
-    \caption{Resultados cuantitativos - Módulo de Autenticación y Seguridad} \label{tab:cap4_metricas_auth} \\
+    \caption{Valores demostrativos - Módulo de Autenticación y Seguridad} \label{tab:cap4_metricas_auth} \\
     \toprule
     \textbf{Módulo} & \textbf{Métrica} & \textbf{Valor} & \textbf{Unidad} & \textbf{Versión / Fecha} \\
     \midrule
@@ -1044,9 +1103,9 @@ La Tabla~\ref{tab:cap4_metricas_auth} presenta los resultados consolidados de ef
     \bottomrule
     \endlastfoot
 
-    Auth & Latencia p95 (Inicio de sesión) & 175 & ms & b4-2026-09-01 \\
+    Auth & Latencia p95 (Inicio de sesión) & 175 & ms & versión demostrativa \\
     \addlinespace
-    Auth & Porcentaje de pruebas satisfactorias (\% OK) & 100 & \% & b4-2026-09-01 \\
+    Auth & Porcentaje de pruebas satisfactorias (\% OK) & 100 & \% & versión demostrativa \\
 
 \end{xltabular}
 }
@@ -1083,14 +1142,14 @@ En la Figura~\ref{fig:cap4_grafica_auth} se ilustra la tendencia de disminución
     \end{minipage}
 \end{figure}
 
-\noindent\textbf{Interpretación:} La medición demuestra una mejora continua en el tiempo de procesamiento de autenticación JWT. Se logró reducir la latencia en el percentil 95 desde 240 ms en la compilación inicial \texttt{b1} hasta 175 ms en la versión final \texttt{b4}, alcanzando una tasa global de aprobación del 100\% en las pruebas de seguridad.
+\noindent\textbf{Interpretación:} En este ejemplo demostrativo se representa una reducción de la latencia en el percentil 95 desde 240 ms en una compilación inicial hasta 175 ms en una compilación posterior, junto con una tasa ilustrativa de aprobación del 100\%. Estos valores deberán sustituirse por mediciones reales.
 
 % =========================================================================
 % MÓDULO 2: FACTURAS FEL/SAT (FEL)
 % =========================================================================
 \subsubsection{Módulo 2: Facturas FEL/SAT}
 
-\paragraph{Listado de Casos de Prueba Ejecutados}
+\paragraph{Listado de Casos de Prueba Demostrativos}
 En la Tabla~\ref{tab:cap4_pruebas_fel} se describen los escenarios de prueba aplicados sobre la importación y procesamiento de comprobantes tributarios DTE.
 
 {
@@ -1108,7 +1167,7 @@ En la Tabla~\ref{tab:cap4_pruebas_fel} se describen los escenarios de prueba apl
     >{\raggedright\arraybackslash}p{2.0cm} 
     >{\centering\arraybackslash}p{0.8cm}
 }
-    \caption{Casos de prueba ejecutados - Módulo Facturas FEL/SAT} \label{tab:cap4_pruebas_fel} \\
+    \caption{Casos de prueba demostrativos - Módulo Facturas FEL/SAT} \label{tab:cap4_pruebas_fel} \\
     \toprule
     \textbf{ID} & \textbf{Módulo} & \textbf{Tipo} & \textbf{Caso} & \textbf{Datos} & \textbf{Pasos} & \textbf{Esperado} & \textbf{Obtenido} & \textbf{Estado} \\
     \midrule
@@ -1135,7 +1194,7 @@ En la Tabla~\ref{tab:cap4_pruebas_fel} se describen los escenarios de prueba apl
 }
 
 \paragraph{Métricas Numéricas de Desempeño}
-La Tabla~\ref{tab:cap4_metricas_fel} recopila la efectividad y tiempo promedio de procesamiento de cargas masivas XML obtenidas durante la verificación del módulo FEL.
+La Tabla~\ref{tab:cap4_metricas_fel} recopila la efectividad y tiempo promedio de procesamiento de cargas masivas XML incluidas como ejemplo de diligenciamiento del módulo FEL.
 
 {
 \small
@@ -1148,7 +1207,7 @@ La Tabla~\ref{tab:cap4_metricas_fel} recopila la efectividad y tiempo promedio d
     >{\raggedright\arraybackslash}p{2.0cm} 
     >{\raggedright\arraybackslash}p{3.0cm}
 }
-    \caption{Resultados cuantitativos - Módulo Facturas FEL/SAT} \label{tab:cap4_metricas_fel} \\
+    \caption{Valores demostrativos - Módulo Facturas FEL/SAT} \label{tab:cap4_metricas_fel} \\
     \toprule
     \textbf{Módulo} & \textbf{Métrica} & \textbf{Valor} & \textbf{Unidad} & \textbf{Versión / Fecha} \\
     \midrule
@@ -1165,9 +1224,9 @@ La Tabla~\ref{tab:cap4_metricas_fel} recopila la efectividad y tiempo promedio d
     \bottomrule
     \endlastfoot
 
-    Facturas FEL & Tiempo de procesamiento por XML & 320 & ms & b4-2026-09-01 \\
+    Facturas FEL & Tiempo de procesamiento por XML & 320 & ms & versión demostrativa \\
     \addlinespace
-    Facturas FEL & Porcentaje de pruebas satisfactorias (\% OK) & 96 & \% & b4-2026-09-01 \\
+    Facturas FEL & Porcentaje de pruebas satisfactorias (\% OK) & 96 & \% & versión demostrativa \\
 
 \end{xltabular}
 }
@@ -1210,7 +1269,7 @@ La Figura~\ref{fig:cap4_grafica_fel} representa el grado de efectividad y precis
 % =========================================================================
 \subsubsection{Módulo 3: Cheques Posfechados}
 
-\paragraph{Listado de Casos de Prueba Ejecutados}
+\paragraph{Listado de Casos de Prueba Demostrativos}
 En la Tabla~\ref{tab:cap4_pruebas_cheq} se detallan los procedimientos de verificación ejecutados para garantizar el control cronológico de depósito y asignación bancaria.
 
 {
@@ -1228,7 +1287,7 @@ En la Tabla~\ref{tab:cap4_pruebas_cheq} se detallan los procedimientos de verifi
     >{\raggedright\arraybackslash}p{2.0cm} 
     >{\centering\arraybackslash}p{0.8cm}
 }
-    \caption{Casos de prueba ejecutados - Módulo Cheques Posfechados} \label{tab:cap4_pruebas_cheq} \\
+    \caption{Casos de prueba demostrativos - Módulo Cheques Posfechados} \label{tab:cap4_pruebas_cheq} \\
     \toprule
     \textbf{ID} & \textbf{Módulo} & \textbf{Tipo} & \textbf{Caso} & \textbf{Datos} & \textbf{Pasos} & \textbf{Esperado} & \textbf{Obtenido} & \textbf{Estado} \\
     \midrule
@@ -1268,7 +1327,7 @@ En la Tabla~\ref{tab:cap4_metricas_cheq} se especifican los resultados cuantitat
     >{\raggedright\arraybackslash}p{2.0cm} 
     >{\raggedright\arraybackslash}p{3.0cm}
 }
-    \caption{Resultados cuantitativos - Módulo Cheques Posfechados} \label{tab:cap4_metricas_cheq} \\
+    \caption{Valores demostrativos - Módulo Cheques Posfechados} \label{tab:cap4_metricas_cheq} \\
     \toprule
     \textbf{Módulo} & \textbf{Métrica} & \textbf{Valor} & \textbf{Unidad} & \textbf{Versión / Fecha} \\
     \midrule
@@ -1285,9 +1344,9 @@ En la Tabla~\ref{tab:cap4_metricas_cheq} se especifican los resultados cuantitat
     \bottomrule
     \endlastfoot
 
-    Cheques & Latencia p95 (Registro de cheque) & 145 & ms & b4-2026-09-01 \\
+    Cheques & Latencia p95 (Registro de cheque) & 145 & ms & versión demostrativa \\
     \addlinespace
-    Cheques & Porcentaje de pruebas satisfactorias (\% OK) & 93 & \% & b4-2026-09-01 \\
+    Cheques & Porcentaje de pruebas satisfactorias (\% OK) & 93 & \% & versión demostrativa \\
 
 \end{xltabular}
 }
@@ -1319,7 +1378,7 @@ En la Figura~\ref{fig:cap4_grafica_cheq} se exhibe el nivel de efectividad alcan
     \label{fig:cap4_grafica_cheq}
     \vspace{0.1cm}
     \begin{minipage}{0.96\linewidth}
-        \small\textit{Nota.} Muestra la tasa del 93\% de efectividad obtenida tras someter el módulo a controles de rango de fechas y montos.
+        \small\textit{Nota.} Muestra la tasa del 93\% de efectividad incluida como ejemplo al someter el módulo a controles de rango de fechas y montos.
     \end{minipage}
 \end{figure}
 
@@ -1330,7 +1389,7 @@ En la Figura~\ref{fig:cap4_grafica_cheq} se exhibe el nivel de efectividad alcan
 % =========================================================================
 \subsubsection{Módulo 4: Caja Chica}
 
-\paragraph{Listado de Casos de Prueba Ejecutados}
+\paragraph{Listado de Casos de Prueba Demostrativos}
 En la Tabla~\ref{tab:cap4_pruebas_caja} se tabulan las pruebas conducidas para verificar el control de saldo disponible y registro de vales internos de caja chica.
 
 {
@@ -1348,7 +1407,7 @@ En la Tabla~\ref{tab:cap4_pruebas_caja} se tabulan las pruebas conducidas para v
     >{\raggedright\arraybackslash}p{2.0cm} 
     >{\centering\arraybackslash}p{0.8cm}
 }
-    \caption{Casos de prueba ejecutados - Módulo Caja Chica} \label{tab:cap4_pruebas_caja} \\
+    \caption{Casos de prueba demostrativos - Módulo Caja Chica} \label{tab:cap4_pruebas_caja} \\
     \toprule
     \textbf{ID} & \textbf{Módulo} & \textbf{Tipo} & \textbf{Caso} & \textbf{Datos} & \textbf{Pasos} & \textbf{Esperado} & \textbf{Obtenido} & \textbf{Estado} \\
     \midrule
@@ -1388,7 +1447,7 @@ En la Tabla~\ref{tab:cap4_metricas_caja} se indican las métricas de respuesta y
     >{\raggedright\arraybackslash}p{2.0cm} 
     >{\raggedright\arraybackslash}p{3.0cm}
 }
-    \caption{Resultados cuantitativos - Módulo Caja Chica} \label{tab:cap4_metricas_caja} \\
+    \caption{Valores demostrativos - Módulo Caja Chica} \label{tab:cap4_metricas_caja} \\
     \toprule
     \textbf{Módulo} & \textbf{Métrica} & \textbf{Valor} & \textbf{Unidad} & \textbf{Versión / Fecha} \\
     \midrule
@@ -1405,9 +1464,9 @@ En la Tabla~\ref{tab:cap4_metricas_caja} se indican las métricas de respuesta y
     \bottomrule
     \endlastfoot
 
-    Caja Chica & Tiempo de liquidación de arqueo & 210 & ms & b4-2026-09-01 \\
+    Caja Chica & Tiempo de liquidación de arqueo & 210 & ms & versión demostrativa \\
     \addlinespace
-    Caja Chica & Porcentaje de pruebas satisfactorias (\% OK) & 95 & \% & b4-2026-09-01 \\
+    Caja Chica & Porcentaje de pruebas satisfactorias (\% OK) & 95 & \% & versión demostrativa \\
 
 \end{xltabular}
 }
@@ -1450,7 +1509,7 @@ En la Figura~\ref{fig:cap4_grafica_caja} se ilustra el índice de efectividad de
 % =========================================================================
 \subsubsection{Módulo 5: Viáticos, Proveedores y Nomenclatura}
 
-\paragraph{Listado de Casos de Prueba Ejecutados}
+\paragraph{Listado de Casos de Prueba Demostrativos}
 En la Tabla~\ref{tab:cap4_pruebas_operativos} se presentan los casos de prueba desarrollados para evaluar los componentes auxiliares de viáticos, catálogo de proveedores y plan de nomenclatura contable.
 
 {
@@ -1468,7 +1527,7 @@ En la Tabla~\ref{tab:cap4_pruebas_operativos} se presentan los casos de prueba d
     >{\raggedright\arraybackslash}p{2.0cm} 
     >{\centering\arraybackslash}p{0.8cm}
 }
-    \caption{Casos de prueba ejecutados - Módulos Viáticos, Proveedores y Nomenclatura} \label{tab:cap4_pruebas_operativos} \\
+    \caption{Casos de prueba demostrativos - Módulos Viáticos, Proveedores y Nomenclatura} \label{tab:cap4_pruebas_operativos} \\
     \toprule
     \textbf{ID} & \textbf{Módulo} & \textbf{Tipo} & \textbf{Caso} & \textbf{Datos} & \textbf{Pasos} & \textbf{Esperado} & \textbf{Obtenido} & \textbf{Estado} \\
     \midrule
@@ -1495,7 +1554,7 @@ En la Tabla~\ref{tab:cap4_pruebas_operativos} se presentan los casos de prueba d
 }
 
 \paragraph{Métricas Numéricas de Desempeño}
-En la Tabla~\ref{tab:cap4_metricas_operativos} se recogen las métricas consolidadas obtenidas de las pruebas sobre estos tres componentes del sistema.
+En la Tabla~\ref{tab:cap4_metricas_operativos} se recogen valores demostrativos para ilustrar el registro de métricas de estos tres componentes del sistema.
 
 {
 \small
@@ -1508,7 +1567,7 @@ En la Tabla~\ref{tab:cap4_metricas_operativos} se recogen las métricas consolid
     >{\raggedright\arraybackslash}p{2.0cm} 
     >{\raggedright\arraybackslash}p{3.0cm}
 }
-    \caption{Resultados cuantitativos - Módulos Operativos} \label{tab:cap4_metricas_operativos} \\
+    \caption{Valores demostrativos - Módulos Operativos} \label{tab:cap4_metricas_operativos} \\
     \toprule
     \textbf{Módulo} & \textbf{Métrica} & \textbf{Valor} & \textbf{Unidad} & \textbf{Versión / Fecha} \\
     \midrule
@@ -1525,17 +1584,17 @@ En la Tabla~\ref{tab:cap4_metricas_operativos} se recogen las métricas consolid
     \bottomrule
     \endlastfoot
 
-    Viáticos & \% de pruebas satisfactorias (\% OK) & 94 & \% & b4-2026-09-01 \\
+    Viáticos & \% de pruebas satisfactorias (\% OK) & 94 & \% & versión demostrativa \\
     \addlinespace
-    Proveedores & \% de pruebas satisfactorias (\% OK) & 97 & \% & b4-2026-09-01 \\
+    Proveedores & \% de pruebas satisfactorias (\% OK) & 97 & \% & versión demostrativa \\
     \addlinespace
-    Nomenclatura & \% de pruebas satisfactorias (\% OK) & 98 & \% & b4-2026-09-01 \\
+    Nomenclatura & \% de pruebas satisfactorias (\% OK) & 98 & \% & versión demostrativa \\
 
 \end{xltabular}
 }
 
 \paragraph{Representación Gráfica e Interpretación}
-En la Figura~\ref{fig:cap4_grafica_comparativa} se presenta una comparativa global de la tasa de aprobación alcanzada en la totalidad de los módulos integrados en la solución software.
+En la Figura~\ref{fig:cap4_grafica_comparativa} se presenta una comparativa demostrativa de la tasa de aprobación de los módulos incluidos en esta versión provisional.
 
 \begin{figure}[H]
     \centering
@@ -1570,8 +1629,8 @@ En la Figura~\ref{fig:cap4_grafica_comparativa} se presenta una comparativa glob
     \label{fig:cap4_grafica_comparativa}
     \vspace{0.1cm}
     \begin{minipage}{0.96\linewidth}
-        \small\textit{Nota.} Diagrama comparativo final que muestra un cumplimiento superior al 93\% de pruebas exitosas en la totalidad de los módulos desarrollados.
+        \small\textit{Nota.} Comparativa demostrativa; los porcentajes deben sustituirse por los resultados obtenidos durante la ejecución formal de las pruebas.
     \end{minipage}
 \end{figure}
 
-\noindent\textbf{Interpretación:} La evaluación global del sistema refleja un promedio general de aprobación de pruebas del 96.1\%. Los módulos de Nomenclatura (98\%) y Proveedores (97\%) mostraron el desempeño funcional más estable, mientras que las reglas de negocio de Viáticos (94\%) y Cheques (93\%) requirieron optimizaciones en frontend para garantizar la consistencia en el ingreso de datos por parte de los usuarios.
+\noindent\textbf{Interpretación:} En el ejemplo demostrativo, el promedio general de aprobación es de 96.1\%. Los porcentajes incluidos permiten mostrar la forma de interpretar la gráfica; deberán reemplazarse por los resultados obtenidos cuando se ejecute formalmente la matriz de pruebas y se documenten las evidencias correspondientes.

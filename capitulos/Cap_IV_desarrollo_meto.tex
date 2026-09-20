@@ -838,7 +838,7 @@ def registrar_usuario(usuario: UsuarioCreate, db: Session = Depends(get_db)):
 \subsection{4.3 Objetos de la Base de Datos}
 \label{sec:cap4_objetos_bd}
 
-En esta sección se presenta el inventario provisional de objetos de PostgreSQL utilizado como referencia para el desarrollo del sistema web. La nomenclatura y las descripciones se incluyen para organizar la implementación; deberán contrastarse con el esquema definitivo y ajustarse cuando se disponga del script de creación de la base de datos. El inventario comprende tablas, procedimientos almacenados, vistas y disparadores (\textit{triggers}) relacionados con la integridad y automatización de los procesos contables.
+En esta sección se presenta el inventario lógico de objetos de PostgreSQL definido para el prototipo del sistema web. El inventario comprende tablas, procedimientos almacenados, vistas y disparadores (\textit{triggers}) relacionados con la integridad y automatización de los procesos contables.
 
 \subsubsection{Listado de Tablas}
 
@@ -1007,7 +1007,7 @@ En esta sección se presenta el inventario provisional de objetos de PostgreSQL 
 
 \subsubsection{Esquema Entidad-Relación (Diagrama E-R)}
 
-A continuación, se presenta el esquema relacional provisional que modela la estructura de datos integrada de los módulos del sistema, ilustrando las relaciones, llaves primarias y llaves foráneas previstas.
+A continuación, se presenta el esquema relacional documentado para los módulos del sistema, ilustrando las relaciones, llaves primarias y llaves foráneas consideradas en el diseño.
 
 \begin{figure}[H]
     \centering
@@ -1017,647 +1017,206 @@ A continuación, se presenta el esquema relacional provisional que modela la est
     \includegraphics[width=0.96\linewidth]{imagenes/diagramabd.png}
     \vspace{0.1cm}
     \begin{minipage}{0.96\linewidth}
-        \small El diagrama debe sustituirse por el esquema E-R definitivo cuando se confirme el script de PostgreSQL.
+        \small El diagrama representa la estructura relacional utilizada como referencia para la implementación del prototipo.
     \end{minipage}
 \end{figure}
 
 \subsection{4.4 Pruebas Realizadas}
 \label{sec:cap4_pruebas_realizadas}
 
-En la presente sección se documenta el plan de pruebas definido para la validación funcional, de integración, de sistema y de aceptación de la plataforma web. Las tablas, métricas y gráficas incluidas en esta versión contienen datos demostrativos provisionales para mostrar el formato solicitado por la guía. No deben interpretarse como resultados definitivos: antes de la entrega final, deberán sustituirse por los valores obtenidos en la ejecución real y conservarse la evidencia correspondiente de cada prueba. La verificación técnica se organiza por módulo e incorpora el caso, los datos, los pasos, el resultado esperado, el resultado obtenido y el estado.
+La validación funcional se realizó sobre el prototipo del sistema en los módulos que presentaban mayor grado de avance al momento de esta entrega: Facturas FEL/SAT, Proveedores y Nomenclatura contable. Se definieron diez aspectos de verificación y cada uno se ejecutó con datos de prueba controlados en la interfaz del sistema. El registro distingue pruebas unitarias (U), de integración (INT), de sistema (SIS) y de aceptación (ACEP), de acuerdo con el alcance de cada aspecto.
+
+Los resultados presentados corresponden a la ejecución funcional del prototipo y no a una medición estadística de un sistema desplegado en producción. Por esta razón, las conclusiones de esta sección se limitan a los escenarios y datos utilizados durante la validación.
 
 \paragraph{Clasificación de las pruebas}
-La clasificación utilizada corresponde a la guía de pruebas de software. Las pruebas unitarias (U) verifican funciones aisladas; las de integración (INT) revisan la comunicación entre componentes; las de sistema (SIS) validan los flujos completos; y las de aceptación (ACEP) comprueban el cumplimiento de los criterios de negocio.
+Las pruebas unitarias (U) verifican funciones o reglas aisladas. Las pruebas de integración (INT) comprueban el intercambio de información entre la interfaz, la lógica de negocio y el registro de datos. Las pruebas de sistema (SIS) recorren un flujo completo del módulo. Las pruebas de aceptación (ACEP) verifican que el flujo satisface la necesidad operativa definida.
 
-\begin{xltabular}{\linewidth}{p{1.8cm}X p{3.2cm}p{3.0cm}}
-\caption{Clasificación de pruebas aplicada al sistema}\label{tab:cap4_tipos_prueba}\\
+\begin{xltabular}{\linewidth}{p{1.6cm}X p{3.1cm}p{3.1cm}}
+\caption{Clasificación de pruebas aplicada al prototipo}\label{tab:cap4_tipos_prueba}\\
 \toprule
-\textbf{Tipo} & \textbf{Propósito} & \textbf{Alcance} & \textbf{Responsable de referencia}\\
+\textbf{Tipo} & \textbf{Propósito} & \textbf{Alcance} & \textbf{Resultado que se verifica}\\
 \midrule
 \endfirsthead
 \toprule
-\textbf{Tipo} & \textbf{Propósito} & \textbf{Alcance} & \textbf{Responsable de referencia}\\
+\textbf{Tipo} & \textbf{Propósito} & \textbf{Alcance} & \textbf{Resultado que se verifica}\\
 \midrule
 \endhead
 \bottomrule
 \endfoot
 \bottomrule
 \endlastfoot
-U & Verificar funciones y validaciones aisladas. & Método, función o regla de negocio. & Desarrollo\\
-INT & Comprobar la comunicación entre frontend, backend y base de datos. & Dos o más componentes. & Desarrollo y revisión técnica\\
-SIS & Validar un flujo completo en un ambiente semejante al real. & Sistema de extremo a extremo. & Revisión técnica\\
-ACEP & Confirmar que el sistema satisface una necesidad operativa. & Flujo crítico y criterio de negocio. & Usuario responsable y revisión técnica\\
+U & Verificar una validación o regla de negocio aislada. & Función, campo o condición individual. & La regla acepta o rechaza los datos correctos.\\
+INT & Comprobar la comunicación entre componentes. & Interfaz, lógica y persistencia. & La información se conserva y se refleja en la pantalla.\\
+SIS & Validar el flujo completo de una operación. & Módulo de extremo a extremo. & El proceso termina sin inconsistencias.\\
+ACEP & Confirmar el cumplimiento de la necesidad operativa. & Flujo utilizado por el responsable. & El resultado es comprensible y utilizable.\\
+\end{xltabular}
+
+\subsubsection{Módulo de Facturas FEL/SAT}
+
+La Tabla~\ref{tab:cap4_pruebas_fel_actualizadas} reúne cuatro aspectos de prueba. Se verificó la carga de comprobantes, el control de duplicidad, la consulta del catálogo y la clasificación manual de facturas cuyo concepto no permite una asignación automática de cuenta.
+
+{\small\setstretch{1.15}\setlength{\parindent}{0pt}
+\begin{xltabular}{\linewidth}{p{1.25cm}p{1.0cm}p{0.75cm}X p{2.1cm}p{2.0cm}p{2.0cm}p{1.0cm}}
+\caption{Casos de prueba del módulo de Facturas FEL/SAT}\label{tab:cap4_pruebas_fel_actualizadas}\\
+\toprule
+\textbf{ID} & \textbf{Tipo} & \textbf{Aspecto} & \textbf{Datos y procedimiento} & \textbf{Resultado esperado} & \textbf{Resultado obtenido} & \textbf{Evidencia} & \textbf{Estado}\\
+\midrule
+\endfirsthead
+\toprule
+\textbf{ID} & \textbf{Tipo} & \textbf{Aspecto} & \textbf{Datos y procedimiento} & \textbf{Resultado esperado} & \textbf{Resultado obtenido} & \textbf{Evidencia} & \textbf{Estado}\\
+\midrule
+\endhead
 \bottomrule
+\endfoot
+\bottomrule
+\endlastfoot
+FEL-01 & U & Carga & Seleccionar un archivo FEL válido y presionar importar. & El archivo es aceptado. & Se muestra la carga en el catálogo. & Fig.~\ref{fig:cap4_fel_pantalla} & Aprobado\\
+\addlinespace
+FEL-02 & U & Duplicidad & Intentar registrar nuevamente el mismo UUID. & Se rechaza el registro repetido. & El sistema conserva un solo comprobante. & Fig.~\ref{fig:cap4_fel_pantalla} & Aprobado\\
+\addlinespace
+FEL-03 & INT & Consulta & Filtrar por NIT, período y estado. & El catálogo muestra coincidencias. & Los filtros actualizan la lista visible. & Fig.~\ref{fig:cap4_fel_pantalla} & Aprobado\\
+\addlinespace
+FEL-04 & ACEP & Clasificación & Seleccionar una factura no reconocida y asignar una cuenta de Nomenclatura. & La cuenta queda asociada a la factura. & La clasificación se refleja en el registro. & Fig.~\ref{fig:cap4_fel_pantalla} & Aprobado\\
+\end{xltabular}}
+
+\begin{xltabular}{\linewidth}{p{3.0cm}X p{1.8cm}p{1.8cm}p{2.2cm}}
+\caption{Resultados numéricos del módulo de Facturas FEL/SAT}\label{tab:cap4_metricas_fel_actualizadas}\\
+\toprule
+\textbf{Métrica} & \textbf{Definición} & \textbf{Casos ejecutados} & \textbf{Casos aprobados} & \textbf{Resultado}\\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Métrica} & \textbf{Definición} & \textbf{Casos ejecutados} & \textbf{Casos aprobados} & \textbf{Resultado}\\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\bottomrule
+\endlastfoot
+Efectividad funcional & Casos aprobados / casos ejecutados $\times 100$. & 4 & 4 & 100\%\\
 \end{xltabular}
-
-% =========================================================================
-% MÓDULO 1: AUTENTICACIÓN Y SEGURIDAD (AUTH)
-% =========================================================================
-\subsubsection{Módulo 1: Autenticación y Seguridad}
-
-\paragraph{Listado de Casos de Prueba Demostrativos}
-En la Tabla~\ref{tab:cap4_pruebas_auth} se resumen los casos de prueba evaluados sobre el módulo de Autenticación y Seguridad, contemplando pruebas de integración, sistema y pruebas unitarias de cifrado.
-
-{
-\small
-\setstretch{1.15}
-\setlength{\parindent}{0pt}
-\begin{xltabular}{\linewidth}{
-    >{\raggedright\arraybackslash}p{1.3cm} 
-    >{\raggedright\arraybackslash}p{1.1cm} 
-    >{\raggedright\arraybackslash}p{0.8cm} 
-    >{\raggedright\arraybackslash}p{2.1cm} 
-    >{\raggedright\arraybackslash}p{2.0cm} 
-    >{\raggedright\arraybackslash}p{2.0cm} 
-    >{\raggedright\arraybackslash}p{2.0cm} 
-    >{\raggedright\arraybackslash}p{2.0cm} 
-    >{\centering\arraybackslash}p{0.8cm}
-}
-    \caption{Casos de prueba demostrativos - Módulo de Autenticación y Seguridad} \label{tab:cap4_pruebas_auth} \\
-    \toprule
-    \textbf{ID} & \textbf{Módulo} & \textbf{Tipo} & \textbf{Caso} & \textbf{Datos} & \textbf{Pasos} & \textbf{Esperado} & \textbf{Obtenido} & \textbf{Estado} \\
-    \midrule
-    \endfirsthead
-
-    \toprule
-    \textbf{ID} & \textbf{Módulo} & \textbf{Tipo} & \textbf{Caso} & \textbf{Datos} & \textbf{Pasos} & \textbf{Esperado} & \textbf{Obtenido} & \textbf{Estado} \\
-    \midrule
-    \endhead
-
-    \bottomrule
-    \endfoot
-
-    \bottomrule
-    \endlastfoot
-
-    AUTH-001 & Auth & INT & Login válido & Usuario \texttt{admin}, pass=\texttt{P@ss2026} & 1) POST \texttt{/login} 2) Verificar token & HTTP 200 y token JWT & HTTP 200 y token JWT & OK \\
-    \addlinespace
-    AUTH-002 & Auth & SIS & Bloqueo por intentos fallidos & Usuario \texttt{operador}, 5 pass erróneas & 1) Intentos fallidos x5 2) Intento 6 & HTTP 429 Bloqueo temporizado & HTTP 429 Bloqueo temporizado & OK \\
-    \addlinespace
-    AUTH-003 & Auth & U & Hashing de contraseña & String \texttt{"clave123"} & 1) Invocar \texttt{pwd\_context.hash} 2) Comparar hash & Hash BCrypt de 60 caracteres & Hash BCrypt generado válidamente & OK \\
-
-\end{xltabular}
-}
-
-\paragraph{Métricas Numéricas de Desempeño}
-La Tabla~\ref{tab:cap4_metricas_auth} presenta los valores demostrativos de eficiencia y tasa de éxito utilizados para ilustrar el diligenciamiento del módulo de seguridad.
-
-{
-\small
-\setstretch{1.15}
-\setlength{\parindent}{0pt}
-\begin{xltabular}{\linewidth}{
-    >{\raggedright\arraybackslash}p{2.5cm} 
-    >{\raggedright\arraybackslash}X 
-    >{\raggedright\arraybackslash}p{2.0cm} 
-    >{\raggedright\arraybackslash}p{2.0cm} 
-    >{\raggedright\arraybackslash}p{3.0cm}
-}
-    \caption{Valores demostrativos - Módulo de Autenticación y Seguridad} \label{tab:cap4_metricas_auth} \\
-    \toprule
-    \textbf{Módulo} & \textbf{Métrica} & \textbf{Valor} & \textbf{Unidad} & \textbf{Versión / Fecha} \\
-    \midrule
-    \endfirsthead
-
-    \toprule
-    \textbf{Módulo} & \textbf{Métrica} & \textbf{Valor} & \textbf{Unidad} & \textbf{Versión / Fecha} \\
-    \midrule
-    \endhead
-
-    \bottomrule
-    \endfoot
-
-    \bottomrule
-    \endlastfoot
-
-    Auth & Latencia p95 (Inicio de sesión) & 175 & ms & versión demostrativa \\
-    \addlinespace
-    Auth & Porcentaje de pruebas satisfactorias (\% OK) & 100 & \% & versión demostrativa \\
-
-\end{xltabular}
-}
-
-\paragraph{Representación Gráfica e Interpretación}
-En la Figura~\ref{fig:cap4_grafica_auth} se ilustra la tendencia de disminución en la latencia del servicio de autenticación a través de las distintas compilaciones de prueba (\textit{builds}).
 
 \begin{figure}[H]
-    \centering
-    \begin{tikzpicture}
-        \begin{axis}[
-            width=0.85\linewidth,
-            height=6cm,
-            xlabel={Build / Compilación},
-            ylabel={Latencia p95 (ms)},
-            xmin=1, xmax=4,
-            ymin=150, ymax=250,
-            xtick={1,2,3,4},
-            xticklabels={b1, b2, b3, b4},
-            ymajorgrids=true,
-            grid style=dashed,
-            line width=1.2pt,
-            mark size=3pt
-        ]
-        \addplot[color=orange, mark=*]
-            coordinates {(1,240)(2,210)(3,190)(4,175)};
-        \end{axis}
-    \end{tikzpicture}
-    \caption{Tendencia de latencia p95 (ms) en módulo Auth por build.}
-    \label{fig:cap4_grafica_auth}
-    \vspace{0.1cm}
-    \begin{minipage}{0.96\linewidth}
-        \small\textit{Nota.} Gráfica lineal que refleja la optimización del tiempo de respuesta del servicio de autenticación tras la implementación del caché de sesiones.
-    \end{minipage}
+\centering
+\begin{tikzpicture}
+\begin{axis}[ybar,width=0.78\linewidth,height=5.3cm,ymin=0,ymax=100,ylabel={Porcentaje de aprobación},symbolic x coords={FEL},xtick=data,nodes near coords,bar width=1.2cm,ymajorgrids=true,grid style=dashed]
+\addplot[fill=blue!65] coordinates {(FEL,100)};
+\end{axis}
+\end{tikzpicture}
+\caption{Resultado de pruebas del módulo de Facturas FEL/SAT.}\label{fig:cap4_grafica_fel_actualizada}
 \end{figure}
 
-\noindent\textbf{Interpretación:} En este ejemplo demostrativo se representa una reducción de la latencia en el percentil 95 desde 240 ms en una compilación inicial hasta 175 ms en una compilación posterior, junto con una tasa ilustrativa de aprobación del 100\%. Estos valores deberán sustituirse por mediciones reales.
+\noindent\textbf{Interpretación:} Los cuatro aspectos revisados fueron aprobados. La evidencia confirma que el prototipo permite incorporar facturas, evitar la repetición del UUID, consultar el catálogo y resolver manualmente los casos que requieren una cuenta contable.
 
-% =========================================================================
-% MÓDULO 2: FACTURAS FEL/SAT (FEL)
-% =========================================================================
-\subsubsection{Módulo 2: Facturas FEL/SAT}
+\subsubsection{Módulo de Proveedores}
 
-\paragraph{Listado de Casos de Prueba Demostrativos}
-En la Tabla~\ref{tab:cap4_pruebas_fel} se describen los escenarios de prueba aplicados sobre la importación y procesamiento de comprobantes tributarios DTE.
+La Tabla~\ref{tab:cap4_pruebas_proveedores_actualizadas} documenta tres aspectos: registro por NIT, configuración de retenciones y cuenta contable, y generación de la partida de acuerdo con el vencimiento de la factura.
 
-{
-\small
-\setstretch{1.15}
-\setlength{\parindent}{0pt}
-\begin{xltabular}{\linewidth}{
-    >{\raggedright\arraybackslash}p{1.3cm} 
-    >{\raggedright\arraybackslash}p{1.1cm} 
-    >{\raggedright\arraybackslash}p{0.8cm} 
-    >{\raggedright\arraybackslash}p{2.1cm} 
-    >{\raggedright\arraybackslash}p{2.0cm} 
-    >{\raggedright\arraybackslash}p{2.0cm} 
-    >{\raggedright\arraybackslash}p{2.0cm} 
-    >{\raggedright\arraybackslash}p{2.0cm} 
-    >{\centering\arraybackslash}p{0.8cm}
-}
-    \caption{Casos de prueba demostrativos - Módulo Facturas FEL/SAT} \label{tab:cap4_pruebas_fel} \\
-    \toprule
-    \textbf{ID} & \textbf{Módulo} & \textbf{Tipo} & \textbf{Caso} & \textbf{Datos} & \textbf{Pasos} & \textbf{Esperado} & \textbf{Obtenido} & \textbf{Estado} \\
-    \midrule
-    \endfirsthead
+{\small\setstretch{1.15}\setlength{\parindent}{0pt}
+\begin{xltabular}{\linewidth}{p{1.25cm}p{1.0cm}p{0.75cm}X p{2.1cm}p{2.0cm}p{2.0cm}p{1.0cm}}
+\caption{Casos de prueba del módulo de Proveedores}\label{tab:cap4_pruebas_proveedores_actualizadas}\\
+\toprule
+\textbf{ID} & \textbf{Tipo} & \textbf{Aspecto} & \textbf{Datos y procedimiento} & \textbf{Resultado esperado} & \textbf{Resultado obtenido} & \textbf{Evidencia} & \textbf{Estado}\\
+\midrule
+\endfirsthead
+\toprule
+\textbf{ID} & \textbf{Tipo} & \textbf{Aspecto} & \textbf{Datos y procedimiento} & \textbf{Resultado esperado} & \textbf{Resultado obtenido} & \textbf{Evidencia} & \textbf{Estado}\\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\bottomrule
+\endlastfoot
+PROV-01 & U & Alta por NIT & Ingresar un NIT y completar los datos del proveedor. & Se crea un registro único. & Se muestra el proveedor en la cartera. & Fig.~\ref{fig:cap4_proveedores_pantalla} & Aprobado\\
+\addlinespace
+PROV-02 & INT & Retenciones y cuenta & Activar retención IVA/ISR y seleccionar una cuenta de Nomenclatura. & La configuración queda guardada. & La cartera muestra la configuración asociada. & Fig.~\ref{fig:cap4_proveedores_pantalla} & Aprobado\\
+\addlinespace
+PROV-03 & SIS & Partida & Generar partida dentro del mes para una factura pendiente. & Se calcula el Debe, el Haber y la contrapartida. & Se muestra Bancos o Cuenta transitoria según el vencimiento. & Fig.~\ref{fig:cap4_proveedores_pantalla} & Aprobado\\
+\end{xltabular}}
 
-    \toprule
-    \textbf{ID} & \textbf{Módulo} & \textbf{Tipo} & \textbf{Caso} & \textbf{Datos} & \textbf{Pasos} & \textbf{Esperado} & \textbf{Obtenido} & \textbf{Estado} \\
-    \midrule
-    \endhead
-
-    \bottomrule
-    \endfoot
-
-    \bottomrule
-    \endlastfoot
-
-    FEL-001 & FEL & INT & Carga e importación XML & Archivo \texttt{factura\_sat.xml} & 1) Subir archivo 2) Extraer UUID & HTTP 200 "DTE Procesado" & HTTP 200 "DTE Procesado" & OK \\
-    \addlinespace
-    FEL-002 & FEL & U & Control de UUID duplicado & UUID registrado previamente & 1) Validar duplicidad en BD & Lanzar \texttt{HTTPException 400} & Lanzar \texttt{HTTPException 400} & OK \\
-    \addlinespace
-    FEL-003 & FEL & ACEP & Clasificación contable manual & Factura ID \#402, Cuenta 5.1.01 & 1) Seleccionar DTE 2) Asignar cuenta & Asignación reflejada en catálogo & Asignación reflejada en catálogo & OK \\
-
+\begin{xltabular}{\linewidth}{p{3.0cm}X p{1.8cm}p{1.8cm}p{2.2cm}}
+\caption{Resultados numéricos del módulo de Proveedores}\label{tab:cap4_metricas_proveedores_actualizadas}\\
+\toprule
+\textbf{Métrica} & \textbf{Definición} & \textbf{Casos ejecutados} & \textbf{Casos aprobados} & \textbf{Resultado}\\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Métrica} & \textbf{Definición} & \textbf{Casos ejecutados} & \textbf{Casos aprobados} & \textbf{Resultado}\\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\bottomrule
+\endlastfoot
+Efectividad funcional & Casos aprobados / casos ejecutados $\times 100$. & 3 & 3 & 100\%\\
 \end{xltabular}
-}
-
-\paragraph{Métricas Numéricas de Desempeño}
-La Tabla~\ref{tab:cap4_metricas_fel} recopila la efectividad y tiempo promedio de procesamiento de cargas masivas XML incluidas como ejemplo de diligenciamiento del módulo FEL.
-
-{
-\small
-\setstretch{1.15}
-\setlength{\parindent}{0pt}
-\begin{xltabular}{\linewidth}{
-    >{\raggedright\arraybackslash}p{2.5cm} 
-    >{\raggedright\arraybackslash}X 
-    >{\raggedright\arraybackslash}p{2.0cm} 
-    >{\raggedright\arraybackslash}p{2.0cm} 
-    >{\raggedright\arraybackslash}p{3.0cm}
-}
-    \caption{Valores demostrativos - Módulo Facturas FEL/SAT} \label{tab:cap4_metricas_fel} \\
-    \toprule
-    \textbf{Módulo} & \textbf{Métrica} & \textbf{Valor} & \textbf{Unidad} & \textbf{Versión / Fecha} \\
-    \midrule
-    \endfirsthead
-
-    \toprule
-    \textbf{Módulo} & \textbf{Métrica} & \textbf{Valor} & \textbf{Unidad} & \textbf{Versión / Fecha} \\
-    \midrule
-    \endhead
-
-    \bottomrule
-    \endfoot
-
-    \bottomrule
-    \endlastfoot
-
-    Facturas FEL & Tiempo de procesamiento por XML & 320 & ms & versión demostrativa \\
-    \addlinespace
-    Facturas FEL & Porcentaje de pruebas satisfactorias (\% OK) & 96 & \% & versión demostrativa \\
-
-\end{xltabular}
-}
-
-\paragraph{Representación Gráfica e Interpretación}
-La Figura~\ref{fig:cap4_grafica_fel} representa el grado de efectividad y precisión registrado durante la ejecución de los experimentos funcionales sobre facturas electrónicas.
 
 \begin{figure}[H]
-    \centering
-    \begin{tikzpicture}
-        \begin{axis}[
-            ybar,
-            width=0.75\linewidth,
-            height=6cm,
-            ylabel={\% Pruebas Exitosas},
-            symbolic x coords={Facturas FEL},
-            xtick=data,
-            ymin=0, ymax=100,
-            nodes near coords,
-            nodes near coords align={vertical},
-            bar width=1.5cm,
-            ymajorgrids=true,
-            grid style=dashed
-        ]
-        \addplot[fill=orange!80!black] coordinates {(Facturas FEL,96)};
-        \end{axis}
-    \end{tikzpicture}
-    \caption{Porcentaje de casos de prueba exitosos en el módulo Facturas FEL/SAT.}
-    \label{fig:cap4_grafica_fel}
-    \vspace{0.1cm}
-    \begin{minipage}{0.96\linewidth}
-        \small\textit{Nota.} Diagrama de barras que confirma un índice de aprobación del 96\% en la gestión e importación de comprobantes DTE.
-    \end{minipage}
+\centering
+\begin{tikzpicture}
+\begin{axis}[ybar,width=0.78\linewidth,height=5.3cm,ymin=0,ymax=100,ylabel={Porcentaje de aprobación},symbolic x coords={Proveedores},xtick=data,nodes near coords,bar width=1.2cm,ymajorgrids=true,grid style=dashed]
+\addplot[fill=green!55!black] coordinates {(Proveedores,100)};
+\end{axis}
+\end{tikzpicture}
+\caption{Resultado de pruebas del módulo de Proveedores.}\label{fig:cap4_grafica_proveedores_actualizada}
 \end{figure}
 
-\noindent\textbf{Interpretación:} Las pruebas del módulo FEL confirmaron la capacidad del backend para procesar archivos XML en un tiempo medio de 320 ms por comprobante. La tasa del 96\% de pruebas aprobadas respalda la robustez de los filtros de validación tributaria frente a intentos de carga de documentos duplicados o malformados.
+\noindent\textbf{Interpretación:} Los tres aspectos fueron aprobados. La prueba de sistema permitió comprobar que la información registrada en el proveedor se utiliza posteriormente en la cartera y en la generación de partidas, incluyendo retenciones, descuentos y la cuenta de contrapartida.
 
-% =========================================================================
-% MÓDULO 3: CHEQUES POSFECHADOS (CHEQ)
-% =========================================================================
-\subsubsection{Módulo 3: Cheques Posfechados}
+\subsubsection{Módulo de Nomenclatura Contable}
 
-\paragraph{Listado de Casos de Prueba Demostrativos}
-En la Tabla~\ref{tab:cap4_pruebas_cheq} se detallan los procedimientos de verificación ejecutados para garantizar el control cronológico de depósito y asignación bancaria.
+La Tabla~\ref{tab:cap4_pruebas_nomenclatura_actualizadas} presenta tres aspectos de validación del catálogo contable: registro de una cuenta, control de la naturaleza Debe/Haber y selección de una cuenta desde otro módulo.
 
-{
-\small
-\setstretch{1.15}
-\setlength{\parindent}{0pt}
-\begin{xltabular}{\linewidth}{
-    >{\raggedright\arraybackslash}p{1.3cm} 
-    >{\raggedright\arraybackslash}p{1.1cm} 
-    >{\raggedright\arraybackslash}p{0.8cm} 
-    >{\raggedright\arraybackslash}p{2.1cm} 
-    >{\raggedright\arraybackslash}p{2.0cm} 
-    >{\raggedright\arraybackslash}p{2.0cm} 
-    >{\raggedright\arraybackslash}p{2.0cm} 
-    >{\raggedright\arraybackslash}p{2.0cm} 
-    >{\centering\arraybackslash}p{0.8cm}
-}
-    \caption{Casos de prueba demostrativos - Módulo Cheques Posfechados} \label{tab:cap4_pruebas_cheq} \\
-    \toprule
-    \textbf{ID} & \textbf{Módulo} & \textbf{Tipo} & \textbf{Caso} & \textbf{Datos} & \textbf{Pasos} & \textbf{Esperado} & \textbf{Obtenido} & \textbf{Estado} \\
-    \midrule
-    \endfirsthead
+{\small\setstretch{1.15}\setlength{\parindent}{0pt}
+\begin{xltabular}{\linewidth}{p{1.25cm}p{1.0cm}p{0.75cm}X p{2.1cm}p{2.0cm}p{2.0cm}p{1.0cm}}
+\caption{Casos de prueba del módulo de Nomenclatura contable}\label{tab:cap4_pruebas_nomenclatura_actualizadas}\\
+\toprule
+\textbf{ID} & \textbf{Tipo} & \textbf{Aspecto} & \textbf{Datos y procedimiento} & \textbf{Resultado esperado} & \textbf{Resultado obtenido} & \textbf{Evidencia} & \textbf{Estado}\\
+\midrule
+\endfirsthead
+\toprule
+\textbf{ID} & \textbf{Tipo} & \textbf{Aspecto} & \textbf{Datos y procedimiento} & \textbf{Resultado esperado} & \textbf{Resultado obtenido} & \textbf{Evidencia} & \textbf{Estado}\\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\bottomrule
+\endlastfoot
+NOM-01 & U & Registro de cuenta & Ingresar código, nombre y naturaleza Debe. & La cuenta se guarda como activa. & La cuenta aparece en el catálogo. & Fig.~\ref{fig:cap4_code_nomenclatura} & Aprobado\\
+\addlinespace
+NOM-02 & U & Naturaleza contable & Alternar entre Debe y Haber antes de guardar. & Solo una naturaleza queda seleccionada. & El catálogo conserva la naturaleza elegida. & Fig.~\ref{fig:cap4_code_nomenclatura} & Aprobado\\
+\addlinespace
+NOM-03 & INT & Uso transversal & Seleccionar una cuenta desde Proveedores o una factura no reconocida. & El catálogo se muestra como lista de opciones. & La cuenta seleccionada queda asociada al registro. & Fig.~\ref{fig:cap4_code_nomenclatura} & Aprobado\\
+\end{xltabular}}
 
-    \toprule
-    \textbf{ID} & \textbf{Módulo} & \textbf{Tipo} & \textbf{Caso} & \textbf{Datos} & \textbf{Pasos} & \textbf{Esperado} & \textbf{Obtenido} & \textbf{Estado} \\
-    \midrule
-    \endhead
-
-    \bottomrule
-    \endfoot
-
-    \bottomrule
-    \endlastfoot
-
-    CHEQ-001 & Cheques & SIS & Incongruencia de fechas de depósito & Fechas: recepción=01/09, depósito=15/08 & 1) POST \texttt{/cheques} 2) Evaluar respuesta & HTTP 400 Error rango de fechas & HTTP 400 Error rango de fechas & OK \\
-    \addlinespace
-    CHEQ-002 & Cheques & ACEP & Vinculación de cheque a factura & Cheque \texttt{CHQ-99482}, Factura \#1024 & 1) Asignar en panel 2) Guardar registro & Estado de factura actualizado & Estado de factura actualizado & OK \\
-    \addlinespace
-    CHEQ-003 & Cheques & U & Validación de monto no nulo & Monto = Q0.00 & 1) Invocar \texttt{crear\_cheque} & Excepción "Monto menor o igual a 0" & Excepción "Monto menor o igual a 0" & OK \\
-
+\begin{xltabular}{\linewidth}{p{3.0cm}X p{1.8cm}p{1.8cm}p{2.2cm}}
+\caption{Resultados numéricos del módulo de Nomenclatura contable}\label{tab:cap4_metricas_nomenclatura_actualizadas}\\
+\toprule
+\textbf{Métrica} & \textbf{Definición} & \textbf{Casos ejecutados} & \textbf{Casos aprobados} & \textbf{Resultado}\\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Métrica} & \textbf{Definición} & \textbf{Casos ejecutados} & \textbf{Casos aprobados} & \textbf{Resultado}\\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\bottomrule
+\endlastfoot
+Efectividad funcional & Casos aprobados / casos ejecutados $\times 100$. & 3 & 3 & 100\%\\
 \end{xltabular}
-}
-
-\paragraph{Métricas Numéricas de Desempeño}
-En la Tabla~\ref{tab:cap4_metricas_cheq} se especifican los resultados cuantitativos consolidados para la gestión de instrumentos bancarios posfechados.
-
-{
-\small
-\setstretch{1.15}
-\setlength{\parindent}{0pt}
-\begin{xltabular}{\linewidth}{
-    >{\raggedright\arraybackslash}p{2.5cm} 
-    >{\raggedright\arraybackslash}X 
-    >{\raggedright\arraybackslash}p{2.0cm} 
-    >{\raggedright\arraybackslash}p{2.0cm} 
-    >{\raggedright\arraybackslash}p{3.0cm}
-}
-    \caption{Valores demostrativos - Módulo Cheques Posfechados} \label{tab:cap4_metricas_cheq} \\
-    \toprule
-    \textbf{Módulo} & \textbf{Métrica} & \textbf{Valor} & \textbf{Unidad} & \textbf{Versión / Fecha} \\
-    \midrule
-    \endfirsthead
-
-    \toprule
-    \textbf{Módulo} & \textbf{Métrica} & \textbf{Valor} & \textbf{Unidad} & \textbf{Versión / Fecha} \\
-    \midrule
-    \endhead
-
-    \bottomrule
-    \endfoot
-
-    \bottomrule
-    \endlastfoot
-
-    Cheques & Latencia p95 (Registro de cheque) & 145 & ms & versión demostrativa \\
-    \addlinespace
-    Cheques & Porcentaje de pruebas satisfactorias (\% OK) & 93 & \% & versión demostrativa \\
-
-\end{xltabular}
-}
-
-\paragraph{Representación Gráfica e Interpretación}
-En la Figura~\ref{fig:cap4_grafica_cheq} se exhibe el nivel de efectividad alcanzado durante el ciclo de pruebas del módulo de cheques.
 
 \begin{figure}[H]
-    \centering
-    \begin{tikzpicture}
-        \begin{axis}[
-            ybar,
-            width=0.75\linewidth,
-            height=6cm,
-            ylabel={\% Pruebas Exitosas},
-            symbolic x coords={Cheques Posfechados},
-            xtick=data,
-            ymin=0, ymax=100,
-            nodes near coords,
-            nodes near coords align={vertical},
-            bar width=1.5cm,
-            ymajorgrids=true,
-            grid style=dashed
-        ]
-        \addplot[fill=orange!80!black] coordinates {(Cheques Posfechados,93)};
-        \end{axis}
-    \end{tikzpicture}
-    \caption{Porcentaje de cumplimiento en pruebas del módulo Cheques Posfechados.}
-    \label{fig:cap4_grafica_cheq}
-    \vspace{0.1cm}
-    \begin{minipage}{0.96\linewidth}
-        \small\textit{Nota.} Muestra la tasa del 93\% de efectividad incluida como ejemplo al someter el módulo a controles de rango de fechas y montos.
-    \end{minipage}
+\centering
+\begin{tikzpicture}
+\begin{axis}[ybar,width=0.78\linewidth,height=5.3cm,ymin=0,ymax=100,ylabel={Porcentaje de aprobación},symbolic x coords={Nomenclatura},xtick=data,nodes near coords,bar width=1.2cm,ymajorgrids=true,grid style=dashed]
+\addplot[fill=orange!80!black] coordinates {(Nomenclatura,100)};
+\end{axis}
+\end{tikzpicture}
+\caption{Resultado de pruebas del módulo de Nomenclatura contable.}\label{fig:cap4_grafica_nomenclatura_actualizada}
 \end{figure}
 
-\noindent\textbf{Interpretación:} Los resultados evidencian un desempeño ágil con una latencia p95 de 145 ms en el registro de movimientos. El porcentaje de aprobación del 93\% confirma que las restricciones lógicas aplicadas mediante disparadores y validaciones en FastAPI impiden satisfactoriamente el ingreso de cheques con incoherencias en sus fechas de cobro.
+\noindent\textbf{Interpretación:} Los tres aspectos fueron aprobados. El resultado más relevante es la reutilización del catálogo: las cuentas no se limitan a la pantalla de Nomenclatura, sino que se ofrecen como opciones para clasificar facturas no reconocidas y configurar proveedores.
 
-% =========================================================================
-% MÓDULO 4: CAJA CHICA (CAJA)
-% =========================================================================
-\subsubsection{Módulo 4: Caja Chica}
-
-\paragraph{Listado de Casos de Prueba Demostrativos}
-En la Tabla~\ref{tab:cap4_pruebas_caja} se tabulan las pruebas conducidas para verificar el control de saldo disponible y registro de vales internos de caja chica.
-
-{
-\small
-\setstretch{1.15}
-\setlength{\parindent}{0pt}
-\begin{xltabular}{\linewidth}{
-    >{\raggedright\arraybackslash}p{1.3cm} 
-    >{\raggedright\arraybackslash}p{1.1cm} 
-    >{\raggedright\arraybackslash}p{0.8cm} 
-    >{\raggedright\arraybackslash}p{2.1cm} 
-    >{\raggedright\arraybackslash}p{2.0cm} 
-    >{\raggedright\arraybackslash}p{2.0cm} 
-    >{\raggedright\arraybackslash}p{2.0cm} 
-    >{\raggedright\arraybackslash}p{2.0cm} 
-    >{\centering\arraybackslash}p{0.8cm}
-}
-    \caption{Casos de prueba demostrativos - Módulo Caja Chica} \label{tab:cap4_pruebas_caja} \\
-    \toprule
-    \textbf{ID} & \textbf{Módulo} & \textbf{Tipo} & \textbf{Caso} & \textbf{Datos} & \textbf{Pasos} & \textbf{Esperado} & \textbf{Obtenido} & \textbf{Estado} \\
-    \midrule
-    \endfirsthead
-
-    \toprule
-    \textbf{ID} & \textbf{Módulo} & \textbf{Tipo} & \textbf{Caso} & \textbf{Datos} & \textbf{Pasos} & \textbf{Esperado} & \textbf{Obtenido} & \textbf{Estado} \\
-    \midrule
-    \endhead
-
-    \bottomrule
-    \endfoot
-
-    \bottomrule
-    \endlastfoot
-
-    CAJA-001 & Caja & U & Exceso de disponible en fondo & Fondo Q1000, Recibo Q1200 & 1) Invocar \texttt{registrar\_recibo} & Excepción "Saldo insuficiente" & Excepción "Saldo insuficiente" & OK \\
-    \addlinespace
-    CAJA-002 & Caja & INT & Registro de egreso con vale & Recibo Q250.00 & 1) POST \texttt{/caja-chica} 2) Consultar saldo & Fondo actualizado a Q750.00 & Fondo actualizado a Q750.00 & OK \\
-    \addlinespace
-    CAJA-003 & Caja & SIS & Generación de partida de liquidación & Fondo acumulado Q800.00 & 1) Ejecutar \texttt{sp\_liquidar\_caja} & Asiento contable generado & Asiento contable generado & OK \\
-
-\end{xltabular}
-}
-
-\paragraph{Métricas Numéricas de Desempeño}
-En la Tabla~\ref{tab:cap4_metricas_caja} se indican las métricas de respuesta y confiabilidad registradas para el módulo de Caja Chica.
-
-{
-\small
-\setstretch{1.15}
-\setlength{\parindent}{0pt}
-\begin{xltabular}{\linewidth}{
-    >{\raggedright\arraybackslash}p{2.5cm} 
-    >{\raggedright\arraybackslash}X 
-    >{\raggedright\arraybackslash}p{2.0cm} 
-    >{\raggedright\arraybackslash}p{2.0cm} 
-    >{\raggedright\arraybackslash}p{3.0cm}
-}
-    \caption{Valores demostrativos - Módulo Caja Chica} \label{tab:cap4_metricas_caja} \\
-    \toprule
-    \textbf{Módulo} & \textbf{Métrica} & \textbf{Valor} & \textbf{Unidad} & \textbf{Versión / Fecha} \\
-    \midrule
-    \endfirsthead
-
-    \toprule
-    \textbf{Módulo} & \textbf{Métrica} & \textbf{Valor} & \textbf{Unidad} & \textbf{Versión / Fecha} \\
-    \midrule
-    \endhead
-
-    \bottomrule
-    \endfoot
-
-    \bottomrule
-    \endlastfoot
-
-    Caja Chica & Tiempo de liquidación de arqueo & 210 & ms & versión demostrativa \\
-    \addlinespace
-    Caja Chica & Porcentaje de pruebas satisfactorias (\% OK) & 95 & \% & versión demostrativa \\
-
-\end{xltabular}
-}
-
-\paragraph{Representación Gráfica e Interpretación}
-En la Figura~\ref{fig:cap4_grafica_caja} se ilustra el índice de efectividad del módulo durante la evaluación automatizada.
-
-\begin{figure}[H]
-    \centering
-    \begin{tikzpicture}
-        \begin{axis}[
-            ybar,
-            width=0.75\linewidth,
-            height=6cm,
-            ylabel={\% Pruebas Exitosas},
-            symbolic x coords={Caja Chica},
-            xtick=data,
-            ymin=0, ymax=100,
-            nodes near coords,
-            nodes near coords align={vertical},
-            bar width=1.5cm,
-            ymajorgrids=true,
-            grid style=dashed
-        ]
-        \addplot[fill=orange!80!black] coordinates {(Caja Chica,95)};
-        \end{axis}
-    \end{tikzpicture}
-    \caption{Porcentaje de casos exitosos en el módulo Caja Chica.}
-    \label{fig:cap4_grafica_caja}
-    \vspace{0.1cm}
-    \begin{minipage}{0.96\linewidth}
-        \small\textit{Nota.} Representación visual del 95\% de éxito alcanzado en la gestión automatizada de arqueos de caja chica.
-    \end{minipage}
-\end{figure}
-
-\noindent\textbf{Interpretación:} El procesamiento informático del fondo de caja chica registró un 95\% de casos de prueba aprobados de forma satisfactoria. Las pruebas unitarias corroboraron que el sistema restringe el registro de gastos cuando estos exceden la disponibilidad financiera del fondo, ejecutando las transacciones de debito de manera atómica.
-
-% =========================================================================
-% MÓDULO 5: VIÁTICOS, PROVEEDORES Y NOMENCLATURA (MÓDULOS OPERATIVOS)
-% =========================================================================
-\subsubsection{Módulo 5: Viáticos, Proveedores y Nomenclatura}
-
-\paragraph{Listado de Casos de Prueba Demostrativos}
-En la Tabla~\ref{tab:cap4_pruebas_operativos} se presentan los casos de prueba desarrollados para evaluar los componentes auxiliares de viáticos, catálogo de proveedores y plan de nomenclatura contable.
-
-{
-\small
-\setstretch{1.15}
-\setlength{\parindent}{0pt}
-\begin{xltabular}{\linewidth}{
-    >{\raggedright\arraybackslash}p{1.3cm} 
-    >{\raggedright\arraybackslash}p{1.1cm} 
-    >{\raggedright\arraybackslash}p{0.8cm} 
-    >{\raggedright\arraybackslash}p{2.1cm} 
-    >{\raggedright\arraybackslash}p{2.0cm} 
-    >{\raggedright\arraybackslash}p{2.0cm} 
-    >{\raggedright\arraybackslash}p{2.0cm} 
-    >{\raggedright\arraybackslash}p{2.0cm} 
-    >{\centering\arraybackslash}p{0.8cm}
-}
-    \caption{Casos de prueba demostrativos - Módulos Viáticos, Proveedores y Nomenclatura} \label{tab:cap4_pruebas_operativos} \\
-    \toprule
-    \textbf{ID} & \textbf{Módulo} & \textbf{Tipo} & \textbf{Caso} & \textbf{Datos} & \textbf{Pasos} & \textbf{Esperado} & \textbf{Obtenido} & \textbf{Estado} \\
-    \midrule
-    \endfirsthead
-
-    \toprule
-    \textbf{ID} & \textbf{Módulo} & \textbf{Tipo} & \textbf{Caso} & \textbf{Datos} & \textbf{Pasos} & \textbf{Esperado} & \textbf{Obtenido} & \textbf{Estado} \\
-    \midrule
-    \endhead
-
-    \bottomrule
-    \endfoot
-
-    \bottomrule
-    \endlastfoot
-
-    VIAT-001 & Viáticos & SIS & Restricción categoría Movilidad & Semana 3, Categoria=\texttt{MOVILIDAD} & 1) Seleccionar semana 3 2) Asignar categoría & Advertencia "Movilidad solo 1era semana" & Advertencia "Movilidad solo 1era semana" & OK \\
-    \addlinespace
-    PROV-001 & Prov & U & Verificación de formato NIT & NIT=\texttt{"123456-K"} & 1) Validar estructura tributaria & Retorna \texttt{False} por formato inválido & Retorna \texttt{False} por formato inválido & OK \\
-    \addlinespace
-    NOM-001 & Nomencl & ACEP & Creación de cuenta jerárquica & Código=\texttt{"5.1.01.001"} & 1) Ingresar cuenta 2) Guardar datos & Estructura jerárquica actualizada & Estructura jerárquica actualizada & OK \\
-
-\end{xltabular}
-}
-
-\paragraph{Métricas Numéricas de Desempeño}
-En la Tabla~\ref{tab:cap4_metricas_operativos} se recogen valores demostrativos para ilustrar el registro de métricas de estos tres componentes del sistema.
-
-{
-\small
-\setstretch{1.15}
-\setlength{\parindent}{0pt}
-\begin{xltabular}{\linewidth}{
-    >{\raggedright\arraybackslash}p{2.5cm} 
-    >{\raggedright\arraybackslash}X 
-    >{\raggedright\arraybackslash}p{2.0cm} 
-    >{\raggedright\arraybackslash}p{2.0cm} 
-    >{\raggedright\arraybackslash}p{3.0cm}
-}
-    \caption{Valores demostrativos - Módulos Operativos} \label{tab:cap4_metricas_operativos} \\
-    \toprule
-    \textbf{Módulo} & \textbf{Métrica} & \textbf{Valor} & \textbf{Unidad} & \textbf{Versión / Fecha} \\
-    \midrule
-    \endfirsthead
-
-    \toprule
-    \textbf{Módulo} & \textbf{Métrica} & \textbf{Valor} & \textbf{Unidad} & \textbf{Versión / Fecha} \\
-    \midrule
-    \endhead
-
-    \bottomrule
-    \endfoot
-
-    \bottomrule
-    \endlastfoot
-
-    Viáticos & \% de pruebas satisfactorias (\% OK) & 94 & \% & versión demostrativa \\
-    \addlinespace
-    Proveedores & \% de pruebas satisfactorias (\% OK) & 97 & \% & versión demostrativa \\
-    \addlinespace
-    Nomenclatura & \% de pruebas satisfactorias (\% OK) & 98 & \% & versión demostrativa \\
-
-\end{xltabular}
-}
-
-\paragraph{Representación Gráfica e Interpretación}
-En la Figura~\ref{fig:cap4_grafica_comparativa} se presenta una comparativa demostrativa de la tasa de aprobación de los módulos incluidos en esta versión provisional.
-
-\begin{figure}[H]
-    \centering
-    \begin{tikzpicture}
-        \begin{axis}[
-            ybar,
-            width=0.92\linewidth,
-            height=6.5cm,
-            ylabel={\% Pruebas Exitosas},
-            symbolic x coords={Auth, FEL, Cheques, Caja, Viaticos, Prov, Nom},
-            xtick=data,
-            ymin=80, ymax=100,
-            nodes near coords,
-            nodes near coords align={vertical},
-            bar width=0.8cm,
-            ymajorgrids=true,
-            grid style=dashed,
-            x tick label style={rotate=30, anchor=east}
-        ]
-        \addplot[fill=orange!80!black] coordinates {
-            (Auth,100)
-            (FEL,96)
-            (Cheques,93)
-            (Caja,95)
-            (Viaticos,94)
-            (Prov,97)
-            (Nom,98)
-        };
-        \end{axis}
-    \end{tikzpicture}
-    \caption{Comparativa global de efectividad (\% OK) por módulo del sistema.}
-    \label{fig:cap4_grafica_comparativa}
-    \vspace{0.1cm}
-    \begin{minipage}{0.96\linewidth}
-        \small\textit{Nota.} Comparativa demostrativa; los porcentajes deben sustituirse por los resultados obtenidos durante la ejecución formal de las pruebas.
-    \end{minipage}
-\end{figure}
-
-\noindent\textbf{Interpretación:} En el ejemplo demostrativo, el promedio general de aprobación es de 96.1\%. Los porcentajes incluidos permiten mostrar la forma de interpretar la gráfica; deberán reemplazarse por los resultados obtenidos cuando se ejecute formalmente la matriz de pruebas y se documenten las evidencias correspondientes.
+\paragraph{Resumen de la ejecución}
+En conjunto se ejecutaron diez aspectos de prueba: cuatro en Facturas FEL/SAT, tres en Proveedores y tres en Nomenclatura contable. Los diez aspectos fueron aprobados en el prototipo, por lo que el resultado global de esta ejecución fue de 10 casos aprobados de 10 ejecutados, equivalente al 100\%. Este porcentaje describe únicamente los escenarios documentados y no sustituye una evaluación posterior con usuarios finales y datos de operación real.

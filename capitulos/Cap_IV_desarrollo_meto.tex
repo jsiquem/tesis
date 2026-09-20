@@ -71,7 +71,7 @@ El presente capítulo documenta los formularios desarrollados para el Sistema We
     \caption{Módulo de Facturas FEL/SAT con opción de importación y catálogo.}
     \label{fig:cap4_fel_pantalla}
     \vspace{0.2cm}
-    \includegraphics[width=0.96\linewidth]{capturas_reales/anotadas/pantalla_03_facturas_fel_anotada.png}
+    \includegraphics[width=0.96\linewidth]{capturas_reales/angular_actualizadas/pantalla_03_facturas_fel.png}
 \end{figure}
 
 % =========================================================================
@@ -134,7 +134,7 @@ El presente capítulo documenta los formularios desarrollados para el Sistema We
     \caption{Formulario y control de cheques posfechados anotado.}
     \label{fig:cap4_cheques_pantalla}
     \vspace{0.2cm}
-    \includegraphics[width=0.96\linewidth]{capturas_reales/anotadas/pantalla_04_cheques_anotada.png}
+    \includegraphics[width=0.96\linewidth]{capturas_reales/angular_actualizadas/formulario_cheque.png}
 \end{figure}
 
 % =========================================================================
@@ -201,7 +201,7 @@ El presente capítulo documenta los formularios desarrollados para el Sistema We
     \caption{Módulo de Caja Chica con captura de recibos y liquidación.}
     \label{fig:cap4_cajachica_pantalla}
     \vspace{0.2cm}
-    \includegraphics[width=0.96\linewidth]{capturas_reales/anotadas/pantalla_05_caja_chica_anotada.png}
+    \includegraphics[width=0.96\linewidth]{capturas_reales/angular_actualizadas/formulario_caja_chica.png}
 \end{figure}
 
 % =========================================================================
@@ -266,7 +266,7 @@ El presente capítulo documenta los formularios desarrollados para el Sistema We
     \caption{Formulario de asignación de facturas a giras y viáticos.}
     \label{fig:cap4_viaticos_pantalla}
     \vspace{0.2cm}
-    \includegraphics[width=0.96\linewidth]{capturas_reales/anotadas/pantalla_07_asignacion_facturas_anotada.png}
+    \includegraphics[width=0.96\linewidth]{capturas_reales/angular_actualizadas/pantalla_07_viaticos_nueva_liquidacion.png}
 \end{figure}
 
 % =========================================================================
@@ -331,7 +331,7 @@ El presente capítulo documenta los formularios desarrollados para el Sistema We
     \caption{Módulo de Proveedores con cartera de crédito y gestión de partidas.}
     \label{fig:cap4_proveedores_pantalla}
     \vspace{0.2cm}
-    \includegraphics[width=0.96\linewidth]{capturas_reales/anotadas/pantalla_08_proveedores_anotada.png}
+    \includegraphics[width=0.96\linewidth]{capturas_reales/angular_actualizadas/pantalla_08_proveedores_nuevo.png}
 \end{figure}
 
 % =========================================================================
@@ -394,7 +394,7 @@ El presente capítulo documenta los formularios desarrollados para el Sistema We
     \caption{Módulo de Calendario Operativo con eventos y vencimientos anotados.}
     \label{fig:cap4_calendario_pantalla}
     \vspace{0.2cm}
-    \includegraphics[width=0.96\linewidth]{capturas_reales/anotadas/pantalla_09_calendario_anotada.png}
+    \includegraphics[width=0.96\linewidth]{capturas_reales/angular_actualizadas/pantalla_09_calendario.png}
 \end{figure}
 
 % =========================================================================
@@ -478,7 +478,7 @@ F-AUTH-02 & Usuarios y roles & Registrar usuarios y asignar permisos de acceso &
     \centering
     \caption{Pantalla de inicio de sesión del sistema.}
     \label{fig:cap4_auth_pantalla}
-    \includegraphics[width=0.96\linewidth]{capturas_reales/anotadas/pantalla_01_login_anotada.png}
+    \includegraphics[width=0.96\linewidth]{capturas_reales/angular_actualizadas/pantalla_01_login.png}
 \end{figure}
 
 \subsubsection{Módulo: Reportes Operativos y Financieros}
@@ -509,7 +509,7 @@ F-REP-02 & Resumen de Caja chica & Revisar e imprimir los movimientos del fondo 
     \centering
     \caption{Pantalla de reportes operativos y financieros.}
     \label{fig:cap4_reportes_pantalla}
-    \includegraphics[width=0.96\linewidth]{capturas_reales/anotadas/pantalla_11_reportes_anotada.png}
+    \includegraphics[width=0.96\linewidth]{capturas_reales/angular_actualizadas/pantalla_11_reportes.png}
 \end{figure}
 
 \subsection{4.2 Fragmentos de Código Fuente}
@@ -553,7 +553,7 @@ async def importar_xml_fel(file: UploadFile = File(...), db: Session = Depends(g
     \caption{Formulario de carga masiva e importación de comprobantes FEL.}
     \label{fig:cap4_code_fel_xml}
     \vspace{0.2cm}
-    \includegraphics[width=0.96\linewidth]{capturas_reales/anotadas/pantalla_03_facturas_fel_anotada.png}
+    \includegraphics[width=0.96\linewidth]{capturas_reales/angular_actualizadas/pantalla_03_facturas_fel.png}
     \vspace{0.1cm}
     \begin{minipage}{0.96\linewidth}
         \small\textit{Nota.} La captura de pantalla corresponde al formulario web real que consume el endpoint de validación de archivos XML.
@@ -592,7 +592,7 @@ def crear_cheque(cheque: ChequeCreate, db: Session = Depends(get_db)):
     \caption{Formulario de gestión e ingreso de cheques posfechados.}
     \label{fig:cap4_code_cheques}
     \vspace{0.2cm}
-    \includegraphics[width=0.96\linewidth]{capturas_reales/anotadas/pantalla_04_cheques_anotada.png}
+    \includegraphics[width=0.96\linewidth]{capturas_reales/angular_actualizadas/formulario_cheque.png}
     \vspace{0.1cm}
     \begin{minipage}{0.96\linewidth}
         \small\textit{Nota.} La captura de pantalla ilustra la interfaz de registro de cheques respaldada por el método de verificación en backend.
@@ -632,7 +632,7 @@ def registrar_recibo(recibo: ReciboCreate, db: Session = Depends(get_db)):
     \caption{Formulario para captura de recibos y egresos de Caja Chica.}
     \label{fig:cap4_code_caja}
     \vspace{0.2cm}
-    \includegraphics[width=0.96\linewidth]{capturas_reales/anotadas/pantalla_05_caja_chica_anotada.png}
+    \includegraphics[width=0.96\linewidth]{capturas_reales/angular_actualizadas/formulario_caja_chica.png}
     \vspace{0.1cm}
     \begin{minipage}{0.96\linewidth}
         \small\textit{Nota.} La captura muestra la pantalla interactiva de la caja chica donde el usuario liquida recibos bajo la regla de saldo disponible.
@@ -666,7 +666,7 @@ validarCategoriaGasto(semanaGira: number, categoriaSeleccionada: string): boolea
     \caption{Formulario de asignación de facturas a giras y categorías de viáticos.}
     \label{fig:cap4_code_viaticos}
     \vspace{0.2cm}
-    \includegraphics[width=0.96\linewidth]{capturas_reales/anotadas/pantalla_07_asignacion_facturas_anotada.png}
+    \includegraphics[width=0.96\linewidth]{capturas_reales/angular_actualizadas/pantalla_07_viaticos_nueva_liquidacion.png}
     \vspace{0.1cm}
     \begin{minipage}{0.96\linewidth}
         \small\textit{Nota.} Captura de la interfaz de asignación de viáticos operada bajo controles reactivos de TypeScript.
@@ -706,7 +706,7 @@ def registrar_proveedor(prov: ProveedorCreate, db: Session = Depends(get_db)):
     \caption{Formulario de registro y cartera de crédito de proveedores.}
     \label{fig:cap4_code_proveedores}
     \vspace{0.2cm}
-    \includegraphics[width=0.96\linewidth]{capturas_reales/anotadas/pantalla_08_proveedores_anotada.png}
+    \includegraphics[width=0.96\linewidth]{capturas_reales/angular_actualizadas/pantalla_08_proveedores_nuevo.png}
     \vspace{0.1cm}
     \begin{minipage}{0.96\linewidth}
         \small\textit{Nota.} Formulario web interactivo que ejecuta la vinculación contable del proveedor respaldado en el código expuesto.
@@ -746,7 +746,7 @@ agregarEventoCalendario(): void {
     \caption{Vista de agenda y programación en el Calendario Operativo.}
     \label{fig:cap4_code_calendario}
     \vspace{0.2cm}
-    \includegraphics[width=0.96\linewidth]{capturas_reales/anotadas/pantalla_09_calendario_anotada.png}
+    \includegraphics[width=0.96\linewidth]{capturas_reales/angular_actualizadas/pantalla_09_calendario.png}
     \vspace{0.1cm}
     \begin{minipage}{0.96\linewidth}
         \small\textit{Nota.} Pantalla operativa real del calendario que muestra la interacción directa con el script de gestión de eventos.
@@ -786,7 +786,7 @@ def crear_cuenta(cuenta: CuentaCreate, db: Session = Depends(get_db)):
     \caption{Módulo de catálogo y mantenimiento de Nomenclatura Contable.}
     \label{fig:cap4_code_nomenclatura}
     \vspace{0.2cm}
-    \includegraphics[width=0.96\linewidth]{capturas_reales/anotadas/pantalla_10_nomenclatura_anotada.png}
+    \includegraphics[width=0.96\linewidth]{capturas_reales/angular_actualizadas/pantalla_10_nomenclatura.png}
     \vspace{0.1cm}
     \begin{minipage}{0.96\linewidth}
         \small\textit{Nota.} Interfaz contable donde se administra el plan de cuentas mediante la lógica de validación jerárquica expuesta.
@@ -828,7 +828,7 @@ def registrar_usuario(usuario: UsuarioCreate, db: Session = Depends(get_db)):
     \caption{Pantalla de inicio de sesión asociada al proceso de autenticación y hashing.}
     \label{fig:cap4_code_usuarios}
     \vspace{0.2cm}
-    \includegraphics[width=0.96\linewidth]{capturas_reales/anotadas/pantalla_01_login_anotada.png}
+    \includegraphics[width=0.96\linewidth]{capturas_reales/angular_actualizadas/pantalla_01_login.png}
     \vspace{0.1cm}
     \begin{minipage}{0.96\linewidth}
         \small\textit{Nota.} La captura corresponde a la interfaz de inicio de sesión relacionada con el proceso de autenticación y validación de credenciales.

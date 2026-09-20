@@ -1024,15 +1024,15 @@ A continuación, se presenta el esquema relacional documentado para los módulos
 \subsection{4.4 Pruebas Realizadas}
 \label{sec:cap4_pruebas_realizadas}
 
-La validación funcional se realizó sobre el prototipo del sistema en los módulos que presentaban mayor grado de avance al momento de esta entrega: Facturas FEL/SAT, Proveedores y Nomenclatura contable. Se definieron diez aspectos de verificación y cada uno se ejecutó con datos de prueba controlados en la interfaz del sistema. El registro distingue pruebas unitarias (U), de integración (INT), de sistema (SIS) y de aceptación (ACEP), de acuerdo con el alcance de cada aspecto.
+La validación funcional se realizó sobre el prototipo actual del sistema en los módulos de Facturas FEL/SAT, Proveedores y Nomenclatura contable. Se evaluaron diez aspectos directamente en el navegador autenticado, utilizando las vistas, registros y controles disponibles al momento de la prueba. Los resultados se clasifican como \textit{Aprobado} cuando la acción produjo un resultado observable, \textit{No verificable} cuando el control no produjo una respuesta visible y \textit{No ejecutado} cuando faltó un dato de entrada necesario.
 
-Los resultados presentados corresponden a la ejecución funcional del prototipo y no a una medición estadística de un sistema desplegado en producción. Por esta razón, las conclusiones de esta sección se limitan a los escenarios y datos utilizados durante la validación.
+Los resultados corresponden a la ejecución real del prototipo en el entorno local. Por consiguiente, no se presenta una efectividad del cien por ciento ni se extrapolan estos datos a un ambiente productivo.
 
 \paragraph{Clasificación de las pruebas}
-Las pruebas unitarias (U) verifican funciones o reglas aisladas. Las pruebas de integración (INT) comprueban el intercambio de información entre la interfaz, la lógica de negocio y el registro de datos. Las pruebas de sistema (SIS) recorren un flujo completo del módulo. Las pruebas de aceptación (ACEP) verifican que el flujo satisface la necesidad operativa definida.
+Las pruebas unitarias (U) verifican una validación o regla aislada. Las pruebas de integración (INT) comprueban el intercambio de información entre componentes. Las pruebas de sistema (SIS) recorren una operación completa del módulo. Las pruebas de aceptación (ACEP) verifican que el flujo satisfaga la necesidad operativa definida.
 
 \begin{xltabular}{\linewidth}{p{1.6cm}X p{3.1cm}p{3.1cm}}
-\caption{Clasificación de pruebas aplicada al prototipo}\label{tab:cap4_tipos_prueba}\\
+\caption{Clasificación de pruebas aplicada al prototipo}\label{tab:cap4_tipos_prueba}\
 \toprule
 \textbf{Tipo} & \textbf{Propósito} & \textbf{Alcance} & \textbf{Resultado que se verifica}\\
 \midrule
@@ -1053,11 +1053,11 @@ ACEP & Confirmar el cumplimiento de la necesidad operativa. & Flujo utilizado po
 
 \subsubsection{Módulo de Facturas FEL/SAT}
 
-La Tabla~\ref{tab:cap4_pruebas_fel_actualizadas} reúne cuatro aspectos de prueba. Se verificó la carga de comprobantes, el control de duplicidad, la consulta del catálogo y la clasificación manual de facturas cuyo concepto no permite una asignación automática de cuenta.
+Se evaluaron cuatro aspectos. El acceso al módulo fue aprobado. La consulta histórica no mostró un cambio observable; la carga no pudo completarse por falta de un archivo de prueba; y las validaciones previas se visualizaron en la pantalla, pero no pudieron comprobarse con un archivo real.
 
 {\small\setstretch{1.15}\setlength{\parindent}{0pt}
 \begin{xltabular}{\linewidth}{p{1.25cm}p{1.0cm}p{0.75cm}X p{2.1cm}p{2.0cm}p{2.0cm}p{1.0cm}}
-\caption{Casos de prueba del módulo de Facturas FEL/SAT}\label{tab:cap4_pruebas_fel_actualizadas}\\
+\caption{Casos de prueba del módulo de Facturas FEL/SAT}\label{tab:cap4_pruebas_fel_actualizadas}\
 \toprule
 \textbf{ID} & \textbf{Tipo} & \textbf{Aspecto} & \textbf{Datos y procedimiento} & \textbf{Resultado esperado} & \textbf{Resultado obtenido} & \textbf{Evidencia} & \textbf{Estado}\\
 \midrule
@@ -1070,51 +1070,51 @@ La Tabla~\ref{tab:cap4_pruebas_fel_actualizadas} reúne cuatro aspectos de prueb
 \endfoot
 \bottomrule
 \endlastfoot
-FEL-01 & U & Carga & Seleccionar un archivo FEL válido y presionar importar. & El archivo es aceptado. & Se muestra la carga en el catálogo. & Fig.~\ref{fig:cap4_fel_pantalla} & Aprobado\\
+FEL-01 & SIS & Acceso y disponibilidad & Iniciar sesión y navegar a Facturas FEL. & El módulo carga y permite consultar sus controles. & La vista cargó y mostró ``POSTGRESQL CONECTADO'', el área de carga y la validación previa. & Fig.~\ref{fig:cap4_fel_pantalla} & Aprobado\\
 \addlinespace
-FEL-02 & U & Duplicidad & Intentar registrar nuevamente el mismo UUID. & Se rechaza el registro repetido. & El sistema conserva un solo comprobante. & Fig.~\ref{fig:cap4_fel_pantalla} & Aprobado\\
+FEL-02 & SIS & Consulta histórica & Presionar ``Mostrar datos cargados''. & Debe aparecer el catálogo histórico. & El control permaneció visible, pero no apareció un catálogo adicional. & Fig.~\ref{fig:cap4_fel_pantalla} & No verificable\\
 \addlinespace
-FEL-03 & INT & Consulta & Filtrar por NIT, período y estado. & El catálogo muestra coincidencias. & Los filtros actualizan la lista visible. & Fig.~\ref{fig:cap4_fel_pantalla} & Aprobado\\
+FEL-03 & SIS & Carga de archivo & Seleccionar un archivo CSV, XLS o XLSX de hasta 15 MB. & El archivo debe pasar a procesamiento. & No se completó porque no había un archivo FEL de prueba disponible. & Fig.~\ref{fig:cap4_fel_pantalla} & No ejecutado\\
 \addlinespace
-FEL-04 & ACEP & Clasificación & Seleccionar una factura no reconocida y asignar una cuenta de Nomenclatura. & La cuenta queda asociada a la factura. & La clasificación se refleja en el registro. & Fig.~\ref{fig:cap4_fel_pantalla} & Aprobado\\
+FEL-04 & SIS & Validaciones previas & Revisar el bloque de validación antes del procesamiento. & Deben validarse receptor, NIT, autorización, IVA y duplicados. & Las validaciones se muestran en la interfaz, pero no se comprobaron con un archivo real. & Fig.~\ref{fig:cap4_fel_pantalla} & No verificable\\
 \end{xltabular}}
 
 \begin{xltabular}{\linewidth}{p{3.0cm}X p{1.8cm}p{1.8cm}p{2.2cm}}
-\caption{Resultados numéricos del módulo de Facturas FEL/SAT}\label{tab:cap4_metricas_fel_actualizadas}\\
+\caption{Resultados numéricos del módulo de Facturas FEL/SAT}\label{tab:cap4_metricas_fel_actualizadas}\
 \toprule
-\textbf{Métrica} & \textbf{Definición} & \textbf{Casos ejecutados} & \textbf{Casos aprobados} & \textbf{Resultado}\\
+\textbf{Métrica} & \textbf{Definición} & \textbf{Casos evaluados} & \textbf{Casos aprobados} & \textbf{Resultado}\\
 \midrule
 \endfirsthead
 \toprule
-\textbf{Métrica} & \textbf{Definición} & \textbf{Casos ejecutados} & \textbf{Casos aprobados} & \textbf{Resultado}\\
+\textbf{Métrica} & \textbf{Definición} & \textbf{Casos evaluados} & \textbf{Casos aprobados} & \textbf{Resultado}\\
 \midrule
 \endhead
 \bottomrule
 \endfoot
 \bottomrule
 \endlastfoot
-Efectividad funcional & Casos aprobados / casos ejecutados $\times 100$. & 4 & 4 & 100\%\\
+Efectividad observable & Casos aprobados / casos evaluados $\times 100$. & 4 & 1 & 25\%\\
 \end{xltabular}
 
 \begin{figure}[H]
 \centering
 \begin{tikzpicture}
 \begin{axis}[ybar,width=0.78\linewidth,height=5.3cm,ymin=0,ymax=100,ylabel={Porcentaje de aprobación},symbolic x coords={FEL},xtick=data,nodes near coords,bar width=1.2cm,ymajorgrids=true,grid style=dashed]
-\addplot[fill=blue!65] coordinates {(FEL,100)};
+\addplot[fill=blue!65] coordinates {(FEL,25)};
 \end{axis}
 \end{tikzpicture}
-\caption{Resultado de pruebas del módulo de Facturas FEL/SAT.}\label{fig:cap4_grafica_fel_actualizada}
+\caption{Resultado observado de pruebas del módulo de Facturas FEL/SAT.}\label{fig:cap4_grafica_fel_actualizada}
 \end{figure}
 
-\noindent\textbf{Interpretación:} Los cuatro aspectos revisados fueron aprobados. La evidencia confirma que el prototipo permite incorporar facturas, evitar la repetición del UUID, consultar el catálogo y resolver manualmente los casos que requieren una cuenta contable.
+\noindent\textbf{Interpretación:} El único aspecto aprobado fue la disponibilidad y carga inicial del módulo. La consulta histórica y las validaciones no pudieron confirmarse mediante un cambio visible o un archivo de prueba; por ello, el 25\% representa aprobación observable y no una evaluación completa de todas las funciones FEL.
 
 \subsubsection{Módulo de Proveedores}
 
-La Tabla~\ref{tab:cap4_pruebas_proveedores_actualizadas} documenta tres aspectos: registro por NIT, configuración de retenciones y cuenta contable, y generación de la partida de acuerdo con el vencimiento de la factura.
+Se evaluaron tres aspectos. El directorio y sus datos visibles fueron aprobados, al igual que el cambio de modalidad a partida transitoria. La generación de partidas recibió la interacción, pero no mostró una nueva partida, confirmación o cambio numérico verificable.
 
 {\small\setstretch{1.15}\setlength{\parindent}{0pt}
 \begin{xltabular}{\linewidth}{p{1.25cm}p{1.0cm}p{0.75cm}X p{2.1cm}p{2.0cm}p{2.0cm}p{1.0cm}}
-\caption{Casos de prueba del módulo de Proveedores}\label{tab:cap4_pruebas_proveedores_actualizadas}\\
+\caption{Casos de prueba del módulo de Proveedores}\label{tab:cap4_pruebas_proveedores_actualizadas}\
 \toprule
 \textbf{ID} & \textbf{Tipo} & \textbf{Aspecto} & \textbf{Datos y procedimiento} & \textbf{Resultado esperado} & \textbf{Resultado obtenido} & \textbf{Evidencia} & \textbf{Estado}\\
 \midrule
@@ -1127,49 +1127,49 @@ La Tabla~\ref{tab:cap4_pruebas_proveedores_actualizadas} documenta tres aspectos
 \endfoot
 \bottomrule
 \endlastfoot
-PROV-01 & U & Alta por NIT & Ingresar un NIT y completar los datos del proveedor. & Se crea un registro único. & Se muestra el proveedor en la cartera. & Fig.~\ref{fig:cap4_proveedores_pantalla} & Aprobado\\
+PROV-01 & SIS & Consulta del directorio & Abrir el módulo y revisar proveedores, estados, crédito, retenciones y cuentas. & El directorio debe mostrar los registros disponibles. & Se visualizaron cuatro proveedores activos con sus condiciones y cuentas contables. & Fig.~\ref{fig:cap4_proveedores_pantalla} & Aprobado\\
 \addlinespace
-PROV-02 & INT & Retenciones y cuenta & Activar retención IVA/ISR y seleccionar una cuenta de Nomenclatura. & La configuración queda guardada. & La cartera muestra la configuración asociada. & Fig.~\ref{fig:cap4_proveedores_pantalla} & Aprobado\\
+PROV-02 & SIS & Modalidad de partida & Cambiar ``Tipo de partida'' a ``Transitoria general''. & Debe cambiar la modalidad de generación. & La interfaz cambió la modalidad y ocultó el selector individual de proveedor. & Fig.~\ref{fig:cap4_proveedores_pantalla} & Aprobado\\
 \addlinespace
-PROV-03 & SIS & Partida & Generar partida dentro del mes para una factura pendiente. & Se calcula el Debe, el Haber y la contrapartida. & Se muestra Bancos o Cuenta transitoria según el vencimiento. & Fig.~\ref{fig:cap4_proveedores_pantalla} & Aprobado\\
+PROV-03 & SIS & Generación de partida & Presionar ``Generar partidas'' en modalidad transitoria. & Debe aparecer una confirmación o una nueva partida. & El botón recibió la interacción, pero no se observó un resultado nuevo verificable. & Fig.~\ref{fig:cap4_proveedores_pantalla} & No verificable\\
 \end{xltabular}}
 
 \begin{xltabular}{\linewidth}{p{3.0cm}X p{1.8cm}p{1.8cm}p{2.2cm}}
-\caption{Resultados numéricos del módulo de Proveedores}\label{tab:cap4_metricas_proveedores_actualizadas}\\
+\caption{Resultados numéricos del módulo de Proveedores}\label{tab:cap4_metricas_proveedores_actualizadas}\
 \toprule
-\textbf{Métrica} & \textbf{Definición} & \textbf{Casos ejecutados} & \textbf{Casos aprobados} & \textbf{Resultado}\\
+\textbf{Métrica} & \textbf{Definición} & \textbf{Casos evaluados} & \textbf{Casos aprobados} & \textbf{Resultado}\\
 \midrule
 \endfirsthead
 \toprule
-\textbf{Métrica} & \textbf{Definición} & \textbf{Casos ejecutados} & \textbf{Casos aprobados} & \textbf{Resultado}\\
+\textbf{Métrica} & \textbf{Definición} & \textbf{Casos evaluados} & \textbf{Casos aprobados} & \textbf{Resultado}\\
 \midrule
 \endhead
 \bottomrule
 \endfoot
 \bottomrule
 \endlastfoot
-Efectividad funcional & Casos aprobados / casos ejecutados $\times 100$. & 3 & 3 & 100\%\\
+Efectividad observable & Casos aprobados / casos evaluados $\times 100$. & 3 & 2 & 66.7\%\\
 \end{xltabular}
 
 \begin{figure}[H]
 \centering
 \begin{tikzpicture}
 \begin{axis}[ybar,width=0.78\linewidth,height=5.3cm,ymin=0,ymax=100,ylabel={Porcentaje de aprobación},symbolic x coords={Proveedores},xtick=data,nodes near coords,bar width=1.2cm,ymajorgrids=true,grid style=dashed]
-\addplot[fill=green!55!black] coordinates {(Proveedores,100)};
+\addplot[fill=green!55!black] coordinates {(Proveedores,66.7)};
 \end{axis}
 \end{tikzpicture}
-\caption{Resultado de pruebas del módulo de Proveedores.}\label{fig:cap4_grafica_proveedores_actualizada}
+\caption{Resultado observado de pruebas del módulo de Proveedores.}\label{fig:cap4_grafica_proveedores_actualizada}
 \end{figure}
 
-\noindent\textbf{Interpretación:} Los tres aspectos fueron aprobados. La prueba de sistema permitió comprobar que la información registrada en el proveedor se utiliza posteriormente en la cartera y en la generación de partidas, incluyendo retenciones, descuentos y la cuenta de contrapartida.
+\noindent\textbf{Interpretación:} Se aprobaron la consulta del directorio y el cambio de modalidad de partida. La generación de una partida transitoria no pudo confirmarse porque la interfaz no mostró una respuesta observable después de presionar el botón.
 
 \subsubsection{Módulo de Nomenclatura Contable}
 
-La Tabla~\ref{tab:cap4_pruebas_nomenclatura_actualizadas} presenta tres aspectos de validación del catálogo contable: registro de una cuenta, control de la naturaleza Debe/Haber y selección de una cuenta desde otro módulo.
+Se evaluaron tres aspectos. La carga del catálogo y la búsqueda por código fueron aprobadas. La apertura del formulario de nueva cuenta no produjo un formulario visible, por lo que no se confirmó el registro ni la selección de naturaleza contable.
 
 {\small\setstretch{1.15}\setlength{\parindent}{0pt}
 \begin{xltabular}{\linewidth}{p{1.25cm}p{1.0cm}p{0.75cm}X p{2.1cm}p{2.0cm}p{2.0cm}p{1.0cm}}
-\caption{Casos de prueba del módulo de Nomenclatura contable}\label{tab:cap4_pruebas_nomenclatura_actualizadas}\\
+\caption{Casos de prueba del módulo de Nomenclatura contable}\label{tab:cap4_pruebas_nomenclatura_actualizadas}\
 \toprule
 \textbf{ID} & \textbf{Tipo} & \textbf{Aspecto} & \textbf{Datos y procedimiento} & \textbf{Resultado esperado} & \textbf{Resultado obtenido} & \textbf{Evidencia} & \textbf{Estado}\\
 \midrule
@@ -1182,41 +1182,41 @@ La Tabla~\ref{tab:cap4_pruebas_nomenclatura_actualizadas} presenta tres aspectos
 \endfoot
 \bottomrule
 \endlastfoot
-NOM-01 & U & Registro de cuenta & Ingresar código, nombre y naturaleza Debe. & La cuenta se guarda como activa. & La cuenta aparece en el catálogo. & Fig.~\ref{fig:cap4_code_nomenclatura} & Aprobado\\
+NOM-01 & SIS & Carga del catálogo & Abrir Nomenclatura y revisar sus indicadores. & Deben cargarse las cuentas y el estado del catálogo. & Se visualizaron 39 cuentas, 4 tipos registrados y estado ``Activo''. & Fig.~\ref{fig:cap4_code_nomenclatura} & Aprobado\\
 \addlinespace
-NOM-02 & U & Naturaleza contable & Alternar entre Debe y Haber antes de guardar. & Solo una naturaleza queda seleccionada. & El catálogo conserva la naturaleza elegida. & Fig.~\ref{fig:cap4_code_nomenclatura} & Aprobado\\
+NOM-02 & SIS & Búsqueda por código & Ingresar el código 610112 en el buscador. & Debe mostrarse la cuenta coincidente. & El catálogo se filtró a ``DEPRECIACIONES Y COMBUSTIBLES'', tipo Gasto, naturaleza Debe y estado Activa. & Fig.~\ref{fig:cap4_code_nomenclatura} & Aprobado\\
 \addlinespace
-NOM-03 & INT & Uso transversal & Seleccionar una cuenta desde Proveedores o una factura no reconocida. & El catálogo se muestra como lista de opciones. & La cuenta seleccionada queda asociada al registro. & Fig.~\ref{fig:cap4_code_nomenclatura} & Aprobado\\
+NOM-03 & SIS & Nueva cuenta & Presionar ``Nueva cuenta''. & Debe abrirse el formulario de registro. & El botón recibió la interacción, pero no apareció un formulario visible. & Fig.~\ref{fig:cap4_code_nomenclatura} & No verificable\\
 \end{xltabular}}
 
 \begin{xltabular}{\linewidth}{p{3.0cm}X p{1.8cm}p{1.8cm}p{2.2cm}}
-\caption{Resultados numéricos del módulo de Nomenclatura contable}\label{tab:cap4_metricas_nomenclatura_actualizadas}\\
+\caption{Resultados numéricos del módulo de Nomenclatura contable}\label{tab:cap4_metricas_nomenclatura_actualizadas}\
 \toprule
-\textbf{Métrica} & \textbf{Definición} & \textbf{Casos ejecutados} & \textbf{Casos aprobados} & \textbf{Resultado}\\
+\textbf{Métrica} & \textbf{Definición} & \textbf{Casos evaluados} & \textbf{Casos aprobados} & \textbf{Resultado}\\
 \midrule
 \endfirsthead
 \toprule
-\textbf{Métrica} & \textbf{Definición} & \textbf{Casos ejecutados} & \textbf{Casos aprobados} & \textbf{Resultado}\\
+\textbf{Métrica} & \textbf{Definición} & \textbf{Casos evaluados} & \textbf{Casos aprobados} & \textbf{Resultado}\\
 \midrule
 \endhead
 \bottomrule
 \endfoot
 \bottomrule
 \endlastfoot
-Efectividad funcional & Casos aprobados / casos ejecutados $\times 100$. & 3 & 3 & 100\%\\
+Efectividad observable & Casos aprobados / casos evaluados $\times 100$. & 3 & 2 & 66.7\%\\
 \end{xltabular}
 
 \begin{figure}[H]
 \centering
 \begin{tikzpicture}
 \begin{axis}[ybar,width=0.78\linewidth,height=5.3cm,ymin=0,ymax=100,ylabel={Porcentaje de aprobación},symbolic x coords={Nomenclatura},xtick=data,nodes near coords,bar width=1.2cm,ymajorgrids=true,grid style=dashed]
-\addplot[fill=orange!80!black] coordinates {(Nomenclatura,100)};
+\addplot[fill=orange!80!black] coordinates {(Nomenclatura,66.7)};
 \end{axis}
 \end{tikzpicture}
-\caption{Resultado de pruebas del módulo de Nomenclatura contable.}\label{fig:cap4_grafica_nomenclatura_actualizada}
+\caption{Resultado observado de pruebas del módulo de Nomenclatura contable.}\label{fig:cap4_grafica_nomenclatura_actualizada}
 \end{figure}
 
-\noindent\textbf{Interpretación:} Los tres aspectos fueron aprobados. El resultado más relevante es la reutilización del catálogo: las cuentas no se limitan a la pantalla de Nomenclatura, sino que se ofrecen como opciones para clasificar facturas no reconocidas y configurar proveedores.
+\noindent\textbf{Interpretación:} Se aprobaron la carga del catálogo y la búsqueda de una cuenta por código. La apertura de una nueva cuenta no pudo confirmarse porque no apareció un formulario visible después de la interacción.
 
 \paragraph{Resumen de la ejecución}
-En conjunto se ejecutaron diez aspectos de prueba: cuatro en Facturas FEL/SAT, tres en Proveedores y tres en Nomenclatura contable. Los diez aspectos fueron aprobados en el prototipo, por lo que el resultado global de esta ejecución fue de 10 casos aprobados de 10 ejecutados, equivalente al 100\%. Este porcentaje describe únicamente los escenarios documentados y no sustituye una evaluación posterior con usuarios finales y datos de operación real.
+En conjunto se evaluaron diez aspectos: cuatro en Facturas FEL/SAT, tres en Proveedores y tres en Nomenclatura contable. Se obtuvieron cinco casos aprobados, cuatro no verificables y uno no ejecutado. La efectividad observable global fue de 5 casos aprobados de 10 evaluados, equivalente al 50\%. Este resultado describe el comportamiento observado durante la ejecución del prototipo y no debe interpretarse como una certificación del sistema productivo.

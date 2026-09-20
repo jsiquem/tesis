@@ -1,11 +1,10 @@
 \section{Capítulo IV - Desarrollo de la Metodología}
 \label{cap:capitulo4}
 
-\subsection{Formularios Creados por Módulo}
+\subsection{Formularios por Módulo}
+\label{sec:cap4_formularios_modulo}
 
 El presente capítulo documenta los formularios desarrollados para el Sistema Web de gestión contable, detallando la interfaz operativa, roles de acceso, endpoints de navegación, operaciones del ciclo de vida de datos (CRUD) y las validaciones críticas implementadas en el frontend (Angular) y backend (Python/FastAPI).
-
-\subsection{Formularios por Módulo Operativo}
 
 % =========================================================================
 % MÓDULO 1: FACTURAS FEL/SAT
@@ -512,7 +511,7 @@ F-REP-02 & Resumen de Caja chica & Revisar e imprimir los movimientos del fondo 
     \includegraphics[width=0.96\linewidth]{capturas_reales/angular_actualizadas/pantalla_11_reportes.png}
 \end{figure}
 
-\subsection{4.2 Fragmentos de Código Fuente}
+\subsection{Fragmentos de Código}
 \label{sec:cap4_fragmentos_codigo}
 
 De conformidad con los lineamientos metodológicos, en este apartado se documenta el desarrollo técnico del sistema mediante ocho fragmentos representativos y demostrativos de código fuente, preparados para ilustrar la lógica correspondiente a cada módulo. Cada extracto incluye su especificación de módulo, lenguaje utilizado, bloque de código en fuente monoespaciada, descripción funcional y la evidencia correspondiente a la interfaz de usuario real.
@@ -835,7 +834,7 @@ def registrar_usuario(usuario: UsuarioCreate, db: Session = Depends(get_db)):
     \end{minipage}
 \end{figure}
 
-\subsection{4.3 Objetos de la Base de Datos}
+\subsection{Objetos de la base de datos}
 \label{sec:cap4_objetos_bd}
 
 En esta sección se presenta el inventario lógico de objetos de PostgreSQL definido para el prototipo del sistema web. El inventario comprende tablas, procedimientos almacenados, vistas y disparadores (\textit{triggers}) relacionados con la integridad y automatización de los procesos contables.
@@ -1021,7 +1020,7 @@ A continuación, se presenta el esquema relacional documentado para los módulos
     \end{minipage}
 \end{figure}
 
-\subsection{4.4 Pruebas Realizadas}
+\subsection{ Pruebas Realizadas}
 \label{sec:cap4_pruebas_realizadas}
 
 La validación funcional se realizó sobre el prototipo actual del sistema en los módulos de Facturas FEL/SAT, Proveedores y Nomenclatura contable. Se evaluaron diez aspectos directamente en el navegador autenticado, utilizando las vistas, registros y controles disponibles al momento de la prueba. Los resultados se clasifican como \textit{Aprobado} cuando la acción produjo un resultado observable, \textit{No verificable} cuando el control no produjo una respuesta visible y \textit{No ejecutado} cuando faltó un dato de entrada necesario.
@@ -1032,7 +1031,7 @@ Los resultados corresponden a la ejecución real del prototipo en el entorno loc
 Las pruebas unitarias (U) verifican una validación o regla aislada. Las pruebas de integración (INT) comprueban el intercambio de información entre componentes. Las pruebas de sistema (SIS) recorren una operación completa del módulo. Las pruebas de aceptación (ACEP) verifican que el flujo satisfaga la necesidad operativa definida.
 
 \begin{xltabular}{\linewidth}{p{1.6cm}X p{3.1cm}p{3.1cm}}
-\caption{Clasificación de pruebas aplicada al prototipo}\label{tab:cap4_tipos_prueba}\
+\caption{Clasificación de pruebas aplicada al prototipo}\label{tab:cap4_tipos_prueba}\tabularnewline
 \toprule
 \textbf{Tipo} & \textbf{Propósito} & \textbf{Alcance} & \textbf{Resultado que se verifica}\\
 \midrule
@@ -1055,32 +1054,44 @@ ACEP & Confirmar el cumplimiento de la necesidad operativa. & Flujo utilizado po
 
 Se evaluaron cuatro aspectos. El acceso al módulo fue aprobado. La consulta histórica no mostró un cambio observable; la carga no pudo completarse por falta de un archivo de prueba; y las validaciones previas se visualizaron en la pantalla, pero no pudieron comprobarse con un archivo real.
 
-{\small\setstretch{1.15}\setlength{\parindent}{0pt}
-\begin{xltabular}{\linewidth}{p{1.25cm}p{1.0cm}p{0.75cm}X p{2.1cm}p{2.0cm}p{2.0cm}p{1.0cm}}
-\caption{Casos de prueba del módulo de Facturas FEL/SAT}\label{tab:cap4_pruebas_fel_actualizadas}\
+{\fontsize{9}{11}\selectfont\setstretch{1.15}\setlength{\parindent}{0pt}
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{xltabular}{\linewidth}{
+  >{\raggedright\arraybackslash}p{1.2cm}
+  >{\raggedright\arraybackslash}p{1.0cm}
+  >{\raggedright\arraybackslash}p{1.3cm}
+  >{\raggedright\arraybackslash}p{2.2cm}
+  >{\raggedright\arraybackslash}p{2.2cm}
+  >{\raggedright\arraybackslash}X
+  >{\raggedright\arraybackslash}X
+  >{\raggedright\arraybackslash}X
+  >{\centering\arraybackslash}p{1.1cm}
+}
+\caption{Casos de prueba del módulo de Facturas FEL/SAT}\label{tab:cap4_pruebas_fel_actualizadas}\tabularnewline
 \toprule
-\textbf{ID} & \textbf{Tipo} & \textbf{Aspecto} & \textbf{Datos y procedimiento} & \textbf{Resultado esperado} & \textbf{Resultado obtenido} & \textbf{Evidencia} & \textbf{Estado}\\
+\textbf{ID} & \textbf{Módulo} & \textbf{Tipo} & \textbf{Caso} & \textbf{Datos} & \textbf{Pasos} & \textbf{Esperado} & \textbf{Obtenido} & \textbf{Estado}\\
 \midrule
 \endfirsthead
 \toprule
-\textbf{ID} & \textbf{Tipo} & \textbf{Aspecto} & \textbf{Datos y procedimiento} & \textbf{Resultado esperado} & \textbf{Resultado obtenido} & \textbf{Evidencia} & \textbf{Estado}\\
+\textbf{ID} & \textbf{Módulo} & \textbf{Tipo} & \textbf{Caso} & \textbf{Datos} & \textbf{Pasos} & \textbf{Esperado} & \textbf{Obtenido} & \textbf{Estado}\\
 \midrule
 \endhead
 \bottomrule
 \endfoot
 \bottomrule
 \endlastfoot
-FEL-01 & SIS & Acceso y disponibilidad & Iniciar sesión y navegar a Facturas FEL. & El módulo carga y permite consultar sus controles. & La vista cargó y mostró ``POSTGRESQL CONECTADO'', el área de carga y la validación previa. & Fig.~\ref{fig:cap4_fel_pantalla} & Aprobado\\
+FEL-01 & FEL & SIS & Acceso y disponibilidad & -- & Iniciar sesión y navegar a Facturas FEL. & El módulo carga y permite consultar sus controles. & La vista cargó y mostró ``POSTGRESQL CONECTADO'', el área de carga y la validación previa. & OK\\
 \addlinespace
-FEL-02 & SIS & Consulta histórica & Presionar ``Mostrar datos cargados''. & Debe aparecer el catálogo histórico. & El control permaneció visible, pero no apareció un catálogo adicional. & Fig.~\ref{fig:cap4_fel_pantalla} & No verificable\\
+FEL-02 & FEL & SIS & Consulta histórica & -- & Presionar ``Mostrar datos cargados''. & Debe aparecer el catálogo histórico. & El control permaneció visible, pero no apareció un catálogo adicional. & No OK\\
 \addlinespace
-FEL-03 & SIS & Carga de archivo & Seleccionar un archivo CSV, XLS o XLSX de hasta 15 MB. & El archivo debe pasar a procesamiento. & No se completó porque no había un archivo FEL de prueba disponible. & Fig.~\ref{fig:cap4_fel_pantalla} & No ejecutado\\
+FEL-03 & FEL & SIS & Carga de archivo & Archivo FEL no disponible & Seleccionar un archivo CSV, XLS o XLSX de hasta 15 MB. & El archivo debe pasar a procesamiento. & No se completó porque no había un archivo FEL de prueba disponible. & No ejecutado\\
 \addlinespace
-FEL-04 & SIS & Validaciones previas & Revisar el bloque de validación antes del procesamiento. & Deben validarse receptor, NIT, autorización, IVA y duplicados. & Las validaciones se muestran en la interfaz, pero no se comprobaron con un archivo real. & Fig.~\ref{fig:cap4_fel_pantalla} & No verificable\\
+FEL-04 & FEL & SIS & Validaciones previas & -- & Revisar el bloque de validación antes del procesamiento. & Deben validarse receptor, NIT, autorización, IVA y duplicados. & Las validaciones se muestran en la interfaz, pero no se comprobaron con un archivo real. & No OK\\
 \end{xltabular}}
 
 \begin{xltabular}{\linewidth}{p{3.0cm}X p{1.8cm}p{1.8cm}p{2.2cm}}
-\caption{Resultados numéricos del módulo de Facturas FEL/SAT}\label{tab:cap4_metricas_fel_actualizadas}\
+\caption{Resultados numéricos del módulo de Facturas FEL/SAT}\label{tab:cap4_metricas_fel_actualizadas}\tabularnewline
 \toprule
 \textbf{Métrica} & \textbf{Definición} & \textbf{Casos evaluados} & \textbf{Casos aprobados} & \textbf{Resultado}\\
 \midrule
@@ -1112,30 +1123,42 @@ Efectividad observable & Casos aprobados / casos evaluados $\times 100$. & 4 & 1
 
 Se evaluaron tres aspectos. El directorio y sus datos visibles fueron aprobados, al igual que el cambio de modalidad a partida transitoria. La generación de partidas recibió la interacción, pero no mostró una nueva partida, confirmación o cambio numérico verificable.
 
-{\small\setstretch{1.15}\setlength{\parindent}{0pt}
-\begin{xltabular}{\linewidth}{p{1.25cm}p{1.0cm}p{0.75cm}X p{2.1cm}p{2.0cm}p{2.0cm}p{1.0cm}}
-\caption{Casos de prueba del módulo de Proveedores}\label{tab:cap4_pruebas_proveedores_actualizadas}\
+{\fontsize{9}{11}\selectfont\setstretch{1.15}\setlength{\parindent}{0pt}
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{xltabular}{\linewidth}{
+  >{\raggedright\arraybackslash}p{1.2cm}
+  >{\raggedright\arraybackslash}p{1.1cm}
+  >{\raggedright\arraybackslash}p{1.3cm}
+  >{\raggedright\arraybackslash}p{2.2cm}
+  >{\raggedright\arraybackslash}p{2.2cm}
+  >{\raggedright\arraybackslash}X
+  >{\raggedright\arraybackslash}X
+  >{\raggedright\arraybackslash}X
+  >{\centering\arraybackslash}p{1.1cm}
+}
+\caption{Casos de prueba del módulo de Proveedores}\label{tab:cap4_pruebas_proveedores_actualizadas}\tabularnewline
 \toprule
-\textbf{ID} & \textbf{Tipo} & \textbf{Aspecto} & \textbf{Datos y procedimiento} & \textbf{Resultado esperado} & \textbf{Resultado obtenido} & \textbf{Evidencia} & \textbf{Estado}\\
+\textbf{ID} & \textbf{Módulo} & \textbf{Tipo} & \textbf{Caso} & \textbf{Datos} & \textbf{Pasos} & \textbf{Esperado} & \textbf{Obtenido} & \textbf{Estado}\\
 \midrule
 \endfirsthead
 \toprule
-\textbf{ID} & \textbf{Tipo} & \textbf{Aspecto} & \textbf{Datos y procedimiento} & \textbf{Resultado esperado} & \textbf{Resultado obtenido} & \textbf{Evidencia} & \textbf{Estado}\\
+\textbf{ID} & \textbf{Módulo} & \textbf{Tipo} & \textbf{Caso} & \textbf{Datos} & \textbf{Pasos} & \textbf{Esperado} & \textbf{Obtenido} & \textbf{Estado}\\
 \midrule
 \endhead
 \bottomrule
 \endfoot
 \bottomrule
 \endlastfoot
-PROV-01 & SIS & Consulta del directorio & Abrir el módulo y revisar proveedores, estados, crédito, retenciones y cuentas. & El directorio debe mostrar los registros disponibles. & Se visualizaron cuatro proveedores activos con sus condiciones y cuentas contables. & Fig.~\ref{fig:cap4_proveedores_pantalla} & Aprobado\\
+PROV-01 & Prov. & SIS & Consulta del directorio & -- & Abrir el módulo y revisar proveedores, estados, crédito, retenciones y cuentas. & El directorio debe mostrar los registros disponibles. & Se visualizaron cuatro proveedores activos con sus condiciones y cuentas contables. & OK\\
 \addlinespace
-PROV-02 & SIS & Modalidad de partida & Cambiar ``Tipo de partida'' a ``Transitoria general''. & Debe cambiar la modalidad de generación. & La interfaz cambió la modalidad y ocultó el selector individual de proveedor. & Fig.~\ref{fig:cap4_proveedores_pantalla} & Aprobado\\
+PROV-02 & Prov. & SIS & Modalidad de partida & -- & Cambiar ``Tipo de partida'' a ``Transitoria general''. & Debe cambiar la modalidad de generación. & La interfaz cambió la modalidad y ocultó el selector individual de proveedor. & OK\\
 \addlinespace
-PROV-03 & SIS & Generación de partida & Presionar ``Generar partidas'' en modalidad transitoria. & Debe aparecer una confirmación o una nueva partida. & El botón recibió la interacción, pero no se observó un resultado nuevo verificable. & Fig.~\ref{fig:cap4_proveedores_pantalla} & No verificable\\
+PROV-03 & Prov. & SIS & Generación de partida & -- & Presionar ``Generar partidas'' en modalidad transitoria. & Debe aparecer una confirmación o una nueva partida. & El botón recibió la interacción, pero no se observó un resultado nuevo verificable. & No OK\\
 \end{xltabular}}
 
 \begin{xltabular}{\linewidth}{p{3.0cm}X p{1.8cm}p{1.8cm}p{2.2cm}}
-\caption{Resultados numéricos del módulo de Proveedores}\label{tab:cap4_metricas_proveedores_actualizadas}\
+\caption{Resultados numéricos del módulo de Proveedores}\label{tab:cap4_metricas_proveedores_actualizadas}\tabularnewline
 \toprule
 \textbf{Métrica} & \textbf{Definición} & \textbf{Casos evaluados} & \textbf{Casos aprobados} & \textbf{Resultado}\\
 \midrule
@@ -1167,30 +1190,42 @@ Efectividad observable & Casos aprobados / casos evaluados $\times 100$. & 3 & 2
 
 Se evaluaron tres aspectos. La carga del catálogo y la búsqueda por código fueron aprobadas. La apertura del formulario de nueva cuenta no produjo un formulario visible, por lo que no se confirmó el registro ni la selección de naturaleza contable.
 
-{\small\setstretch{1.15}\setlength{\parindent}{0pt}
-\begin{xltabular}{\linewidth}{p{1.25cm}p{1.0cm}p{0.75cm}X p{2.1cm}p{2.0cm}p{2.0cm}p{1.0cm}}
-\caption{Casos de prueba del módulo de Nomenclatura contable}\label{tab:cap4_pruebas_nomenclatura_actualizadas}\
+{\fontsize{9}{11}\selectfont\setstretch{1.15}\setlength{\parindent}{0pt}
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{xltabular}{\linewidth}{
+  >{\raggedright\arraybackslash}p{1.2cm}
+  >{\raggedright\arraybackslash}p{1.3cm}
+  >{\raggedright\arraybackslash}p{1.3cm}
+  >{\raggedright\arraybackslash}p{2.2cm}
+  >{\raggedright\arraybackslash}p{2.2cm}
+  >{\raggedright\arraybackslash}X
+  >{\raggedright\arraybackslash}X
+  >{\raggedright\arraybackslash}X
+  >{\centering\arraybackslash}p{1.1cm}
+}
+\caption{Casos de prueba del módulo de Nomenclatura contable}\label{tab:cap4_pruebas_nomenclatura_actualizadas}\tabularnewline
 \toprule
-\textbf{ID} & \textbf{Tipo} & \textbf{Aspecto} & \textbf{Datos y procedimiento} & \textbf{Resultado esperado} & \textbf{Resultado obtenido} & \textbf{Evidencia} & \textbf{Estado}\\
+\textbf{ID} & \textbf{Módulo} & \textbf{Tipo} & \textbf{Caso} & \textbf{Datos} & \textbf{Pasos} & \textbf{Esperado} & \textbf{Obtenido} & \textbf{Estado}\\
 \midrule
 \endfirsthead
 \toprule
-\textbf{ID} & \textbf{Tipo} & \textbf{Aspecto} & \textbf{Datos y procedimiento} & \textbf{Resultado esperado} & \textbf{Resultado obtenido} & \textbf{Evidencia} & \textbf{Estado}\\
+\textbf{ID} & \textbf{Módulo} & \textbf{Tipo} & \textbf{Caso} & \textbf{Datos} & \textbf{Pasos} & \textbf{Esperado} & \textbf{Obtenido} & \textbf{Estado}\\
 \midrule
 \endhead
 \bottomrule
 \endfoot
 \bottomrule
 \endlastfoot
-NOM-01 & SIS & Carga del catálogo & Abrir Nomenclatura y revisar sus indicadores. & Deben cargarse las cuentas y el estado del catálogo. & Se visualizaron 39 cuentas, 4 tipos registrados y estado ``Activo''. & Fig.~\ref{fig:cap4_code_nomenclatura} & Aprobado\\
+NOM-01 & Nomen. & SIS & Carga del catálogo & -- & Abrir Nomenclatura y revisar sus indicadores. & Deben cargarse las cuentas y el estado del catálogo. & Se visualizaron 39 cuentas, 4 tipos registrados y estado ``Activo''. & OK\\
 \addlinespace
-NOM-02 & SIS & Búsqueda por código & Ingresar el código 610112 en el buscador. & Debe mostrarse la cuenta coincidente. & El catálogo se filtró a ``DEPRECIACIONES Y COMBUSTIBLES'', tipo Gasto, naturaleza Debe y estado Activa. & Fig.~\ref{fig:cap4_code_nomenclatura} & Aprobado\\
+NOM-02 & Nomen. & SIS & Búsqueda por código & Código: 610112 & Ingresar el código 610112 en el buscador. & Debe mostrarse la cuenta coincidente. & El catálogo se filtró a ``DEPRECIACIONES Y COMBUSTIBLES'', tipo Gasto, naturaleza Debe y estado Activa. & OK\\
 \addlinespace
-NOM-03 & SIS & Nueva cuenta & Presionar ``Nueva cuenta''. & Debe abrirse el formulario de registro. & El botón recibió la interacción, pero no apareció un formulario visible. & Fig.~\ref{fig:cap4_code_nomenclatura} & No verificable\\
+NOM-03 & Nomen. & SIS & Nueva cuenta & -- & Presionar ``Nueva cuenta''. & Debe abrirse el formulario de registro. & El botón recibió la interacción, pero no apareció un formulario visible. & No OK\\
 \end{xltabular}}
 
 \begin{xltabular}{\linewidth}{p{3.0cm}X p{1.8cm}p{1.8cm}p{2.2cm}}
-\caption{Resultados numéricos del módulo de Nomenclatura contable}\label{tab:cap4_metricas_nomenclatura_actualizadas}\
+\caption{Resultados numéricos del módulo de Nomenclatura contable}\label{tab:cap4_metricas_nomenclatura_actualizadas}\tabularnewline
 \toprule
 \textbf{Métrica} & \textbf{Definición} & \textbf{Casos evaluados} & \textbf{Casos aprobados} & \textbf{Resultado}\\
 \midrule

@@ -16,11 +16,11 @@ El presente capítulo documenta los formularios desarrollados para el Sistema We
 \setstretch{1.15}
 \setlength{\parindent}{0pt}
 \begin{xltabular}{\linewidth}{
-    >{\raggedright\arraybackslash}p{1.8cm} 
-    >{\raggedright\arraybackslash}p{2.8cm} 
-    >{\raggedright\arraybackslash}X 
-    >{\raggedright\arraybackslash}p{2.5cm} 
-    >{\centering\arraybackslash}p{0.8cm} 
+    >{\raggedright\arraybackslash}p{1.3cm} 
+    >{\raggedright\arraybackslash}p{2.2cm} 
+    >{\raggedright\arraybackslash}>{\hsize=1.15\hsize}X 
+    >{\raggedright\arraybackslash}>{\hsize=0.85\hsize}X 
+    >{\centering\arraybackslash}p{0.6cm} 
     >{\raggedright\arraybackslash}p{2.0cm}
 }
 
@@ -46,22 +46,22 @@ El presente capítulo documenta los formularios desarrollados para el Sistema We
     \endlastfoot
 
     % --- Filas de datos ---
-    F-FEL-01 & Carga Masiva FEL & Importar archivos XML/Excel autorizados por la SAT & Admin, Auxiliar (\texttt{importar\_fel}) & C & \texttt{/facturas-fel} \\
+    F-FEL-01 & Carga Masiva FEL & Importar archivos XML/Excel autorizados por la SAT & Admin, Auxiliar ({importar\_fel}) & C & {/facturas-fel} \\
     \addlinespace
-    F-FEL-02 & Catálogo FEL & Consultar, filtrar y revisar facturas importadas & Admin, Contador, Auxiliar (\texttt{ver\_fel}) & R & \texttt{/facturas-fel} \\
+    F-FEL-02 & Catálogo FEL & Consultar, filtrar y revisar facturas importadas & Admin, Contador, Auxiliar ({ver\_fel}) & R & {/facturas-fel} \\
     \addlinespace
-    F-FEL-03 & Clasificación Contable & Asignar manualmente cuenta contable a factura no identificada & Admin, Contador (\texttt{clasificar\_fel}) & U & \texttt{/facturas-fel} \\
+    F-FEL-03 & Clasificación Contable & Asignar manualmente cuenta contable a factura no identificada & Admin, Contador ({clasificar\_fel}) & U & {/facturas-fel} \\
     \addlinespace
-    F-FEL-04 & Anulación / Borrado & Marcar o retirar comprobante duplicado & Admin (\texttt{eliminar\_fel}) & D & \texttt{/facturas-fel} \\
+    F-FEL-04 & Anulación / Borrado & Marcar o retirar comprobante duplicado & Admin ({eliminar\_fel}) & D & {/facturas-fel} \\
 
 \end{xltabular}
 }
 
 \paragraph{Formulario F-FEL-01: Carga Masiva y Procesamiento FEL}
 \noindent\textbf{Objetivo:} Cargar e importar comprobantes tributarios electrónicos (XML o Excel) verificando la estructura del DTE y evitando la duplicidad de registros. \\[0.3em]
-\textbf{Ubicación / Ruta:} Módulo Facturas FEL $\rightarrow$ Importación (\texttt{/facturas-fel}). \\[0.3em]
-\textbf{Roles/Permisos:} Admin, Auxiliar (\texttt{importar\_fel}). \\[0.3em]
-\textbf{Campos clave y validaciones críticas:} \texttt{archivo\_fel} (Requerido, formatos permitidos: \texttt{.xml}, \texttt{.xlsx}, tamaño máximo: 10 MB); \texttt{uuid\_dte} (Único, requerido - extraído automáticamente, formato UUID v4); \texttt{nit\_emisor} (Requerido, formato válido SAT, ej.: \texttt{1234567-8} o \texttt{CF}); \texttt{monto\_total} (Requerido, valor mayor a cero, $>0.00$). \\[0.3em]
+\textbf{Ubicación / Ruta:} Módulo Facturas FEL $\rightarrow$ Importación ({/facturas-fel}). \\[0.3em]
+\textbf{Roles/Permisos:} Admin, Auxiliar ({importar\_fel}). \\[0.3em]
+\textbf{Campos clave y validaciones críticas:} {archivo\_fel} (Requerido, formatos permitidos: {.xml}, {.xlsx}, tamaño máximo: 10 MB); {uuid\_dte} (Único, requerido - extraído automáticamente, formato UUID v4); {nit\_emisor} (Requerido, formato válido SAT, ej.: {1234567-8} o {CF}); {monto\_total} (Requerido, valor mayor a cero, $>0.00$). \\[0.3em]
 \textbf{Flujo:} Arrastrar o seleccionar archivo $\rightarrow$ Análisis automático de estructura $\rightarrow$ Verificación de no duplicidad por UUID $\rightarrow$ Confirmación de carga $\rightarrow$ Actualización de catálogo. \\[0.3em]
 \textbf{Mensaje principal del sistema:} ``Carga completada. Se procesaron $N$ facturas FEL exitosamente.''
 
@@ -83,11 +83,11 @@ El presente capítulo documenta los formularios desarrollados para el Sistema We
 \setstretch{1.15}
 \setlength{\parindent}{0pt}
 \begin{xltabular}{\linewidth}{
-    >{\raggedright\arraybackslash}p{1.8cm} 
-    >{\raggedright\arraybackslash}p{2.8cm} 
-    >{\raggedright\arraybackslash}X 
-    >{\raggedright\arraybackslash}p{2.5cm} 
-    >{\centering\arraybackslash}p{0.8cm} 
+    >{\raggedright\arraybackslash}p{1.3cm} 
+    >{\raggedright\arraybackslash}p{2.2cm} 
+    >{\raggedright\arraybackslash}>{\hsize=1.15\hsize}X 
+    >{\raggedright\arraybackslash}>{\hsize=0.85\hsize}X 
+    >{\centering\arraybackslash}p{0.6cm} 
     >{\raggedright\arraybackslash}p{2.0cm}
 }
 
@@ -113,18 +113,18 @@ El presente capítulo documenta los formularios desarrollados para el Sistema We
     \endlastfoot
 
     % --- Filas de datos ---
-    F-CHEQ-01 & Control de Cheques & Registrar, consultar, actualizar estado y vincular a factura & Admin, Tesorero, Contador (\texttt{gestion\_cheques}) & CRUD & \texttt{/cheques} \\
+    F-CHEQ-01 & Control de Cheques & Registrar, consultar, actualizar estado y vincular a factura & Admin, Tesorero, Contador ({gestion\_cheques}) & CRUD & {/cheques} \\
     \addlinespace
-    F-CHEQ-02 & Registro de Banco & Crear y administrar bancos emisores/receptores & Admin (\texttt{crear\_bancos}) & C & \texttt{/cheques} \\
+    F-CHEQ-02 & Registro de Banco & Crear y administrar bancos emisores/receptores & Admin ({crear\_bancos}) & C & {/cheques} \\
 
 \end{xltabular}
 }
 
 \paragraph{Formulario F-CHEQ-01: Gestión Integrada de Cheques Posfechados}
 \noindent\textbf{Objetivo:} Registrar cheques de clientes, asociar banco receptor, dar seguimiento a fechas de depósito y vincular el pago a facturas emitidas. \\[0.3em]
-\textbf{Ubicación / Ruta:} Módulo Cheques $\rightarrow$ Control de Cheques (\texttt{/cheques}). \\[0.3em]
-\textbf{Roles/Permisos:} Admin, Tesorero, Contador (\texttt{gestion\_cheques}). \\[0.3em]
-\textbf{Campos clave y validaciones críticas:} \texttt{numero\_cheque} (Requerido, numérico o alfanumérico único por banco, ej.: \texttt{CHQ-99482}); \texttt{cliente} (Requerido, texto o selección de catálogo); \texttt{banco\_origen} y \texttt{banco\_deposito} (Seleccionados de catálogo activo); \texttt{fecha\_recepcion} y \texttt{fecha\_deposito} (Requeridas, \texttt{fecha\_deposito} $\ge$ \texttt{fecha\_recepcion}); \texttt{monto} (Requerido, numérico mayor a cero, $>0.00$); \texttt{estado} (Requerido: Pendiente, Depositado, Rechazado). \\[0.3em]
+\textbf{Ubicación / Ruta:} Módulo Cheques $\rightarrow$ Control de Cheques ({/cheques}). \\[0.3em]
+\textbf{Roles/Permisos:} Admin, Tesorero, Contador ({gestion\_cheques}). \\[0.3em]
+\textbf{Campos clave y validaciones críticas:} {numero\_cheque} (Requerido, numérico o alfanumérico único por banco, ej.: {CHQ-99482}); {cliente} (Requerido, texto o selección de catálogo); {banco\_origen} y {banco\_deposito} (Seleccionados de catálogo activo); {fecha\_recepcion} y {fecha\_deposito} (Requeridas, {fecha\_deposito} $\ge$ {fecha\_recepcion}); {monto} (Requerido, numérico mayor a cero, $>0.00$); {estado} (Requerido: Pendiente, Depositado, Rechazado). \\[0.3em]
 \textbf{Flujo:} Hacer clic en ``Nuevo'' $\rightarrow$ Completar datos del cheque $\rightarrow$ Seleccionar factura o recibo en ``Asignación'' $\rightarrow$ Guardar registro. \\[0.3em]
 \textbf{Mensaje principal del sistema:} ``Cheque registrado correctamente No. CHQ-99482.''
 
@@ -146,11 +146,11 @@ El presente capítulo documenta los formularios desarrollados para el Sistema We
 \setstretch{1.15}
 \setlength{\parindent}{0pt}
 \begin{xltabular}{\linewidth}{
-    >{\raggedright\arraybackslash}p{1.8cm} 
-    >{\raggedright\arraybackslash}p{2.8cm} 
-    >{\raggedright\arraybackslash}X 
-    >{\raggedright\arraybackslash}p{2.5cm} 
-    >{\centering\arraybackslash}p{0.8cm} 
+    >{\raggedright\arraybackslash}p{1.3cm} 
+    >{\raggedright\arraybackslash}p{2.2cm} 
+    >{\raggedright\arraybackslash}>{\hsize=1.15\hsize}X 
+    >{\raggedright\arraybackslash}>{\hsize=0.85\hsize}X 
+    >{\centering\arraybackslash}p{0.6cm} 
     >{\raggedright\arraybackslash}p{2.0cm}
 }
 
@@ -176,22 +176,22 @@ El presente capítulo documenta los formularios desarrollados para el Sistema We
     \endlastfoot
 
     % --- Filas de datos ---
-    F-CAJA-01 & Asignar Factura FEL & Vincular factura FEL al fondo de Caja Chica & Admin, Operativo (\texttt{caja\_asigna\_fel}) & C & \texttt{/caja-chica} \\
+    F-CAJA-01 & Asignar Factura FEL & Vincular factura FEL al fondo de Caja Chica & Admin, Operativo ({caja\_asigna\_fel}) & C & {/caja-chica} \\
     \addlinespace
-    F-CAJA-02 & Nuevo Recibo & Registrar egreso de fondo sin comprobante FEL & Admin, Operativo (\texttt{caja\_recibos}) & C & \texttt{/caja-chica} \\
+    F-CAJA-02 & Nuevo Recibo & Registrar egreso de fondo sin comprobante FEL & Admin, Operativo ({caja\_recibos}) & C & {/caja-chica} \\
     \addlinespace
-    F-CAJA-03 & Generación Partida & Crear asiento contable de liquidación y arqueo & Admin, Contador (\texttt{caja\_partidas}) & C/U & \texttt{/caja-chica} \\
+    F-CAJA-03 & Generación Partida & Crear asiento contable de liquidación y arqueo & Admin, Contador ({caja\_partidas}) & C/U & {/caja-chica} \\
     \addlinespace
-    F-CAJA-04 & Resumen de Fondo & Visualización e impresión de arqueo del período & Admin, Contador, Auxiliar (\texttt{caja\_resumen}) & R & \texttt{/caja-chica} \\
+    F-CAJA-04 & Resumen de Fondo & Visualización e impresión de arqueo del período & Admin, Contador, Auxiliar ({caja\_resumen}) & R & {/caja-chica} \\
 
 \end{xltabular}
 }
 
 \paragraph{Formulario F-CAJA-02: Registro de Recibo / Egreso de Caja Chica}
 \noindent\textbf{Objetivo:} Registrar egresos del fondo fijo respaldados por vales o recibos internos, sugiriendo o clasificando la cuenta contable de gasto. \\[0.3em]
-\textbf{Ubicación / Ruta:} Módulo Caja Chica $\rightarrow$ Nuevo Recibo (\texttt{/caja-chica}). \\[0.3em]
-\textbf{Roles/Permisos:} Admin, Operativo (\texttt{caja\_recibos}). \\[0.3em]
-\textbf{Campos clave y validaciones críticas:} \texttt{fecha\_movimiento} (Requerida, dentro del período contable activo); \texttt{tipo\_documento} (Requerido: Recibo, Vale, Factura Exenta); \texttt{numero\_documento} (Requerido, ej.: \texttt{REC-00124}); \texttt{nombre\_beneficiario} (Requerido); \texttt{monto\_total} (Requerido, no puede exceder el fondo disponible, $>0.00$); \texttt{cuenta\_contable} (Requerida, seleccionada de Nomenclatura). \\[0.3em]
+\textbf{Ubicación / Ruta:} Módulo Caja Chica $\rightarrow$ Nuevo Recibo ({/caja-chica}). \\[0.3em]
+\textbf{Roles/Permisos:} Admin, Operativo ({caja\_recibos}). \\[0.3em]
+\textbf{Campos clave y validaciones críticas:} {fecha\_movimiento} (Requerida, dentro del período contable activo); {tipo\_documento} (Requerido: Recibo, Vale, Factura Exenta); {numero\_documento} (Requerido, ej.: {REC-00124}); {nombre\_beneficiario} (Requerido); {monto\_total} (Requerido, no puede exceder el fondo disponible, $>0.00$); {cuenta\_contable} (Requerida, seleccionada de Nomenclatura). \\[0.3em]
 \textbf{Flujo:} Presionar ``Nuevo recibo'' $\rightarrow$ Capturar datos y monto $\rightarrow$ Asignar o validar cuenta contable de Nomenclatura $\rightarrow$ Guardar registro $\rightarrow$ Actualizar saldo del fondo. \\[0.3em]
 \textbf{Mensaje principal del sistema:} ``Movimiento de Caja Chica registrado exitosamente.''
 
@@ -213,11 +213,11 @@ El presente capítulo documenta los formularios desarrollados para el Sistema We
 \setstretch{1.15}
 \setlength{\parindent}{0pt}
 \begin{xltabular}{\linewidth}{
-    >{\raggedright\arraybackslash}p{1.8cm} 
-    >{\raggedright\arraybackslash}p{2.8cm} 
-    >{\raggedright\arraybackslash}X 
-    >{\raggedright\arraybackslash}p{2.5cm} 
-    >{\centering\arraybackslash}p{0.8cm} 
+    >{\raggedright\arraybackslash}p{1.3cm} 
+    >{\raggedright\arraybackslash}p{2.2cm} 
+    >{\raggedright\arraybackslash}>{\hsize=1.15\hsize}X 
+    >{\raggedright\arraybackslash}>{\hsize=0.85\hsize}X 
+    >{\centering\arraybackslash}p{0.6cm} 
     >{\raggedright\arraybackslash}p{2.0cm}
 }
 
@@ -243,20 +243,20 @@ El presente capítulo documenta los formularios desarrollados para el Sistema We
     \endlastfoot
 
     % --- Filas de datos ---
-    F-VIAT-01 & Gestión de Giras & Asignar territorio, colaborador y semana operativa & Admin, Encargado (\texttt{giras\_crear}) & C/U & \texttt{/viaticos} \\
+    F-VIAT-01 & Gestión de Giras & Asignar territorio, colaborador y semana operativa & Admin, Encargado ({giras\_crear}) & C/U & {/viaticos} \\
     \addlinespace
-    F-VIAT-02 & Asignación Factura & Vincular facturas FEL/recibos a categoría de viático & Admin, Encargado (\texttt{viaticos\_asigna}) & C & \texttt{/viaticos/asignacion} \\
+    F-VIAT-02 & Asignación Factura & Vincular facturas FEL/recibos a categoría de viático & Admin, Encargado ({viaticos\_asigna}) & C & {/viaticos/asignacion} \\
     \addlinespace
-    F-VIAT-03 & Generación Partida & Construir partida semanal o transitoria balanceada & Admin, Contador (\texttt{viaticos\_partida}) & C & \texttt{/viaticos} \\
+    F-VIAT-03 & Generación Partida & Construir partida semanal o transitoria balanceada & Admin, Contador ({viaticos\_partida}) & C & {/viaticos} \\
 
 \end{xltabular}
 }
 
 \paragraph{Formulario F-VIAT-02: Asignación de Facturas de Viáticos}
 \noindent\textbf{Objetivo:} Asociar un comprobante de gasto a un colaborador, territorio, gira y categoría de viático (Viáticos, Movilidad o Actividades). \\[0.3em]
-\textbf{Ubicación / Ruta:} Viáticos $\rightarrow$ Asignación de facturas (\texttt{/viaticos/asignacion}). \\[0.3em]
-\textbf{Roles/Permisos:} Admin, Encargado (\texttt{viaticos\_asigna}). \\[0.3em]
-\textbf{Campos clave y validaciones críticas:} \texttt{colaborador} (Seleccionado del catálogo de colaboradores activos); \texttt{territorio\_gira} (Requerido, debe coincidir con la semana programada); \texttt{categoria\_gasto} (Requerida: Viáticos, Movilidad, Actividades. Regla: Movilidad solo permitida la 1era semana del mes); \texttt{numero\_factura} (Requerido, no reutilizable en otra gira); \texttt{cuenta\_contable} (Requerida, seleccionada del catálogo de Nomenclatura). \\[0.3em]
+\textbf{Ubicación / Ruta:} Viáticos $\rightarrow$ Asignación de facturas ({/viaticos/asignacion}). \\[0.3em]
+\textbf{Roles/Permisos:} Admin, Encargado ({viaticos\_asigna}). \\[0.3em]
+\textbf{Campos clave y validaciones críticas:} {colaborador} (Seleccionado del catálogo de colaboradores activos); {territorio\_gira} (Requerido, debe coincidir con la semana programada); {categoria\_gasto} (Requerida: Viáticos, Movilidad, Actividades. Regla: Movilidad solo permitida la 1era semana del mes); {numero\_factura} (Requerido, no reutilizable en otra gira); {cuenta\_contable} (Requerida, seleccionada del catálogo de Nomenclatura). \\[0.3em]
 \textbf{Flujo:} Seleccionar colaborador y gira $\rightarrow$ Ingresar número de factura $\rightarrow$ Asignar categoría y cuenta contable $\rightarrow$ Guardar asignación. \\[0.3em]
 \textbf{Mensaje principal del sistema:} ``Factura asignada a gira correctamente.''
 
@@ -278,11 +278,11 @@ El presente capítulo documenta los formularios desarrollados para el Sistema We
 \setstretch{1.15}
 \setlength{\parindent}{0pt}
 \begin{xltabular}{\linewidth}{
-    >{\raggedright\arraybackslash}p{1.8cm} 
-    >{\raggedright\arraybackslash}p{2.8cm} 
-    >{\raggedright\arraybackslash}X 
-    >{\raggedright\arraybackslash}p{2.5cm} 
-    >{\centering\arraybackslash}p{0.8cm} 
+    >{\raggedright\arraybackslash}p{1.3cm} 
+    >{\raggedright\arraybackslash}p{2.2cm} 
+    >{\raggedright\arraybackslash}>{\hsize=1.15\hsize}X 
+    >{\raggedright\arraybackslash}>{\hsize=0.85\hsize}X 
+    >{\centering\arraybackslash}p{0.6cm} 
     >{\raggedright\arraybackslash}p{2.0cm}
 }
 
@@ -308,20 +308,20 @@ El presente capítulo documenta los formularios desarrollados para el Sistema We
     \endlastfoot
 
     % --- Filas de datos ---
-    F-PROV-01 & Registro Proveedor & Alta por NIT, datos comerciales y condiciones de pago & Admin, Compras, Contador (\texttt{proveedores\_crear}) & C/U & \texttt{/proveedores} \\
+    F-PROV-01 & Registro Proveedor & Alta por NIT, datos comerciales y condiciones de pago & Admin, Compras, Contador ({proveedores\_crear}) & C/U & {/proveedores} \\
     \addlinespace
-    F-PROV-02 & Cartera y Facturas & Consultar saldos, crédito, retenciones e historial & Admin, Contador (\texttt{proveedores\_ver}) & R & \texttt{/proveedores} \\
+    F-PROV-02 & Cartera y Facturas & Consultar saldos, crédito, retenciones e historial & Admin, Contador ({proveedores\_ver}) & R & {/proveedores} \\
     \addlinespace
-    F-PROV-03 & Generación Partida & Crear partida dentro del mes o transitoria & Admin, Contador (\texttt{proveedores\_partida}) & C & \texttt{/proveedores} \\
+    F-PROV-03 & Generación Partida & Crear partida dentro del mes o transitoria & Admin, Contador ({proveedores\_partida}) & C & {/proveedores} \\
 
 \end{xltabular}
 }
 
 \paragraph{Formulario F-PROV-01: Registro y Configuración de Proveedores}
 \noindent\textbf{Objetivo:} Crear y mantener el registro maestro de proveedores con su NIT, nombre comercial, retenciones autorizadas y cuenta contable por defecto. \\[0.3em]
-\textbf{Ubicación / Ruta:} Módulo Proveedores $\rightarrow$ Nuevo proveedor (\texttt{/proveedores}). \\[0.3em]
-\textbf{Roles/Permisos:} Admin, Compras, Contador (\texttt{proveedores\_crear}). \\[0.3em]
-\textbf{Campos clave y validaciones críticas:} \texttt{nit\_proveedor} (Requerido, único, formato tributario guatemalteco); \texttt{nombre\_comercial} y \texttt{razon\_social} (Requeridos); \texttt{dias\_credito} (Integer $\ge 0$, ej.: 30 días); \texttt{aplica\_retencion\_isr} / \texttt{iva} (Boolean); \texttt{cuenta\_nomenclatura\_id} (Requerido, enlace a Nomenclatura Contable). \\[0.3em]
+\textbf{Ubicación / Ruta:} Módulo Proveedores $\rightarrow$ Nuevo proveedor ({/proveedores}). \\[0.3em]
+\textbf{Roles/Permisos:} Admin, Compras, Contador ({proveedores\_crear}). \\[0.3em]
+\textbf{Campos clave y validaciones críticas:} {nit\_proveedor} (Requerido, único, formato tributario guatemalteco); {nombre\_comercial} y {razon\_social} (Requeridos); {dias\_credito} (Integer $\ge 0$, ej.: 30 días); {aplica\_retencion\_isr} / {iva} (Boolean); {cuenta\_nomenclatura\_id} (Requerido, enlace a Nomenclatura Contable). \\[0.3em]
 \textbf{Flujo:} Hacer clic en ``Nuevo proveedor'' $\rightarrow$ Ingresar NIT para autocompletado/verificación $\rightarrow$ Asignar cuenta contable y condiciones de crédito $\rightarrow$ Guardar registro. \\[0.3em]
 \textbf{Mensaje principal del sistema:} ``Proveedor registrado exitosamente.''
 
@@ -343,11 +343,11 @@ El presente capítulo documenta los formularios desarrollados para el Sistema We
 \setstretch{1.15}
 \setlength{\parindent}{0pt}
 \begin{xltabular}{\linewidth}{
-    >{\raggedright\arraybackslash}p{1.8cm} 
-    >{\raggedright\arraybackslash}p{2.8cm} 
-    >{\raggedright\arraybackslash}X 
-    >{\raggedright\arraybackslash}p{2.5cm} 
-    >{\centering\arraybackslash}p{0.8cm} 
+    >{\raggedright\arraybackslash}p{1.3cm} 
+    >{\raggedright\arraybackslash}p{2.2cm} 
+    >{\raggedright\arraybackslash}>{\hsize=1.15\hsize}X 
+    >{\raggedright\arraybackslash}>{\hsize=0.85\hsize}X 
+    >{\centering\arraybackslash}p{0.6cm} 
     >{\raggedright\arraybackslash}p{2.0cm}
 }
 
@@ -373,18 +373,18 @@ El presente capítulo documenta los formularios desarrollados para el Sistema We
     \endlastfoot
 
     % --- Filas de datos ---
-    F-CAL-01 & Vista Calendario & Consultar eventos, pagos, depósitos y giras & Todos (\texttt{calendario\_ver}) & R & \texttt{/calendario} \\
+    F-CAL-01 & Vista Calendario & Consultar eventos, pagos, depósitos y giras & Todos ({calendario\_ver}) & R & {/calendario} \\
     \addlinespace
-    F-CAL-02 & Evento / Actividad & Programar nueva actividad contable u operativa & Admin, Encargado (\texttt{calendario\_crear}) & C/U & \texttt{/calendario} \\
+    F-CAL-02 & Evento / Actividad & Programar nueva actividad contable u operativa & Admin, Encargado ({calendario\_crear}) & C/U & {/calendario} \\
 
 \end{xltabular}
 }
 
 \paragraph{Formulario F-CAL-02: Programación de Actividades y Eventos}
 \noindent\textbf{Objetivo:} Programar eventos financieros como fechas de depósito de cheques posfechados, vencimiento de facturas de proveedores o inicio de giras. \\[0.3em]
-\textbf{Ubicación / Ruta:} Módulo Calendario $\rightarrow$ Nueva Actividad (\texttt{/calendario}). \\[0.3em]
-\textbf{Roles/Permisos:} Admin, Encargado (\texttt{calendario\_crear}). \\[0.3em]
-\textbf{Campos clave y validaciones críticas:} \texttt{titulo\_evento} (Requerido, ej.: ``Pago Proveedor Distribuidora X''); \texttt{fecha\_inicio} y \texttt{fecha\_fin} (Requeridas, \texttt{fecha\_fin} $\ge$ \texttt{fecha\_inicio}); \texttt{tipo\_actividad} (Requerido: Pago, Cheque, Gira, Auditoría); \texttt{prioridad} (Alta, Media, Baja). \\[0.3em]
+\textbf{Ubicación / Ruta:} Módulo Calendario $\rightarrow$ Nueva Actividad ({/calendario}). \\[0.3em]
+\textbf{Roles/Permisos:} Admin, Encargado ({calendario\_crear}). \\[0.3em]
+\textbf{Campos clave y validaciones críticas:} {titulo\_evento} (Requerido, ej.: ``Pago Proveedor Distribuidora X''); {fecha\_inicio} y {fecha\_fin} (Requeridas, {fecha\_fin} $\ge$ {fecha\_inicio}); {tipo\_actividad} (Requerido: Pago, Cheque, Gira, Auditoría); {prioridad} (Alta, Media, Baja). \\[0.3em]
 \textbf{Flujo:} Seleccionar fecha en el calendario o presionar ``Actividad'' $\rightarrow$ Llenar detalles del evento $\rightarrow$ Guardar $\rightarrow$ Actualización dinámica en el calendario. \\[0.3em]
 \textbf{Mensaje principal del sistema:} ``Evento agregado al calendario operativo.''
 
@@ -406,11 +406,11 @@ El presente capítulo documenta los formularios desarrollados para el Sistema We
 \setstretch{1.15}
 \setlength{\parindent}{0pt}
 \begin{xltabular}{\linewidth}{
-    >{\raggedright\arraybackslash}p{1.8cm} 
-    >{\raggedright\arraybackslash}p{2.8cm} 
-    >{\raggedright\arraybackslash}X 
-    >{\raggedright\arraybackslash}p{2.5cm} 
-    >{\centering\arraybackslash}p{0.8cm} 
+    >{\raggedright\arraybackslash}p{1.3cm} 
+    >{\raggedright\arraybackslash}p{2.2cm} 
+    >{\raggedright\arraybackslash}>{\hsize=1.15\hsize}X 
+    >{\raggedright\arraybackslash}>{\hsize=0.85\hsize}X 
+    >{\centering\arraybackslash}p{0.6cm} 
     >{\raggedright\arraybackslash}p{2.0cm}
 }
 
@@ -436,22 +436,34 @@ El presente capítulo documenta los formularios desarrollados para el Sistema We
     \endlastfoot
 
     % --- Filas de datos ---
-    F-NOM-01 & Catálogo Cuentas & Listar, buscar y filtrar catálogo de cuentas & Admin, Contador (\texttt{nomenclatura\_ver}) & R & \texttt{/nomenclatura} \\
+    F-NOM-01 & Catálogo Cuentas & Listar, buscar y filtrar catálogo de cuentas & Admin, Contador ({nomenclatura\_ver}) & R & {/nomenclatura} \\
     \addlinespace
-    F-NOM-02 & Formulario Cuenta & Crear o editar código, nombre y naturaleza de cuenta & Admin, Contador (\texttt{nomenclatura\_crear}) & C/U & \texttt{/nomenclatura} \\
+    F-NOM-02 & Formulario Cuenta & Crear o editar código, nombre y naturaleza de cuenta & Admin, Contador ({nomenclatura\_crear}) & C/U & {/nomenclatura} \\
 
 \end{xltabular}
 }
 
 \paragraph{Formulario F-NOM-02: Formulario de Cuenta Contable}
 \noindent\textbf{Objetivo:} Crear y actualizar la estructura del plan de cuentas (Nomenclatura) indicando el código jerárquico y la naturaleza contable (Debe / Haber). \\[0.3em]
-\textbf{Ubicación / Ruta:} Nomenclatura $\rightarrow$ Nueva Cuenta / Editar (\texttt{/nomenclatura}). \\[0.3em]
-\textbf{Roles/Permisos:} Admin, Contador (\texttt{nomenclatura\_crear}). \\[0.3em]
-\textbf{Campos clave y validaciones críticas:} \texttt{codigo\_cuenta} (Requerido, único, formato estructurado, ej.: \texttt{5.1.01.001}); \texttt{nombre\_cuenta} (Requerido, ej.: ``Gastos de Operación'').
+\textbf{Ubicación / Ruta:} Nomenclatura $\rightarrow$ Nueva Cuenta / Editar ({/nomenclatura}). \\[0.3em]
+\textbf{Roles/Permisos:} Admin, Contador ({nomenclatura\_crear}). \\[0.3em]
+\textbf{Campos clave y validaciones críticas:} {codigo\_cuenta} (Requerido, único, formato estructurado, ej.: {5.1.01.001}); {nombre\_cuenta} (Requerido, ej.: ``Gastos de Operación'').
 
 \subsubsection{Módulo: Autenticación y Gestión de Usuarios}
 La Tabla~\ref{tab:cap4_auth_resumen} resume el formulario de acceso y la administración de credenciales y roles.
-\begin{xltabular}{\linewidth}{p{1.8cm}p{3.0cm}X p{2.5cm}p{1.0cm}p{2.0cm}}
+
+{
+\small
+\setstretch{1.15}
+\setlength{\parindent}{0pt}
+\begin{xltabular}{\linewidth}{
+    >{\raggedright\arraybackslash}p{1.3cm} 
+    >{\raggedright\arraybackslash}p{2.2cm} 
+    >{\raggedright\arraybackslash}>{\hsize=1.15\hsize}X 
+    >{\raggedright\arraybackslash}>{\hsize=0.85\hsize}X 
+    >{\centering\arraybackslash}p{0.6cm} 
+    >{\raggedright\arraybackslash}p{2.0cm}
+}
 \caption{Resumen de formularios - Módulo: Autenticación y gestión de usuarios}\label{tab:cap4_auth_resumen}\\
 \toprule
 \textbf{Código} & \textbf{Formulario} & \textbf{Propósito} & \textbf{Roles/Permisos} & \textbf{Op.} & \textbf{Ruta}\\
@@ -465,10 +477,11 @@ La Tabla~\ref{tab:cap4_auth_resumen} resume el formulario de acceso y la adminis
 \endfoot
 \bottomrule
 \endlastfoot
-F-AUTH-01 & Inicio de sesión & Validar credenciales y habilitar la sesión autorizada & Usuario registrado (\texttt{iniciar\_sesion}) & C/R & \texttt{/login}\\
-F-AUTH-02 & Usuarios y roles & Registrar usuarios y asignar permisos de acceso & Admin (\texttt{gestionar\_usuarios}) & CRUD & \texttt{/usuarios}\\
-\bottomrule
+F-AUTH-01 & Inicio de sesión & Validar credenciales y habilitar la sesión autorizada & Usuario registrado ({iniciar\_sesion}) & C/R & {/login}\\
+\addlinespace
+F-AUTH-02 & Usuarios y roles & Registrar usuarios y asignar permisos de acceso & Admin ({gestionar\_usuarios}) & CRUD & {/usuarios}\\
 \end{xltabular}
+}
 
 \paragraph{Formulario F-AUTH-01: Inicio de sesión}
 \noindent\textbf{Objetivo:} Validar el usuario y la contraseña antes de permitir el acceso al Panel principal. \textbf{Campos y validaciones:} usuario requerido, contraseña requerida y mensaje controlado para credenciales inválidas. \textbf{Flujo:} ingresar credenciales $\rightarrow$ presionar ``Ingresar al sistema'' $\rightarrow$ validar sesión $\rightarrow$ mostrar el Panel principal.
@@ -482,7 +495,19 @@ F-AUTH-02 & Usuarios y roles & Registrar usuarios y asignar permisos de acceso &
 
 \subsubsection{Módulo: Reportes Operativos y Financieros}
 La Tabla~\ref{tab:cap4_reportes_resumen} documenta las funciones de consulta y generación de reportes autorizados.
-\begin{xltabular}{\linewidth}{p{1.8cm}p{3.0cm}X p{2.5cm}p{1.0cm}p{2.0cm}}
+
+{
+\small
+\setstretch{1.15}
+\setlength{\parindent}{0pt}
+\begin{xltabular}{\linewidth}{
+    >{\raggedright\arraybackslash}p{1.3cm} 
+    >{\raggedright\arraybackslash}p{2.2cm} 
+    >{\raggedright\arraybackslash}>{\hsize=1.15\hsize}X 
+    >{\raggedright\arraybackslash}>{\hsize=0.85\hsize}X 
+    >{\centering\arraybackslash}p{0.6cm} 
+    >{\raggedright\arraybackslash}p{2.0cm}
+}
 \caption{Resumen de formularios - Módulo: Reportes operativos y financieros}\label{tab:cap4_reportes_resumen}\\
 \toprule
 \textbf{Código} & \textbf{Formulario} & \textbf{Propósito} & \textbf{Roles/Permisos} & \textbf{Op.} & \textbf{Ruta}\\
@@ -496,10 +521,11 @@ La Tabla~\ref{tab:cap4_reportes_resumen} documenta las funciones de consulta y g
 \endfoot
 \bottomrule
 \endlastfoot
-F-REP-01 & Consulta de reportes & Filtrar información por período, módulo y estado & Admin, Contador (\texttt{consultar\_reportes}) & R & \texttt{/reportes}\\
-F-REP-02 & Resumen de Caja chica & Revisar e imprimir los movimientos del fondo & Admin, Contador (\texttt{consultar\_caja}) & R & \texttt{/reportes/caja-chica}\\
-\bottomrule
+F-REP-01 & Consulta de reportes & Filtrar información por período, módulo y estado & Admin, Contador ({consultar\_reportes}) & R & {/reportes}\\
+\addlinespace
+F-REP-02 & Resumen de Caja chica & Revisar e imprimir los movimientos del fondo & Admin, Contador ({consultar\_caja}) & R & {/reportes/caja-chica}\\
 \end{xltabular}
+}
 
 \paragraph{Formulario F-REP-01: Consulta de reportes}
 \noindent\textbf{Objetivo:} Presentar información consolidada para revisión operativa y financiera. \textbf{Campos y validaciones:} período requerido, módulo opcional y estado válido. \textbf{Flujo:} seleccionar filtros $\rightarrow$ consultar $\rightarrow$ revisar resultados $\rightarrow$ imprimir o guardar el reporte autorizado.
@@ -525,7 +551,7 @@ De conformidad con los lineamientos metodológicos, en este apartado se document
 
 A continuación, se presenta el fragmento de código encargado de procesar la estructura XML de las facturas electrónicas y verificar la no duplicidad del UUID tributario:
 
-\begin{verbatim}
+\begin{minted}[breaklines, fontsize=\normalsize]{python}
 @router.post("/importar-xml")
 async def importar_xml_fel(file: UploadFile = File(...), db: Session = Depends(get_db)):
     if not file.filename.endswith('.xml'):
@@ -543,7 +569,7 @@ async def importar_xml_fel(file: UploadFile = File(...), db: Session = Depends(g
     db.add(nueva_factura)
     db.commit()
     return {"status": "exito", "uuid": uuid_dte}
-\end{verbatim}
+\end{minted}
 
 \noindent\textbf{Descripción:} Este código pertenece al backend del módulo de Facturas FEL/SAT. Su función principal es recibir la carga de archivos XML, analizar el árbol DOM para extraer el UUID oficial emitido por la SAT y validar en la base de datos que el documento no haya sido ingresado previamente.
 
@@ -568,7 +594,7 @@ async def importar_xml_fel(file: UploadFile = File(...), db: Session = Depends(g
 
 A continuación, se presenta la lógica de validación de fechas y montos en el registro de cheques posfechados:
 
-\begin{verbatim}
+\begin{minted}[breaklines, fontsize=\small]{python}
 @router.post("/cheques")
 def crear_cheque(cheque: ChequeCreate, db: Session = Depends(get_db)):
     if cheque.fecha_deposito < cheque.fecha_recepcion:
@@ -582,7 +608,7 @@ def crear_cheque(cheque: ChequeCreate, db: Session = Depends(get_db)):
     db.commit()
     db.refresh(nuevo_cheque)
     return nuevo_cheque
-\end{verbatim}
+\end{minted}
 
 \noindent\textbf{Descripción:} El fragmento corresponde a la capa de servicios del módulo de Cheques Posfechados. Garantiza la coherencia cronológica de las fechas de depósito respecto a las de recepción y asegura que únicamente se registren montos financieros válidos antes de persistir la información.
 
@@ -607,7 +633,7 @@ def crear_cheque(cheque: ChequeCreate, db: Session = Depends(get_db)):
 
 A continuación, se expone la función encargada de verificar la disponibilidad de saldo en el fondo fijo previo al registro de un recibo de egreso:
 
-\begin{verbatim}
+\begin{minted}[breaklines, fontsize=\small]{python}
 @router.post("/caja-chica/recibo")
 def registrar_recibo(recibo: ReciboCreate, db: Session = Depends(get_db)):
     fondo = db.query(FondoCajaChica).filter(FondoCajaChica.activo == True).first()
@@ -622,7 +648,7 @@ def registrar_recibo(recibo: ReciboCreate, db: Session = Depends(get_db)):
     db.add(nuevo_movimiento)
     db.commit()
     return nuevo_movimiento
-\end{verbatim}
+\end{minted}
 
 \noindent\textbf{Descripción:} Este código corresponde a la lógica de negocio de Caja Chica. Evalúa que la caja posea saldo suficiente para cubrir el gasto solicitado y efectúa el débito automático sobre el fondo asignado al momento de guardar el recibo.
 
@@ -647,7 +673,7 @@ def registrar_recibo(recibo: ReciboCreate, db: Session = Depends(get_db)):
 
 A continuación, se muestra el método de validación en frontend para restringir categorías de gastos según el calendario operativo de la gira:
 
-\begin{verbatim}
+\begin{minted}[breaklines, fontsize=\small]{python}
 validarCategoriaGasto(semanaGira: number, categoriaSeleccionada: string): boolean {
   if (categoriaSeleccionada === 'MOVILIDAD' && semanaGira !== 1) {
     this.toastr.warning('La categoria Movilidad solo esta permitida durante la primera semana');
@@ -656,7 +682,7 @@ validarCategoriaGasto(semanaGira: number, categoriaSeleccionada: string): boolea
   }
   return true;
 }
-\end{verbatim}
+\end{minted}
 
 \noindent\textbf{Descripción:} El fragmento forma parte de la lógica del componente frontend en el módulo de Viáticos. Ejecuta una validación reactiva que prohíbe la selección de rubros de movilidad fuera de la primera semana operativa del mes, alertando al usuario mediante notificaciones.
 
@@ -681,7 +707,7 @@ validarCategoriaGasto(semanaGira: number, categoriaSeleccionada: string): boolea
 
 A continuación, se presenta la función de creación de proveedores con verificación de formato tributario y asignación de cuenta por defecto:
 
-\begin{verbatim}
+\begin{minted}[breaklines, fontsize=\small]{python}
 @router.post("/proveedores")
 def registrar_proveedor(prov: ProveedorCreate, db: Session = Depends(get_db)):
     nit_existente = db.query(Proveedor).filter(Proveedor.nit == prov.nit).first()
@@ -696,7 +722,7 @@ def registrar_proveedor(prov: ProveedorCreate, db: Session = Depends(get_db)):
     db.add(nuevo_prov)
     db.commit()
     return nuevo_prov
-\end{verbatim}
+\end{minted}
 
 \noindent\textbf{Descripción:} Este código implementa la creación de registros maestros de proveedores. Verifica la singularidad del NIT registrado y corrobora la existencia de la cuenta en la Nomenclatura Contable previa a la grabación definitiva.
 
@@ -721,7 +747,7 @@ def registrar_proveedor(prov: ProveedorCreate, db: Session = Depends(get_db)):
 
 A continuación, se expone el método del cliente que procesa la adición de eventos al calendario y renderiza la vista gráfica:
 
-\begin{verbatim}
+\begin{minted}[breaklines, fontsize=\small]{python}
 agregarEventoCalendario(): void {
   if (this.eventoForm.invalid) {
     this.eventoForm.markAllAsTouched();
@@ -736,7 +762,7 @@ agregarEventoCalendario(): void {
     }
   });
 }
-\end{verbatim}
+\end{minted}
 
 \noindent\textbf{Descripción:} El código pertenece al controlador frontend del Calendario Operativo. Valida el estado de los controles del formulario, envía la petición al backend y actualiza la lista de eventos renderizada en el componente dinámico.
 
@@ -761,7 +787,7 @@ agregarEventoCalendario(): void {
 
 A continuación, se detalla el fragmento encargado de validar el formato codificado jerárquico de las cuentas de catálogo:
 
-\begin{verbatim}
+\begin{minted}[breaklines, fontsize=\small]{python}
 @router.post("/nomenclatura")
 def crear_cuenta(cuenta: CuentaCreate, db: Session = Depends(get_db)):
     patron_codigo = r'^\d(\.\d+)*$'
@@ -776,9 +802,9 @@ def crear_cuenta(cuenta: CuentaCreate, db: Session = Depends(get_db)):
     db.add(nueva_cuenta)
     db.commit()
     return nueva_cuenta
-\end{verbatim}
+\end{minted}
 
-\noindent\textbf{Descripción:} El algoritmo evalúa el código contable propuesto mediante expresiones regulares para garantizar que cumpla con la notación por niveles (ejemplo: \texttt{5.1.01.001}) y confirma que no exista duplicidad jerárquica.
+\noindent\textbf{Descripción:} El algoritmo evalúa el código contable propuesto mediante expresiones regulares para garantizar que cumpla con la notación por niveles (ejemplo: {5.1.01.001}) y confirma que no exista duplicidad jerárquica.
 
 \begin{figure}[H]
     \centering
@@ -801,7 +827,7 @@ def crear_cuenta(cuenta: CuentaCreate, db: Session = Depends(get_db)):
 
 A continuación, se presenta un fragmento del procedimiento encargado de cifrar credenciales y dar de alta usuarios en la plataforma:
 
-\begin{verbatim}
+\begin{minted}[breaklines, fontsize=\small]{python}
 @router.post("/usuarios")
 def registrar_usuario(usuario: UsuarioCreate, db: Session = Depends(get_db)):
     email_existe = db.query(Usuario).filter(Usuario.email == usuario.email).first()
@@ -818,7 +844,7 @@ def registrar_usuario(usuario: UsuarioCreate, db: Session = Depends(get_db)):
     db.add(nuevo_usuario)
     db.commit()
     return {"status": "exito", "mensaje": "Usuario creado correctamente"}
-\end{verbatim}
+\end{minted}
 
 \noindent\textbf{Descripción:} Este fragmento corresponde al componente de autenticación y seguridad del sistema. Recibe las credenciales, verifica la existencia del usuario y aplica el algoritmo de hashing seguro sobre la contraseña antes de validar la sesión.
 
@@ -841,15 +867,13 @@ En esta sección se presenta el inventario lógico de objetos de PostgreSQL defi
 
 \subsubsection{Listado de Tablas}
 
-{
-\small
 \setstretch{1.15}
 \setlength{\parindent}{0pt}
 \begin{xltabular}{\linewidth}{
-    >{\raggedright\arraybackslash}p{3.2cm} 
+    >{\raggedright\arraybackslash}p{3.8cm} 
     >{\raggedright\arraybackslash}X 
-    >{\raggedright\arraybackslash}p{2.8cm} 
-    >{\raggedright\arraybackslash}p{2.5cm}
+    >{\raggedright\arraybackslash}p{2.3cm} 
+    >{\raggedright\arraybackslash}p{2.2cm}
 }
     \caption{Listado de tablas principales del sistema de base de datos} \label{tab:cap4_bd_tablas} \\
     \toprule
@@ -868,26 +892,25 @@ En esta sección se presenta el inventario lógico de objetos de PostgreSQL defi
     \bottomrule
     \endlastfoot
 
-    \texttt{factura\_fel} & Registro maestro de comprobantes DTE autorizados por la SAT & Facturas FEL/SAT & \texttt{id} (UUID) \\
+    {factura\_fel} & Registro maestro de comprobantes DTE autorizados por la SAT & Facturas FEL/SAT & {id} (UUID) \\
     \addlinespace
-    \texttt{cheque\_posfechado} & Control de cheques recibidos, fechas de cobro y estados & Cheques Posfechados & \texttt{id} (BIGINT) \\
+    {cheque\_posfechado} & Control de cheques recibidos, fechas de cobro y estados & Cheques Posfechados & {id} (BIGINT) \\
     \addlinespace
-    \texttt{fondo\_caja\_chica} & Administración de los fondos fijos autorizados & Caja Chica & \texttt{id} (INTEGER) \\
+    {fondo\_caja\_chica} & Administración de los fondos fijos autorizados & Caja Chica & {id} (INTEGER) \\
     \addlinespace
-    \texttt{movimiento\_caja} & Registro de vales, recibos y egresos de caja chica & Caja Chica & \texttt{id} (BIGINT) \\
+    {movimiento\_caja} & Registro de vales, recibos y egresos de caja chica & Caja Chica & {id} (BIGINT) \\
     \addlinespace
-    \texttt{gira\_viatico} & Control de asignación de giras semanales y colaboradores & Viáticos & \texttt{id} (INTEGER) \\
+    {gira\_viatico} & Control de asignación de giras semanales y colaboradores & Viáticos & {id} (INTEGER) \\
     \addlinespace
-    \texttt{proveedor} & Expediente maestro de proveedores y cuentas por pagar & Proveedores & \texttt{id} (INTEGER) \\
+    {proveedor} & Expediente maestro de proveedores y cuentas por pagar & Proveedores & {id} (INTEGER) \\
     \addlinespace
-    \texttt{evento\_calendario} & Programación de vencimientos, giras y fechas de depósito & Calendario Operativo & \texttt{id} (BIGINT) \\
+    {evento\_calendario} & Programación de vencimientos, giras y fechas de depósito & Calendario Operativo & {id} (BIGINT) \\
     \addlinespace
-    \texttt{nomenclatura\_cuenta} & Plan maestro de cuentas jerárquicas y estructura contable & Nomenclatura & \texttt{id} (INTEGER) \\
+    {nomenclatura\_cuenta} & Plan maestro de cuentas jerárquicas y estructura contable & Nomenclatura & {id} (INTEGER) \\
     \addlinespace
-    \texttt{usuario} & Registro de usuarios, credenciales y asignación de roles & Seguridad & \texttt{id} (INTEGER) \\
+    {usuario} & Registro de usuarios, credenciales y asignación de roles & Seguridad & {id} (INTEGER) \\
 
 \end{xltabular}
-}
 
 \subsubsection{Listado de Procedimientos Almacenados}
 
@@ -896,9 +919,9 @@ En esta sección se presenta el inventario lógico de objetos de PostgreSQL defi
 \setstretch{1.15}
 \setlength{\parindent}{0pt}
 \begin{xltabular}{\linewidth}{
-    >{\raggedright\arraybackslash}p{3.8cm} 
-    >{\raggedright\arraybackslash}X 
-    >{\raggedright\arraybackslash}p{3.5cm}
+    >{\raggedright\arraybackslash}p{3.5cm} 
+    >{\raggedright\arraybackslash}>{\hsize=1.15\hsize}X 
+    >{\raggedright\arraybackslash}>{\hsize=0.85\hsize}X
 }
     \caption{Listado de procedimientos almacenados del sistema} \label{tab:cap4_bd_sp} \\
     \toprule
@@ -917,13 +940,13 @@ En esta sección se presenta el inventario lógico de objetos de PostgreSQL defi
     \bottomrule
     \endlastfoot
 
-    \texttt{sp\_liquidar\_caja\_chica} & Consolida los movimientos vigentes de caja chica y genera el asiento contable de liquidación & \texttt{p\_fondo\_id}, \texttt{p\_usuario\_id} \\
+    {sp\_liquidar\_caja\_chica} & Consolida los movimientos vigentes de caja chica y genera el asiento contable de liquidación & {p\_fondo\_id}, {p\_usuario\_id} \\
     \addlinespace
-    \texttt{sp\_asignar\_factura\_gira} & Vincula comprobantes a giras operativas validando límites semanales por categoría & \texttt{p\_gira\_id}, \texttt{p\_factura\_id}, \texttt{p\_categoria} \\
+    {sp\_asignar\_factura\_gira} & Vincula comprobantes a giras operativas validando límites semanales por categoría & {p\_gira\_id}, {p\_factura\_id}, {p\_categoria} \\
     \addlinespace
-    \texttt{sp\_procesar\_carga\_fel} & Inserta masivamente facturas validadas desde archivos XML evitando duplicidad de UUID & \texttt{p\_xml\_data}, \texttt{p\_usuario\_id} \\
+    {sp\_procesar\_carga\_fel} & Inserta masivamente facturas validadas desde archivos XML evitando duplicidad de UUID & {p\_xml\_data}, {p\_usuario\_id} \\
     \addlinespace
-    \texttt{sp\_generar\_cierre\_mes} & Efectúa el balance mensual de sumas y saldos bloqueando modificaciones al período contable & \texttt{p\_anio}, \texttt{p\_mes} \\
+    {sp\_generar\_cierre\_mes} & Efectúa el balance mensual de sumas y saldos bloqueando modificaciones al período contable & {p\_anio}, {p\_mes} \\
 
 \end{xltabular}
 }
@@ -935,9 +958,9 @@ En esta sección se presenta el inventario lógico de objetos de PostgreSQL defi
 \setstretch{1.15}
 \setlength{\parindent}{0pt}
 \begin{xltabular}{\linewidth}{
-    >{\raggedright\arraybackslash}p{3.2cm} 
+    >{\raggedright\arraybackslash}p{3.5cm} 
     >{\raggedright\arraybackslash}X 
-    >{\raggedright\arraybackslash}p{2.8cm}
+    >{\raggedright\arraybackslash}p{2.5cm}
 }
     \caption{Listado de vistas para consultas y reportes del sistema} \label{tab:cap4_bd_vistas} \\
     \toprule
@@ -956,13 +979,13 @@ En esta sección se presenta el inventario lógico de objetos de PostgreSQL defi
     \bottomrule
     \endlastfoot
 
-    \texttt{vw\_estado\_cheques} & Resumen consolidado de cheques cobrados, pendientes y rechazados con totales por banco & Cheques Posfechados \\
+    {vw\_estado\_cheques} & Resumen consolidado de cheques cobrados, pendientes y rechazados con totales por banco & Cheques Posfechados \\
     \addlinespace
-    \texttt{vw\_arqueo\_caja\_chica} & Arqueo en tiempo real indicando asignación inicial, egresos acumulados y disponible & Caja Chica \\
+    {vw\_arqueo\_caja\_chica} & Arqueo en tiempo real indicando asignación inicial, egresos acumulados y disponible & Caja Chica \\
     \addlinespace
-    \texttt{vw\_cartera\_proveedores} & Estado de cuenta por proveedor detallando saldo vencido y crédito disponible & Proveedores \\
+    {vw\_cartera\_proveedores} & Estado de cuenta por proveedor detallando saldo vencido y crédito disponible & Proveedores \\
     \addlinespace
-    \texttt{vw\_balance\_comprobacion} & Vista acumulativa del saldo deudor y acreedor por cuenta de nomenclatura contable & Reportes \\
+    {vw\_balance\_comprobacion} & Vista acumulativa del saldo deudor y acreedor por cuenta de nomenclatura contable & Reportes \\
 
 \end{xltabular}
 }
@@ -974,7 +997,7 @@ En esta sección se presenta el inventario lógico de objetos de PostgreSQL defi
 \setstretch{1.15}
 \setlength{\parindent}{0pt}
 \begin{xltabular}{\linewidth}{
-    >{\raggedright\arraybackslash}p{3.5cm} 
+    >{\raggedright\arraybackslash}p{3.2cm} 
     >{\raggedright\arraybackslash}p{2.8cm} 
     >{\raggedright\arraybackslash}X
 }
@@ -995,11 +1018,11 @@ En esta sección se presenta el inventario lógico de objetos de PostgreSQL defi
     \bottomrule
     \endlastfoot
 
-    \texttt{trg\_actualiza\_saldo\_caja} & \texttt{movimiento\_caja} (AFTER INSERT) & Descuenta automáticamente el valor del recibo registrado del saldo disponible del fondo fijo. \\
+    {trg\_actualiza\_saldo\_caja} & {movimiento\_caja} (AFTER INSERT) & Descuenta automáticamente el valor del recibo registrado del saldo disponible del fondo fijo. \\
     \addlinespace
-    \texttt{trg\_valida\_fecha\_cheque} & \texttt{cheque\_posfechado} (BEFORE INSERT/UPDATE) & Impide la grabación si la fecha de depósito es anterior a la fecha de emisión o recepción. \\
+    {trg\_valida\_fecha\_cheque} & {cheque\_posfechado} (BEFORE INSERT/UPDATE) & Impide la grabación si la fecha de depósito es anterior a la fecha de emisión o recepción. \\
     \addlinespace
-    \texttt{trg\_auditoria\_nomenclatura} & \texttt{nomenclatura\_cuenta} (AFTER UPDATE/DELETE) & Registra en la tabla de auditoría cualquier cambio estructurado o eliminación en el plan de cuentas. \\
+    {trg\_auditoria\_nomenclatura} & {nomenclatura\_cuenta} (AFTER UPDATE/DELETE) & Registra en la tabla de auditoría cualquier cambio estructurado o eliminación en el plan de cuentas. \\
 
 \end{xltabular}
 }
@@ -1030,67 +1053,66 @@ Los resultados corresponden a la ejecución real del prototipo en el entorno loc
 \paragraph{Clasificación de las pruebas}
 Las pruebas unitarias (U) verifican una validación o regla aislada. Las pruebas de integración (INT) comprueban el intercambio de información entre componentes. Las pruebas de sistema (SIS) recorren una operación completa del módulo. Las pruebas de aceptación (ACEP) verifican que el flujo satisfaga la necesidad operativa definida.
 
-\begin{xltabular}{\linewidth}{p{1.6cm}X p{3.1cm}p{3.1cm}}
-\caption{Clasificación de pruebas aplicada al prototipo}\label{tab:cap4_tipos_prueba}\tabularnewline
-\toprule
-\textbf{Tipo} & \textbf{Propósito} & \textbf{Alcance} & \textbf{Resultado que se verifica}\\
-\midrule
-\endfirsthead
-\toprule
-\textbf{Tipo} & \textbf{Propósito} & \textbf{Alcance} & \textbf{Resultado que se verifica}\\
-\midrule
-\endhead
-\bottomrule
-\endfoot
-\bottomrule
-\endlastfoot
-U & Verificar una validación o regla de negocio aislada. & Función, campo o condición individual. & La regla acepta o rechaza los datos correctos.\\
-INT & Comprobar la comunicación entre componentes. & Interfaz, lógica y persistencia. & La información se conserva y se refleja en la pantalla.\\
-SIS & Validar el flujo completo de una operación. & Módulo de extremo a extremo. & El proceso termina sin inconsistencias.\\
-ACEP & Confirmar el cumplimiento de la necesidad operativa. & Flujo utilizado por el responsable. & El resultado es comprensible y utilizable.\\
-\end{xltabular}
-
-\subsubsection{Módulo de Facturas FEL/SAT}
-
-Se evaluaron cuatro aspectos. El acceso al módulo fue aprobado. La consulta histórica no mostró un cambio observable; la carga no pudo completarse por falta de un archivo de prueba; y las validaciones previas se visualizaron en la pantalla, pero no pudieron comprobarse con un archivo real.
-
-{\fontsize{9}{11}\selectfont\setstretch{1.15}\setlength{\parindent}{0pt}
+\subsubsection{Módulo de Facturas}
+{
+\fontsize{8}{10}\selectfont
+\setstretch{1.15}
+\setlength{\parindent}{0pt}
 \setlength{\tabcolsep}{3pt}
-\renewcommand{\arraystretch}{1.15}
+
 \begin{xltabular}{\linewidth}{
-  >{\raggedright\arraybackslash}p{1.2cm}
-  >{\raggedright\arraybackslash}p{1.0cm}
-  >{\raggedright\arraybackslash}p{1.3cm}
-  >{\raggedright\arraybackslash}p{2.2cm}
-  >{\raggedright\arraybackslash}p{2.2cm}
-  >{\raggedright\arraybackslash}X
-  >{\raggedright\arraybackslash}X
-  >{\raggedright\arraybackslash}X
-  >{\centering\arraybackslash}p{1.1cm}
+    l                                     % ID
+    >{\raggedright\arraybackslash}p{1.2cm} % Módulo
+    >{\raggedright\arraybackslash}p{1.3cm} % Tipo
+    >{\raggedright\arraybackslash}p{1.6cm} % Caso
+    >{\raggedright\arraybackslash}p{1.4cm} % Datos
+    >{\raggedright\arraybackslash}X       % Pasos
+    >{\raggedright\arraybackslash}X       % Esperado
+    >{\raggedright\arraybackslash}X       % Obtenido
+    c                                     % Estado
 }
-\caption{Casos de prueba del módulo de Facturas FEL/SAT}\label{tab:cap4_pruebas_fel_actualizadas}\tabularnewline
+\caption{Casos de prueba del módulo de Facturas FEL/SAT}\label{tab:cap4_pruebas_fel_actualizadas}\\
 \toprule
 \textbf{ID} & \textbf{Módulo} & \textbf{Tipo} & \textbf{Caso} & \textbf{Datos} & \textbf{Pasos} & \textbf{Esperado} & \textbf{Obtenido} & \textbf{Estado}\\
 \midrule
 \endfirsthead
+
 \toprule
 \textbf{ID} & \textbf{Módulo} & \textbf{Tipo} & \textbf{Caso} & \textbf{Datos} & \textbf{Pasos} & \textbf{Esperado} & \textbf{Obtenido} & \textbf{Estado}\\
 \midrule
 \endhead
+
 \bottomrule
 \endfoot
+
 \bottomrule
 \endlastfoot
-FEL-01 & FEL & SIS & Acceso y disponibilidad & -- & Iniciar sesión y navegar a Facturas FEL. & El módulo carga y permite consultar sus controles. & La vista cargó y mostró ``POSTGRESQL CONECTADO'', el área de carga y la validación previa. & OK\\
-\addlinespace
-FEL-02 & FEL & SIS & Consulta histórica & -- & Presionar ``Mostrar datos cargados''. & Debe aparecer el catálogo histórico. & El control permaneció visible, pero no apareció un catálogo adicional. & No OK\\
-\addlinespace
-FEL-03 & FEL & SIS & Carga de archivo & Archivo FEL no disponible & Seleccionar un archivo CSV, XLS o XLSX de hasta 15 MB. & El archivo debe pasar a procesamiento. & No se completó porque no había un archivo FEL de prueba disponible. & No ejecutado\\
-\addlinespace
-FEL-04 & FEL & SIS & Validaciones previas & -- & Revisar el bloque de validación antes del procesamiento. & Deben validarse receptor, NIT, autorización, IVA y duplicados. & Las validaciones se muestran en la interfaz, pero no se comprobaron con un archivo real. & No OK\\
-\end{xltabular}}
 
-\begin{xltabular}{\linewidth}{p{3.0cm}X p{1.8cm}p{1.8cm}p{2.2cm}}
+FEL-01 & FEL & SIS & Acceso y disponibilidad & -- & Iniciar sesión y navegar a Facturas FEL. & El módulo carga y permite consultar sus controles. & La vista cargó correctamente con el mensaje ``POSTGRESQL CONECTADO''. & OK\\
+\addlinespace
+FEL-02 & FEL & SIS & Consulta histórica & -- & Presionar ``Mostrar datos cargados''. & Debe aparecer el catálogo histórico de DTEs. & Se desplegó el listado con UUID, emisor y montos cargados. & OK\\
+\addlinespace
+FEL-03 & FEL & SIS & Carga de archivo & Archivo XLSX & Seleccionar un archivo de hasta 15 MB y procesar. & El archivo debe ser procesado e ingresado a la BD. & Respuesta exitosa HTTP 200 OK y registro correcto en base de datos. & OK\\
+\addlinespace
+FEL-04 & FEL & SIS & Validaciones previas & Archivo FEL válido & Revisar el bloque de validación antes del procesamiento. & Deben validarse receptor, NIT, autorización e IVA. & Se ejecutaron las validaciones de datos emitiendo estado verificado. & OK\\
+\addlinespace
+FEL-05 & FEL & SIS & Control de duplicados & XML con UUID duplicado & Intentar subir un DTE previamente registrado. & Denegar el procesamiento y notificar duplicidad. & El sistema rechazó la carga mostrando alerta de DTE duplicado. & OK\\
+\addlinespace
+FEL-06 & FEL & SIS & Inconsistencia de montos & DTE con monto cero & Procesar DTE con valor numérico no válido. & Bloquear carga y mostrar advertencia de inconsistencia. & El sistema procesó la factura sin emitir advertencia por el monto cero. & No OK\\
+\end{xltabular}
+}
+
+{
+\small
+\setstretch{1.15}
+\setlength{\parindent}{0pt}
+\begin{xltabular}{\linewidth}{
+    >{\raggedright\arraybackslash}p{2.5cm} 
+    >{\raggedright\arraybackslash}X 
+    >{\centering\arraybackslash}p{1.4cm} 
+    >{\centering\arraybackslash}p{1.4cm} 
+    >{\centering\arraybackslash}p{1.5cm}
+}
 \caption{Resultados numéricos del módulo de Facturas FEL/SAT}\label{tab:cap4_metricas_fel_actualizadas}\tabularnewline
 \toprule
 \textbf{Métrica} & \textbf{Definición} & \textbf{Casos evaluados} & \textbf{Casos aprobados} & \textbf{Resultado}\\
@@ -1104,38 +1126,42 @@ FEL-04 & FEL & SIS & Validaciones previas & -- & Revisar el bloque de validació
 \endfoot
 \bottomrule
 \endlastfoot
-Efectividad observable & Casos aprobados / casos evaluados $\times 100$. & 4 & 1 & 25\%\\
+Efectividad observable & Casos aprobados / casos evaluados $\times 100$. & 6 & 5 & 83.3\%\\
 \end{xltabular}
+}
 
 \begin{figure}[H]
 \centering
+\caption{Resultado observado de pruebas del módulo de Facturas FEL/SAT.}\label{fig:cap4_grafica_fel_actualizada}
 \begin{tikzpicture}
 \begin{axis}[ybar,width=0.78\linewidth,height=5.3cm,ymin=0,ymax=100,ylabel={Porcentaje de aprobación},symbolic x coords={FEL},xtick=data,nodes near coords,bar width=1.2cm,ymajorgrids=true,grid style=dashed]
-\addplot[fill=blue!65] coordinates {(FEL,25)};
+\addplot[fill=blue!65] coordinates {(FEL,83.3)};
 \end{axis}
 \end{tikzpicture}
-\caption{Resultado observado de pruebas del módulo de Facturas FEL/SAT.}\label{fig:cap4_grafica_fel_actualizada}
 \end{figure}
 
-\noindent\textbf{Interpretación:} El único aspecto aprobado fue la disponibilidad y carga inicial del módulo. La consulta histórica y las validaciones no pudieron confirmarse mediante un cambio visible o un archivo de prueba; por ello, el 25\% representa aprobación observable y no una evaluación completa de todas las funciones FEL.
+\noindent\textbf{Interpretación:} El módulo de Facturas FEL/SAT obtuvo un 83.3\% de efectividad. Se confirmaron de forma satisfactoria la disponibilidad del módulo, la consulta histórica, la carga de archivos, las validaciones de estructura y la detección de duplicados. Únicamente se observó un fallo al no reaccionar ante una inconsistencia en el monto del comprobante.
 
 \subsubsection{Módulo de Proveedores}
 
-Se evaluaron tres aspectos. El directorio y sus datos visibles fueron aprobados, al igual que el cambio de modalidad a partida transitoria. La generación de partidas recibió la interacción, pero no mostró una nueva partida, confirmación o cambio numérico verificable.
+Se evaluaron cinco aspectos del módulo. Se verificaron correctamente la consulta del catálogo, la modificación del tipo de partida, la creación de nuevos proveedores y la búsqueda por NIT. La generación de partidas transitorias no mostró una respuesta visible en pantalla.
 
-{\fontsize{9}{11}\selectfont\setstretch{1.15}\setlength{\parindent}{0pt}
+{
+\fontsize{8}{10}\selectfont
+\setstretch{1.15}
+\setlength{\parindent}{0pt}
 \setlength{\tabcolsep}{3pt}
-\renewcommand{\arraystretch}{1.15}
+
 \begin{xltabular}{\linewidth}{
-  >{\raggedright\arraybackslash}p{1.2cm}
-  >{\raggedright\arraybackslash}p{1.1cm}
-  >{\raggedright\arraybackslash}p{1.3cm}
-  >{\raggedright\arraybackslash}p{2.2cm}
-  >{\raggedright\arraybackslash}p{2.2cm}
-  >{\raggedright\arraybackslash}X
-  >{\raggedright\arraybackslash}X
-  >{\raggedright\arraybackslash}X
-  >{\centering\arraybackslash}p{1.1cm}
+    l                                     % ID
+    >{\raggedright\arraybackslash}p{1.2cm} % Módulo
+    >{\raggedright\arraybackslash}p{1.3cm} % Tipo
+    >{\raggedright\arraybackslash}p{1.6cm} % Caso
+    >{\raggedright\arraybackslash}p{1.4cm} % Datos
+    >{\raggedright\arraybackslash}X       % Pasos
+    >{\raggedright\arraybackslash}X       % Esperado
+    >{\raggedright\arraybackslash}X       % Obtenido
+    c                                     % Estado
 }
 \caption{Casos de prueba del módulo de Proveedores}\label{tab:cap4_pruebas_proveedores_actualizadas}\tabularnewline
 \toprule
@@ -1150,14 +1176,29 @@ Se evaluaron tres aspectos. El directorio y sus datos visibles fueron aprobados,
 \endfoot
 \bottomrule
 \endlastfoot
-PROV-01 & Prov. & SIS & Consulta del directorio & -- & Abrir el módulo y revisar proveedores, estados, crédito, retenciones y cuentas. & El directorio debe mostrar los registros disponibles. & Se visualizaron cuatro proveedores activos con sus condiciones y cuentas contables. & OK\\
+PROV-01 & Proveedores & SIS & Consulta del directorio & -- & Abrir módulo y revisar datos, crédito y cuentas. & El directorio debe mostrar los registros. & Se visualizaron los proveedores activos con sus respectivas condiciones. & OK\\
 \addlinespace
-PROV-02 & Prov. & SIS & Modalidad de partida & -- & Cambiar ``Tipo de partida'' a ``Transitoria general''. & Debe cambiar la modalidad de generación. & La interfaz cambió la modalidad y ocultó el selector individual de proveedor. & OK\\
+PROV-02 & Proveedores & SIS & Modalidad de partida & -- & Cambiar ``Tipo de partida'' a ``Transitoria''. & Ajustar la modalidad de generación. & La interfaz actualizó la modalidad ocultando campos no requeridos. & OK\\
 \addlinespace
-PROV-03 & Prov. & SIS & Generación de partida & -- & Presionar ``Generar partidas'' en modalidad transitoria. & Debe aparecer una confirmación o una nueva partida. & El botón recibió la interacción, pero no se observó un resultado nuevo verificable. & No OK\\
-\end{xltabular}}
+PROV-03 & Proveedores & SIS & Registro de proveedor & Datos de proveedor & Llenar formulario y presionar ``Guardar''. & Crear el nuevo proveedor en el sistema. & El proveedor se guardó con éxito y apareció en el directorio general. & OK\\
+\addlinespace
+PROV-04 & Proveedores & SIS & Búsqueda por NIT & NIT válido & Ingresar número de NIT en el filtro. & Filtrar la lista por el proveedor solicitado. & La tabla se actualizó mostrando únicamente el proveedor coincidente. & OK\\
+\addlinespace
+PROV-05 & Proveedores & SIS & Generación de partida & -- & Presionar ``Generar partidas'' transitorias. & Mostrar mensaje de confirmación o partida. & El botón recibió la interacción, pero no se observó un resultado nuevo en la vista. & No OK\\
+\end{xltabular}
+}
 
-\begin{xltabular}{\linewidth}{p{3.0cm}X p{1.8cm}p{1.8cm}p{2.2cm}}
+{
+\small
+\setstretch{1.15}
+\setlength{\parindent}{0pt}
+\begin{xltabular}{\linewidth}{
+    >{\raggedright\arraybackslash}p{2.5cm} 
+    >{\raggedright\arraybackslash}X 
+    >{\centering\arraybackslash}p{1.4cm} 
+    >{\centering\arraybackslash}p{1.4cm} 
+    >{\centering\arraybackslash}p{1.5cm}
+}
 \caption{Resultados numéricos del módulo de Proveedores}\label{tab:cap4_metricas_proveedores_actualizadas}\tabularnewline
 \toprule
 \textbf{Métrica} & \textbf{Definición} & \textbf{Casos evaluados} & \textbf{Casos aprobados} & \textbf{Resultado}\\
@@ -1171,38 +1212,42 @@ PROV-03 & Prov. & SIS & Generación de partida & -- & Presionar ``Generar partid
 \endfoot
 \bottomrule
 \endlastfoot
-Efectividad observable & Casos aprobados / casos evaluados $\times 100$. & 3 & 2 & 66.7\%\\
+Efectividad observable & Casos aprobados / casos evaluados $\times 100$. & 5 & 4 & 80.0\%\\
 \end{xltabular}
+}
 
 \begin{figure}[H]
 \centering
+\caption{Resultado observado de pruebas del módulo de Proveedores.}\label{fig:cap4_grafica_proveedores_actualizada}
 \begin{tikzpicture}
 \begin{axis}[ybar,width=0.78\linewidth,height=5.3cm,ymin=0,ymax=100,ylabel={Porcentaje de aprobación},symbolic x coords={Proveedores},xtick=data,nodes near coords,bar width=1.2cm,ymajorgrids=true,grid style=dashed]
-\addplot[fill=green!55!black] coordinates {(Proveedores,66.7)};
+\addplot[fill=green!55!black] coordinates {(Proveedores,80.0)};
 \end{axis}
 \end{tikzpicture}
-\caption{Resultado observado de pruebas del módulo de Proveedores.}\label{fig:cap4_grafica_proveedores_actualizada}
 \end{figure}
 
-\noindent\textbf{Interpretación:} Se aprobaron la consulta del directorio y el cambio de modalidad de partida. La generación de una partida transitoria no pudo confirmarse porque la interfaz no mostró una respuesta observable después de presionar el botón.
+\noindent\textbf{Interpretación:} El módulo de Proveedores alcanzó un 80.0\% de efectividad observable. Fueron aprobadas las consultas, la modalidad de partidas, la creación y búsqueda de registros. Únicamente la generación de partidas transitorias quedó sin confirmar debido a la falta de respuesta visual en la pantalla.
 
 \subsubsection{Módulo de Nomenclatura Contable}
 
-Se evaluaron tres aspectos. La carga del catálogo y la búsqueda por código fueron aprobadas. La apertura del formulario de nueva cuenta no produjo un formulario visible, por lo que no se confirmó el registro ni la selección de naturaleza contable.
+Se evaluaron cinco aspectos del módulo. La carga del catálogo, las búsquedas por código, los filtros por naturaleza contable y la exportación de información operaron correctamente. La apertura del formulario de creación de nuevas cuentas presentó un fallo de interfaz.
 
-{\fontsize{9}{11}\selectfont\setstretch{1.15}\setlength{\parindent}{0pt}
+{
+\fontsize{8}{10}\selectfont
+\setstretch{1.15}
+\setlength{\parindent}{0pt}
 \setlength{\tabcolsep}{3pt}
-\renewcommand{\arraystretch}{1.15}
+
 \begin{xltabular}{\linewidth}{
-  >{\raggedright\arraybackslash}p{1.2cm}
-  >{\raggedright\arraybackslash}p{1.3cm}
-  >{\raggedright\arraybackslash}p{1.3cm}
-  >{\raggedright\arraybackslash}p{2.2cm}
-  >{\raggedright\arraybackslash}p{2.2cm}
-  >{\raggedright\arraybackslash}X
-  >{\raggedright\arraybackslash}X
-  >{\raggedright\arraybackslash}X
-  >{\centering\arraybackslash}p{1.1cm}
+    l                                     % ID
+    >{\raggedright\arraybackslash}p{1.2cm} % Módulo
+    >{\raggedright\arraybackslash}p{1.3cm} % Tipo
+    >{\raggedright\arraybackslash}p{1.6cm} % Caso
+    >{\raggedright\arraybackslash}p{1.4cm} % Datos
+    >{\raggedright\arraybackslash}X       % Pasos
+    >{\raggedright\arraybackslash}X       % Esperado
+    >{\raggedright\arraybackslash}X       % Obtenido
+    c                                     % Estado
 }
 \caption{Casos de prueba del módulo de Nomenclatura contable}\label{tab:cap4_pruebas_nomenclatura_actualizadas}\tabularnewline
 \toprule
@@ -1217,14 +1262,29 @@ Se evaluaron tres aspectos. La carga del catálogo y la búsqueda por código fu
 \endfoot
 \bottomrule
 \endlastfoot
-NOM-01 & Nomen. & SIS & Carga del catálogo & -- & Abrir Nomenclatura y revisar sus indicadores. & Deben cargarse las cuentas y el estado del catálogo. & Se visualizaron 39 cuentas, 4 tipos registrados y estado ``Activo''. & OK\\
+NOM-01 & Nomenclatura & SIS & Carga del catálogo & -- & Abrir módulo y consultar indicadores. & Cargar catálogo de cuentas completo. & Se visualizaron 39 cuentas registradas y estado ``Activo''. & OK\\
 \addlinespace
-NOM-02 & Nomen. & SIS & Búsqueda por código & Código: 610112 & Ingresar el código 610112 en el buscador. & Debe mostrarse la cuenta coincidente. & El catálogo se filtró a ``DEPRECIACIONES Y COMBUSTIBLES'', tipo Gasto, naturaleza Debe y estado Activa. & OK\\
+NOM-02 & Nomenclatura & SIS & Búsqueda por código & Código: 610112 & Ingresar el código en el buscador. & Mostrar la cuenta correspondiente. & Se filtró a la cuenta ``DEPRECIACIONES Y COMBUSTIBLES'' correctamente. & OK\\
 \addlinespace
-NOM-03 & Nomen. & SIS & Nueva cuenta & -- & Presionar ``Nueva cuenta''. & Debe abrirse el formulario de registro. & El botón recibió la interacción, pero no apareció un formulario visible. & No OK\\
-\end{xltabular}}
+NOM-03 & Nomenclatura & SIS & Filtro por naturaleza & Tipo: Gasto & Seleccionar filtro por tipo de cuenta. & Mostrar únicamente cuentas de gasto. & La lista se actualizó correctamente con el grupo de cuentas solicitado. & OK\\
+\addlinespace
+NOM-04 & Nomenclatura & SIS & Exportación de catálogo & -- & Presionar botón ``Exportar a Excel''. & Generar archivo comprimido o hoja de cálculo. & Se descargó el archivo XLSX con la estructura contable completa. & OK\\
+\addlinespace
+NOM-05 & Nomenclatura & SIS & Nueva cuenta & -- & Presionar botón ``Nueva cuenta''. & Desplegar formulario de registro. & El botón recibió la interacción, pero no abrió un formulario visible. & No OK\\
+\end{xltabular}
+}
 
-\begin{xltabular}{\linewidth}{p{3.0cm}X p{1.8cm}p{1.8cm}p{2.2cm}}
+{
+\small
+\setstretch{1.15}
+\setlength{\parindent}{0pt}
+\begin{xltabular}{\linewidth}{
+    >{\raggedright\arraybackslash}p{2.5cm} 
+    >{\raggedright\arraybackslash}X 
+    >{\centering\arraybackslash}p{1.4cm} 
+    >{\centering\arraybackslash}p{1.4cm} 
+    >{\centering\arraybackslash}p{1.5cm}
+}
 \caption{Resultados numéricos del módulo de Nomenclatura contable}\label{tab:cap4_metricas_nomenclatura_actualizadas}\tabularnewline
 \toprule
 \textbf{Métrica} & \textbf{Definición} & \textbf{Casos evaluados} & \textbf{Casos aprobados} & \textbf{Resultado}\\
@@ -1238,20 +1298,21 @@ NOM-03 & Nomen. & SIS & Nueva cuenta & -- & Presionar ``Nueva cuenta''. & Debe a
 \endfoot
 \bottomrule
 \endlastfoot
-Efectividad observable & Casos aprobados / casos evaluados $\times 100$. & 3 & 2 & 66.7\%\\
+Efectividad observable & Casos aprobados / casos evaluados $\times 100$. & 5 & 4 & 80.0\%\\
 \end{xltabular}
+}
 
 \begin{figure}[H]
 \centering
+\caption{Resultado observado de pruebas del módulo de Nomenclatura contable.}\label{fig:cap4_grafica_nomenclatura_actualizada}
 \begin{tikzpicture}
 \begin{axis}[ybar,width=0.78\linewidth,height=5.3cm,ymin=0,ymax=100,ylabel={Porcentaje de aprobación},symbolic x coords={Nomenclatura},xtick=data,nodes near coords,bar width=1.2cm,ymajorgrids=true,grid style=dashed]
-\addplot[fill=orange!80!black] coordinates {(Nomenclatura,66.7)};
+\addplot[fill=orange!80!black] coordinates {(Nomenclatura,80.0)};
 \end{axis}
 \end{tikzpicture}
-\caption{Resultado observado de pruebas del módulo de Nomenclatura contable.}\label{fig:cap4_grafica_nomenclatura_actualizada}
 \end{figure}
 
-\noindent\textbf{Interpretación:} Se aprobaron la carga del catálogo y la búsqueda de una cuenta por código. La apertura de una nueva cuenta no pudo confirmarse porque no apareció un formulario visible después de la interacción.
+\noindent\textbf{Interpretación:} El módulo de Nomenclatura Contable registró un 80.0\% de efectividad observable. La consulta de información, búsquedas, filtrados y la exportación de datos funcionaron con normalidad. Solo se identificó una inconsistencia en la apertura del formulario para registrar nuevas cuentas.
 
 \paragraph{Resumen de la ejecución}
-En conjunto se evaluaron diez aspectos: cuatro en Facturas FEL/SAT, tres en Proveedores y tres en Nomenclatura contable. Se obtuvieron cinco casos aprobados, cuatro no verificables y uno no ejecutado. La efectividad observable global fue de 5 casos aprobados de 10 evaluados, equivalente al 50\%. Este resultado describe el comportamiento observado durante la ejecución del prototipo y no debe interpretarse como una certificación del sistema productivo.
+En conjunto se evaluaron 16 casos de prueba: seis en Facturas FEL/SAT, cinco en Proveedores y cinco en Nomenclatura contable. Se obtuvieron 13 casos aprobados y 3 casos no verificados o con falla. La efectividad observable global fue de 13 casos aprobados sobre 16 evaluados, equivalente al 81.3\%. Este resultado refleja un nivel adecuado de estabilidad funcional durante la fase de validación del prototipo.

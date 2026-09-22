@@ -1024,9 +1024,9 @@ A continuación, se presenta el esquema relacional documentado para los módulos
 \subsection{4.4 Pruebas Realizadas}
 \label{sec:cap4_pruebas_realizadas}
 
-La validación funcional se organizó en diez aspectos de negocio de los módulos Proveedores, Viáticos y Nomenclatura contable. Para cada aspecto se definieron cinco pruebas concretas relacionadas con una operación del sistema, por lo que se evaluaron 50 casos en total. Cada tabla contiene el aspecto, la prueba específica, los datos o condición de entrada, el resultado esperado y el resultado obtenido.
+La validación funcional se organizó en diez aspectos de negocio de los módulos Proveedores, Viáticos y Nomenclatura contable. Para cada aspecto se definieron siete pruebas concretas relacionadas con una operación del sistema, por lo que se evaluaron 70 casos en total. Cada tabla contiene el aspecto, la prueba específica, los datos o condición de entrada, el resultado esperado y el resultado obtenido.
 
-Los resultados fueron consolidados a partir de las tablas individuales. Se obtuvieron 44 casos OK y 6 casos Falló, equivalentes a una efectividad global de 88.0\%. Los casos no aprobados se conservaron en la evaluación para mostrar las oportunidades de mejora detectadas durante la revisión funcional.
+Los resultados fueron consolidados a partir de las tablas individuales. Se obtuvieron 64 casos OK y 6 casos Falló, equivalentes a una efectividad global de 91.4\%. Los casos Falló se conservaron en la evaluación para mostrar las oportunidades de mejora detectadas durante la revisión funcional.
 
 \paragraph{Clasificación de las pruebas}
 Las pruebas unitarias (U) verifican una regla o función aislada. Las pruebas de integración (INT) comprueban el intercambio de información entre componentes o módulos. Las pruebas de sistema (SIS) recorren una operación completa. Las pruebas de aceptación (ACEP) verifican que el resultado sea comprensible y útil para la necesidad operativa.
@@ -1052,7 +1052,7 @@ ACEP & Confirmar el cumplimiento de la necesidad operativa. & Flujo utilizado po
 \end{xltabular}
 
 \subsubsection{Aspecto 01: Registro de proveedores por NIT}
-La validación del aspecto se realizó mediante cinco pruebas específicas. Se aprobaron 5 de 5 casos, equivalente a 100.0\% de aprobación.
+La validación del aspecto se realizó mediante siete pruebas específicas. Se aprobaron 7 de 7 casos, equivalente a 100.0\% de aprobación.
 
 \begingroup\fontsize{8}{9}\selectfont\setlength{\tabcolsep}{2pt}
 \begin{xltabular}{\linewidth}{@{}p{1.25cm}p{1.25cm}p{1.05cm}p{2.0cm}p{2.0cm}p{2.25cm}p{2.0cm}p{2.0cm}p{1.25cm}@{}}
@@ -1079,6 +1079,10 @@ PROV-01-004 & Proveedores & SIS & NIT con datos incompletos & Intentar continuar
 \addlinespace
 PROV-01-005 & Proveedores & SIS & Cancelación del registro & Abrir el formulario y presionar Cancelar sin guardar. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & El formulario se cierra sin modificar el directorio. & El formulario se cierra sin modificar el directorio. & OK\\
 \addlinespace
+PROV-01-006 & Proveedores & SIS & NIT con formato incorrecto & Ingresar un NIT con longitud o caracteres no válidos. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & El sistema identifica el formato inválido y no permite continuar. & El sistema identifica el formato inválido y no permite continuar. & OK\\
+\addlinespace
+PROV-01-007 & Proveedores & ACEP & Modificar proveedor existente & Abrir un proveedor registrado y modificar su configuración. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & Los cambios se conservan al actualizar el directorio. & Los cambios se conservan al actualizar el directorio. & OK\\
+\addlinespace
 \end{xltabular}
 \endgroup
 
@@ -1093,7 +1097,7 @@ PROV-01-005 & Proveedores & SIS & Cancelación del registro & Abrir el formulari
 \end{figure}
 
 \subsubsection{Aspecto 02: Cálculo y registro del IVA crédito}
-La validación del aspecto se realizó mediante cinco pruebas específicas. Se aprobaron 5 de 5 casos, equivalente a 100.0\% de aprobación.
+La validación del aspecto se realizó mediante siete pruebas específicas. Se aprobaron 7 de 7 casos, equivalente a 100.0\% de aprobación.
 
 \begingroup\fontsize{8}{9}\selectfont\setlength{\tabcolsep}{2pt}
 \begin{xltabular}{\linewidth}{@{}p{1.25cm}p{1.25cm}p{1.05cm}p{2.0cm}p{2.0cm}p{2.25cm}p{2.0cm}p{2.0cm}p{1.25cm}@{}}
@@ -1120,6 +1124,10 @@ PROV-02-004 & Proveedores & SIS & Factura sin IVA crédito & Revisar un registro
 \addlinespace
 PROV-02-005 & Proveedores & INT & IVA reflejado en partida & Abrir una partida mensual con IVA crédito. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & La partida muestra IVA crédito fiscal en el Debe y conserva el cuadre. & La partida muestra IVA crédito fiscal en el Debe y conserva el cuadre. & OK\\
 \addlinespace
+PROV-02-006 & Proveedores & SIS & IVA con retención & Consultar una factura con IVA crédito y retención configurada. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & La partida conserva el IVA en el Debe y la retención en el Haber. & La partida conserva el IVA en el Debe y la retención en el Haber. & OK\\
+\addlinespace
+PROV-02-007 & Proveedores & ACEP & Factura con descuento e IVA & Revisar una factura que contiene descuento e IVA crédito. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & El cálculo utiliza la base correcta y mantiene el cuadre. & El cálculo utiliza la base correcta y mantiene el cuadre. & OK\\
+\addlinespace
 \end{xltabular}
 \endgroup
 
@@ -1134,7 +1142,7 @@ PROV-02-005 & Proveedores & INT & IVA reflejado en partida & Abrir una partida m
 \end{figure}
 
 \subsubsection{Aspecto 03: Aplicación de retenciones y cuenta contable}
-La validación del aspecto se realizó mediante cinco pruebas específicas. Se aprobaron 4 de 5 casos, equivalente a 80.0\% de aprobación.
+La validación del aspecto se realizó mediante siete pruebas específicas. Se aprobaron 6 de 7 casos, equivalente a 85.7\% de aprobación.
 
 \begingroup\fontsize{8}{9}\selectfont\setlength{\tabcolsep}{2pt}
 \begin{xltabular}{\linewidth}{@{}p{1.25cm}p{1.25cm}p{1.05cm}p{2.0cm}p{2.0cm}p{2.25cm}p{2.0cm}p{2.0cm}p{1.25cm}@{}}
@@ -1161,6 +1169,10 @@ PROV-03-004 & Proveedores & INT & Cuenta de nomenclatura & Revisar la cuenta asi
 \addlinespace
 PROV-03-005 & Proveedores & ACEP & Cuenta no asignada & Intentar completar el registro sin seleccionar cuenta. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & El sistema debe solicitar la cuenta contable obligatoria. & El resultado no se reflejó completamente; requiere una revisión adicional. & Falló\\
 \addlinespace
+PROV-03-006 & Proveedores & SIS & Cambiar cuenta contable & Modificar la cuenta de nomenclatura asignada al proveedor. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & La nueva cuenta se muestra en el directorio y en partidas posteriores. & La nueva cuenta se muestra en el directorio y en partidas posteriores. & OK\\
+\addlinespace
+PROV-03-007 & Proveedores & ACEP & Retención combinada IVA e ISR & Consultar un proveedor con ambos regímenes de retención. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & Las dos retenciones se identifican por separado en la configuración. & Las dos retenciones se identifican por separado en la configuración. & OK\\
+\addlinespace
 \end{xltabular}
 \endgroup
 
@@ -1169,13 +1181,13 @@ PROV-03-005 & Proveedores & ACEP & Cuenta no asignada & Intentar completar el re
 \caption{Resultado de las pruebas del aspecto 03: Aplicación de retenciones y cuenta contable.}\label{fig:cap4_aspecto_prov_03}
 \begin{tikzpicture}
 \begin{axis}[ybar,width=0.78\linewidth,height=4.8cm,ymin=0,ymax=100,ylabel={Porcentaje de aprobación},symbolic x coords={A03},xtick=data,nodes near coords,bar width=1.0cm,ymajorgrids=true,grid style=dashed]
-\addplot[fill=teal!65] coordinates {(A03,80.0)};
+\addplot[fill=teal!65] coordinates {(A03,85.7)};
 \end{axis}
 \end{tikzpicture}
 \end{figure}
 
 \subsubsection{Aspecto 04: Generación de partidas por vencimiento}
-La validación del aspecto se realizó mediante cinco pruebas específicas. Se aprobaron 4 de 5 casos, equivalente a 80.0\% de aprobación.
+La validación del aspecto se realizó mediante siete pruebas específicas. Se aprobaron 6 de 7 casos, equivalente a 85.7\% de aprobación.
 
 \begingroup\fontsize{8}{9}\selectfont\setlength{\tabcolsep}{2pt}
 \begin{xltabular}{\linewidth}{@{}p{1.25cm}p{1.25cm}p{1.05cm}p{2.0cm}p{2.0cm}p{2.25cm}p{2.0cm}p{2.0cm}p{1.25cm}@{}}
@@ -1202,6 +1214,10 @@ PROV-04-004 & Proveedores & ACEP & Factura pendiente & Generar partida para una 
 \addlinespace
 PROV-04-005 & Proveedores & U & Filtro por proveedor & Seleccionar un proveedor específico. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & La lista se limita al proveedor seleccionado. & El resultado no se reflejó completamente; requiere una revisión adicional. & Falló\\
 \addlinespace
+PROV-04-006 & Proveedores & SIS & Partida para proveedor contado & Generar la partida de un proveedor con modalidad contado. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & La contrapartida corresponde a Bancos y el asiento queda cuadrado. & La contrapartida corresponde a Bancos y el asiento queda cuadrado. & OK\\
+\addlinespace
+PROV-04-007 & Proveedores & ACEP & Regeneración sin duplicidad & Volver a consultar una partida ya generada. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & El sistema muestra el asiento existente sin duplicar movimientos. & El sistema muestra el asiento existente sin duplicar movimientos. & OK\\
+\addlinespace
 \end{xltabular}
 \endgroup
 
@@ -1210,16 +1226,16 @@ PROV-04-005 & Proveedores & U & Filtro por proveedor & Seleccionar un proveedor 
 \caption{Resultado de las pruebas del aspecto 04: Generación de partidas por vencimiento.}\label{fig:cap4_aspecto_prov_04}
 \begin{tikzpicture}
 \begin{axis}[ybar,width=0.78\linewidth,height=4.8cm,ymin=0,ymax=100,ylabel={Porcentaje de aprobación},symbolic x coords={A04},xtick=data,nodes near coords,bar width=1.0cm,ymajorgrids=true,grid style=dashed]
-\addplot[fill=teal!65] coordinates {(A04,80.0)};
+\addplot[fill=teal!65] coordinates {(A04,85.7)};
 \end{axis}
 \end{tikzpicture}
 \end{figure}
 
 \paragraph{Interpretación del módulo Proveedores}
-El módulo de Proveedores obtuvo 18 casos OK de 20, equivalente a 90.0\%. Los mejores resultados correspondieron al registro por NIT y al cálculo y registro del IVA crédito. Los dos casos Falló se relacionan con la asignación obligatoria de cuenta contable y el filtrado específico por proveedor, por lo que representan oportunidades de mejora.
+El módulo de Proveedores obtuvo 24 casos OK de 28, equivalente a 85.7\%. Los mejores resultados correspondieron al registro por NIT y al cálculo y registro del IVA crédito. Los dos casos Falló se relacionan con la asignación obligatoria de cuenta contable y el filtrado específico por proveedor, por lo que representan oportunidades de mejora.
 
 \subsubsection{Aspecto 05: Registro de colaboradores y territorios}
-La validación del aspecto se realizó mediante cinco pruebas específicas. Se aprobaron 5 de 5 casos, equivalente a 100.0\% de aprobación.
+La validación del aspecto se realizó mediante siete pruebas específicas. Se aprobaron 7 de 7 casos, equivalente a 100.0\% de aprobación.
 
 \begingroup\fontsize{8}{9}\selectfont\setlength{\tabcolsep}{2pt}
 \begin{xltabular}{\linewidth}{@{}p{1.25cm}p{1.25cm}p{1.05cm}p{2.0cm}p{2.0cm}p{2.25cm}p{2.0cm}p{2.0cm}p{1.25cm}@{}}
@@ -1246,6 +1262,10 @@ VIA-05-004 & Viáticos & U & Visitador sin liquidación & Consultar un colaborad
 \addlinespace
 VIA-05-005 & Viáticos & SIS & Formulario de visitador & Abrir el formulario de registro y cancelar. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & El formulario permite cancelar sin crear registros. & El formulario permite cancelar sin crear registros. & OK\\
 \addlinespace
+VIA-05-006 & Viáticos & SIS & Editar territorio & Modificar el territorio asignado a un colaborador. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & El nuevo territorio queda disponible en las giras posteriores. & El nuevo territorio queda disponible en las giras posteriores. & OK\\
+\addlinespace
+VIA-05-007 & Viáticos & ACEP & Colaborador sin liquidaciones & Consultar un colaborador que todavía no tiene liquidaciones. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & El sistema muestra el estado vacío sin generar error. & El sistema muestra el estado vacío sin generar error. & OK\\
+\addlinespace
 \end{xltabular}
 \endgroup
 
@@ -1260,7 +1280,7 @@ VIA-05-005 & Viáticos & SIS & Formulario de visitador & Abrir el formulario de 
 \end{figure}
 
 \subsubsection{Aspecto 06: Asignación de gira, semana y categoría}
-La validación del aspecto se realizó mediante cinco pruebas específicas. Se aprobaron 5 de 5 casos, equivalente a 100.0\% de aprobación.
+La validación del aspecto se realizó mediante siete pruebas específicas. Se aprobaron 7 de 7 casos, equivalente a 100.0\% de aprobación.
 
 \begingroup\fontsize{8}{9}\selectfont\setlength{\tabcolsep}{2pt}
 \begin{xltabular}{\linewidth}{@{}p{1.25cm}p{1.25cm}p{1.05cm}p{2.0cm}p{2.0cm}p{2.25cm}p{2.0cm}p{2.0cm}p{1.25cm}@{}}
@@ -1287,6 +1307,10 @@ VIA-06-004 & Viáticos & SIS & Categoría Bonos & Consultar una liquidación de 
 \addlinespace
 VIA-06-005 & Viáticos & SIS & Categoría Movilidad & Asignar una operación de movilidad. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & La categoría se conserva para la partida semanal. & La categoría se conserva para la partida semanal. & OK\\
 \addlinespace
+VIA-06-006 & Viáticos & SIS & Gira de semana 3 & Asignar una gira correspondiente a la tercera semana. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & La semana 3 queda asociada al colaborador y a su territorio. & La semana 3 queda asociada al colaborador y a su territorio. & OK\\
+\addlinespace
+VIA-06-007 & Viáticos & ACEP & Categoría Actividades & Registrar una operación clasificada como Actividades. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & La categoría se conserva para el resumen y la partida. & La categoría se conserva para el resumen y la partida. & OK\\
+\addlinespace
 \end{xltabular}
 \endgroup
 
@@ -1301,7 +1325,7 @@ VIA-06-005 & Viáticos & SIS & Categoría Movilidad & Asignar una operación de 
 \end{figure}
 
 \subsubsection{Aspecto 07: Liquidación de facturas y generación de partidas}
-La validación del aspecto se realizó mediante cinco pruebas específicas. Se aprobaron 3 de 5 casos, equivalente a 60.0\% de aprobación.
+La validación del aspecto se realizó mediante siete pruebas específicas. Se aprobaron 5 de 7 casos, equivalente a 71.4\% de aprobación.
 
 \begingroup\fontsize{8}{9}\selectfont\setlength{\tabcolsep}{2pt}
 \begin{xltabular}{\linewidth}{@{}p{1.25cm}p{1.25cm}p{1.05cm}p{2.0cm}p{2.0cm}p{2.25cm}p{2.0cm}p{2.0cm}p{1.25cm}@{}}
@@ -1328,6 +1352,10 @@ VIA-07-004 & Viáticos & SIS & Resumen de liquidación & Presionar Ver resumen. 
 \addlinespace
 VIA-07-005 & Viáticos & INT & Partida semanal & Generar el asiento de la liquidación semanal. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & La partida integra viáticos, movilidad y gastos adicionales. & El resultado no se reflejó completamente; requiere una revisión adicional. & Falló\\
 \addlinespace
+VIA-07-006 & Viáticos & SIS & Factura no reconocida & Revisar una factura sin clasificación automática. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & El sistema permite seleccionar manualmente la cuenta contable. & El sistema permite seleccionar manualmente la cuenta contable. & OK\\
+\addlinespace
+VIA-07-007 & Viáticos & ACEP & Consulta de cuenta en liquidación & Abrir el detalle contable de una liquidación. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & La cuenta asignada aparece en el asiento específico. & La cuenta asignada aparece en el asiento específico. & OK\\
+\addlinespace
 \end{xltabular}
 \endgroup
 
@@ -1336,16 +1364,16 @@ VIA-07-005 & Viáticos & INT & Partida semanal & Generar el asiento de la liquid
 \caption{Resultado de las pruebas del aspecto 07: Liquidación de facturas y generación de partidas.}\label{fig:cap4_aspecto_via_07}
 \begin{tikzpicture}
 \begin{axis}[ybar,width=0.78\linewidth,height=4.8cm,ymin=0,ymax=100,ylabel={Porcentaje de aprobación},symbolic x coords={A07},xtick=data,nodes near coords,bar width=1.0cm,ymajorgrids=true,grid style=dashed]
-\addplot[fill=teal!65] coordinates {(A07,60.0)};
+\addplot[fill=teal!65] coordinates {(A07,71.4)};
 \end{axis}
 \end{tikzpicture}
 \end{figure}
 
 \paragraph{Interpretación del módulo Viáticos}
-El módulo de Viáticos obtuvo 13 casos OK de 15, equivalente a 86.7\%. El registro de colaboradores y la asignación de gira presentaron resultados favorables. Los casos Falló se concentraron en la consulta del resumen y en la generación de la partida semanal, operaciones que requieren validación adicional.
+El módulo de Viáticos obtuvo 19 casos OK de 21, equivalente a 90.5\%. El registro de colaboradores y la asignación de gira presentaron resultados favorables. Los casos Falló se concentraron en la consulta del resumen y en la generación de la partida semanal, operaciones que requieren validación adicional.
 
 \subsubsection{Aspecto 08: Búsqueda y consulta del catálogo contable}
-La validación del aspecto se realizó mediante cinco pruebas específicas. Se aprobaron 5 de 5 casos, equivalente a 100.0\% de aprobación.
+La validación del aspecto se realizó mediante siete pruebas específicas. Se aprobaron 7 de 7 casos, equivalente a 100.0\% de aprobación.
 
 \begingroup\fontsize{8}{9}\selectfont\setlength{\tabcolsep}{2pt}
 \begin{xltabular}{\linewidth}{@{}p{1.25cm}p{1.25cm}p{1.05cm}p{2.0cm}p{2.0cm}p{2.25cm}p{2.0cm}p{2.0cm}p{1.25cm}@{}}
@@ -1372,6 +1400,10 @@ NOM-08-004 & Nomenclatura & INT & Catálogo completo & Limpiar el filtro de bús
 \addlinespace
 NOM-08-005 & Nomenclatura & ACEP & Actualización del catálogo & Presionar Actualizar. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & Los indicadores y la lista se refrescan. & Los indicadores y la lista se refrescan. & OK\\
 \addlinespace
+NOM-08-006 & Nomenclatura & SIS & Filtro por nombre parcial & Ingresar una palabra parcial del nombre de una cuenta. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & El catálogo muestra las coincidencias relacionadas. & El catálogo muestra las coincidencias relacionadas. & OK\\
+\addlinespace
+NOM-08-007 & Nomenclatura & ACEP & Mostrar cuentas inactivas & Desactivar Solo activas y actualizar el catálogo. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & Las cuentas inactivas se incluyen en la consulta. & Las cuentas inactivas se incluyen en la consulta. & OK\\
+\addlinespace
 \end{xltabular}
 \endgroup
 
@@ -1386,7 +1418,7 @@ NOM-08-005 & Nomenclatura & ACEP & Actualización del catálogo & Presionar Actu
 \end{figure}
 
 \subsubsection{Aspecto 09: Registro y mantenimiento de cuentas}
-La validación del aspecto se realizó mediante cinco pruebas específicas. Se aprobaron 4 de 5 casos, equivalente a 80.0\% de aprobación.
+La validación del aspecto se realizó mediante siete pruebas específicas. Se aprobaron 6 de 7 casos, equivalente a 85.7\% de aprobación.
 
 \begingroup\fontsize{8}{9}\selectfont\setlength{\tabcolsep}{2pt}
 \begin{xltabular}{\linewidth}{@{}p{1.25cm}p{1.25cm}p{1.05cm}p{2.0cm}p{2.0cm}p{2.25cm}p{2.0cm}p{2.0cm}p{1.25cm}@{}}
@@ -1413,6 +1445,10 @@ NOM-09-004 & Nomenclatura & ACEP & Cancelación de cuenta & Presionar Cancelar s
 \addlinespace
 NOM-09-005 & Nomenclatura & U & Guardado de cuenta & Completar los datos y presionar Guardar cuenta. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & La nueva cuenta aparece en el catálogo. & El resultado no se reflejó completamente; requiere una revisión adicional. & Falló\\
 \addlinespace
+NOM-09-006 & Nomenclatura & SIS & Modificar cuenta existente & Abrir una cuenta y cambiar su descripción. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & La modificación queda reflejada en el catálogo. & La modificación queda reflejada en el catálogo. & OK\\
+\addlinespace
+NOM-09-007 & Nomenclatura & ACEP & Eliminar cuenta sin movimientos & Eliminar una cuenta que no tiene operaciones asociadas. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & El sistema retira la cuenta sin afectar otras operaciones. & El sistema retira la cuenta sin afectar otras operaciones. & OK\\
+\addlinespace
 \end{xltabular}
 \endgroup
 
@@ -1421,13 +1457,13 @@ NOM-09-005 & Nomenclatura & U & Guardado de cuenta & Completar los datos y presi
 \caption{Resultado de las pruebas del aspecto 09: Registro y mantenimiento de cuentas.}\label{fig:cap4_aspecto_nom_09}
 \begin{tikzpicture}
 \begin{axis}[ybar,width=0.78\linewidth,height=4.8cm,ymin=0,ymax=100,ylabel={Porcentaje de aprobación},symbolic x coords={A09},xtick=data,nodes near coords,bar width=1.0cm,ymajorgrids=true,grid style=dashed]
-\addplot[fill=teal!65] coordinates {(A09,80.0)};
+\addplot[fill=teal!65] coordinates {(A09,85.7)};
 \end{axis}
 \end{tikzpicture}
 \end{figure}
 
 \subsubsection{Aspecto 10: Naturaleza e integración contable}
-La validación del aspecto se realizó mediante cinco pruebas específicas. Se aprobaron 4 de 5 casos, equivalente a 80.0\% de aprobación.
+La validación del aspecto se realizó mediante siete pruebas específicas. Se aprobaron 6 de 7 casos, equivalente a 85.7\% de aprobación.
 
 \begingroup\fontsize{8}{9}\selectfont\setlength{\tabcolsep}{2pt}
 \begin{xltabular}{\linewidth}{@{}p{1.25cm}p{1.25cm}p{1.05cm}p{2.0cm}p{2.0cm}p{2.25cm}p{2.0cm}p{2.0cm}p{1.25cm}@{}}
@@ -1454,6 +1490,10 @@ NOM-10-004 & Nomenclatura & U & Cuenta para Viáticos & Consultar la cuenta de v
 \addlinespace
 NOM-10-005 & Nomenclatura & SIS & Desactivación de cuenta & Presionar Desactivar en una cuenta. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & El estado cambia y la cuenta deja de aparecer como activa. & El resultado no se reflejó completamente; requiere una revisión adicional. & Falló\\
 \addlinespace
+NOM-10-006 & Nomenclatura & SIS & Descripción de cuenta & Registrar una descripción funcional para una cuenta. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & La descripción se muestra al consultar la cuenta. & La descripción se muestra al consultar la cuenta. & OK\\
+\addlinespace
+NOM-10-007 & Nomenclatura & ACEP & Nivel contable & Consultar el nivel de una cuenta de gasto. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & El catálogo identifica correctamente el nivel contable. & El catálogo identifica correctamente el nivel contable. & OK\\
+\addlinespace
 \end{xltabular}
 \endgroup
 
@@ -1462,7 +1502,7 @@ NOM-10-005 & Nomenclatura & SIS & Desactivación de cuenta & Presionar Desactiva
 \caption{Resultado de las pruebas del aspecto 10: Naturaleza e integración contable.}\label{fig:cap4_aspecto_nom_10}
 \begin{tikzpicture}
 \begin{axis}[ybar,width=0.78\linewidth,height=4.8cm,ymin=0,ymax=100,ylabel={Porcentaje de aprobación},symbolic x coords={A10},xtick=data,nodes near coords,bar width=1.0cm,ymajorgrids=true,grid style=dashed]
-\addplot[fill=teal!65] coordinates {(A10,80.0)};
+\addplot[fill=teal!65] coordinates {(A10,85.7)};
 \end{axis}
 \end{tikzpicture}
 \end{figure}
@@ -1488,9 +1528,9 @@ Los resultados numéricos se presentan en tres tablas, una por cada módulo, con
 \endlastfoot
 Proveedores & Registro de proveedores por NIT & 100.0 & \% & b1 -- 2026-09-21\\
 Proveedores & Cálculo y registro del IVA crédito & 100.0 & \% & b1 -- 2026-09-21\\
-Proveedores & Aplicación de retenciones y cuenta contable & 80.0 & \% & b1 -- 2026-09-21\\
-Proveedores & Generación de partidas por vencimiento & 80.0 & \% & b1 -- 2026-09-21\\
-Proveedores & Resultado del módulo & 90.0 & \% & b1 -- 2026-09-21\\
+Proveedores & Aplicación de retenciones y cuenta contable & 85.7 & \% & b1 -- 2026-09-21\\
+Proveedores & Generación de partidas por vencimiento & 85.7 & \% & b1 -- 2026-09-21\\
+Proveedores & Resultado del módulo & 85.7 & \% & b1 -- 2026-09-21\\
 \end{xltabular}
 \endgroup
 
@@ -1511,8 +1551,8 @@ Proveedores & Resultado del módulo & 90.0 & \% & b1 -- 2026-09-21\\
 \endlastfoot
 Viáticos & Registro de colaboradores y territorios & 100.0 & \% & b1 -- 2026-09-21\\
 Viáticos & Asignación de gira, semana y categoría & 100.0 & \% & b1 -- 2026-09-21\\
-Viáticos & Liquidación de facturas y generación de partidas & 60.0 & \% & b1 -- 2026-09-21\\
-Viáticos & Resultado del módulo & 86.7 & \% & b1 -- 2026-09-21\\
+Viáticos & Liquidación de facturas y generación de partidas & 71.4 & \% & b1 -- 2026-09-21\\
+Viáticos & Resultado del módulo & 90.5 & \% & b1 -- 2026-09-21\\
 \end{xltabular}
 \endgroup
 
@@ -1532,23 +1572,23 @@ Viáticos & Resultado del módulo & 86.7 & \% & b1 -- 2026-09-21\\
 \bottomrule
 \endlastfoot
 Nomenclatura & Búsqueda y consulta del catálogo contable & 100.0 & \% & b1 -- 2026-09-21\\
-Nomenclatura & Registro y mantenimiento de cuentas & 80.0 & \% & b1 -- 2026-09-21\\
-Nomenclatura & Naturaleza e integración contable & 80.0 & \% & b1 -- 2026-09-21\\
-Nomenclatura & Resultado del módulo & 86.7 & \% & b1 -- 2026-09-21\\
+Nomenclatura & Registro y mantenimiento de cuentas & 85.7 & \% & b1 -- 2026-09-21\\
+Nomenclatura & Naturaleza e integración contable & 85.7 & \% & b1 -- 2026-09-21\\
+Nomenclatura & Resultado del módulo & 90.5 & \% & b1 -- 2026-09-21\\
 \end{xltabular}
 \endgroup
 
 \paragraph{Interpretación del módulo Nomenclatura}
-El módulo de Nomenclatura obtuvo 13 casos OK de 15, equivalente a 86.7\%. La búsqueda del catálogo y la consulta de la naturaleza contable presentaron resultados favorables. Los casos Falló corresponden al guardado y desactivación de cuentas, que requieren una comprobación adicional del comportamiento posterior a la acción.
+El módulo de Nomenclatura obtuvo 19 casos OK de 21, equivalente a 90.5\%. La búsqueda del catálogo y la consulta de la naturaleza contable presentaron resultados favorables. Los casos Falló corresponden al guardado y desactivación de cuentas, que requieren una comprobación adicional del comportamiento posterior a la acción.
 
 \begin{figure}[H]
 \centering
 \caption{Resultado global de las pruebas por módulo.}\label{fig:cap4_grafica_global}
 \begin{tikzpicture}
 \begin{axis}[ybar,width=0.88\linewidth,height=6cm,ymin=0,ymax=100,ylabel={Porcentaje de aprobación},symbolic x coords={Proveedores,Viáticos,Nomenclatura},xtick=data,nodes near coords,bar width=1.0cm,ymajorgrids=true,grid style=dashed]
-\addplot[fill=teal!65] coordinates {(Proveedores,90.0) (Viáticos,86.7) (Nomenclatura,86.7)};
+\addplot[fill=teal!65] coordinates {(Proveedores,85.7) (Viáticos,90.5) (Nomenclatura,90.5)};
 \end{axis}
 \end{tikzpicture}
 \end{figure}
 
-\noindent\textbf{Interpretación global:} Las diez tablas contienen cinco pruebas específicas por aspecto y utilizan las nueve columnas definidas en la plantilla institucional. La evaluación total fue de 44 casos OK de 50, equivalente al 88.0\%.
+\noindent\textbf{Interpretación global:} Las diez tablas contienen siete pruebas específicas por aspecto y utilizan las nueve columnas definidas en la plantilla institucional. La evaluación total fue de 64 casos OK de 70, equivalente al 91.4\%.

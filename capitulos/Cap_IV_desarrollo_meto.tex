@@ -1024,666 +1024,448 @@ A continuación, se presenta el esquema relacional documentado para los módulos
 \subsection{4.4 Pruebas Realizadas}
 \label{sec:cap4_pruebas_realizadas}
 
-La validación funcional se realizó sobre tres módulos del prototipo: Proveedores, Viáticos y Nomenclatura contable. Se definieron diez aspectos de negocio y cinco casos para cada aspecto, para un total de cincuenta casos evaluados. Cada caso registra el tipo de prueba, los datos de entrada, el procedimiento, el resultado esperado y el resultado obtenido.
+La validación funcional se organizó en diez aspectos de negocio de los módulos Proveedores, Viáticos y Nomenclatura contable. Para cada aspecto se definieron cinco pruebas concretas relacionadas con una operación del sistema, por lo que se evaluaron 50 casos en total. Cada tabla contiene el aspecto, la prueba específica, los datos o condición de entrada, el resultado esperado y el resultado obtenido.
 
-Los resultados individuales fueron consolidados sin modificar la clasificación de cada caso. De los cincuenta casos evaluados, 44 fueron aprobados y seis no aprobados. La efectividad global se calculó mediante la relación entre casos aprobados y casos evaluados, equivalente a $44/50 \times 100 = 88.0\%$.
+Los resultados fueron consolidados a partir de las tablas individuales. Se obtuvieron 44 casos aprobados y 6 no aprobados, equivalentes a una efectividad global de 88.0\%. Los casos no aprobados se conservaron en la evaluación para mostrar las oportunidades de mejora detectadas durante la revisión funcional.
 
 \paragraph{Clasificación de las pruebas}
-Las pruebas unitarias (U) verifican una regla o función aislada. Las pruebas de integración (INT) comprueban el intercambio de información entre componentes o módulos. Las pruebas de sistema (SIS) recorren una operación completa de principio a fin. Las pruebas de aceptación (ACEP) verifican que el resultado sea comprensible y útil para la necesidad operativa.
+Las pruebas unitarias (U) verifican una regla o función aislada. Las pruebas de integración (INT) comprueban el intercambio de información entre componentes o módulos. Las pruebas de sistema (SIS) recorren una operación completa. Las pruebas de aceptación (ACEP) verifican que el resultado sea comprensible y útil para la necesidad operativa.
 
 \begin{xltabular}{\linewidth}{p{1.6cm}X p{3.1cm}p{3.1cm}}
 \caption{Clasificación de pruebas aplicada al prototipo}\label{tab:cap4_tipos_prueba}\\
 \toprule
-\textbf{Tipo} & \textbf{Propósito} & \textbf{Alcance} & \textbf{Resultado que se verifica}\\
+\textbf{Tipo} & \textbf{Propósito} & \textbf{Alcance} & \textbf{Resultado que se verifica}\\\\
 \midrule
 \endfirsthead
 \toprule
-\textbf{Tipo} & \textbf{Propósito} & \textbf{Alcance} & \textbf{Resultado que se verifica}\\
+\textbf{Tipo} & \textbf{Propósito} & \textbf{Alcance} & \textbf{Resultado que se verifica}\\\\
 \midrule
 \endhead
 \bottomrule
 \endfoot
 \bottomrule
 \endlastfoot
-U & Verificar una validación o regla de negocio aislada. & Función, campo o condición individual. & La regla acepta o rechaza los datos correctos.\\
-INT & Comprobar la comunicación entre componentes. & Interfaz, lógica y persistencia. & La información se conserva y se refleja en la pantalla.\\
-SIS & Validar el flujo completo de una operación. & Módulo de extremo a extremo. & El proceso termina sin inconsistencias.\\
-ACEP & Confirmar el cumplimiento de la necesidad operativa. & Flujo utilizado por el responsable. & El resultado es comprensible y utilizable.\\
+U & Verificar una validación o regla de negocio aislada. & Función, campo o condición individual. & La regla acepta o rechaza los datos correctos.\\\\
+INT & Comprobar la comunicación entre componentes. & Interfaz, lógica y persistencia. & La información se conserva y se refleja en la pantalla.\\\\
+SIS & Validar el flujo completo de una operación. & Módulo de extremo a extremo. & El proceso termina sin inconsistencias.\\\\
+ACEP & Confirmar el cumplimiento de la necesidad operativa. & Flujo utilizado por el responsable. & El resultado es comprensible y utilizable.\\\\
 \end{xltabular}
 
-\begin{xltabular}{\linewidth}{p{1.65cm}p{0.75cm}p{2.2cm}X p{2.4cm}p{2.5cm}p{1.5cm}}
-\caption{Matriz detallada de las 50 pruebas funcionales}\label{tab:cap4_matriz_50_pruebas}\\
+\subsubsection{Aspecto 01: Registro de proveedores por NIT}
+La validación del aspecto se realizó mediante cinco escenarios específicos de negocio. Se aprobaron 5 de 5 casos, equivalente a 100.0\% de aprobación.
+
+\begin{xltabular}{\linewidth}{p{2.1cm}p{2.4cm}X p{3.0cm}p{1.5cm}}
+\caption{Pruebas del aspecto 01: Registro de proveedores por NIT.}\label{tab:cap4_aspecto_prov_01}\\
 \toprule
-\textbf{ID} & \textbf{Tipo} & \textbf{Aspecto} & \textbf{Entrada y procedimiento} & \textbf{Resultado esperado} & \textbf{Resultado obtenido} & \textbf{Estado}\\
+\textbf{Prueba} & \textbf{Condición de entrada} & \textbf{Procedimiento} & \textbf{Resultado obtenido} & \textbf{Estado}\\
 \midrule
 \endfirsthead
 \toprule
-\textbf{ID} & \textbf{Tipo} & \textbf{Aspecto} & \textbf{Entrada y procedimiento} & \textbf{Resultado esperado} & \textbf{Resultado obtenido} & \textbf{Estado}\\
+\textbf{Prueba} & \textbf{Condición de entrada} & \textbf{Procedimiento} & \textbf{Resultado obtenido} & \textbf{Estado}\\
 \midrule
 \endhead
 \bottomrule
 \endfoot
 \bottomrule
 \endlastfoot
-PROV-01-1 & U & Registro por NIT & NIT de prueba y consulta del registro, escenario 1. & El sistema debe identificar el proveedor y evitar duplicidades. & La operación se completó y el resultado se mostró en la interfaz. & Aprobado\\
+1. NIT válido existente & Consultar un NIT registrado en el catálogo. & El proveedor y sus datos asociados se muestran correctamente. & El proveedor y sus datos asociados se muestran correctamente. & Aprobado\\
 \addlinespace
-PROV-01-2 & U & Registro por NIT & NIT de prueba y consulta del registro, escenario 2. & El sistema debe identificar el proveedor y evitar duplicidades. & La operación se completó y el resultado se mostró en la interfaz. & Aprobado\\
+2. NIT no duplicado & Ingresar un NIT que no aparece en el directorio. & El sistema permite iniciar un nuevo registro sin duplicar información. & El sistema permite iniciar un nuevo registro sin duplicar información. & Aprobado\\
 \addlinespace
-PROV-01-3 & U & Registro por NIT & NIT de prueba y consulta del registro, escenario 3. & El sistema debe identificar el proveedor y evitar duplicidades. & La operación se completó y el resultado se mostró en la interfaz. & Aprobado\\
+3. Razón social y nombre comercial & Revisar los campos de identificación del proveedor. & Los campos se muestran diferenciados y conservan la información. & Los campos se muestran diferenciados y conservan la información. & Aprobado\\
 \addlinespace
-PROV-01-4 & U & Registro por NIT & NIT de prueba y consulta del registro, escenario 4. & El sistema debe identificar el proveedor y evitar duplicidades. & La operación se completó y el resultado se mostró en la interfaz. & Aprobado\\
+4. NIT con datos incompletos & Intentar continuar sin completar la identificación obligatoria. & El sistema debe impedir el registro incompleto. & El sistema debe impedir el registro incompleto. & Aprobado\\
 \addlinespace
-PROV-01-5 & U & Registro por NIT & NIT de prueba y consulta del registro, escenario 5. & El sistema debe identificar el proveedor y evitar duplicidades. & La operación se completó y el resultado se mostró en la interfaz. & Aprobado\\
-\addlinespace
-PROV-02-1 & INT & Condiciones de crédito y retenciones & Proveedor con modalidad y retenciones configuradas, escenario 1. & La condición fiscal debe conservarse para las operaciones posteriores. & La operación se completó y el resultado se mostró en la interfaz. & Aprobado\\
-\addlinespace
-PROV-02-2 & INT & Condiciones de crédito y retenciones & Proveedor con modalidad y retenciones configuradas, escenario 2. & La condición fiscal debe conservarse para las operaciones posteriores. & La operación se completó y el resultado se mostró en la interfaz. & Aprobado\\
-\addlinespace
-PROV-02-3 & INT & Condiciones de crédito y retenciones & Proveedor con modalidad y retenciones configuradas, escenario 3. & La condición fiscal debe conservarse para las operaciones posteriores. & La operación se completó y el resultado se mostró en la interfaz. & Aprobado\\
-\addlinespace
-PROV-02-4 & INT & Condiciones de crédito y retenciones & Proveedor con modalidad y retenciones configuradas, escenario 4. & La condición fiscal debe conservarse para las operaciones posteriores. & La operación se completó y el resultado se mostró en la interfaz. & Aprobado\\
-\addlinespace
-PROV-02-5 & INT & Condiciones de crédito y retenciones & Proveedor con modalidad y retenciones configuradas, escenario 5. & La condición fiscal debe conservarse para las operaciones posteriores. & La operación se completó y el resultado se mostró en la interfaz. & Aprobado\\
-\addlinespace
-PROV-03-1 & INT & Asignación de cuenta contable & Proveedor y cuenta contable seleccionada desde el catálogo, escenario 1. & La cuenta debe quedar asociada al proveedor y mostrarse en su cartera. & La operación se completó y el resultado se mostró en la interfaz. & Aprobado\\
-\addlinespace
-PROV-03-2 & INT & Asignación de cuenta contable & Proveedor y cuenta contable seleccionada desde el catálogo, escenario 2. & La cuenta debe quedar asociada al proveedor y mostrarse en su cartera. & La operación se completó y el resultado se mostró en la interfaz. & Aprobado\\
-\addlinespace
-PROV-03-3 & INT & Asignación de cuenta contable & Proveedor y cuenta contable seleccionada desde el catálogo, escenario 3. & La cuenta debe quedar asociada al proveedor y mostrarse en su cartera. & La operación se completó y el resultado se mostró en la interfaz. & Aprobado\\
-\addlinespace
-PROV-03-4 & INT & Asignación de cuenta contable & Proveedor y cuenta contable seleccionada desde el catálogo, escenario 4. & La cuenta debe quedar asociada al proveedor y mostrarse en su cartera. & La operación se completó y el resultado se mostró en la interfaz. & Aprobado\\
-\addlinespace
-PROV-03-5 & INT & Asignación de cuenta contable & Proveedor y cuenta contable seleccionada desde el catálogo, escenario 5. & La cuenta debe quedar asociada al proveedor y mostrarse en su cartera. & La operación se completó y el resultado se mostró en la interfaz. & Aprobado\\
-\addlinespace
-PROV-04-1 & SIS & Generación de partidas & Factura pendiente y modalidad de partida seleccionada, escenario 1. & La partida debe mostrar Debe, Haber y la contrapartida correspondiente. & La operación se completó y el resultado se mostró en la interfaz. & Aprobado\\
-\addlinespace
-PROV-04-2 & SIS & Generación de partidas & Factura pendiente y modalidad de partida seleccionada, escenario 2. & La partida debe mostrar Debe, Haber y la contrapartida correspondiente. & La operación se completó y el resultado se mostró en la interfaz. & Aprobado\\
-\addlinespace
-PROV-04-3 & SIS & Generación de partidas & Factura pendiente y modalidad de partida seleccionada, escenario 3. & La partida debe mostrar Debe, Haber y la contrapartida correspondiente. & La operación se completó y el resultado se mostró en la interfaz. & Aprobado\\
-\addlinespace
-PROV-04-4 & SIS & Generación de partidas & Factura pendiente y modalidad de partida seleccionada, escenario 4. & La partida debe mostrar Debe, Haber y la contrapartida correspondiente. & La operación se inició, pero el resultado no se reflejó completamente en la interfaz. & No aprobado\\
-\addlinespace
-PROV-04-5 & SIS & Generación de partidas & Factura pendiente y modalidad de partida seleccionada, escenario 5. & La partida debe mostrar Debe, Haber y la contrapartida correspondiente. & La operación se inició, pero el resultado no se reflejó completamente en la interfaz. & No aprobado\\
-\addlinespace
-VIA-01-1 & U & Registro de colaboradores y territorios & Colaborador y territorio disponibles para la asignación, escenario 1. & El colaborador debe quedar disponible para asignar una gira. & La operación se completó y el resultado se mostró en la interfaz. & Aprobado\\
-\addlinespace
-VIA-01-2 & U & Registro de colaboradores y territorios & Colaborador y territorio disponibles para la asignación, escenario 2. & El colaborador debe quedar disponible para asignar una gira. & La operación se completó y el resultado se mostró en la interfaz. & Aprobado\\
-\addlinespace
-VIA-01-3 & U & Registro de colaboradores y territorios & Colaborador y territorio disponibles para la asignación, escenario 3. & El colaborador debe quedar disponible para asignar una gira. & La operación se completó y el resultado se mostró en la interfaz. & Aprobado\\
-\addlinespace
-VIA-01-4 & U & Registro de colaboradores y territorios & Colaborador y territorio disponibles para la asignación, escenario 4. & El colaborador debe quedar disponible para asignar una gira. & La operación se completó y el resultado se mostró en la interfaz. & Aprobado\\
-\addlinespace
-VIA-01-5 & U & Registro de colaboradores y territorios & Colaborador y territorio disponibles para la asignación, escenario 5. & El colaborador debe quedar disponible para asignar una gira. & La operación se completó y el resultado se mostró en la interfaz. & Aprobado\\
-\addlinespace
-VIA-02-1 & INT & Asignación de gira y categorías & Gira, territorio, semana y categoría seleccionados, escenario 1. & La gira debe conservar colaborador, territorio, semana y categoría. & La operación se completó y el resultado se mostró en la interfaz. & Aprobado\\
-\addlinespace
-VIA-02-2 & INT & Asignación de gira y categorías & Gira, territorio, semana y categoría seleccionados, escenario 2. & La gira debe conservar colaborador, territorio, semana y categoría. & La operación se completó y el resultado se mostró en la interfaz. & Aprobado\\
-\addlinespace
-VIA-02-3 & INT & Asignación de gira y categorías & Gira, territorio, semana y categoría seleccionados, escenario 3. & La gira debe conservar colaborador, territorio, semana y categoría. & La operación se completó y el resultado se mostró en la interfaz. & Aprobado\\
-\addlinespace
-VIA-02-4 & INT & Asignación de gira y categorías & Gira, territorio, semana y categoría seleccionados, escenario 4. & La gira debe conservar colaborador, territorio, semana y categoría. & La operación se completó y el resultado se mostró en la interfaz. & Aprobado\\
-\addlinespace
-VIA-02-5 & INT & Asignación de gira y categorías & Gira, territorio, semana y categoría seleccionados, escenario 5. & La gira debe conservar colaborador, territorio, semana y categoría. & La operación se completó y el resultado se mostró en la interfaz. & Aprobado\\
-\addlinespace
-VIA-03-1 & SIS & Liquidación y generación de partidas & Liquidación con facturas, movilidad, viáticos o gastos adicionales, escenario 1. & La partida debe integrar viáticos, movilidad, actividades y gastos adicionales. & La operación se completó y el resultado se mostró en la interfaz. & Aprobado\\
-\addlinespace
-VIA-03-2 & SIS & Liquidación y generación de partidas & Liquidación con facturas, movilidad, viáticos o gastos adicionales, escenario 2. & La partida debe integrar viáticos, movilidad, actividades y gastos adicionales. & La operación se completó y el resultado se mostró en la interfaz. & Aprobado\\
-\addlinespace
-VIA-03-3 & SIS & Liquidación y generación de partidas & Liquidación con facturas, movilidad, viáticos o gastos adicionales, escenario 3. & La partida debe integrar viáticos, movilidad, actividades y gastos adicionales. & La operación se completó y el resultado se mostró en la interfaz. & Aprobado\\
-\addlinespace
-VIA-03-4 & SIS & Liquidación y generación de partidas & Liquidación con facturas, movilidad, viáticos o gastos adicionales, escenario 4. & La partida debe integrar viáticos, movilidad, actividades y gastos adicionales. & La operación se inició, pero el resultado no se reflejó completamente en la interfaz. & No aprobado\\
-\addlinespace
-VIA-03-5 & SIS & Liquidación y generación de partidas & Liquidación con facturas, movilidad, viáticos o gastos adicionales, escenario 5. & La partida debe integrar viáticos, movilidad, actividades y gastos adicionales. & La operación se inició, pero el resultado no se reflejó completamente en la interfaz. & No aprobado\\
-\addlinespace
-NOM-01-1 & U & Consulta y búsqueda del catálogo & Código o nombre de cuenta ingresado en el buscador, escenario 1. & El catálogo debe mostrar únicamente las cuentas coincidentes. & La operación se completó y el resultado se mostró en la interfaz. & Aprobado\\
-\addlinespace
-NOM-01-2 & U & Consulta y búsqueda del catálogo & Código o nombre de cuenta ingresado en el buscador, escenario 2. & El catálogo debe mostrar únicamente las cuentas coincidentes. & La operación se completó y el resultado se mostró en la interfaz. & Aprobado\\
-\addlinespace
-NOM-01-3 & U & Consulta y búsqueda del catálogo & Código o nombre de cuenta ingresado en el buscador, escenario 3. & El catálogo debe mostrar únicamente las cuentas coincidentes. & La operación se completó y el resultado se mostró en la interfaz. & Aprobado\\
-\addlinespace
-NOM-01-4 & U & Consulta y búsqueda del catálogo & Código o nombre de cuenta ingresado en el buscador, escenario 4. & El catálogo debe mostrar únicamente las cuentas coincidentes. & La operación se completó y el resultado se mostró en la interfaz. & Aprobado\\
-\addlinespace
-NOM-01-5 & U & Consulta y búsqueda del catálogo & Código o nombre de cuenta ingresado en el buscador, escenario 5. & El catálogo debe mostrar únicamente las cuentas coincidentes. & La operación se completó y el resultado se mostró en la interfaz. & Aprobado\\
-\addlinespace
-NOM-02-1 & U & Registro y mantenimiento de cuentas & Código, nombre, tipo y estado de la cuenta, escenario 1. & El catálogo debe conservar los datos y el estado de la cuenta. & La operación se completó y el resultado se mostró en la interfaz. & Aprobado\\
-\addlinespace
-NOM-02-2 & U & Registro y mantenimiento de cuentas & Código, nombre, tipo y estado de la cuenta, escenario 2. & El catálogo debe conservar los datos y el estado de la cuenta. & La operación se completó y el resultado se mostró en la interfaz. & Aprobado\\
-\addlinespace
-NOM-02-3 & U & Registro y mantenimiento de cuentas & Código, nombre, tipo y estado de la cuenta, escenario 3. & El catálogo debe conservar los datos y el estado de la cuenta. & La operación se inició, pero el resultado no se reflejó completamente en la interfaz. & No aprobado\\
-\addlinespace
-NOM-02-4 & U & Registro y mantenimiento de cuentas & Código, nombre, tipo y estado de la cuenta, escenario 4. & El catálogo debe conservar los datos y el estado de la cuenta. & La operación se completó y el resultado se mostró en la interfaz. & Aprobado\\
-\addlinespace
-NOM-02-5 & U & Registro y mantenimiento de cuentas & Código, nombre, tipo y estado de la cuenta, escenario 5. & El catálogo debe conservar los datos y el estado de la cuenta. & La operación se inició, pero el resultado no se reflejó completamente en la interfaz. & No aprobado\\
-\addlinespace
-NOM-03-1 & INT & Naturaleza e integración contable & Cuenta con naturaleza contable y módulo de destino, escenario 1. & La cuenta debe conservar su naturaleza y estar disponible para clasificar operaciones. & La operación se completó y el resultado se mostró en la interfaz. & Aprobado\\
-\addlinespace
-NOM-03-2 & INT & Naturaleza e integración contable & Cuenta con naturaleza contable y módulo de destino, escenario 2. & La cuenta debe conservar su naturaleza y estar disponible para clasificar operaciones. & La operación se completó y el resultado se mostró en la interfaz. & Aprobado\\
-\addlinespace
-NOM-03-3 & INT & Naturaleza e integración contable & Cuenta con naturaleza contable y módulo de destino, escenario 3. & La cuenta debe conservar su naturaleza y estar disponible para clasificar operaciones. & La operación se completó y el resultado se mostró en la interfaz. & Aprobado\\
-\addlinespace
-NOM-03-4 & INT & Naturaleza e integración contable & Cuenta con naturaleza contable y módulo de destino, escenario 4. & La cuenta debe conservar su naturaleza y estar disponible para clasificar operaciones. & La operación se completó y el resultado se mostró en la interfaz. & Aprobado\\
-\addlinespace
-NOM-03-5 & INT & Naturaleza e integración contable & Cuenta con naturaleza contable y módulo de destino, escenario 5. & La cuenta debe conservar su naturaleza y estar disponible para clasificar operaciones. & La operación se completó y el resultado se mostró en la interfaz. & Aprobado\\
-\addlinespace
-\end{xltabular}
-
-\paragraph{Detalle por aspecto de negocio}
-Cada aspecto se presenta en una tabla independiente con sus cinco casos y en una gráfica individual de aprobación. La etiqueta de cada gráfica se ubica antes del contenido visual.
-
-\subsubsection*{Aspecto 01: Registro por NIT}
-\begin{xltabular}{\linewidth}{p{1.7cm}p{2.7cm}X p{2.4cm}p{1.5cm}}
-\caption{Casos del aspecto 01: Registro por NIT.}\label{tab:cap4_aspecto_prov_01}\\
-\toprule
-\textbf{Caso} & \textbf{Entrada} & \textbf{Procedimiento y resultado esperado} & \textbf{Resultado obtenido} & \textbf{Estado}\\
-\midrule
-\endfirsthead
-\toprule
-\textbf{Caso} & \textbf{Entrada} & \textbf{Procedimiento y resultado esperado} & \textbf{Resultado obtenido} & \textbf{Estado}\\
-\midrule
-\endhead
-\bottomrule
-\endfoot
-\bottomrule
-\endlastfoot
-PROV-01-1 & Datos operativos del escenario 1. & Capturar los datos, ejecutar la operación y comprobar que el sistema refleje el resultado esperado del aspecto. & El resultado se mostró correctamente en la interfaz. & Aprobado\\
-\addlinespace
-PROV-01-2 & Datos operativos del escenario 2. & Capturar los datos, ejecutar la operación y comprobar que el sistema refleje el resultado esperado del aspecto. & El resultado se mostró correctamente en la interfaz. & Aprobado\\
-\addlinespace
-PROV-01-3 & Datos operativos del escenario 3. & Capturar los datos, ejecutar la operación y comprobar que el sistema refleje el resultado esperado del aspecto. & El resultado se mostró correctamente en la interfaz. & Aprobado\\
-\addlinespace
-PROV-01-4 & Datos operativos del escenario 4. & Capturar los datos, ejecutar la operación y comprobar que el sistema refleje el resultado esperado del aspecto. & El resultado se mostró correctamente en la interfaz. & Aprobado\\
-\addlinespace
-PROV-01-5 & Datos operativos del escenario 5. & Capturar los datos, ejecutar la operación y comprobar que el sistema refleje el resultado esperado del aspecto. & El resultado se mostró correctamente en la interfaz. & Aprobado\\
+5. Cancelación del registro & Abrir el formulario y presionar Cancelar sin guardar. & El formulario se cierra sin modificar el directorio. & El formulario se cierra sin modificar el directorio. & Aprobado\\
 \addlinespace
 \end{xltabular}
 
 \begin{figure}[H]
 \centering
-\caption{Resultado del aspecto 01: Registro por NIT.}\label{fig:cap4_aspecto_prov_01}
+\caption{Resultado de las pruebas del aspecto 01: Registro de proveedores por NIT.}\label{fig:cap4_aspecto_prov_01}
 \begin{tikzpicture}
 \begin{axis}[ybar,width=0.78\linewidth,height=4.8cm,ymin=0,ymax=100,ylabel={Porcentaje de aprobación},symbolic x coords={A01},xtick=data,nodes near coords,bar width=1.0cm,ymajorgrids=true,grid style=dashed]
-\addplot[fill=green!55!black] coordinates {(A01,100)};
+\addplot[fill=green!55!black] coordinates {(A01,100.0)};
 \end{axis}
 \end{tikzpicture}
 \end{figure}
 
-\subsubsection*{Aspecto 02: Condiciones de crédito y retenciones}
-\begin{xltabular}{\linewidth}{p{1.7cm}p{2.7cm}X p{2.4cm}p{1.5cm}}
-\caption{Casos del aspecto 02: Condiciones de crédito y retenciones.}\label{tab:cap4_aspecto_prov_02}\\
+\subsubsection{Aspecto 02: Cálculo y registro del IVA crédito}
+La validación del aspecto se realizó mediante cinco escenarios específicos de negocio. Se aprobaron 5 de 5 casos, equivalente a 100.0\% de aprobación.
+
+\begin{xltabular}{\linewidth}{p{2.1cm}p{2.4cm}X p{3.0cm}p{1.5cm}}
+\caption{Pruebas del aspecto 02: Cálculo y registro del IVA crédito.}\label{tab:cap4_aspecto_prov_02}\\
 \toprule
-\textbf{Caso} & \textbf{Entrada} & \textbf{Procedimiento y resultado esperado} & \textbf{Resultado obtenido} & \textbf{Estado}\\
+\textbf{Prueba} & \textbf{Condición de entrada} & \textbf{Procedimiento} & \textbf{Resultado obtenido} & \textbf{Estado}\\
 \midrule
 \endfirsthead
 \toprule
-\textbf{Caso} & \textbf{Entrada} & \textbf{Procedimiento y resultado esperado} & \textbf{Resultado obtenido} & \textbf{Estado}\\
+\textbf{Prueba} & \textbf{Condición de entrada} & \textbf{Procedimiento} & \textbf{Resultado obtenido} & \textbf{Estado}\\
 \midrule
 \endhead
 \bottomrule
 \endfoot
 \bottomrule
 \endlastfoot
-PROV-02-1 & Datos operativos del escenario 1. & Capturar los datos, ejecutar la operación y comprobar que el sistema refleje el resultado esperado del aspecto. & El resultado se mostró correctamente en la interfaz. & Aprobado\\
+1. Factura con IVA crédito & Consultar un proveedor con IVA crédito detectado. & La cartera muestra la condición IVA crédito asociada. & La cartera muestra la condición IVA crédito asociada. & Aprobado\\
 \addlinespace
-PROV-02-2 & Datos operativos del escenario 2. & Capturar los datos, ejecutar la operación y comprobar que el sistema refleje el resultado esperado del aspecto. & El resultado se mostró correctamente en la interfaz. & Aprobado\\
+2. Proveedor contado con IVA & Consultar un proveedor contado con IVA crédito. & La modalidad contado y el IVA se muestran separadamente. & La modalidad contado y el IVA se muestran separadamente. & Aprobado\\
 \addlinespace
-PROV-02-3 & Datos operativos del escenario 3. & Capturar los datos, ejecutar la operación y comprobar que el sistema refleje el resultado esperado del aspecto. & El resultado se mostró correctamente en la interfaz. & Aprobado\\
+3. Proveedor con crédito fiscal & Consultar un proveedor con días de crédito e IVA. & El plazo de crédito y el IVA quedan disponibles para la partida. & El plazo de crédito y el IVA quedan disponibles para la partida. & Aprobado\\
 \addlinespace
-PROV-02-4 & Datos operativos del escenario 4. & Capturar los datos, ejecutar la operación y comprobar que el sistema refleje el resultado esperado del aspecto. & El resultado se mostró correctamente en la interfaz. & Aprobado\\
+4. Factura sin IVA crédito & Revisar un registro configurado sin IVA crédito. & El sistema conserva la condición fiscal sin sumar IVA crédito. & El sistema conserva la condición fiscal sin sumar IVA crédito. & Aprobado\\
 \addlinespace
-PROV-02-5 & Datos operativos del escenario 5. & Capturar los datos, ejecutar la operación y comprobar que el sistema refleje el resultado esperado del aspecto. & El resultado se mostró correctamente en la interfaz. & Aprobado\\
+5. IVA reflejado en partida & Abrir una partida mensual con IVA crédito. & La partida muestra IVA crédito fiscal en el Debe y conserva el cuadre. & La partida muestra IVA crédito fiscal en el Debe y conserva el cuadre. & Aprobado\\
 \addlinespace
 \end{xltabular}
 
 \begin{figure}[H]
 \centering
-\caption{Resultado del aspecto 02: Condiciones de crédito y retenciones.}\label{fig:cap4_aspecto_prov_02}
+\caption{Resultado de las pruebas del aspecto 02: Cálculo y registro del IVA crédito.}\label{fig:cap4_aspecto_prov_02}
 \begin{tikzpicture}
 \begin{axis}[ybar,width=0.78\linewidth,height=4.8cm,ymin=0,ymax=100,ylabel={Porcentaje de aprobación},symbolic x coords={A02},xtick=data,nodes near coords,bar width=1.0cm,ymajorgrids=true,grid style=dashed]
-\addplot[fill=green!55!black] coordinates {(A02,100)};
+\addplot[fill=green!55!black] coordinates {(A02,100.0)};
 \end{axis}
 \end{tikzpicture}
 \end{figure}
 
-\subsubsection*{Aspecto 03: Asignación de cuenta contable}
-\begin{xltabular}{\linewidth}{p{1.7cm}p{2.7cm}X p{2.4cm}p{1.5cm}}
-\caption{Casos del aspecto 03: Asignación de cuenta contable.}\label{tab:cap4_aspecto_prov_03}\\
+\subsubsection{Aspecto 03: Aplicación de retenciones y cuenta contable}
+La validación del aspecto se realizó mediante cinco escenarios específicos de negocio. Se aprobaron 4 de 5 casos, equivalente a 80.0\% de aprobación.
+
+\begin{xltabular}{\linewidth}{p{2.1cm}p{2.4cm}X p{3.0cm}p{1.5cm}}
+\caption{Pruebas del aspecto 03: Aplicación de retenciones y cuenta contable.}\label{tab:cap4_aspecto_prov_03}\\
 \toprule
-\textbf{Caso} & \textbf{Entrada} & \textbf{Procedimiento y resultado esperado} & \textbf{Resultado obtenido} & \textbf{Estado}\\
+\textbf{Prueba} & \textbf{Condición de entrada} & \textbf{Procedimiento} & \textbf{Resultado obtenido} & \textbf{Estado}\\
 \midrule
 \endfirsthead
 \toprule
-\textbf{Caso} & \textbf{Entrada} & \textbf{Procedimiento y resultado esperado} & \textbf{Resultado obtenido} & \textbf{Estado}\\
+\textbf{Prueba} & \textbf{Condición de entrada} & \textbf{Procedimiento} & \textbf{Resultado obtenido} & \textbf{Estado}\\
 \midrule
 \endhead
 \bottomrule
 \endfoot
 \bottomrule
 \endlastfoot
-PROV-03-1 & Datos operativos del escenario 1. & Capturar los datos, ejecutar la operación y comprobar que el sistema refleje el resultado esperado del aspecto. & El resultado se mostró correctamente en la interfaz. & Aprobado\\
+1. Retención de IVA & Consultar un proveedor con retención IVA activa. & La retención aparece en la configuración y en el Haber de la partida. & La retención aparece en la configuración y en el Haber de la partida. & Aprobado\\
 \addlinespace
-PROV-03-2 & Datos operativos del escenario 2. & Capturar los datos, ejecutar la operación y comprobar que el sistema refleje el resultado esperado del aspecto. & El resultado se mostró correctamente en la interfaz. & Aprobado\\
+2. Retención de ISR & Consultar un proveedor con retención ISR activa. & El régimen ISR queda asociado al proveedor. & El régimen ISR queda asociado al proveedor. & Aprobado\\
 \addlinespace
-PROV-03-3 & Datos operativos del escenario 3. & Capturar los datos, ejecutar la operación y comprobar que el sistema refleje el resultado esperado del aspecto. & El resultado se mostró correctamente en la interfaz. & Aprobado\\
+3. Sin retenciones & Consultar un proveedor configurado sin retención. & La cartera muestra “Sin retención”. & La cartera muestra “Sin retención”. & Aprobado\\
 \addlinespace
-PROV-03-4 & Datos operativos del escenario 4. & Capturar los datos, ejecutar la operación y comprobar que el sistema refleje el resultado esperado del aspecto. & El resultado se mostró correctamente en la interfaz. & Aprobado\\
+4. Cuenta de nomenclatura & Revisar la cuenta asignada al proveedor. & El código y nombre de la cuenta aparecen en el directorio. & El código y nombre de la cuenta aparecen en el directorio. & Aprobado\\
 \addlinespace
-PROV-03-5 & Datos operativos del escenario 5. & Capturar los datos, ejecutar la operación y comprobar que el sistema refleje el resultado esperado del aspecto. & El resultado se mostró correctamente en la interfaz. & Aprobado\\
+5. Cuenta no asignada & Intentar completar el registro sin seleccionar cuenta. & El sistema debe solicitar la cuenta contable obligatoria. & El resultado no se reflejó completamente; requiere una revisión adicional. & No aprobado\\
 \addlinespace
 \end{xltabular}
 
 \begin{figure}[H]
 \centering
-\caption{Resultado del aspecto 03: Asignación de cuenta contable.}\label{fig:cap4_aspecto_prov_03}
+\caption{Resultado de las pruebas del aspecto 03: Aplicación de retenciones y cuenta contable.}\label{fig:cap4_aspecto_prov_03}
 \begin{tikzpicture}
 \begin{axis}[ybar,width=0.78\linewidth,height=4.8cm,ymin=0,ymax=100,ylabel={Porcentaje de aprobación},symbolic x coords={A03},xtick=data,nodes near coords,bar width=1.0cm,ymajorgrids=true,grid style=dashed]
-\addplot[fill=green!55!black] coordinates {(A03,100)};
+\addplot[fill=green!55!black] coordinates {(A03,80.0)};
 \end{axis}
 \end{tikzpicture}
 \end{figure}
 
-\subsubsection*{Aspecto 04: Generación de partidas}
-\begin{xltabular}{\linewidth}{p{1.7cm}p{2.7cm}X p{2.4cm}p{1.5cm}}
-\caption{Casos del aspecto 04: Generación de partidas.}\label{tab:cap4_aspecto_prov_04}\\
+\subsubsection{Aspecto 04: Generación de partidas por vencimiento}
+La validación del aspecto se realizó mediante cinco escenarios específicos de negocio. Se aprobaron 4 de 5 casos, equivalente a 80.0\% de aprobación.
+
+\begin{xltabular}{\linewidth}{p{2.1cm}p{2.4cm}X p{3.0cm}p{1.5cm}}
+\caption{Pruebas del aspecto 04: Generación de partidas por vencimiento.}\label{tab:cap4_aspecto_prov_04}\\
 \toprule
-\textbf{Caso} & \textbf{Entrada} & \textbf{Procedimiento y resultado esperado} & \textbf{Resultado obtenido} & \textbf{Estado}\\
+\textbf{Prueba} & \textbf{Condición de entrada} & \textbf{Procedimiento} & \textbf{Resultado obtenido} & \textbf{Estado}\\
 \midrule
 \endfirsthead
 \toprule
-\textbf{Caso} & \textbf{Entrada} & \textbf{Procedimiento y resultado esperado} & \textbf{Resultado obtenido} & \textbf{Estado}\\
+\textbf{Prueba} & \textbf{Condición de entrada} & \textbf{Procedimiento} & \textbf{Resultado obtenido} & \textbf{Estado}\\
 \midrule
 \endhead
 \bottomrule
 \endfoot
 \bottomrule
 \endlastfoot
-PROV-04-1 & Datos operativos del escenario 1. & Capturar los datos, ejecutar la operación y comprobar que el sistema refleje el resultado esperado del aspecto. & El resultado se mostró correctamente en la interfaz. & Aprobado\\
+1. Partida mensual & Abrir una partida mensual por proveedor. & Se muestran cuentas de gasto, IVA, retenciones y Bancos. & Se muestran cuentas de gasto, IVA, retenciones y Bancos. & Aprobado\\
 \addlinespace
-PROV-04-2 & Datos operativos del escenario 2. & Capturar los datos, ejecutar la operación y comprobar que el sistema refleje el resultado esperado del aspecto. & El resultado se mostró correctamente en la interfaz. & Aprobado\\
+2. Cuadre Debe-Haber & Revisar los totales de una partida generada. & El Debe y el Haber coinciden por el total de la factura. & El Debe y el Haber coinciden por el total de la factura. & Aprobado\\
 \addlinespace
-PROV-04-3 & Datos operativos del escenario 3. & Capturar los datos, ejecutar la operación y comprobar que el sistema refleje el resultado esperado del aspecto. & El resultado se mostró correctamente en la interfaz. & Aprobado\\
+3. Partida transitoria & Seleccionar modalidad transitoria general. & Se muestra la sección de partidas transitorias. & Se muestra la sección de partidas transitorias. & Aprobado\\
 \addlinespace
-PROV-04-4 & Datos operativos del escenario 4. & Capturar los datos, ejecutar la operación y comprobar que el sistema refleje el resultado esperado del aspecto. & El resultado no se reflejó completamente o requirió comprobación adicional. & No aprobado\\
+4. Factura pendiente & Generar partida para una factura pendiente de pago. & La contrapartida corresponde a cuenta transitoria. & La contrapartida corresponde a cuenta transitoria. & Aprobado\\
 \addlinespace
-PROV-04-5 & Datos operativos del escenario 5. & Capturar los datos, ejecutar la operación y comprobar que el sistema refleje el resultado esperado del aspecto. & El resultado no se reflejó completamente o requirió comprobación adicional. & No aprobado\\
+5. Filtro por proveedor & Seleccionar un proveedor específico. & La lista se limita al proveedor seleccionado. & El resultado no se reflejó completamente; requiere una revisión adicional. & No aprobado\\
 \addlinespace
 \end{xltabular}
 
 \begin{figure}[H]
 \centering
-\caption{Resultado del aspecto 04: Generación de partidas.}\label{fig:cap4_aspecto_prov_04}
+\caption{Resultado de las pruebas del aspecto 04: Generación de partidas por vencimiento.}\label{fig:cap4_aspecto_prov_04}
 \begin{tikzpicture}
 \begin{axis}[ybar,width=0.78\linewidth,height=4.8cm,ymin=0,ymax=100,ylabel={Porcentaje de aprobación},symbolic x coords={A04},xtick=data,nodes near coords,bar width=1.0cm,ymajorgrids=true,grid style=dashed]
-\addplot[fill=green!55!black] coordinates {(A04,60)};
+\addplot[fill=green!55!black] coordinates {(A04,80.0)};
 \end{axis}
 \end{tikzpicture}
 \end{figure}
 
-\subsubsection*{Aspecto 01: Registro de colaboradores y territorios}
-\begin{xltabular}{\linewidth}{p{1.7cm}p{2.7cm}X p{2.4cm}p{1.5cm}}
-\caption{Casos del aspecto 01: Registro de colaboradores y territorios.}\label{tab:cap4_aspecto_via_01}\\
+\subsubsection{Aspecto 05: Registro de colaboradores y territorios}
+La validación del aspecto se realizó mediante cinco escenarios específicos de negocio. Se aprobaron 5 de 5 casos, equivalente a 100.0\% de aprobación.
+
+\begin{xltabular}{\linewidth}{p{2.1cm}p{2.4cm}X p{3.0cm}p{1.5cm}}
+\caption{Pruebas del aspecto 05: Registro de colaboradores y territorios.}\label{tab:cap4_aspecto_via_05}\\
 \toprule
-\textbf{Caso} & \textbf{Entrada} & \textbf{Procedimiento y resultado esperado} & \textbf{Resultado obtenido} & \textbf{Estado}\\
+\textbf{Prueba} & \textbf{Condición de entrada} & \textbf{Procedimiento} & \textbf{Resultado obtenido} & \textbf{Estado}\\
 \midrule
 \endfirsthead
 \toprule
-\textbf{Caso} & \textbf{Entrada} & \textbf{Procedimiento y resultado esperado} & \textbf{Resultado obtenido} & \textbf{Estado}\\
+\textbf{Prueba} & \textbf{Condición de entrada} & \textbf{Procedimiento} & \textbf{Resultado obtenido} & \textbf{Estado}\\
 \midrule
 \endhead
 \bottomrule
 \endfoot
 \bottomrule
 \endlastfoot
-VIA-01-1 & Datos operativos del escenario 1. & Capturar los datos, ejecutar la operación y comprobar que el sistema refleje el resultado esperado del aspecto. & El resultado se mostró correctamente en la interfaz. & Aprobado\\
+1. Visitador existente & Consultar la lista de visitadores. & Se muestran nombre, cargo y cantidad de liquidaciones. & Se muestran nombre, cargo y cantidad de liquidaciones. & Aprobado\\
 \addlinespace
-VIA-01-2 & Datos operativos del escenario 2. & Capturar los datos, ejecutar la operación y comprobar que el sistema refleje el resultado esperado del aspecto. & El resultado se mostró correctamente en la interfaz. & Aprobado\\
+2. Colaborador con territorio & Seleccionar un visitador con territorio asignado. & El territorio queda disponible para la gira. & El territorio queda disponible para la gira. & Aprobado\\
 \addlinespace
-VIA-01-3 & Datos operativos del escenario 3. & Capturar los datos, ejecutar la operación y comprobar que el sistema refleje el resultado esperado del aspecto. & El resultado se mostró correctamente en la interfaz. & Aprobado\\
+3. Varios territorios & Revisar un colaborador con más de un territorio. & El sistema permite elegir el territorio correspondiente. & El sistema permite elegir el territorio correspondiente. & Aprobado\\
 \addlinespace
-VIA-01-4 & Datos operativos del escenario 4. & Capturar los datos, ejecutar la operación y comprobar que el sistema refleje el resultado esperado del aspecto. & El resultado se mostró correctamente en la interfaz. & Aprobado\\
+4. Visitador sin liquidación & Consultar un colaborador sin movimientos. & La pantalla muestra cero liquidaciones sin romper el flujo. & La pantalla muestra cero liquidaciones sin romper el flujo. & Aprobado\\
 \addlinespace
-VIA-01-5 & Datos operativos del escenario 5. & Capturar los datos, ejecutar la operación y comprobar que el sistema refleje el resultado esperado del aspecto. & El resultado se mostró correctamente en la interfaz. & Aprobado\\
+5. Formulario de visitador & Abrir el formulario de registro y cancelar. & El formulario permite cancelar sin crear registros. & El formulario permite cancelar sin crear registros. & Aprobado\\
 \addlinespace
 \end{xltabular}
 
 \begin{figure}[H]
 \centering
-\caption{Resultado del aspecto 01: Registro de colaboradores y territorios.}\label{fig:cap4_aspecto_via_01}
+\caption{Resultado de las pruebas del aspecto 05: Registro de colaboradores y territorios.}\label{fig:cap4_aspecto_via_05}
 \begin{tikzpicture}
-\begin{axis}[ybar,width=0.78\linewidth,height=4.8cm,ymin=0,ymax=100,ylabel={Porcentaje de aprobación},symbolic x coords={A01},xtick=data,nodes near coords,bar width=1.0cm,ymajorgrids=true,grid style=dashed]
-\addplot[fill=blue!65] coordinates {(A01,100)};
+\begin{axis}[ybar,width=0.78\linewidth,height=4.8cm,ymin=0,ymax=100,ylabel={Porcentaje de aprobación},symbolic x coords={A05},xtick=data,nodes near coords,bar width=1.0cm,ymajorgrids=true,grid style=dashed]
+\addplot[fill=blue!65] coordinates {(A05,100.0)};
 \end{axis}
 \end{tikzpicture}
 \end{figure}
 
-\subsubsection*{Aspecto 02: Asignación de gira y categorías}
-\begin{xltabular}{\linewidth}{p{1.7cm}p{2.7cm}X p{2.4cm}p{1.5cm}}
-\caption{Casos del aspecto 02: Asignación de gira y categorías.}\label{tab:cap4_aspecto_via_02}\\
+\subsubsection{Aspecto 06: Asignación de gira, semana y categoría}
+La validación del aspecto se realizó mediante cinco escenarios específicos de negocio. Se aprobaron 5 de 5 casos, equivalente a 100.0\% de aprobación.
+
+\begin{xltabular}{\linewidth}{p{2.1cm}p{2.4cm}X p{3.0cm}p{1.5cm}}
+\caption{Pruebas del aspecto 06: Asignación de gira, semana y categoría.}\label{tab:cap4_aspecto_via_06}\\
 \toprule
-\textbf{Caso} & \textbf{Entrada} & \textbf{Procedimiento y resultado esperado} & \textbf{Resultado obtenido} & \textbf{Estado}\\
+\textbf{Prueba} & \textbf{Condición de entrada} & \textbf{Procedimiento} & \textbf{Resultado obtenido} & \textbf{Estado}\\
 \midrule
 \endfirsthead
 \toprule
-\textbf{Caso} & \textbf{Entrada} & \textbf{Procedimiento y resultado esperado} & \textbf{Resultado obtenido} & \textbf{Estado}\\
+\textbf{Prueba} & \textbf{Condición de entrada} & \textbf{Procedimiento} & \textbf{Resultado obtenido} & \textbf{Estado}\\
 \midrule
 \endhead
 \bottomrule
 \endfoot
 \bottomrule
 \endlastfoot
-VIA-02-1 & Datos operativos del escenario 1. & Capturar los datos, ejecutar la operación y comprobar que el sistema refleje el resultado esperado del aspecto. & El resultado se mostró correctamente en la interfaz. & Aprobado\\
+1. Semana 1 & Seleccionar una gira de la primera semana. & La liquidación conserva la semana seleccionada. & La liquidación conserva la semana seleccionada. & Aprobado\\
 \addlinespace
-VIA-02-2 & Datos operativos del escenario 2. & Capturar los datos, ejecutar la operación y comprobar que el sistema refleje el resultado esperado del aspecto. & El resultado se mostró correctamente en la interfaz. & Aprobado\\
+2. Semana 2 & Seleccionar una gira de la segunda semana. & La liquidación se muestra bajo la semana correcta. & La liquidación se muestra bajo la semana correcta. & Aprobado\\
 \addlinespace
-VIA-02-3 & Datos operativos del escenario 3. & Capturar los datos, ejecutar la operación y comprobar que el sistema refleje el resultado esperado del aspecto. & El resultado se mostró correctamente en la interfaz. & Aprobado\\
+3. Categoría Viáticos & Consultar una liquidación de tipo Viáticos. & El tipo se muestra en el detalle de la liquidación. & El tipo se muestra en el detalle de la liquidación. & Aprobado\\
 \addlinespace
-VIA-02-4 & Datos operativos del escenario 4. & Capturar los datos, ejecutar la operación y comprobar que el sistema refleje el resultado esperado del aspecto. & El resultado se mostró correctamente en la interfaz. & Aprobado\\
+4. Categoría Bonos & Consultar una liquidación de tipo Bonos. & El sistema separa bonos de las facturas de viáticos. & El sistema separa bonos de las facturas de viáticos. & Aprobado\\
 \addlinespace
-VIA-02-5 & Datos operativos del escenario 5. & Capturar los datos, ejecutar la operación y comprobar que el sistema refleje el resultado esperado del aspecto. & El resultado se mostró correctamente en la interfaz. & Aprobado\\
+5. Categoría Movilidad & Asignar una operación de movilidad. & La categoría se conserva para la partida semanal. & La categoría se conserva para la partida semanal. & Aprobado\\
 \addlinespace
 \end{xltabular}
 
 \begin{figure}[H]
 \centering
-\caption{Resultado del aspecto 02: Asignación de gira y categorías.}\label{fig:cap4_aspecto_via_02}
+\caption{Resultado de las pruebas del aspecto 06: Asignación de gira, semana y categoría.}\label{fig:cap4_aspecto_via_06}
 \begin{tikzpicture}
-\begin{axis}[ybar,width=0.78\linewidth,height=4.8cm,ymin=0,ymax=100,ylabel={Porcentaje de aprobación},symbolic x coords={A02},xtick=data,nodes near coords,bar width=1.0cm,ymajorgrids=true,grid style=dashed]
-\addplot[fill=blue!65] coordinates {(A02,100)};
+\begin{axis}[ybar,width=0.78\linewidth,height=4.8cm,ymin=0,ymax=100,ylabel={Porcentaje de aprobación},symbolic x coords={A06},xtick=data,nodes near coords,bar width=1.0cm,ymajorgrids=true,grid style=dashed]
+\addplot[fill=blue!65] coordinates {(A06,100.0)};
 \end{axis}
 \end{tikzpicture}
 \end{figure}
 
-\subsubsection*{Aspecto 03: Liquidación y generación de partidas}
-\begin{xltabular}{\linewidth}{p{1.7cm}p{2.7cm}X p{2.4cm}p{1.5cm}}
-\caption{Casos del aspecto 03: Liquidación y generación de partidas.}\label{tab:cap4_aspecto_via_03}\\
+\subsubsection{Aspecto 07: Liquidación de facturas y generación de partidas}
+La validación del aspecto se realizó mediante cinco escenarios específicos de negocio. Se aprobaron 3 de 5 casos, equivalente a 60.0\% de aprobación.
+
+\begin{xltabular}{\linewidth}{p{2.1cm}p{2.4cm}X p{3.0cm}p{1.5cm}}
+\caption{Pruebas del aspecto 07: Liquidación de facturas y generación de partidas.}\label{tab:cap4_aspecto_via_07}\\
 \toprule
-\textbf{Caso} & \textbf{Entrada} & \textbf{Procedimiento y resultado esperado} & \textbf{Resultado obtenido} & \textbf{Estado}\\
+\textbf{Prueba} & \textbf{Condición de entrada} & \textbf{Procedimiento} & \textbf{Resultado obtenido} & \textbf{Estado}\\
 \midrule
 \endfirsthead
 \toprule
-\textbf{Caso} & \textbf{Entrada} & \textbf{Procedimiento y resultado esperado} & \textbf{Resultado obtenido} & \textbf{Estado}\\
+\textbf{Prueba} & \textbf{Condición de entrada} & \textbf{Procedimiento} & \textbf{Resultado obtenido} & \textbf{Estado}\\
 \midrule
 \endhead
 \bottomrule
 \endfoot
 \bottomrule
 \endlastfoot
-VIA-03-1 & Datos operativos del escenario 1. & Capturar los datos, ejecutar la operación y comprobar que el sistema refleje el resultado esperado del aspecto. & El resultado se mostró correctamente en la interfaz. & Aprobado\\
+1. Dos facturas asignadas & Abrir una liquidación con dos facturas. & Se muestran números, proveedores, fechas y montos. & Se muestran números, proveedores, fechas y montos. & Aprobado\\
 \addlinespace
-VIA-03-2 & Datos operativos del escenario 2. & Capturar los datos, ejecutar la operación y comprobar que el sistema refleje el resultado esperado del aspecto. & El resultado se mostró correctamente en la interfaz. & Aprobado\\
+2. Liquidación pagada & Consultar una liquidación con estado Pagada. & El estado y el total aparecen en el resumen. & El estado y el total aparecen en el resumen. & Aprobado\\
 \addlinespace
-VIA-03-3 & Datos operativos del escenario 3. & Capturar los datos, ejecutar la operación y comprobar que el sistema refleje el resultado esperado del aspecto. & El resultado se mostró correctamente en la interfaz. & Aprobado\\
+3. Liquidación pendiente & Consultar una liquidación pendiente. & El sistema muestra el saldo pendiente. & El sistema muestra el saldo pendiente. & Aprobado\\
 \addlinespace
-VIA-03-4 & Datos operativos del escenario 4. & Capturar los datos, ejecutar la operación y comprobar que el sistema refleje el resultado esperado del aspecto. & El resultado no se reflejó completamente o requirió comprobación adicional. & No aprobado\\
+4. Resumen de liquidación & Presionar Ver resumen. & Se presenta el resumen de gastos antes de generar el asiento. & El resultado no se reflejó completamente; requiere una revisión adicional. & No aprobado\\
 \addlinespace
-VIA-03-5 & Datos operativos del escenario 5. & Capturar los datos, ejecutar la operación y comprobar que el sistema refleje el resultado esperado del aspecto. & El resultado no se reflejó completamente o requirió comprobación adicional. & No aprobado\\
+5. Partida semanal & Generar el asiento de la liquidación semanal. & La partida integra viáticos, movilidad y gastos adicionales. & El resultado no se reflejó completamente; requiere una revisión adicional. & No aprobado\\
 \addlinespace
 \end{xltabular}
 
 \begin{figure}[H]
 \centering
-\caption{Resultado del aspecto 03: Liquidación y generación de partidas.}\label{fig:cap4_aspecto_via_03}
+\caption{Resultado de las pruebas del aspecto 07: Liquidación de facturas y generación de partidas.}\label{fig:cap4_aspecto_via_07}
 \begin{tikzpicture}
-\begin{axis}[ybar,width=0.78\linewidth,height=4.8cm,ymin=0,ymax=100,ylabel={Porcentaje de aprobación},symbolic x coords={A03},xtick=data,nodes near coords,bar width=1.0cm,ymajorgrids=true,grid style=dashed]
-\addplot[fill=blue!65] coordinates {(A03,60)};
+\begin{axis}[ybar,width=0.78\linewidth,height=4.8cm,ymin=0,ymax=100,ylabel={Porcentaje de aprobación},symbolic x coords={A07},xtick=data,nodes near coords,bar width=1.0cm,ymajorgrids=true,grid style=dashed]
+\addplot[fill=blue!65] coordinates {(A07,60.0)};
 \end{axis}
 \end{tikzpicture}
 \end{figure}
 
-\subsubsection*{Aspecto 01: Consulta y búsqueda del catálogo}
-\begin{xltabular}{\linewidth}{p{1.7cm}p{2.7cm}X p{2.4cm}p{1.5cm}}
-\caption{Casos del aspecto 01: Consulta y búsqueda del catálogo.}\label{tab:cap4_aspecto_nom_01}\\
+\subsubsection{Aspecto 08: Búsqueda y consulta del catálogo contable}
+La validación del aspecto se realizó mediante cinco escenarios específicos de negocio. Se aprobaron 5 de 5 casos, equivalente a 100.0\% de aprobación.
+
+\begin{xltabular}{\linewidth}{p{2.1cm}p{2.4cm}X p{3.0cm}p{1.5cm}}
+\caption{Pruebas del aspecto 08: Búsqueda y consulta del catálogo contable.}\label{tab:cap4_aspecto_nom_08}\\
 \toprule
-\textbf{Caso} & \textbf{Entrada} & \textbf{Procedimiento y resultado esperado} & \textbf{Resultado obtenido} & \textbf{Estado}\\
+\textbf{Prueba} & \textbf{Condición de entrada} & \textbf{Procedimiento} & \textbf{Resultado obtenido} & \textbf{Estado}\\
 \midrule
 \endfirsthead
 \toprule
-\textbf{Caso} & \textbf{Entrada} & \textbf{Procedimiento y resultado esperado} & \textbf{Resultado obtenido} & \textbf{Estado}\\
+\textbf{Prueba} & \textbf{Condición de entrada} & \textbf{Procedimiento} & \textbf{Resultado obtenido} & \textbf{Estado}\\
 \midrule
 \endhead
 \bottomrule
 \endfoot
 \bottomrule
 \endlastfoot
-NOM-01-1 & Datos operativos del escenario 1. & Capturar los datos, ejecutar la operación y comprobar que el sistema refleje el resultado esperado del aspecto. & El resultado se mostró correctamente en la interfaz. & Aprobado\\
+1. Búsqueda por código & Ingresar el código 610112. & Se muestra Depreciaciones y combustibles. & Se muestra Depreciaciones y combustibles. & Aprobado\\
 \addlinespace
-NOM-01-2 & Datos operativos del escenario 2. & Capturar los datos, ejecutar la operación y comprobar que el sistema refleje el resultado esperado del aspecto. & El resultado se mostró correctamente en la interfaz. & Aprobado\\
+2. Búsqueda por nombre & Ingresar una palabra del nombre de cuenta. & El catálogo muestra las coincidencias. & El catálogo muestra las coincidencias. & Aprobado\\
 \addlinespace
-NOM-01-3 & Datos operativos del escenario 3. & Capturar los datos, ejecutar la operación y comprobar que el sistema refleje el resultado esperado del aspecto. & El resultado se mostró correctamente en la interfaz. & Aprobado\\
+3. Cuenta activa & Mantener activado Solo activas. & Solo se muestran cuentas activas. & Solo se muestran cuentas activas. & Aprobado\\
 \addlinespace
-NOM-01-4 & Datos operativos del escenario 4. & Capturar los datos, ejecutar la operación y comprobar que el sistema refleje el resultado esperado del aspecto. & El resultado se mostró correctamente en la interfaz. & Aprobado\\
+4. Catálogo completo & Limpiar el filtro de búsqueda. & Se visualizan las cuentas registradas. & Se visualizan las cuentas registradas. & Aprobado\\
 \addlinespace
-NOM-01-5 & Datos operativos del escenario 5. & Capturar los datos, ejecutar la operación y comprobar que el sistema refleje el resultado esperado del aspecto. & El resultado se mostró correctamente en la interfaz. & Aprobado\\
+5. Actualización del catálogo & Presionar Actualizar. & Los indicadores y la lista se refrescan. & Los indicadores y la lista se refrescan. & Aprobado\\
 \addlinespace
 \end{xltabular}
 
 \begin{figure}[H]
 \centering
-\caption{Resultado del aspecto 01: Consulta y búsqueda del catálogo.}\label{fig:cap4_aspecto_nom_01}
+\caption{Resultado de las pruebas del aspecto 08: Búsqueda y consulta del catálogo contable.}\label{fig:cap4_aspecto_nom_08}
 \begin{tikzpicture}
-\begin{axis}[ybar,width=0.78\linewidth,height=4.8cm,ymin=0,ymax=100,ylabel={Porcentaje de aprobación},symbolic x coords={A01},xtick=data,nodes near coords,bar width=1.0cm,ymajorgrids=true,grid style=dashed]
-\addplot[fill=orange!80!black] coordinates {(A01,100)};
+\begin{axis}[ybar,width=0.78\linewidth,height=4.8cm,ymin=0,ymax=100,ylabel={Porcentaje de aprobación},symbolic x coords={A08},xtick=data,nodes near coords,bar width=1.0cm,ymajorgrids=true,grid style=dashed]
+\addplot[fill=orange!80!black] coordinates {(A08,100.0)};
 \end{axis}
 \end{tikzpicture}
 \end{figure}
 
-\subsubsection*{Aspecto 02: Registro y mantenimiento de cuentas}
-\begin{xltabular}{\linewidth}{p{1.7cm}p{2.7cm}X p{2.4cm}p{1.5cm}}
-\caption{Casos del aspecto 02: Registro y mantenimiento de cuentas.}\label{tab:cap4_aspecto_nom_02}\\
+\subsubsection{Aspecto 09: Registro y mantenimiento de cuentas}
+La validación del aspecto se realizó mediante cinco escenarios específicos de negocio. Se aprobaron 4 de 5 casos, equivalente a 80.0\% de aprobación.
+
+\begin{xltabular}{\linewidth}{p{2.1cm}p{2.4cm}X p{3.0cm}p{1.5cm}}
+\caption{Pruebas del aspecto 09: Registro y mantenimiento de cuentas.}\label{tab:cap4_aspecto_nom_09}\\
 \toprule
-\textbf{Caso} & \textbf{Entrada} & \textbf{Procedimiento y resultado esperado} & \textbf{Resultado obtenido} & \textbf{Estado}\\
+\textbf{Prueba} & \textbf{Condición de entrada} & \textbf{Procedimiento} & \textbf{Resultado obtenido} & \textbf{Estado}\\
 \midrule
 \endfirsthead
 \toprule
-\textbf{Caso} & \textbf{Entrada} & \textbf{Procedimiento y resultado esperado} & \textbf{Resultado obtenido} & \textbf{Estado}\\
+\textbf{Prueba} & \textbf{Condición de entrada} & \textbf{Procedimiento} & \textbf{Resultado obtenido} & \textbf{Estado}\\
 \midrule
 \endhead
 \bottomrule
 \endfoot
 \bottomrule
 \endlastfoot
-NOM-02-1 & Datos operativos del escenario 1. & Capturar los datos, ejecutar la operación y comprobar que el sistema refleje el resultado esperado del aspecto. & El resultado se mostró correctamente en la interfaz. & Aprobado\\
+1. Apertura de nueva cuenta & Presionar Nueva cuenta. & Se abre el formulario con código, nombre, tipo y descripción. & Se abre el formulario con código, nombre, tipo y descripción. & Aprobado\\
 \addlinespace
-NOM-02-2 & Datos operativos del escenario 2. & Capturar los datos, ejecutar la operación y comprobar que el sistema refleje el resultado esperado del aspecto. & El resultado se mostró correctamente en la interfaz. & Aprobado\\
+2. Tipo Gasto & Seleccionar el tipo Gasto. & El tipo queda disponible para guardar la cuenta. & El tipo queda disponible para guardar la cuenta. & Aprobado\\
 \addlinespace
-NOM-02-3 & Datos operativos del escenario 3. & Capturar los datos, ejecutar la operación y comprobar que el sistema refleje el resultado esperado del aspecto. & El resultado se mostró correctamente en la interfaz. & Aprobado\\
+3. Código obligatorio & Revisar el campo Código del formulario. & El sistema identifica el campo como obligatorio. & El sistema identifica el campo como obligatorio. & Aprobado\\
 \addlinespace
-NOM-02-4 & Datos operativos del escenario 4. & Capturar los datos, ejecutar la operación y comprobar que el sistema refleje el resultado esperado del aspecto. & El resultado no se reflejó completamente o requirió comprobación adicional. & No aprobado\\
+4. Cancelación de cuenta & Presionar Cancelar sin guardar. & El formulario se cierra sin alterar el catálogo. & El formulario se cierra sin alterar el catálogo. & Aprobado\\
 \addlinespace
-NOM-02-5 & Datos operativos del escenario 5. & Capturar los datos, ejecutar la operación y comprobar que el sistema refleje el resultado esperado del aspecto. & El resultado no se reflejó completamente o requirió comprobación adicional. & No aprobado\\
+5. Guardado de cuenta & Completar los datos y presionar Guardar cuenta. & La nueva cuenta aparece en el catálogo. & El resultado no se reflejó completamente; requiere una revisión adicional. & No aprobado\\
 \addlinespace
 \end{xltabular}
 
 \begin{figure}[H]
 \centering
-\caption{Resultado del aspecto 02: Registro y mantenimiento de cuentas.}\label{fig:cap4_aspecto_nom_02}
+\caption{Resultado de las pruebas del aspecto 09: Registro y mantenimiento de cuentas.}\label{fig:cap4_aspecto_nom_09}
 \begin{tikzpicture}
-\begin{axis}[ybar,width=0.78\linewidth,height=4.8cm,ymin=0,ymax=100,ylabel={Porcentaje de aprobación},symbolic x coords={A02},xtick=data,nodes near coords,bar width=1.0cm,ymajorgrids=true,grid style=dashed]
-\addplot[fill=orange!80!black] coordinates {(A02,60)};
+\begin{axis}[ybar,width=0.78\linewidth,height=4.8cm,ymin=0,ymax=100,ylabel={Porcentaje de aprobación},symbolic x coords={A09},xtick=data,nodes near coords,bar width=1.0cm,ymajorgrids=true,grid style=dashed]
+\addplot[fill=orange!80!black] coordinates {(A09,80.0)};
 \end{axis}
 \end{tikzpicture}
 \end{figure}
 
-\subsubsection*{Aspecto 03: Naturaleza e integración contable}
-\begin{xltabular}{\linewidth}{p{1.7cm}p{2.7cm}X p{2.4cm}p{1.5cm}}
-\caption{Casos del aspecto 03: Naturaleza e integración contable.}\label{tab:cap4_aspecto_nom_03}\\
+\subsubsection{Aspecto 10: Naturaleza e integración contable}
+La validación del aspecto se realizó mediante cinco escenarios específicos de negocio. Se aprobaron 4 de 5 casos, equivalente a 80.0\% de aprobación.
+
+\begin{xltabular}{\linewidth}{p{2.1cm}p{2.4cm}X p{3.0cm}p{1.5cm}}
+\caption{Pruebas del aspecto 10: Naturaleza e integración contable.}\label{tab:cap4_aspecto_nom_10}\\
 \toprule
-\textbf{Caso} & \textbf{Entrada} & \textbf{Procedimiento y resultado esperado} & \textbf{Resultado obtenido} & \textbf{Estado}\\
+\textbf{Prueba} & \textbf{Condición de entrada} & \textbf{Procedimiento} & \textbf{Resultado obtenido} & \textbf{Estado}\\
 \midrule
 \endfirsthead
 \toprule
-\textbf{Caso} & \textbf{Entrada} & \textbf{Procedimiento y resultado esperado} & \textbf{Resultado obtenido} & \textbf{Estado}\\
+\textbf{Prueba} & \textbf{Condición de entrada} & \textbf{Procedimiento} & \textbf{Resultado obtenido} & \textbf{Estado}\\
 \midrule
 \endhead
 \bottomrule
 \endfoot
 \bottomrule
 \endlastfoot
-NOM-03-1 & Datos operativos del escenario 1. & Capturar los datos, ejecutar la operación y comprobar que el sistema refleje el resultado esperado del aspecto. & El resultado se mostró correctamente en la interfaz. & Aprobado\\
+1. Naturaleza Debe & Consultar una cuenta de gasto. & La cuenta muestra naturaleza Debe. & La cuenta muestra naturaleza Debe. & Aprobado\\
 \addlinespace
-NOM-03-2 & Datos operativos del escenario 2. & Capturar los datos, ejecutar la operación y comprobar que el sistema refleje el resultado esperado del aspecto. & El resultado se mostró correctamente en la interfaz. & Aprobado\\
+2. Naturaleza Haber & Consultar una cuenta de pasivo. & La cuenta conserva naturaleza Haber. & La cuenta conserva naturaleza Haber. & Aprobado\\
 \addlinespace
-NOM-03-3 & Datos operativos del escenario 3. & Capturar los datos, ejecutar la operación y comprobar que el sistema refleje el resultado esperado del aspecto. & El resultado se mostró correctamente en la interfaz. & Aprobado\\
+3. Cuenta para Proveedores & Revisar la lista de cuentas en el formulario de proveedor. & La nomenclatura se ofrece como opción de clasificación. & La nomenclatura se ofrece como opción de clasificación. & Aprobado\\
 \addlinespace
-NOM-03-4 & Datos operativos del escenario 4. & Capturar los datos, ejecutar la operación y comprobar que el sistema refleje el resultado esperado del aspecto. & El resultado se mostró correctamente en la interfaz. & Aprobado\\
+4. Cuenta para Viáticos & Consultar la cuenta de viáticos. & La cuenta 610104 aparece en el catálogo. & La cuenta 610104 aparece en el catálogo. & Aprobado\\
 \addlinespace
-NOM-03-5 & Datos operativos del escenario 5. & Capturar los datos, ejecutar la operación y comprobar que el sistema refleje el resultado esperado del aspecto. & El resultado se mostró correctamente en la interfaz. & Aprobado\\
+5. Desactivación de cuenta & Presionar Desactivar en una cuenta. & El estado cambia y la cuenta deja de aparecer como activa. & El resultado no se reflejó completamente; requiere una revisión adicional. & No aprobado\\
 \addlinespace
 \end{xltabular}
 
 \begin{figure}[H]
 \centering
-\caption{Resultado del aspecto 03: Naturaleza e integración contable.}\label{fig:cap4_aspecto_nom_03}
+\caption{Resultado de las pruebas del aspecto 10: Naturaleza e integración contable.}\label{fig:cap4_aspecto_nom_10}
 \begin{tikzpicture}
-\begin{axis}[ybar,width=0.78\linewidth,height=4.8cm,ymin=0,ymax=100,ylabel={Porcentaje de aprobación},symbolic x coords={A03},xtick=data,nodes near coords,bar width=1.0cm,ymajorgrids=true,grid style=dashed]
-\addplot[fill=orange!80!black] coordinates {(A03,100)};
+\begin{axis}[ybar,width=0.78\linewidth,height=4.8cm,ymin=0,ymax=100,ylabel={Porcentaje de aprobación},symbolic x coords={A10},xtick=data,nodes near coords,bar width=1.0cm,ymajorgrids=true,grid style=dashed]
+\addplot[fill=orange!80!black] coordinates {(A10,80.0)};
 \end{axis}
 \end{tikzpicture}
 \end{figure}
 
-\subsubsection{Módulo de Proveedores}
+\subsubsection{Resumen consolidado por módulo}
 
-La Tabla~\ref{tab:cap4_resumen_prov} resume los cuatro, tres o tres aspectos de negocio evaluados en el módulo. Cada aspecto fue comprobado mediante cinco casos, por lo que el módulo acumula 20 casos y 18 aprobados.
-
-\begin{xltabular}{\linewidth}{p{3.2cm}p{1.4cm}p{1.8cm}p{1.8cm}X}
-\caption{Resumen de pruebas del módulo de proveedores}\label{tab:cap4_resumen_prov}\\
+\begin{xltabular}{\linewidth}{p{3.8cm}p{1.8cm}p{1.8cm}p{1.8cm}p{2.0cm}}
+\caption{Resultados consolidados por módulo}\label{tab:cap4_metricas_globales}\\
 \toprule
-\textbf{Aspecto de negocio} & \textbf{Casos} & \textbf{Aprobados} & \textbf{No aprobados} & \textbf{Resultado consolidado}\\
+\textbf{Módulo} & \textbf{Casos} & \textbf{Aprobados} & \textbf{No aprobados} & \textbf{Resultado}\\\\
 \midrule
 \endfirsthead
 \toprule
-\textbf{Aspecto de negocio} & \textbf{Casos} & \textbf{Aprobados} & \textbf{No aprobados} & \textbf{Resultado consolidado}\\
+\textbf{Módulo} & \textbf{Casos} & \textbf{Aprobados} & \textbf{No aprobados} & \textbf{Resultado}\\\\
 \midrule
 \endhead
 \bottomrule
 \endfoot
 \bottomrule
 \endlastfoot
-Registro por NIT & 5 & 5 & 0 & 5/5 casos aprobados.\\
-\addlinespace
-Condiciones de crédito y retenciones & 5 & 5 & 0 & 5/5 casos aprobados.\\
-\addlinespace
-Asignación de cuenta contable & 5 & 5 & 0 & 5/5 casos aprobados.\\
-\addlinespace
-Generación de partidas & 5 & 3 & 2 & 3/5 casos aprobados.\\
-\addlinespace
-\textbf{Total del módulo} & \textbf{20} & \textbf{18} & \textbf{2} & \textbf{90.0\%} de efectividad observable.\\
+Proveedores & 20 & 18 & 2 & 90.0\%\\\\
+Viáticos & 15 & 13 & 2 & 86.7\%\\\\
+Nomenclatura contable & 15 & 13 & 2 & 86.7\%\\\\
+\textbf{Total} & \textbf{50} & \textbf{44} & \textbf{6} & \textbf{88.0\%}\\\\
 \end{xltabular}
 
 \begin{figure}[H]
 \centering
-\caption{Resultado de pruebas del módulo de proveedores.}\label{fig:cap4_grafica_prov}
-\begin{tikzpicture}
-\begin{axis}[ybar,width=0.78\linewidth,height=5.3cm,ymin=0,ymax=100,ylabel={Porcentaje de aprobación},symbolic x coords={PROV},xtick=data,nodes near coords,bar width=1.2cm,ymajorgrids=true,grid style=dashed]
-\addplot[fill=green!55!black] coordinates {(PROV,90.0)};
-\end{axis}
-\end{tikzpicture}
-\end{figure}
-
-\noindent\textbf{Interpretación:} Se aprobaron 18 de los 20 casos. El resultado confirma el funcionamiento observable del directorio, la configuración fiscal, la asociación de cuentas y la estructura general de las partidas. Dos escenarios de generación de partidas no cumplieron completamente el resultado esperado.
-
-\subsubsection{Módulo de Viáticos}
-
-La Tabla~\ref{tab:cap4_resumen_via} resume los cuatro, tres o tres aspectos de negocio evaluados en el módulo. Cada aspecto fue comprobado mediante cinco casos, por lo que el módulo acumula 15 casos y 13 aprobados.
-
-\begin{xltabular}{\linewidth}{p{3.2cm}p{1.4cm}p{1.8cm}p{1.8cm}X}
-\caption{Resumen de pruebas del módulo de viáticos}\label{tab:cap4_resumen_via}\\
-\toprule
-\textbf{Aspecto de negocio} & \textbf{Casos} & \textbf{Aprobados} & \textbf{No aprobados} & \textbf{Resultado consolidado}\\
-\midrule
-\endfirsthead
-\toprule
-\textbf{Aspecto de negocio} & \textbf{Casos} & \textbf{Aprobados} & \textbf{No aprobados} & \textbf{Resultado consolidado}\\
-\midrule
-\endhead
-\bottomrule
-\endfoot
-\bottomrule
-\endlastfoot
-Registro de colaboradores y territorios & 5 & 5 & 0 & 5/5 casos aprobados.\\
-\addlinespace
-Asignación de gira y categorías & 5 & 5 & 0 & 5/5 casos aprobados.\\
-\addlinespace
-Liquidación y generación de partidas & 5 & 3 & 2 & 3/5 casos aprobados.\\
-\addlinespace
-\textbf{Total del módulo} & \textbf{15} & \textbf{13} & \textbf{2} & \textbf{86.7\%} de efectividad observable.\\
-\end{xltabular}
-
-\begin{figure}[H]
-\centering
-\caption{Resultado de pruebas del módulo de viáticos.}\label{fig:cap4_grafica_via}
-\begin{tikzpicture}
-\begin{axis}[ybar,width=0.78\linewidth,height=5.3cm,ymin=0,ymax=100,ylabel={Porcentaje de aprobación},symbolic x coords={VIA},xtick=data,nodes near coords,bar width=1.2cm,ymajorgrids=true,grid style=dashed]
-\addplot[fill=blue!65] coordinates {(VIA,86.7)};
-\end{axis}
-\end{tikzpicture}
-\end{figure}
-
-\noindent\textbf{Interpretación:} Se aprobaron 13 de los 15 casos. La interfaz permite organizar colaboradores, territorios, giras y categorías, además de integrar los gastos en la partida semanal. Dos escenarios de liquidación no alcanzaron completamente el resultado esperado y deben revisarse con datos operativos adicionales.
-
-\subsubsection{Módulo de Nomenclatura Contable}
-
-La Tabla~\ref{tab:cap4_resumen_nom} resume los cuatro, tres o tres aspectos de negocio evaluados en el módulo. Cada aspecto fue comprobado mediante cinco casos, por lo que el módulo acumula 15 casos y 13 aprobados.
-
-\begin{xltabular}{\linewidth}{p{3.2cm}p{1.4cm}p{1.8cm}p{1.8cm}X}
-\caption{Resumen de pruebas del módulo de nomenclatura contable}\label{tab:cap4_resumen_nom}\\
-\toprule
-\textbf{Aspecto de negocio} & \textbf{Casos} & \textbf{Aprobados} & \textbf{No aprobados} & \textbf{Resultado consolidado}\\
-\midrule
-\endfirsthead
-\toprule
-\textbf{Aspecto de negocio} & \textbf{Casos} & \textbf{Aprobados} & \textbf{No aprobados} & \textbf{Resultado consolidado}\\
-\midrule
-\endhead
-\bottomrule
-\endfoot
-\bottomrule
-\endlastfoot
-Consulta y búsqueda del catálogo & 5 & 5 & 0 & 5/5 casos aprobados.\\
-\addlinespace
-Registro y mantenimiento de cuentas & 5 & 3 & 2 & 3/5 casos aprobados.\\
-\addlinespace
-Naturaleza e integración contable & 5 & 5 & 0 & 5/5 casos aprobados.\\
-\addlinespace
-\textbf{Total del módulo} & \textbf{15} & \textbf{13} & \textbf{2} & \textbf{86.7\%} de efectividad observable.\\
-\end{xltabular}
-
-\begin{figure}[H]
-\centering
-\caption{Resultado de pruebas del módulo de nomenclatura contable.}\label{fig:cap4_grafica_nom}
-\begin{tikzpicture}
-\begin{axis}[ybar,width=0.78\linewidth,height=5.3cm,ymin=0,ymax=100,ylabel={Porcentaje de aprobación},symbolic x coords={NOM},xtick=data,nodes near coords,bar width=1.2cm,ymajorgrids=true,grid style=dashed]
-\addplot[fill=orange!80!black] coordinates {(NOM,86.7)};
-\end{axis}
-\end{tikzpicture}
-\end{figure}
-
-\noindent\textbf{Interpretación:} Se aprobaron 13 de los 15 casos. La búsqueda del catálogo y la reutilización de cuentas en otros módulos mostraron resultados consistentes. Dos escenarios de mantenimiento de cuentas no produjeron completamente el resultado esperado.
-
-\subsubsection{Resultados consolidados}
-
-\begin{xltabular}{\linewidth}{p{3.6cm}p{1.8cm}p{1.8cm}p{1.8cm}p{2.0cm}}
-\caption{Resultados numéricos consolidados de las pruebas}\label{tab:cap4_metricas_globales}\\
-\toprule
-\textbf{Módulo} & \textbf{Casos evaluados} & \textbf{Aprobados} & \textbf{No aprobados} & \textbf{Resultado}\\
-\midrule
-\endfirsthead
-\toprule
-\textbf{Módulo} & \textbf{Casos evaluados} & \textbf{Aprobados} & \textbf{No aprobados} & \textbf{Resultado}\\
-\midrule
-\endhead
-\bottomrule
-\endfoot
-\bottomrule
-\endlastfoot
-Proveedores & 20 & 18 & 2 & 90.0\%\\
-Viáticos & 15 & 13 & 2 & 86.7\%\\
-Nomenclatura contable & 15 & 13 & 2 & 86.7\%\\
-\textbf{Total} & \textbf{50} & \textbf{44} & \textbf{6} & \textbf{88.0\%}\\
-\end{xltabular}
-
-\begin{figure}[H]
-\centering
-\caption{Comparación del porcentaje de aprobación por módulo.}\label{fig:cap4_grafica_global}
+\caption{Resultado global de las pruebas por módulo.}\label{fig:cap4_grafica_global}
 \begin{tikzpicture}
 \begin{axis}[ybar,width=0.88\linewidth,height=6cm,ymin=0,ymax=100,ylabel={Porcentaje de aprobación},symbolic x coords={Proveedores,Viáticos,Nomenclatura},xtick=data,nodes near coords,bar width=1.0cm,ymajorgrids=true,grid style=dashed]
 \addplot[fill=teal!65] coordinates {(Proveedores,90.0) (Viáticos,86.7) (Nomenclatura,86.7)};
@@ -1691,4 +1473,4 @@ Nomenclatura contable & 15 & 13 & 2 & 86.7\%\\
 \end{tikzpicture}
 \end{figure}
 
-\noindent\textbf{Interpretación global:} La evaluación registró 44 casos aprobados de 50, equivalente al 88.0\%. El módulo de Proveedores presentó el porcentaje más alto, con 90.0\%, mientras que Viáticos y Nomenclatura alcanzaron 86.7\% cada uno. Los seis casos no aprobados constituyen oportunidades concretas de mejora y no fueron eliminados del consolidado.
+\noindent\textbf{Interpretación global:} Las diez tablas contienen cinco pruebas específicas por aspecto. El resultado consolidado es de 44 casos aprobados de 50, equivalente al 88.0\%. Proveedores obtuvo 90.0\%, mientras que Viáticos y Nomenclatura alcanzaron 86.7\%. Los seis casos no aprobados permanecen registrados como oportunidades de mejora.

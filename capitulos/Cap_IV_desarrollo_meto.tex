@@ -5,7 +5,7 @@
 
 El presente capítulo documenta los formularios desarrollados para el Sistema Web de gestión contable, detallando la interfaz operativa, roles de acceso, endpoints de navegación, operaciones del ciclo de vida de datos (CRUD) y las validaciones críticas implementadas en el frontend (Angular) y backend (Python/FastAPI).
 
-\subsection{Formularios por Módulo Operativo}
+\subsubsection{Formularios por Módulo Operativo}
 
 % =========================================================================
 % MÓDULO 1: FACTURAS FEL/SAT
@@ -512,7 +512,7 @@ F-REP-02 & Resumen de Caja chica & Revisar e imprimir los movimientos del fondo 
     \includegraphics[width=0.96\linewidth]{capturas_reales/angular_actualizadas/pantalla_11_reportes.png}
 \end{figure}
 
-\subsection{4.2 Fragmentos de Código Fuente}
+\subsection{Fragmentos de Código Fuente}
 \label{sec:cap4_fragmentos_codigo}
 
 De conformidad con los lineamientos metodológicos, en este apartado se documenta el desarrollo técnico del sistema mediante ocho fragmentos representativos y demostrativos de código fuente, preparados para ilustrar la lógica correspondiente a cada módulo. Cada extracto incluye su especificación de módulo, lenguaje utilizado, bloque de código en fuente monoespaciada, descripción funcional y la evidencia correspondiente a la interfaz de usuario real.
@@ -835,7 +835,7 @@ def registrar_usuario(usuario: UsuarioCreate, db: Session = Depends(get_db)):
     \end{minipage}
 \end{figure}
 
-\subsection{4.3 Objetos de la Base de Datos}
+\subsection{Objetos de la Base de Datos}
 \label{sec:cap4_objetos_bd}
 
 En esta sección se presenta el inventario lógico de objetos de PostgreSQL definido para el prototipo del sistema web. El inventario comprende tablas, procedimientos almacenados, vistas y disparadores (\textit{triggers}) relacionados con la integridad y automatización de los procesos contables.
@@ -1021,7 +1021,7 @@ A continuación, se presenta el esquema relacional documentado para los módulos
     \end{minipage}
 \end{figure}
 
-\subsection{4.4 Pruebas Realizadas}
+\subsection{Pruebas Realizadas}
 \label{sec:cap4_pruebas_realizadas}
 
 La validación funcional se organizó en diez aspectos de negocio de los módulos Proveedores, Viáticos y Nomenclatura contable. Para cada aspecto se definieron siete pruebas concretas relacionadas con una operación del sistema, por lo que se evaluaron 70 casos en total. Cada tabla contiene el aspecto, la prueba específica, los datos o condición de entrada, el resultado esperado y el resultado obtenido.
@@ -1507,7 +1507,7 @@ NOM-10-007 & Nomenclatura & ACEP & Nivel contable & Consultar el nivel de una cu
 \end{tikzpicture}
 \end{figure}
 
-\subsection{Resultados numéricos para las gráficas}
+\subsubsection{Resultados numéricos para las gráficas}
 
 Los resultados numéricos se presentan en tres tablas, una por cada módulo, conforme a la Plantilla 2 de la guía. Cada fila identifica la métrica, el valor, la unidad y la versión o fecha de medición.
 
@@ -1591,4 +1591,4 @@ El módulo de Nomenclatura obtuvo 19 casos OK de 21, equivalente a 90.5\%. La b�
 \end{tikzpicture}
 \end{figure}
 
-\noindent\textbf{Interpretación global:} Las diez tablas contienen siete pruebas específicas por aspecto y utilizan las nueve columnas definidas en la plantilla institucional. La evaluación total fue de 64 casos OK de 70, equivalente al 91.4\%.
+\noindent\textbf{Interpretación global:} Las diez tablas contienen siete pruebas específicas por aspecto. La evaluación total fue de 64 casos OK de 70, equivalente al 91.4 indicando que los modulos puestos a prueba funcionan correctamente y cumplen con sus propositos.\%.

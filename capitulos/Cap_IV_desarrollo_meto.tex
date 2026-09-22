@@ -1026,7 +1026,7 @@ A continuación, se presenta el esquema relacional documentado para los módulos
 
 La validación funcional se organizó en diez aspectos de negocio de los módulos Proveedores, Viáticos y Nomenclatura contable. Para cada aspecto se definieron cinco pruebas concretas relacionadas con una operación del sistema, por lo que se evaluaron 50 casos en total. Cada tabla contiene el aspecto, la prueba específica, los datos o condición de entrada, el resultado esperado y el resultado obtenido.
 
-Los resultados fueron consolidados a partir de las tablas individuales. Se obtuvieron 44 casos aprobados y 6 no aprobados, equivalentes a una efectividad global de 88.0\%. Los casos no aprobados se conservaron en la evaluación para mostrar las oportunidades de mejora detectadas durante la revisión funcional.
+Los resultados fueron consolidados a partir de las tablas individuales. Se obtuvieron 44 casos OK y 6 casos Falló, equivalentes a una efectividad global de 88.0\%. Los casos no aprobados se conservaron en la evaluación para mostrar las oportunidades de mejora detectadas durante la revisión funcional.
 
 \paragraph{Clasificación de las pruebas}
 Las pruebas unitarias (U) verifican una regla o función aislada. Las pruebas de integración (INT) comprueban el intercambio de información entre componentes o módulos. Las pruebas de sistema (SIS) recorren una operación completa. Las pruebas de aceptación (ACEP) verifican que el resultado sea comprensible y útil para la necesidad operativa.
@@ -1069,15 +1069,15 @@ La validación del aspecto se realizó mediante cinco pruebas específicas. Se a
 \endfoot
 \bottomrule
 \endlastfoot
-PROV-01-001 & Proveedores & INT & NIT válido existente & Consultar un NIT registrado en el catálogo. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & El proveedor y sus datos asociados se muestran correctamente. & El proveedor y sus datos asociados se muestran correctamente. & Aprobado\\
+PROV-01-001 & Proveedores & INT & NIT válido existente & Consultar un NIT registrado en el catálogo. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & El proveedor y sus datos asociados se muestran correctamente. & El proveedor y sus datos asociados se muestran correctamente. & OK\\
 \addlinespace
-PROV-01-002 & Proveedores & ACEP & NIT no duplicado & Ingresar un NIT que no aparece en el directorio. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & El sistema permite iniciar un nuevo registro sin duplicar información. & El sistema permite iniciar un nuevo registro sin duplicar información. & Aprobado\\
+PROV-01-002 & Proveedores & ACEP & NIT no duplicado & Ingresar un NIT que no aparece en el directorio. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & El sistema permite iniciar un nuevo registro sin duplicar información. & El sistema permite iniciar un nuevo registro sin duplicar información. & OK\\
 \addlinespace
-PROV-01-003 & Proveedores & U & Razón social y nombre comercial & Revisar los campos de identificación del proveedor. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & Los campos se muestran diferenciados y conservan la información. & Los campos se muestran diferenciados y conservan la información. & Aprobado\\
+PROV-01-003 & Proveedores & U & Razón social y nombre comercial & Revisar los campos de identificación del proveedor. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & Los campos se muestran diferenciados y conservan la información. & Los campos se muestran diferenciados y conservan la información. & OK\\
 \addlinespace
-PROV-01-004 & Proveedores & SIS & NIT con datos incompletos & Intentar continuar sin completar la identificación obligatoria. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & El sistema debe impedir el registro incompleto. & El sistema debe impedir el registro incompleto. & Aprobado\\
+PROV-01-004 & Proveedores & SIS & NIT con datos incompletos & Intentar continuar sin completar la identificación obligatoria. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & El sistema debe impedir el registro incompleto. & El sistema debe impedir el registro incompleto. & OK\\
 \addlinespace
-PROV-01-005 & Proveedores & SIS & Cancelación del registro & Abrir el formulario y presionar Cancelar sin guardar. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & El formulario se cierra sin modificar el directorio. & El formulario se cierra sin modificar el directorio. & Aprobado\\
+PROV-01-005 & Proveedores & SIS & Cancelación del registro & Abrir el formulario y presionar Cancelar sin guardar. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & El formulario se cierra sin modificar el directorio. & El formulario se cierra sin modificar el directorio. & OK\\
 \addlinespace
 \end{xltabular}
 \endgroup
@@ -1110,15 +1110,15 @@ La validación del aspecto se realizó mediante cinco pruebas específicas. Se a
 \endfoot
 \bottomrule
 \endlastfoot
-PROV-02-001 & Proveedores & ACEP & Factura con IVA crédito & Consultar un proveedor con IVA crédito detectado. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & La cartera muestra la condición IVA crédito asociada. & La cartera muestra la condición IVA crédito asociada. & Aprobado\\
+PROV-02-001 & Proveedores & ACEP & Factura con IVA crédito & Consultar un proveedor con IVA crédito detectado. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & La cartera muestra la condición IVA crédito asociada. & La cartera muestra la condición IVA crédito asociada. & OK\\
 \addlinespace
-PROV-02-002 & Proveedores & U & Proveedor contado con IVA & Consultar un proveedor contado con IVA crédito. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & La modalidad contado y el IVA se muestran separadamente. & La modalidad contado y el IVA se muestran separadamente. & Aprobado\\
+PROV-02-002 & Proveedores & U & Proveedor contado con IVA & Consultar un proveedor contado con IVA crédito. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & La modalidad contado y el IVA se muestran separadamente. & La modalidad contado y el IVA se muestran separadamente. & OK\\
 \addlinespace
-PROV-02-003 & Proveedores & SIS & Proveedor con crédito fiscal & Consultar un proveedor con días de crédito e IVA. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & El plazo de crédito y el IVA quedan disponibles para la partida. & El plazo de crédito y el IVA quedan disponibles para la partida. & Aprobado\\
+PROV-02-003 & Proveedores & SIS & Proveedor con crédito fiscal & Consultar un proveedor con días de crédito e IVA. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & El plazo de crédito y el IVA quedan disponibles para la partida. & El plazo de crédito y el IVA quedan disponibles para la partida. & OK\\
 \addlinespace
-PROV-02-004 & Proveedores & SIS & Factura sin IVA crédito & Revisar un registro configurado sin IVA crédito. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & El sistema conserva la condición fiscal sin sumar IVA crédito. & El sistema conserva la condición fiscal sin sumar IVA crédito. & Aprobado\\
+PROV-02-004 & Proveedores & SIS & Factura sin IVA crédito & Revisar un registro configurado sin IVA crédito. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & El sistema conserva la condición fiscal sin sumar IVA crédito. & El sistema conserva la condición fiscal sin sumar IVA crédito. & OK\\
 \addlinespace
-PROV-02-005 & Proveedores & INT & IVA reflejado en partida & Abrir una partida mensual con IVA crédito. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & La partida muestra IVA crédito fiscal en el Debe y conserva el cuadre. & La partida muestra IVA crédito fiscal en el Debe y conserva el cuadre. & Aprobado\\
+PROV-02-005 & Proveedores & INT & IVA reflejado en partida & Abrir una partida mensual con IVA crédito. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & La partida muestra IVA crédito fiscal en el Debe y conserva el cuadre. & La partida muestra IVA crédito fiscal en el Debe y conserva el cuadre. & OK\\
 \addlinespace
 \end{xltabular}
 \endgroup
@@ -1151,15 +1151,15 @@ La validación del aspecto se realizó mediante cinco pruebas específicas. Se a
 \endfoot
 \bottomrule
 \endlastfoot
-PROV-03-001 & Proveedores & U & Retención de IVA & Consultar un proveedor con retención IVA activa. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & La retención aparece en la configuración y en el Haber de la partida. & La retención aparece en la configuración y en el Haber de la partida. & Aprobado\\
+PROV-03-001 & Proveedores & U & Retención de IVA & Consultar un proveedor con retención IVA activa. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & La retención aparece en la configuración y en el Haber de la partida. & La retención aparece en la configuración y en el Haber de la partida. & OK\\
 \addlinespace
-PROV-03-002 & Proveedores & SIS & Retención de ISR & Consultar un proveedor con retención ISR activa. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & El régimen ISR queda asociado al proveedor. & El régimen ISR queda asociado al proveedor. & Aprobado\\
+PROV-03-002 & Proveedores & SIS & Retención de ISR & Consultar un proveedor con retención ISR activa. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & El régimen ISR queda asociado al proveedor. & El régimen ISR queda asociado al proveedor. & OK\\
 \addlinespace
-PROV-03-003 & Proveedores & SIS & Sin retenciones & Consultar un proveedor configurado sin retención. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & La cartera muestra “Sin retención”. & La cartera muestra “Sin retención”. & Aprobado\\
+PROV-03-003 & Proveedores & SIS & Sin retenciones & Consultar un proveedor configurado sin retención. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & La cartera muestra “Sin retención”. & La cartera muestra “Sin retención”. & OK\\
 \addlinespace
-PROV-03-004 & Proveedores & INT & Cuenta de nomenclatura & Revisar la cuenta asignada al proveedor. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & El código y nombre de la cuenta aparecen en el directorio. & El código y nombre de la cuenta aparecen en el directorio. & Aprobado\\
+PROV-03-004 & Proveedores & INT & Cuenta de nomenclatura & Revisar la cuenta asignada al proveedor. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & El código y nombre de la cuenta aparecen en el directorio. & El código y nombre de la cuenta aparecen en el directorio. & OK\\
 \addlinespace
-PROV-03-005 & Proveedores & ACEP & Cuenta no asignada & Intentar completar el registro sin seleccionar cuenta. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & El sistema debe solicitar la cuenta contable obligatoria. & El resultado no se reflejó completamente; requiere una revisión adicional. & No aprobado\\
+PROV-03-005 & Proveedores & ACEP & Cuenta no asignada & Intentar completar el registro sin seleccionar cuenta. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & El sistema debe solicitar la cuenta contable obligatoria. & El resultado no se reflejó completamente; requiere una revisión adicional. & Falló\\
 \addlinespace
 \end{xltabular}
 \endgroup
@@ -1192,15 +1192,15 @@ La validación del aspecto se realizó mediante cinco pruebas específicas. Se a
 \endfoot
 \bottomrule
 \endlastfoot
-PROV-04-001 & Proveedores & SIS & Partida mensual & Abrir una partida mensual por proveedor. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & Se muestran cuentas de gasto, IVA, retenciones y Bancos. & Se muestran cuentas de gasto, IVA, retenciones y Bancos. & Aprobado\\
+PROV-04-001 & Proveedores & SIS & Partida mensual & Abrir una partida mensual por proveedor. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & Se muestran cuentas de gasto, IVA, retenciones y Bancos. & Se muestran cuentas de gasto, IVA, retenciones y Bancos. & OK\\
 \addlinespace
-PROV-04-002 & Proveedores & SIS & Cuadre Debe-Haber & Revisar los totales de una partida generada. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & El Debe y el Haber coinciden por el total de la factura. & El Debe y el Haber coinciden por el total de la factura. & Aprobado\\
+PROV-04-002 & Proveedores & SIS & Cuadre Debe-Haber & Revisar los totales de una partida generada. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & El Debe y el Haber coinciden por el total de la factura. & El Debe y el Haber coinciden por el total de la factura. & OK\\
 \addlinespace
-PROV-04-003 & Proveedores & INT & Partida transitoria & Seleccionar modalidad transitoria general. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & Se muestra la sección de partidas transitorias. & Se muestra la sección de partidas transitorias. & Aprobado\\
+PROV-04-003 & Proveedores & INT & Partida transitoria & Seleccionar modalidad transitoria general. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & Se muestra la sección de partidas transitorias. & Se muestra la sección de partidas transitorias. & OK\\
 \addlinespace
-PROV-04-004 & Proveedores & ACEP & Factura pendiente & Generar partida para una factura pendiente de pago. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & La contrapartida corresponde a cuenta transitoria. & La contrapartida corresponde a cuenta transitoria. & Aprobado\\
+PROV-04-004 & Proveedores & ACEP & Factura pendiente & Generar partida para una factura pendiente de pago. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & La contrapartida corresponde a cuenta transitoria. & La contrapartida corresponde a cuenta transitoria. & OK\\
 \addlinespace
-PROV-04-005 & Proveedores & U & Filtro por proveedor & Seleccionar un proveedor específico. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & La lista se limita al proveedor seleccionado. & El resultado no se reflejó completamente; requiere una revisión adicional. & No aprobado\\
+PROV-04-005 & Proveedores & U & Filtro por proveedor & Seleccionar un proveedor específico. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & La lista se limita al proveedor seleccionado. & El resultado no se reflejó completamente; requiere una revisión adicional. & Falló\\
 \addlinespace
 \end{xltabular}
 \endgroup
@@ -1214,6 +1214,9 @@ PROV-04-005 & Proveedores & U & Filtro por proveedor & Seleccionar un proveedor 
 \end{axis}
 \end{tikzpicture}
 \end{figure}
+
+\paragraph{Interpretación del módulo Proveedores}
+El módulo de Proveedores obtuvo 18 casos OK de 20, equivalente a 90.0\%. Los mejores resultados correspondieron al registro por NIT y al cálculo y registro del IVA crédito. Los dos casos Falló se relacionan con la asignación obligatoria de cuenta contable y el filtrado específico por proveedor, por lo que representan oportunidades de mejora.
 
 \subsubsection{Aspecto 05: Registro de colaboradores y territorios}
 La validación del aspecto se realizó mediante cinco pruebas específicas. Se aprobaron 5 de 5 casos, equivalente a 100.0\% de aprobación.
@@ -1233,15 +1236,15 @@ La validación del aspecto se realizó mediante cinco pruebas específicas. Se a
 \endfoot
 \bottomrule
 \endlastfoot
-VIA-05-001 & Viáticos & SIS & Visitador existente & Consultar la lista de visitadores. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & Se muestran nombre, cargo y cantidad de liquidaciones. & Se muestran nombre, cargo y cantidad de liquidaciones. & Aprobado\\
+VIA-05-001 & Viáticos & SIS & Visitador existente & Consultar la lista de visitadores. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & Se muestran nombre, cargo y cantidad de liquidaciones. & Se muestran nombre, cargo y cantidad de liquidaciones. & OK\\
 \addlinespace
-VIA-05-002 & Viáticos & INT & Colaborador con territorio & Seleccionar un visitador con territorio asignado. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & El territorio queda disponible para la gira. & El territorio queda disponible para la gira. & Aprobado\\
+VIA-05-002 & Viáticos & INT & Colaborador con territorio & Seleccionar un visitador con territorio asignado. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & El territorio queda disponible para la gira. & El territorio queda disponible para la gira. & OK\\
 \addlinespace
-VIA-05-003 & Viáticos & ACEP & Varios territorios & Revisar un colaborador con más de un territorio. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & El sistema permite elegir el territorio correspondiente. & El sistema permite elegir el territorio correspondiente. & Aprobado\\
+VIA-05-003 & Viáticos & ACEP & Varios territorios & Revisar un colaborador con más de un territorio. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & El sistema permite elegir el territorio correspondiente. & El sistema permite elegir el territorio correspondiente. & OK\\
 \addlinespace
-VIA-05-004 & Viáticos & U & Visitador sin liquidación & Consultar un colaborador sin movimientos. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & La pantalla muestra cero liquidaciones sin romper el flujo. & La pantalla muestra cero liquidaciones sin romper el flujo. & Aprobado\\
+VIA-05-004 & Viáticos & U & Visitador sin liquidación & Consultar un colaborador sin movimientos. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & La pantalla muestra cero liquidaciones sin romper el flujo. & La pantalla muestra cero liquidaciones sin romper el flujo. & OK\\
 \addlinespace
-VIA-05-005 & Viáticos & SIS & Formulario de visitador & Abrir el formulario de registro y cancelar. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & El formulario permite cancelar sin crear registros. & El formulario permite cancelar sin crear registros. & Aprobado\\
+VIA-05-005 & Viáticos & SIS & Formulario de visitador & Abrir el formulario de registro y cancelar. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & El formulario permite cancelar sin crear registros. & El formulario permite cancelar sin crear registros. & OK\\
 \addlinespace
 \end{xltabular}
 \endgroup
@@ -1274,15 +1277,15 @@ La validación del aspecto se realizó mediante cinco pruebas específicas. Se a
 \endfoot
 \bottomrule
 \endlastfoot
-VIA-06-001 & Viáticos & INT & Semana 1 & Seleccionar una gira de la primera semana. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & La liquidación conserva la semana seleccionada. & La liquidación conserva la semana seleccionada. & Aprobado\\
+VIA-06-001 & Viáticos & INT & Semana 1 & Seleccionar una gira de la primera semana. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & La liquidación conserva la semana seleccionada. & La liquidación conserva la semana seleccionada. & OK\\
 \addlinespace
-VIA-06-002 & Viáticos & ACEP & Semana 2 & Seleccionar una gira de la segunda semana. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & La liquidación se muestra bajo la semana correcta. & La liquidación se muestra bajo la semana correcta. & Aprobado\\
+VIA-06-002 & Viáticos & ACEP & Semana 2 & Seleccionar una gira de la segunda semana. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & La liquidación se muestra bajo la semana correcta. & La liquidación se muestra bajo la semana correcta. & OK\\
 \addlinespace
-VIA-06-003 & Viáticos & U & Categoría Viáticos & Consultar una liquidación de tipo Viáticos. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & El tipo se muestra en el detalle de la liquidación. & El tipo se muestra en el detalle de la liquidación. & Aprobado\\
+VIA-06-003 & Viáticos & U & Categoría Viáticos & Consultar una liquidación de tipo Viáticos. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & El tipo se muestra en el detalle de la liquidación. & El tipo se muestra en el detalle de la liquidación. & OK\\
 \addlinespace
-VIA-06-004 & Viáticos & SIS & Categoría Bonos & Consultar una liquidación de tipo Bonos. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & El sistema separa bonos de las facturas de viáticos. & El sistema separa bonos de las facturas de viáticos. & Aprobado\\
+VIA-06-004 & Viáticos & SIS & Categoría Bonos & Consultar una liquidación de tipo Bonos. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & El sistema separa bonos de las facturas de viáticos. & El sistema separa bonos de las facturas de viáticos. & OK\\
 \addlinespace
-VIA-06-005 & Viáticos & SIS & Categoría Movilidad & Asignar una operación de movilidad. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & La categoría se conserva para la partida semanal. & La categoría se conserva para la partida semanal. & Aprobado\\
+VIA-06-005 & Viáticos & SIS & Categoría Movilidad & Asignar una operación de movilidad. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & La categoría se conserva para la partida semanal. & La categoría se conserva para la partida semanal. & OK\\
 \addlinespace
 \end{xltabular}
 \endgroup
@@ -1315,15 +1318,15 @@ La validación del aspecto se realizó mediante cinco pruebas específicas. Se a
 \endfoot
 \bottomrule
 \endlastfoot
-VIA-07-001 & Viáticos & ACEP & Dos facturas asignadas & Abrir una liquidación con dos facturas. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & Se muestran números, proveedores, fechas y montos. & Se muestran números, proveedores, fechas y montos. & Aprobado\\
+VIA-07-001 & Viáticos & ACEP & Dos facturas asignadas & Abrir una liquidación con dos facturas. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & Se muestran números, proveedores, fechas y montos. & Se muestran números, proveedores, fechas y montos. & OK\\
 \addlinespace
-VIA-07-002 & Viáticos & U & Liquidación pagada & Consultar una liquidación con estado Pagada. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & El estado y el total aparecen en el resumen. & El estado y el total aparecen en el resumen. & Aprobado\\
+VIA-07-002 & Viáticos & U & Liquidación pagada & Consultar una liquidación con estado Pagada. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & El estado y el total aparecen en el resumen. & El estado y el total aparecen en el resumen. & OK\\
 \addlinespace
-VIA-07-003 & Viáticos & SIS & Liquidación pendiente & Consultar una liquidación pendiente. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & El sistema muestra el saldo pendiente. & El sistema muestra el saldo pendiente. & Aprobado\\
+VIA-07-003 & Viáticos & SIS & Liquidación pendiente & Consultar una liquidación pendiente. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & El sistema muestra el saldo pendiente. & El sistema muestra el saldo pendiente. & OK\\
 \addlinespace
-VIA-07-004 & Viáticos & SIS & Resumen de liquidación & Presionar Ver resumen. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & Se presenta el resumen de gastos antes de generar el asiento. & El resultado no se reflejó completamente; requiere una revisión adicional. & No aprobado\\
+VIA-07-004 & Viáticos & SIS & Resumen de liquidación & Presionar Ver resumen. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & Se presenta el resumen de gastos antes de generar el asiento. & El resultado no se reflejó completamente; requiere una revisión adicional. & Falló\\
 \addlinespace
-VIA-07-005 & Viáticos & INT & Partida semanal & Generar el asiento de la liquidación semanal. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & La partida integra viáticos, movilidad y gastos adicionales. & El resultado no se reflejó completamente; requiere una revisión adicional. & No aprobado\\
+VIA-07-005 & Viáticos & INT & Partida semanal & Generar el asiento de la liquidación semanal. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & La partida integra viáticos, movilidad y gastos adicionales. & El resultado no se reflejó completamente; requiere una revisión adicional. & Falló\\
 \addlinespace
 \end{xltabular}
 \endgroup
@@ -1337,6 +1340,9 @@ VIA-07-005 & Viáticos & INT & Partida semanal & Generar el asiento de la liquid
 \end{axis}
 \end{tikzpicture}
 \end{figure}
+
+\paragraph{Interpretación del módulo Viáticos}
+El módulo de Viáticos obtuvo 13 casos OK de 15, equivalente a 86.7\%. El registro de colaboradores y la asignación de gira presentaron resultados favorables. Los casos Falló se concentraron en la consulta del resumen y en la generación de la partida semanal, operaciones que requieren validación adicional.
 
 \subsubsection{Aspecto 08: Búsqueda y consulta del catálogo contable}
 La validación del aspecto se realizó mediante cinco pruebas específicas. Se aprobaron 5 de 5 casos, equivalente a 100.0\% de aprobación.
@@ -1356,15 +1362,15 @@ La validación del aspecto se realizó mediante cinco pruebas específicas. Se a
 \endfoot
 \bottomrule
 \endlastfoot
-NOM-08-001 & Nomenclatura & U & Búsqueda por código & Ingresar el código 610112. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & Se muestra Depreciaciones y combustibles. & Se muestra Depreciaciones y combustibles. & Aprobado\\
+NOM-08-001 & Nomenclatura & U & Búsqueda por código & Ingresar el código 610112. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & Se muestra Depreciaciones y combustibles. & Se muestra Depreciaciones y combustibles. & OK\\
 \addlinespace
-NOM-08-002 & Nomenclatura & SIS & Búsqueda por nombre & Ingresar una palabra del nombre de cuenta. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & El catálogo muestra las coincidencias. & El catálogo muestra las coincidencias. & Aprobado\\
+NOM-08-002 & Nomenclatura & SIS & Búsqueda por nombre & Ingresar una palabra del nombre de cuenta. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & El catálogo muestra las coincidencias. & El catálogo muestra las coincidencias. & OK\\
 \addlinespace
-NOM-08-003 & Nomenclatura & SIS & Cuenta activa & Mantener activado Solo activas. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & Solo se muestran cuentas activas. & Solo se muestran cuentas activas. & Aprobado\\
+NOM-08-003 & Nomenclatura & SIS & Cuenta activa & Mantener activado Solo activas. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & Solo se muestran cuentas activas. & Solo se muestran cuentas activas. & OK\\
 \addlinespace
-NOM-08-004 & Nomenclatura & INT & Catálogo completo & Limpiar el filtro de búsqueda. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & Se visualizan las cuentas registradas. & Se visualizan las cuentas registradas. & Aprobado\\
+NOM-08-004 & Nomenclatura & INT & Catálogo completo & Limpiar el filtro de búsqueda. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & Se visualizan las cuentas registradas. & Se visualizan las cuentas registradas. & OK\\
 \addlinespace
-NOM-08-005 & Nomenclatura & ACEP & Actualización del catálogo & Presionar Actualizar. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & Los indicadores y la lista se refrescan. & Los indicadores y la lista se refrescan. & Aprobado\\
+NOM-08-005 & Nomenclatura & ACEP & Actualización del catálogo & Presionar Actualizar. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & Los indicadores y la lista se refrescan. & Los indicadores y la lista se refrescan. & OK\\
 \addlinespace
 \end{xltabular}
 \endgroup
@@ -1397,15 +1403,15 @@ La validación del aspecto se realizó mediante cinco pruebas específicas. Se a
 \endfoot
 \bottomrule
 \endlastfoot
-NOM-09-001 & Nomenclatura & SIS & Apertura de nueva cuenta & Presionar Nueva cuenta. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & Se abre el formulario con código, nombre, tipo y descripción. & Se abre el formulario con código, nombre, tipo y descripción. & Aprobado\\
+NOM-09-001 & Nomenclatura & SIS & Apertura de nueva cuenta & Presionar Nueva cuenta. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & Se abre el formulario con código, nombre, tipo y descripción. & Se abre el formulario con código, nombre, tipo y descripción. & OK\\
 \addlinespace
-NOM-09-002 & Nomenclatura & SIS & Tipo Gasto & Seleccionar el tipo Gasto. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & El tipo queda disponible para guardar la cuenta. & El tipo queda disponible para guardar la cuenta. & Aprobado\\
+NOM-09-002 & Nomenclatura & SIS & Tipo Gasto & Seleccionar el tipo Gasto. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & El tipo queda disponible para guardar la cuenta. & El tipo queda disponible para guardar la cuenta. & OK\\
 \addlinespace
-NOM-09-003 & Nomenclatura & INT & Código obligatorio & Revisar el campo Código del formulario. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & El sistema identifica el campo como obligatorio. & El sistema identifica el campo como obligatorio. & Aprobado\\
+NOM-09-003 & Nomenclatura & INT & Código obligatorio & Revisar el campo Código del formulario. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & El sistema identifica el campo como obligatorio. & El sistema identifica el campo como obligatorio. & OK\\
 \addlinespace
-NOM-09-004 & Nomenclatura & ACEP & Cancelación de cuenta & Presionar Cancelar sin guardar. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & El formulario se cierra sin alterar el catálogo. & El formulario se cierra sin alterar el catálogo. & Aprobado\\
+NOM-09-004 & Nomenclatura & ACEP & Cancelación de cuenta & Presionar Cancelar sin guardar. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & El formulario se cierra sin alterar el catálogo. & El formulario se cierra sin alterar el catálogo. & OK\\
 \addlinespace
-NOM-09-005 & Nomenclatura & U & Guardado de cuenta & Completar los datos y presionar Guardar cuenta. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & La nueva cuenta aparece en el catálogo. & El resultado no se reflejó completamente; requiere una revisión adicional. & No aprobado\\
+NOM-09-005 & Nomenclatura & U & Guardado de cuenta & Completar los datos y presionar Guardar cuenta. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & La nueva cuenta aparece en el catálogo. & El resultado no se reflejó completamente; requiere una revisión adicional. & Falló\\
 \addlinespace
 \end{xltabular}
 \endgroup
@@ -1438,15 +1444,15 @@ La validación del aspecto se realizó mediante cinco pruebas específicas. Se a
 \endfoot
 \bottomrule
 \endlastfoot
-NOM-10-001 & Nomenclatura & SIS & Naturaleza Debe & Consultar una cuenta de gasto. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & La cuenta muestra naturaleza Debe. & La cuenta muestra naturaleza Debe. & Aprobado\\
+NOM-10-001 & Nomenclatura & SIS & Naturaleza Debe & Consultar una cuenta de gasto. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & La cuenta muestra naturaleza Debe. & La cuenta muestra naturaleza Debe. & OK\\
 \addlinespace
-NOM-10-002 & Nomenclatura & INT & Naturaleza Haber & Consultar una cuenta de pasivo. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & La cuenta conserva naturaleza Haber. & La cuenta conserva naturaleza Haber. & Aprobado\\
+NOM-10-002 & Nomenclatura & INT & Naturaleza Haber & Consultar una cuenta de pasivo. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & La cuenta conserva naturaleza Haber. & La cuenta conserva naturaleza Haber. & OK\\
 \addlinespace
-NOM-10-003 & Nomenclatura & ACEP & Cuenta para Proveedores & Revisar la lista de cuentas en el formulario de proveedor. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & La nomenclatura se ofrece como opción de clasificación. & La nomenclatura se ofrece como opción de clasificación. & Aprobado\\
+NOM-10-003 & Nomenclatura & ACEP & Cuenta para Proveedores & Revisar la lista de cuentas en el formulario de proveedor. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & La nomenclatura se ofrece como opción de clasificación. & La nomenclatura se ofrece como opción de clasificación. & OK\\
 \addlinespace
-NOM-10-004 & Nomenclatura & U & Cuenta para Viáticos & Consultar la cuenta de viáticos. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & La cuenta 610104 aparece en el catálogo. & La cuenta 610104 aparece en el catálogo. & Aprobado\\
+NOM-10-004 & Nomenclatura & U & Cuenta para Viáticos & Consultar la cuenta de viáticos. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & La cuenta 610104 aparece en el catálogo. & La cuenta 610104 aparece en el catálogo. & OK\\
 \addlinespace
-NOM-10-005 & Nomenclatura & SIS & Desactivación de cuenta & Presionar Desactivar en una cuenta. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & El estado cambia y la cuenta deja de aparecer como activa. & El resultado no se reflejó completamente; requiere una revisión adicional. & No aprobado\\
+NOM-10-005 & Nomenclatura & SIS & Desactivación de cuenta & Presionar Desactivar en una cuenta. & 1) Abrir el módulo. 2) Ejecutar la operación. 3) Verificar el resultado. & El estado cambia y la cuenta deja de aparecer como activa. & El resultado no se reflejó completamente; requiere una revisión adicional. & Falló\\
 \addlinespace
 \end{xltabular}
 \endgroup
@@ -1462,11 +1468,12 @@ NOM-10-005 & Nomenclatura & SIS & Desactivación de cuenta & Presionar Desactiva
 \end{figure}
 
 \subsection{Resultados numéricos para las gráficas}
-La tabla siguiente presenta una fila por métrica y módulo. Estos valores son los utilizados para construir las gráficas de cada aspecto y el resultado global.
+
+Los resultados numéricos se presentan en tres tablas, una por cada módulo, conforme a la Plantilla 2 de la guía. Cada fila identifica la métrica, el valor, la unidad y la versión o fecha de medición.
 
 \begingroup\fontsize{9}{10}\selectfont\setlength{\tabcolsep}{3pt}
-\begin{xltabular}{\linewidth}{@{}p{3.0cm}p{5.0cm}p{1.5cm}p{1.5cm}p{3.0cm}@{}}
-\caption{Resultados numéricos utilizados para las gráficas}\label{tab:cap4_resultados_graficas}\\
+\begin{xltabular}{\linewidth}{@{}p{3.0cm}p{5.2cm}p{1.5cm}p{1.5cm}p{3.0cm}@{}}
+\caption{Resultados numéricos del módulo Proveedores.}\label{tab:cap4_resultados_proveedores}\\
 \toprule
 \textbf{Módulo} & \textbf{Métrica} & \textbf{Valor} & \textbf{Unidad} & \textbf{Versión/Fecha}\\
 \midrule
@@ -1483,18 +1490,56 @@ Proveedores & Registro de proveedores por NIT & 100.0 & \% & b1 -- 2026-09-21\\
 Proveedores & Cálculo y registro del IVA crédito & 100.0 & \% & b1 -- 2026-09-21\\
 Proveedores & Aplicación de retenciones y cuenta contable & 80.0 & \% & b1 -- 2026-09-21\\
 Proveedores & Generación de partidas por vencimiento & 80.0 & \% & b1 -- 2026-09-21\\
+Proveedores & Resultado del módulo & 90.0 & \% & b1 -- 2026-09-21\\
+\end{xltabular}
+\endgroup
+
+\begingroup\fontsize{9}{10}\selectfont\setlength{\tabcolsep}{3pt}
+\begin{xltabular}{\linewidth}{@{}p{3.0cm}p{5.2cm}p{1.5cm}p{1.5cm}p{3.0cm}@{}}
+\caption{Resultados numéricos del módulo Viáticos.}\label{tab:cap4_resultados_viaticos}\\
+\toprule
+\textbf{Módulo} & \textbf{Métrica} & \textbf{Valor} & \textbf{Unidad} & \textbf{Versión/Fecha}\\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Módulo} & \textbf{Métrica} & \textbf{Valor} & \textbf{Unidad} & \textbf{Versión/Fecha}\\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\bottomrule
+\endlastfoot
 Viáticos & Registro de colaboradores y territorios & 100.0 & \% & b1 -- 2026-09-21\\
 Viáticos & Asignación de gira, semana y categoría & 100.0 & \% & b1 -- 2026-09-21\\
 Viáticos & Liquidación de facturas y generación de partidas & 60.0 & \% & b1 -- 2026-09-21\\
+Viáticos & Resultado del módulo & 86.7 & \% & b1 -- 2026-09-21\\
+\end{xltabular}
+\endgroup
+
+\begingroup\fontsize{9}{10}\selectfont\setlength{\tabcolsep}{3pt}
+\begin{xltabular}{\linewidth}{@{}p{3.0cm}p{5.2cm}p{1.5cm}p{1.5cm}p{3.0cm}@{}}
+\caption{Resultados numéricos del módulo Nomenclatura.}\label{tab:cap4_resultados_nomenclatura}\\
+\toprule
+\textbf{Módulo} & \textbf{Métrica} & \textbf{Valor} & \textbf{Unidad} & \textbf{Versión/Fecha}\\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Módulo} & \textbf{Métrica} & \textbf{Valor} & \textbf{Unidad} & \textbf{Versión/Fecha}\\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\bottomrule
+\endlastfoot
 Nomenclatura & Búsqueda y consulta del catálogo contable & 100.0 & \% & b1 -- 2026-09-21\\
 Nomenclatura & Registro y mantenimiento de cuentas & 80.0 & \% & b1 -- 2026-09-21\\
 Nomenclatura & Naturaleza e integración contable & 80.0 & \% & b1 -- 2026-09-21\\
-Proveedores & Resultado del módulo & 90.0 & \% & b1 -- 2026-09-21\\
-Viáticos & Resultado del módulo & 86.7 & \% & b1 -- 2026-09-21\\
 Nomenclatura & Resultado del módulo & 86.7 & \% & b1 -- 2026-09-21\\
-Todos los módulos & Resultado global & 88.0 & \% & b1 -- 2026-09-21\\
 \end{xltabular}
 \endgroup
+
+\paragraph{Interpretación del módulo Nomenclatura}
+El módulo de Nomenclatura obtuvo 13 casos OK de 15, equivalente a 86.7\%. La búsqueda del catálogo y la consulta de la naturaleza contable presentaron resultados favorables. Los casos Falló corresponden al guardado y desactivación de cuentas, que requieren una comprobación adicional del comportamiento posterior a la acción.
 
 \begin{figure}[H]
 \centering
@@ -1506,4 +1551,4 @@ Todos los módulos & Resultado global & 88.0 & \% & b1 -- 2026-09-21\\
 \end{tikzpicture}
 \end{figure}
 
-\noindent\textbf{Interpretación global:} Las diez tablas contienen cinco pruebas específicas por aspecto y utilizan las nueve columnas definidas en la plantilla institucional. La evaluación total fue de 44 casos aprobados de 50, equivalente al 88.0\%.
+\noindent\textbf{Interpretación global:} Las diez tablas contienen cinco pruebas específicas por aspecto y utilizan las nueve columnas definidas en la plantilla institucional. La evaluación total fue de 44 casos OK de 50, equivalente al 88.0\%.

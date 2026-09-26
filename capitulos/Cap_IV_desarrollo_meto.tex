@@ -54,7 +54,6 @@ El presente capítulo documenta los formularios desarrollados para el Sistema We
     F-FEL-03 & Clasificación Contable & Asignar manualmente cuenta contable a factura no identificada & Admin, Contador (\texttt{clasificar\_fel}) & U & \texttt{/facturas-fel} \\
     \addlinespace
     F-FEL-04 & Anulación / Borrado & Marcar o retirar comprobante duplicado & Admin (\texttt{eliminar\_fel}) & D & \texttt{/facturas-fel} \\
-
 \end{xltabular}
 }
 
@@ -117,7 +116,6 @@ El presente capítulo documenta los formularios desarrollados para el Sistema We
     F-CHEQ-01 & Control de Cheques & Registrar, consultar, actualizar estado y vincular a factura & Admin, Tesorero, Contador (\texttt{gestion\_cheques}) & CRUD & \texttt{/cheques} \\
     \addlinespace
     F-CHEQ-02 & Registro de Banco & Crear y administrar bancos emisores/receptores & Admin (\texttt{crear\_bancos}) & C & \texttt{/cheques} \\
-
 \end{xltabular}
 }
 
@@ -184,7 +182,6 @@ El presente capítulo documenta los formularios desarrollados para el Sistema We
     F-CAJA-03 & Generación Partida & Crear asiento contable de liquidación y arqueo & Admin, Contador (\texttt{caja\_partidas}) & C/U & \texttt{/caja-chica} \\
     \addlinespace
     F-CAJA-04 & Resumen de Fondo & Visualización e impresión de arqueo del período & Admin, Contador, Auxiliar (\texttt{caja\_resumen}) & R & \texttt{/caja-chica} \\
-
 \end{xltabular}
 }
 
@@ -249,7 +246,6 @@ El presente capítulo documenta los formularios desarrollados para el Sistema We
     F-VIAT-02 & Asignación Factura & Vincular facturas FEL/recibos a categoría de viático & Admin, Encargado (\texttt{viaticos\_asigna}) & C & \texttt{/viaticos/asignacion} \\
     \addlinespace
     F-VIAT-03 & Generación Partida & Construir partida semanal o transitoria balanceada & Admin, Contador (\texttt{viaticos\_partida}) & C & \texttt{/viaticos} \\
-
 \end{xltabular}
 }
 
@@ -314,7 +310,6 @@ El presente capítulo documenta los formularios desarrollados para el Sistema We
     F-PROV-02 & Cartera y Facturas & Consultar saldos, crédito, retenciones e historial & Admin, Contador (\texttt{proveedores\_ver}) & R & \texttt{/proveedores} \\
     \addlinespace
     F-PROV-03 & Generación Partida & Crear partida dentro del mes o transitoria & Admin, Contador (\texttt{proveedores\_partida}) & C & \texttt{/proveedores} \\
-
 \end{xltabular}
 }
 
@@ -377,7 +372,6 @@ El presente capítulo documenta los formularios desarrollados para el Sistema We
     F-CAL-01 & Vista Calendario & Consultar eventos, pagos, depósitos y giras & Todos (\texttt{calendario\_ver}) & R & \texttt{/calendario} \\
     \addlinespace
     F-CAL-02 & Evento / Actividad & Programar nueva actividad contable u operativa & Admin, Encargado (\texttt{calendario\_crear}) & C/U & \texttt{/calendario} \\
-
 \end{xltabular}
 }
 
@@ -440,7 +434,6 @@ El presente capítulo documenta los formularios desarrollados para el Sistema We
     F-NOM-01 & Catálogo Cuentas & Listar, buscar y filtrar catálogo de cuentas & Admin, Contador (\texttt{nomenclatura\_ver}) & R & \texttt{/nomenclatura} \\
     \addlinespace
     F-NOM-02 & Formulario Cuenta & Crear o editar código, nombre y naturaleza de cuenta & Admin, Contador (\texttt{nomenclatura\_crear}) & C/U & \texttt{/nomenclatura} \\
-
 \end{xltabular}
 }
 
@@ -450,6 +443,13 @@ El presente capítulo documenta los formularios desarrollados para el Sistema We
 \textbf{Roles/Permisos:} Admin, Contador (\texttt{nomenclatura\_crear}). \\[0.3em]
 \textbf{Campos clave y validaciones críticas:} \texttt{codigo\_cuenta} (Requerido, único, formato estructurado, ej.: \texttt{5.1.01.001}); \texttt{nombre\_cuenta} (Requerido, ej.: ``Gastos de Operación'').
 
+
+\begin{figure}[H]
+    \centering
+    \caption{Ficha visual del formulario F-NOM-02: Formulario de Cuenta Contable.}
+    \label{fig:cap4_ficha_f_nom_02}
+    \includegraphics[width=0.86\linewidth]{capturas_reales/angular_actualizadas/formulario_nomenclatura.png}
+\end{figure}
 \subsubsection{Módulo: Autenticación y Gestión de Usuarios}
 La Tabla~\ref{tab:cap4_auth_resumen} resume el formulario de acceso y la administración de credenciales y roles.
 \begin{xltabular}{\linewidth}{p{1.8cm}p{3.0cm}X p{2.5cm}p{1.0cm}p{2.0cm}}
@@ -468,7 +468,7 @@ La Tabla~\ref{tab:cap4_auth_resumen} resume el formulario de acceso y la adminis
 \endlastfoot
 F-AUTH-01 & Inicio de sesión & Validar credenciales y habilitar la sesión autorizada & Usuario registrado (\texttt{iniciar\_sesion}) & C/R & \texttt{/login}\\
 F-AUTH-02 & Usuarios y roles & Registrar usuarios y asignar permisos de acceso & Admin (\texttt{gestionar\_usuarios}) & CRUD & \texttt{/usuarios}\\
-\bottomrule
+
 \end{xltabular}
 
 \paragraph{Formulario F-AUTH-01: Inicio de sesión}
@@ -499,7 +499,7 @@ La Tabla~\ref{tab:cap4_reportes_resumen} documenta las funciones de consulta y g
 \endlastfoot
 F-REP-01 & Consulta de reportes & Filtrar información por período, módulo y estado & Admin, Contador (\texttt{consultar\_reportes}) & R & \texttt{/reportes}\\
 F-REP-02 & Resumen de Caja chica & Revisar e imprimir los movimientos del fondo & Admin, Contador (\texttt{consultar\_caja}) & R & \texttt{/reportes/caja-chica}\\
-\bottomrule
+
 \end{xltabular}
 
 \paragraph{Formulario F-REP-01: Consulta de reportes}
@@ -510,6 +510,174 @@ F-REP-02 & Resumen de Caja chica & Revisar e imprimir los movimientos del fondo 
     \caption{Pantalla de reportes operativos y financieros.}
     \label{fig:cap4_reportes_pantalla}
     \includegraphics[width=0.96\linewidth]{capturas_reales/angular_actualizadas/pantalla_11_reportes.png}
+\end{figure}
+
+\subsubsection{Fichas y capturas complementarias de los formularios}
+Para mantener correspondencia entre cada fila de las tablas de resumen y su evidencia visual, se incorporan las fichas de los formularios que no se habían desarrollado individualmente. Cada ficha identifica el objetivo, la operación y la captura asociada.
+
+\paragraph{Formulario F-FEL-02: Catálogo FEL}
+\noindent\textbf{Objetivo:} Consultar, filtrar y revisar las facturas importadas desde la SAT.\\
+\noindent\textbf{Operación:} La pantalla permite ejecutar la operación registrada en la tabla de formularios y conservar el resultado para consulta o seguimiento.\\
+\noindent\textbf{Evidencia:} La captura muestra la interfaz utilizada para realizar la operación descrita.
+\begin{figure}[H]
+    \centering
+    \caption{Ficha visual del formulario F-FEL-02: Catálogo FEL.}
+    \label{fig:cap4_ficha_f_fel_02}
+    \includegraphics[width=0.86\linewidth]{capturas_reales/angular_actualizadas/pantalla_03_facturas_fel.png}
+\end{figure}
+
+\paragraph{Formulario F-FEL-03: Clasificación Contable}
+\noindent\textbf{Objetivo:} Asignar una cuenta de nomenclatura a una factura que no fue reconocida automáticamente.\\
+\noindent\textbf{Operación:} La pantalla permite ejecutar la operación registrada en la tabla de formularios y conservar el resultado para consulta o seguimiento.\\
+\noindent\textbf{Evidencia:} La captura muestra la interfaz utilizada para realizar la operación descrita.
+\begin{figure}[H]
+    \centering
+    \caption{Ficha visual del formulario F-FEL-03: Clasificación Contable.}
+    \label{fig:cap4_ficha_f_fel_03}
+    \includegraphics[width=0.86\linewidth]{capturas_reales/angular_actualizadas/pantalla_03_facturas_fel.png}
+\end{figure}
+
+\paragraph{Formulario F-FEL-04: Anulación / Borrado}
+\noindent\textbf{Objetivo:} Marcar como anulada una factura duplicada o retirar un comprobante no válido.\\
+\noindent\textbf{Operación:} La pantalla permite ejecutar la operación registrada en la tabla de formularios y conservar el resultado para consulta o seguimiento.\\
+\noindent\textbf{Evidencia:} La captura muestra la interfaz utilizada para realizar la operación descrita.
+\begin{figure}[H]
+    \centering
+    \caption{Ficha visual del formulario F-FEL-04: Anulación / Borrado.}
+    \label{fig:cap4_ficha_f_fel_04}
+    \includegraphics[width=0.86\linewidth]{capturas_reales/angular_actualizadas/pantalla_03_facturas_fel.png}
+\end{figure}
+
+\paragraph{Formulario F-CHEQ-02: Registro de Banco}
+\noindent\textbf{Objetivo:} Crear y administrar los bancos emisores y receptores asociados a los cheques.\\
+\noindent\textbf{Operación:} La pantalla permite ejecutar la operación registrada en la tabla de formularios y conservar el resultado para consulta o seguimiento.\\
+\noindent\textbf{Evidencia:} La captura muestra la interfaz utilizada para realizar la operación descrita.
+\begin{figure}[H]
+    \centering
+    \caption{Ficha visual del formulario F-CHEQ-02: Registro de Banco.}
+    \label{fig:cap4_ficha_f_cheq_02}
+    \includegraphics[width=0.86\linewidth]{capturas_reales/angular_actualizadas/formulario_cheque.png}
+\end{figure}
+
+\paragraph{Formulario F-CAJA-01: Asignar Factura FEL}
+\noindent\textbf{Objetivo:} Vincular una factura FEL al fondo activo de Caja Chica.\\
+\noindent\textbf{Operación:} La pantalla permite ejecutar la operación registrada en la tabla de formularios y conservar el resultado para consulta o seguimiento.\\
+\noindent\textbf{Evidencia:} La captura muestra la interfaz utilizada para realizar la operación descrita.
+\begin{figure}[H]
+    \centering
+    \caption{Ficha visual del formulario F-CAJA-01: Asignar Factura FEL.}
+    \label{fig:cap4_ficha_f_caja_01}
+    \includegraphics[width=0.86\linewidth]{capturas_reales/angular_actualizadas/pantalla_05_caja_chica.png}
+\end{figure}
+
+\paragraph{Formulario F-CAJA-03: Generación Partida}
+\noindent\textbf{Objetivo:} Crear y revisar el asiento contable de la liquidación del fondo.\\
+\noindent\textbf{Operación:} La pantalla permite ejecutar la operación registrada en la tabla de formularios y conservar el resultado para consulta o seguimiento.\\
+\noindent\textbf{Evidencia:} La captura muestra la interfaz utilizada para realizar la operación descrita.
+\begin{figure}[H]
+    \centering
+    \caption{Ficha visual del formulario F-CAJA-03: Generación Partida.}
+    \label{fig:cap4_ficha_f_caja_03}
+    \includegraphics[width=0.86\linewidth]{capturas_reales/angular_actualizadas/formulario_caja_chica.png}
+\end{figure}
+
+\paragraph{Formulario F-CAJA-04: Resumen de Fondo}
+\noindent\textbf{Objetivo:} Consultar e imprimir los movimientos y el resumen del período.\\
+\noindent\textbf{Operación:} La pantalla permite ejecutar la operación registrada en la tabla de formularios y conservar el resultado para consulta o seguimiento.\\
+\noindent\textbf{Evidencia:} La captura muestra la interfaz utilizada para realizar la operación descrita.
+\begin{figure}[H]
+    \centering
+    \caption{Ficha visual del formulario F-CAJA-04: Resumen de Fondo.}
+    \label{fig:cap4_ficha_f_caja_04}
+    \includegraphics[width=0.86\linewidth]{capturas_reales/angular_actualizadas/pantalla_05_caja_chica.png}
+\end{figure}
+
+\paragraph{Formulario F-VIAT-01: Gestión de Giras}
+\noindent\textbf{Objetivo:} Asignar colaborador, territorio y semana operativa a una gira.\\
+\noindent\textbf{Operación:} La pantalla permite ejecutar la operación registrada en la tabla de formularios y conservar el resultado para consulta o seguimiento.\\
+\noindent\textbf{Evidencia:} La captura muestra la interfaz utilizada para realizar la operación descrita.
+\begin{figure}[H]
+    \centering
+    \caption{Ficha visual del formulario F-VIAT-01: Gestión de Giras.}
+    \label{fig:cap4_ficha_f_viat_01}
+    \includegraphics[width=0.86\linewidth]{capturas_reales/angular_actualizadas/pantalla_06_viaticos.png}
+\end{figure}
+
+\paragraph{Formulario F-VIAT-03: Generación Partida}
+\noindent\textbf{Objetivo:} Construir la partida semanal o transitoria de una liquidación.\\
+\noindent\textbf{Operación:} La pantalla permite ejecutar la operación registrada en la tabla de formularios y conservar el resultado para consulta o seguimiento.\\
+\noindent\textbf{Evidencia:} La captura muestra la interfaz utilizada para realizar la operación descrita.
+\begin{figure}[H]
+    \centering
+    \caption{Ficha visual del formulario F-VIAT-03: Generación Partida.}
+    \label{fig:cap4_ficha_f_viat_03}
+    \includegraphics[width=0.86\linewidth]{capturas_reales/angular_actualizadas/partidas_viaticos.png}
+\end{figure}
+
+\paragraph{Formulario F-PROV-02: Cartera y Facturas}
+\noindent\textbf{Objetivo:} Consultar saldos, días de crédito, retenciones e historial de facturas.\\
+\noindent\textbf{Operación:} La pantalla permite ejecutar la operación registrada en la tabla de formularios y conservar el resultado para consulta o seguimiento.\\
+\noindent\textbf{Evidencia:} La captura muestra la interfaz utilizada para realizar la operación descrita.
+\begin{figure}[H]
+    \centering
+    \caption{Ficha visual del formulario F-PROV-02: Cartera y Facturas.}
+    \label{fig:cap4_ficha_f_prov_02}
+    \includegraphics[width=0.86\linewidth]{capturas_reales/angular_actualizadas/directorio_proveedores.png}
+\end{figure}
+
+\paragraph{Formulario F-PROV-03: Generación Partida}
+\noindent\textbf{Objetivo:} Crear la partida dentro del mes o la partida transitoria del proveedor.\\
+\noindent\textbf{Operación:} La pantalla permite ejecutar la operación registrada en la tabla de formularios y conservar el resultado para consulta o seguimiento.\\
+\noindent\textbf{Evidencia:} La captura muestra la interfaz utilizada para realizar la operación descrita.
+\begin{figure}[H]
+    \centering
+    \caption{Ficha visual del formulario F-PROV-03: Generación Partida.}
+    \label{fig:cap4_ficha_f_prov_03}
+    \includegraphics[width=0.86\linewidth]{capturas_reales/angular_actualizadas/partidas_proveedores.png}
+\end{figure}
+
+\paragraph{Formulario F-CAL-01: Vista Calendario}
+\noindent\textbf{Objetivo:} Consultar eventos, vencimientos, pagos, depósitos y giras programadas.\\
+\noindent\textbf{Operación:} La pantalla permite ejecutar la operación registrada en la tabla de formularios y conservar el resultado para consulta o seguimiento.\\
+\noindent\textbf{Evidencia:} La captura muestra la interfaz utilizada para realizar la operación descrita.
+\begin{figure}[H]
+    \centering
+    \caption{Ficha visual del formulario F-CAL-01: Vista Calendario.}
+    \label{fig:cap4_ficha_f_cal_01}
+    \includegraphics[width=0.86\linewidth]{capturas_reales/angular_actualizadas/pantalla_09_calendario.png}
+\end{figure}
+
+\paragraph{Formulario F-NOM-01: Catálogo Cuentas}
+\noindent\textbf{Objetivo:} Listar, buscar y filtrar las cuentas contables activas e inactivas.\\
+\noindent\textbf{Operación:} La pantalla permite ejecutar la operación registrada en la tabla de formularios y conservar el resultado para consulta o seguimiento.\\
+\noindent\textbf{Evidencia:} La captura muestra la interfaz utilizada para realizar la operación descrita.
+\begin{figure}[H]
+    \centering
+    \caption{Ficha visual del formulario F-NOM-01: Catálogo Cuentas.}
+    \label{fig:cap4_ficha_f_nom_01}
+    \includegraphics[width=0.86\linewidth]{capturas_reales/angular_actualizadas/pantalla_10_nomenclatura.png}
+\end{figure}
+
+\paragraph{Formulario F-AUTH-02: Usuarios y roles}
+\noindent\textbf{Objetivo:} Registrar usuarios y asignar los permisos correspondientes a cada rol.\\
+\noindent\textbf{Operación:} La pantalla permite ejecutar la operación registrada en la tabla de formularios y conservar el resultado para consulta o seguimiento.\\
+\noindent\textbf{Evidencia:} La captura muestra la interfaz utilizada para realizar la operación descrita.
+\begin{figure}[H]
+    \centering
+    \caption{Ficha visual del formulario F-AUTH-02: Usuarios y roles.}
+    \label{fig:cap4_ficha_f_auth_02}
+    \includegraphics[width=0.86\linewidth]{capturas_reales/angular_actualizadas/usuarios.png}
+\end{figure}
+
+\paragraph{Formulario F-REP-02: Resumen de Caja chica}
+\noindent\textbf{Objetivo:} Revisar e imprimir los movimientos de Caja Chica desde reportes.\\
+\noindent\textbf{Operación:} La pantalla permite ejecutar la operación registrada en la tabla de formularios y conservar el resultado para consulta o seguimiento.\\
+\noindent\textbf{Evidencia:} La captura muestra la interfaz utilizada para realizar la operación descrita.
+\begin{figure}[H]
+    \centering
+    \caption{Ficha visual del formulario F-REP-02: Resumen de Caja chica.}
+    \label{fig:cap4_ficha_f_rep_02}
+    \includegraphics[width=0.86\linewidth]{capturas_reales/angular_actualizadas/pantalla_12_revision_partidas.png}
 \end{figure}
 
 \subsection{4.2 Fragmentos de Código Fuente}
@@ -526,6 +694,10 @@ De conformidad con los lineamientos metodológicos, en este apartado se document
 
 A continuación, se presenta el fragmento de código encargado de procesar la estructura XML de las facturas electrónicas y verificar la no duplicidad del UUID tributario:
 
+\begin{center}
+\begin{minipage}{0.86\linewidth}
+\setstretch{2.0}
+\setlength{\parindent}{0pt}
 \begin{verbatim}
 @router.post("/importar-xml")
 async def importar_xml_fel(file: UploadFile = File(...), db: Session = Depends(get_db)):
@@ -545,6 +717,8 @@ async def importar_xml_fel(file: UploadFile = File(...), db: Session = Depends(g
     db.commit()
     return {"status": "exito", "uuid": uuid_dte}
 \end{verbatim}
+\end{minipage}
+\end{center}
 
 \noindent\textbf{Descripción:} Este código pertenece al backend del módulo de Facturas FEL/SAT. Su función principal es recibir la carga de archivos XML, analizar el árbol DOM para extraer el UUID oficial emitido por la SAT y validar en la base de datos que el documento no haya sido ingresado previamente.
 
@@ -569,6 +743,10 @@ async def importar_xml_fel(file: UploadFile = File(...), db: Session = Depends(g
 
 A continuación, se presenta la lógica de validación de fechas y montos en el registro de cheques posfechados:
 
+\begin{center}
+\begin{minipage}{0.86\linewidth}
+\setstretch{2.0}
+\setlength{\parindent}{0pt}
 \begin{verbatim}
 @router.post("/cheques")
 def crear_cheque(cheque: ChequeCreate, db: Session = Depends(get_db)):
@@ -584,6 +762,8 @@ def crear_cheque(cheque: ChequeCreate, db: Session = Depends(get_db)):
     db.refresh(nuevo_cheque)
     return nuevo_cheque
 \end{verbatim}
+\end{minipage}
+\end{center}
 
 \noindent\textbf{Descripción:} El fragmento corresponde a la capa de servicios del módulo de Cheques Posfechados. Garantiza la coherencia cronológica de las fechas de depósito respecto a las de recepción y asegura que únicamente se registren montos financieros válidos antes de persistir la información.
 
@@ -608,6 +788,10 @@ def crear_cheque(cheque: ChequeCreate, db: Session = Depends(get_db)):
 
 A continuación, se expone la función encargada de verificar la disponibilidad de saldo en el fondo fijo previo al registro de un recibo de egreso:
 
+\begin{center}
+\begin{minipage}{0.86\linewidth}
+\setstretch{2.0}
+\setlength{\parindent}{0pt}
 \begin{verbatim}
 @router.post("/caja-chica/recibo")
 def registrar_recibo(recibo: ReciboCreate, db: Session = Depends(get_db)):
@@ -624,6 +808,8 @@ def registrar_recibo(recibo: ReciboCreate, db: Session = Depends(get_db)):
     db.commit()
     return nuevo_movimiento
 \end{verbatim}
+\end{minipage}
+\end{center}
 
 \noindent\textbf{Descripción:} Este código corresponde a la lógica de negocio de Caja Chica. Evalúa que la caja posea saldo suficiente para cubrir el gasto solicitado y efectúa el débito automático sobre el fondo asignado al momento de guardar el recibo.
 
@@ -648,6 +834,10 @@ def registrar_recibo(recibo: ReciboCreate, db: Session = Depends(get_db)):
 
 A continuación, se muestra el método de validación en frontend para restringir categorías de gastos según el calendario operativo de la gira:
 
+\begin{center}
+\begin{minipage}{0.86\linewidth}
+\setstretch{2.0}
+\setlength{\parindent}{0pt}
 \begin{verbatim}
 validarCategoriaGasto(semanaGira: number, categoriaSeleccionada: string): boolean {
   if (categoriaSeleccionada === 'MOVILIDAD' && semanaGira !== 1) {
@@ -658,6 +848,8 @@ validarCategoriaGasto(semanaGira: number, categoriaSeleccionada: string): boolea
   return true;
 }
 \end{verbatim}
+\end{minipage}
+\end{center}
 
 \noindent\textbf{Descripción:} El fragmento forma parte de la lógica del componente frontend en el módulo de Viáticos. Ejecuta una validación reactiva que prohíbe la selección de rubros de movilidad fuera de la primera semana operativa del mes, alertando al usuario mediante notificaciones.
 
@@ -682,6 +874,10 @@ validarCategoriaGasto(semanaGira: number, categoriaSeleccionada: string): boolea
 
 A continuación, se presenta la función de creación de proveedores con verificación de formato tributario y asignación de cuenta por defecto:
 
+\begin{center}
+\begin{minipage}{0.86\linewidth}
+\setstretch{2.0}
+\setlength{\parindent}{0pt}
 \begin{verbatim}
 @router.post("/proveedores")
 def registrar_proveedor(prov: ProveedorCreate, db: Session = Depends(get_db)):
@@ -698,6 +894,8 @@ def registrar_proveedor(prov: ProveedorCreate, db: Session = Depends(get_db)):
     db.commit()
     return nuevo_prov
 \end{verbatim}
+\end{minipage}
+\end{center}
 
 \noindent\textbf{Descripción:} Este código implementa la creación de registros maestros de proveedores. Verifica la singularidad del NIT registrado y corrobora la existencia de la cuenta en la Nomenclatura Contable previa a la grabación definitiva.
 
@@ -722,6 +920,10 @@ def registrar_proveedor(prov: ProveedorCreate, db: Session = Depends(get_db)):
 
 A continuación, se expone el método del cliente que procesa la adición de eventos al calendario y renderiza la vista gráfica:
 
+\begin{center}
+\begin{minipage}{0.86\linewidth}
+\setstretch{2.0}
+\setlength{\parindent}{0pt}
 \begin{verbatim}
 agregarEventoCalendario(): void {
   if (this.eventoForm.invalid) {
@@ -738,6 +940,8 @@ agregarEventoCalendario(): void {
   });
 }
 \end{verbatim}
+\end{minipage}
+\end{center}
 
 \noindent\textbf{Descripción:} El código pertenece al controlador frontend del Calendario Operativo. Valida el estado de los controles del formulario, envía la petición al backend y actualiza la lista de eventos renderizada en el componente dinámico.
 
@@ -762,6 +966,10 @@ agregarEventoCalendario(): void {
 
 A continuación, se detalla el fragmento encargado de validar el formato codificado jerárquico de las cuentas de catálogo:
 
+\begin{center}
+\begin{minipage}{0.86\linewidth}
+\setstretch{2.0}
+\setlength{\parindent}{0pt}
 \begin{verbatim}
 @router.post("/nomenclatura")
 def crear_cuenta(cuenta: CuentaCreate, db: Session = Depends(get_db)):
@@ -778,6 +986,8 @@ def crear_cuenta(cuenta: CuentaCreate, db: Session = Depends(get_db)):
     db.commit()
     return nueva_cuenta
 \end{verbatim}
+\end{minipage}
+\end{center}
 
 \noindent\textbf{Descripción:} El algoritmo evalúa el código contable propuesto mediante expresiones regulares para garantizar que cumpla con la notación por niveles (ejemplo: \texttt{5.1.01.001}) y confirma que no exista duplicidad jerárquica.
 
@@ -802,6 +1012,10 @@ def crear_cuenta(cuenta: CuentaCreate, db: Session = Depends(get_db)):
 
 A continuación, se presenta un fragmento del procedimiento encargado de cifrar credenciales y dar de alta usuarios en la plataforma:
 
+\begin{center}
+\begin{minipage}{0.86\linewidth}
+\setstretch{2.0}
+\setlength{\parindent}{0pt}
 \begin{verbatim}
 @router.post("/usuarios")
 def registrar_usuario(usuario: UsuarioCreate, db: Session = Depends(get_db)):
@@ -820,6 +1034,8 @@ def registrar_usuario(usuario: UsuarioCreate, db: Session = Depends(get_db)):
     db.commit()
     return {"status": "exito", "mensaje": "Usuario creado correctamente"}
 \end{verbatim}
+\end{minipage}
+\end{center}
 
 \noindent\textbf{Descripción:} Este fragmento corresponde al componente de autenticación y seguridad del sistema. Recibe las credenciales, verifica la existencia del usuario y aplica el algoritmo de hashing seguro sobre la contraseña antes de validar la sesión.
 
@@ -886,7 +1102,6 @@ En esta sección se presenta el inventario lógico de objetos de PostgreSQL defi
     \texttt{nomenclatura\_cuenta} & Plan maestro de cuentas jerárquicas y estructura contable & Nomenclatura & \texttt{id} (INTEGER) \\
     \addlinespace
     \texttt{usuario} & Registro de usuarios, credenciales y asignación de roles & Seguridad & \texttt{id} (INTEGER) \\
-
 \end{xltabular}
 }
 
@@ -925,7 +1140,6 @@ En esta sección se presenta el inventario lógico de objetos de PostgreSQL defi
     \texttt{sp\_procesar\_carga\_fel} & Inserta masivamente facturas validadas desde archivos XML evitando duplicidad de UUID & \texttt{p\_xml\_data}, \texttt{p\_usuario\_id} \\
     \addlinespace
     \texttt{sp\_generar\_cierre\_mes} & Efectúa el balance mensual de sumas y saldos bloqueando modificaciones al período contable & \texttt{p\_anio}, \texttt{p\_mes} \\
-
 \end{xltabular}
 }
 
@@ -964,7 +1178,6 @@ En esta sección se presenta el inventario lógico de objetos de PostgreSQL defi
     \texttt{vw\_cartera\_proveedores} & Estado de cuenta por proveedor detallando saldo vencido y crédito disponible & Proveedores \\
     \addlinespace
     \texttt{vw\_balance\_comprobacion} & Vista acumulativa del saldo deudor y acreedor por cuenta de nomenclatura contable & Reportes \\
-
 \end{xltabular}
 }
 
@@ -1001,7 +1214,6 @@ En esta sección se presenta el inventario lógico de objetos de PostgreSQL defi
     \texttt{trg\_valida\_fecha\_cheque} & \texttt{cheque\_posfechado} (BEFORE INSERT/UPDATE) & Impide la grabación si la fecha de depósito es anterior a la fecha de emisión o recepción. \\
     \addlinespace
     \texttt{trg\_auditoria\_nomenclatura} & \texttt{nomenclatura\_cuenta} (AFTER UPDATE/DELETE) & Registra en la tabla de auditoría cualquier cambio estructurado o eliminación en el plan de cuentas. \\
-
 \end{xltabular}
 }
 
@@ -1507,6 +1719,42 @@ NOM-10-007 & Nomenclatura & ACEP & Nivel contable & Consultar el nivel de una cu
 \end{tikzpicture}
 \end{figure}
 
+\subsection{Tablas resumen de resultados por módulo}
+Las tablas siguientes consolidan los casos evaluados, los casos aprobados, los casos no aprobados y el porcentaje de aprobación de cada módulo. Se presentan por separado de las tablas detalladas de cada aspecto para facilitar la lectura y la elaboración de las gráficas.
+
+\begingroup\fontsize{9}{10}\selectfont\setlength{\tabcolsep}{4pt}
+\begin{xltabular}{\linewidth}{@{}p{3.0cm}p{2.4cm}p{2.4cm}p{2.4cm}p{2.4cm}@{}}
+\caption{Tabla resumen de pruebas del módulo Proveedores.}\label{tab:cap4_resumen_proveedores}\\
+\toprule
+\textbf{Módulo} & \textbf{Casos evaluados} & \textbf{Aprobados} & \textbf{No aprobados} & \textbf{Resultado}\\
+\midrule
+Proveedores & 28 & 26 & 2 & 92.9\%\\
+
+\end{xltabular}
+\endgroup
+
+\begingroup\fontsize{9}{10}\selectfont\setlength{\tabcolsep}{4pt}
+\begin{xltabular}{\linewidth}{@{}p{3.0cm}p{2.4cm}p{2.4cm}p{2.4cm}p{2.4cm}@{}}
+\caption{Tabla resumen de pruebas del módulo Viáticos.}\label{tab:cap4_resumen_viaticos}\\
+\toprule
+\textbf{Módulo} & \textbf{Casos evaluados} & \textbf{Aprobados} & \textbf{No aprobados} & \textbf{Resultado}\\
+\midrule
+Viáticos & 21 & 19 & 2 & 90.5\%\\
+
+\end{xltabular}
+\endgroup
+
+\begingroup\fontsize{9}{10}\selectfont\setlength{\tabcolsep}{4pt}
+\begin{xltabular}{\linewidth}{@{}p{3.0cm}p{2.4cm}p{2.4cm}p{2.4cm}p{2.4cm}@{}}
+\caption{Tabla resumen de pruebas del módulo Nomenclatura.}\label{tab:cap4_resumen_nomenclatura}\\
+\toprule
+\textbf{Módulo} & \textbf{Casos evaluados} & \textbf{Aprobados} & \textbf{No aprobados} & \textbf{Resultado}\\
+\midrule
+Nomenclatura & 21 & 19 & 2 & 90.5\%\\
+
+\end{xltabular}
+\endgroup
+
 \subsection{Resultados numéricos para las gráficas}
 
 Los resultados numéricos se presentan en tres tablas, una por cada módulo, conforme a la Plantilla 2 de la guía. Cada fila identifica la métrica, el valor, la unidad y la versión o fecha de medición.
@@ -1530,7 +1778,7 @@ Proveedores & Registro de proveedores por NIT & 100.0 & \% & b1 -- 2026-09-21\\
 Proveedores & Cálculo y registro del IVA crédito & 100.0 & \% & b1 -- 2026-09-21\\
 Proveedores & Aplicación de retenciones y cuenta contable & 85.7 & \% & b1 -- 2026-09-21\\
 Proveedores & Generación de partidas por vencimiento & 85.7 & \% & b1 -- 2026-09-21\\
-Proveedores & Resultado del módulo & 85.7 & \% & b1 -- 2026-09-21\\
+Proveedores & Resultado del módulo & 92.9 & \% & b1 -- 2026-09-21\\
 \end{xltabular}
 \endgroup
 
@@ -1586,7 +1834,7 @@ El módulo de Nomenclatura obtuvo 19 casos OK de 21, equivalente a 90.5\%. La b�
 \caption{Resultado global de las pruebas por módulo.}\label{fig:cap4_grafica_global}
 \begin{tikzpicture}
 \begin{axis}[ybar,width=0.88\linewidth,height=6cm,ymin=0,ymax=100,ylabel={Porcentaje de aprobación},symbolic x coords={Proveedores,Viáticos,Nomenclatura},xtick=data,nodes near coords,bar width=1.0cm,ymajorgrids=true,grid style=dashed]
-\addplot[fill=teal!65] coordinates {(Proveedores,85.7) (Viáticos,90.5) (Nomenclatura,90.5)};
+\addplot[fill=teal!65] coordinates {(Proveedores,92.9) (Viáticos,90.5) (Nomenclatura,90.5)};
 \end{axis}
 \end{tikzpicture}
 \end{figure}

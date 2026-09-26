@@ -81,7 +81,6 @@ El análisis de estos documentos de base resulta indispensable para asegurar que
     Calendario & Programaciones & Calendario digital del equipo donde se anotan las programaciones de pagos, depósito de cheques y días para pago de viáticos. & 01/05/2026 \\
     \addlinespace
     Cuaderno & Cuaderno Auxiliar & Cuaderno físico que sirve como auxiliar para anotaciones de cálculos y recordatorios para pagos y depósitos. & 01/05/2026 \\
-
 \end{xltabular}
 }
 \subsection{Descripción del Problema}
@@ -129,7 +128,6 @@ Al no tener estos servicios dentro del software actual, la información se encue
     \textquestiondown Por qué ocurre? & Porque el software principal no contiene estas funciones, ya que está más enfocado en recursos de mayor escala como libro diario, balance general, etc. \\
     \addlinespace
     \textquestiondown Cuál es la solución propuesta? & Implementar una aplicación web centralizada que por medio de un archivo de excel descargado directamente de la SAT,automatice la clasificación de facturas y la preparación de partidas y realice cálculos, partidas de diario y genere alertas automáticas para aumentar la eficiencia y disminuir retrasos. \\
-
 \end{xltabular}
 }
 
@@ -160,9 +158,7 @@ Se detallan los requerimientos funcionales del sistema, registrando su numero de
     \toprule
     \textbf{Id. Requerimiento:} REQ001 & \textbf{Clasificación o prioridad:} Alta \\
     \textbf{Nombre Requerimiento:} & Login y Autenticación de Usuarios \\
-    \midrule
     \textbf{No. Func.} & \textbf{Funcionalidad} \\
-    \midrule
     \endhead
 
     % --- Cierres de Tabla ---
@@ -182,7 +178,6 @@ Se detallan los requerimientos funcionales del sistema, registrando su numero de
     004 & Se verificará el usuario, contraseña y estado activo en la base de datos PostgreSQL emitiendo un token de acceso. \\
     \addlinespace
     005 & En caso de error en las credenciales, se mostrará un mensaje de advertencia y se restablecerán los campos para intentar de nuevo. \\
-
 \end{xltabular}
 }
 
@@ -209,9 +204,7 @@ Se detallan los requerimientos funcionales del sistema, registrando su numero de
     \toprule
     \textbf{Id. Requerimiento:} REQ002 & \textbf{Clasificación o prioridad:} Alta \\
     \textbf{Nombre Requerimiento:} & Módulo de Carga e Importación de Facturas SAT \\
-    \midrule
     \textbf{No. Func.} & \textbf{Funcionalidad} \\
-    \midrule
     \endhead
 
     % --- Cierres de Tabla ---
@@ -229,7 +222,6 @@ Se detallan los requerimientos funcionales del sistema, registrando su numero de
     003 & Tomara el numero de autorizacion de la factura como identificador lógico para prevenir el registro duplicado de facturas en la base de datos PostgreSQL. \\
     \addlinespace
     004 & Clasificará los registros importados y los redistribuirá de manera automática hacia los módulos correspondientes (Proveedores, Viáticos o Caja Chica). \\
-
 \end{xltabular}
 }
 
@@ -256,9 +248,7 @@ Se detallan los requerimientos funcionales del sistema, registrando su numero de
     \toprule
     \textbf{Id. Requerimiento:} REQ003 & \textbf{Clasificación o prioridad:} Alta \\
     \textbf{Nombre Requerimiento:} & Gestión de Cheques Postfechados \\
-    \midrule
     \textbf{No. Func.} & \textbf{Funcionalidad} \\
-    \midrule
     \endhead
 
     % --- Cierres de Tabla ---
@@ -278,7 +268,6 @@ Se detallan los requerimientos funcionales del sistema, registrando su numero de
     004 & Utilizará el número de cheque como identificador lógico para evitar duplicados y permitirá asignar la cuenta contable correspondiente cuando sea necesario. \\
     \addlinespace
     005 & Programará el depósito en el calendario y permitirá registrar bancos, ajustar fechas hábiles y gestionar rechazos o re-depósitos. \\
-
 \end{xltabular}
 }
 
@@ -305,9 +294,7 @@ Se detallan los requerimientos funcionales del sistema, registrando su numero de
     \toprule
     \textbf{Id. Requerimiento:} REQ004 & \textbf{Clasificación o prioridad:} Alta \\
     \textbf{Nombre Requerimiento:} & Creación y Control de Fondo de Caja Chica \\
-    \midrule
     \textbf{No. Func.} & \textbf{Funcionalidad} \\
-    \midrule
     \endhead
 
     % --- Cierres de Tabla ---
@@ -325,7 +312,6 @@ Se detallan los requerimientos funcionales del sistema, registrando su numero de
     003 & Permitirá asignar una cuenta de nomenclatura a facturas no reconocidas y generará la partida con cuentas de gasto, IVA crédito y Bancos o Cuenta transitoria. \\
     \addlinespace
     004 & Generará un resumen imprimible de Caja chica con fecha, tipo de documento, número de factura, nombre, descripción y monto. \\
-
 \end{xltabular}
 }
 
@@ -352,9 +338,7 @@ Se detallan los requerimientos funcionales del sistema, registrando su numero de
     \toprule
     \textbf{Id. Requerimiento:} REQ005 & \textbf{Clasificación o prioridad:} Alta \\
     \textbf{Nombre Requerimiento:} & Gestión y control de Viáticos \\
-    \midrule
     \textbf{No. Func.} & \textbf{Funcionalidad} \\
-    \midrule
     \endhead
 
     % --- Cierres de Tabla ---
@@ -372,7 +356,6 @@ Se detallan los requerimientos funcionales del sistema, registrando su numero de
     003 & Permitirá clasificar facturas por Viáticos, Movilidad, Actividades y Bonos/otros gastos; la Movilidad se habilitará para la primera semana del mes. \\
     \addlinespace
     004 & Generará una partida semanal con todos los gastos de la liquidación y una partida transitoria para facturas pendientes de reintegro o pago al cierre del mes. \\
-
 \end{xltabular}
 }
 
@@ -399,9 +382,7 @@ Se detallan los requerimientos funcionales del sistema, registrando su numero de
     \toprule
     \textbf{Id. Requerimiento:} REQ006 & \textbf{Clasificación o prioridad:} Alta \\
     \textbf{Nombre Requerimiento:} & Programación de Pagos a Proveedores \\
-    \midrule
     \textbf{No. Func.} & \textbf{Funcionalidad} \\
-    \midrule
     \endhead
 
     % --- Cierres de Tabla ---
@@ -419,8 +400,6 @@ Se detallan los requerimientos funcionales del sistema, registrando su numero de
     003 & Permitirá actualizar el estado de la factura entre Pendiente, Pagada y Anulada, conservando la trazabilidad de la reprogramación. \\
     \addlinespace
     004 & Permitirá generar por separado la partida dentro del mes y la partida transitoria; incluirá gastos e IVA crédito en el Debe y retenciones y descuentos como cuentas independientes en el Haber. \\
-
-
 \end{xltabular}
 }
 
@@ -447,9 +426,7 @@ Se detallan los requerimientos funcionales del sistema, registrando su numero de
     \toprule
     \textbf{Id. Requerimiento:} REQ007 & \textbf{Clasificación o prioridad:} Alta \\
     \textbf{Nombre Requerimiento:} & Módulo de Calendario Dinámico y Programación \\
-    \midrule
     \textbf{No. Func.} & \textbf{Funcionalidad} \\
-    \midrule
     \endhead
 
     % --- Cierres de Tabla ---
@@ -467,7 +444,6 @@ Se detallan los requerimientos funcionales del sistema, registrando su numero de
     003 & Ofrecerá vistas diaria, semanal y mensual con filtros visuales por módulo y tipo de compromiso. \\
     \addlinespace
     004 & Mantendrá la fecha reprogramada asociada al registro operativo para facilitar seguimiento y alertas. \\
-
 \end{xltabular}
 }
 
@@ -494,9 +470,7 @@ Se detallan los requerimientos funcionales del sistema, registrando su numero de
     \toprule
     \textbf{Id. Requerimiento:} REQ008 & \textbf{Clasificación o prioridad:} Alta \\
     \textbf{Nombre Requerimiento:} & Nomenclatura y paridas de Diario \\
-    \midrule
     \textbf{No. Func.} & \textbf{Funcionalidad} \\
-    \midrule
     \endhead
 
     % --- Cierres de Tabla ---
@@ -514,7 +488,6 @@ Se detallan los requerimientos funcionales del sistema, registrando su numero de
     003 & Permitirá asociar una cuenta al proveedor y seleccionar cuentas para gastos, IVA crédito, retenciones, descuentos, Bancos y Cuenta transitoria. \\
     \addlinespace
     004 & Construirá partidas para Proveedores, Caja Chica y Viáticos, verificando la naturaleza Debe/Haber y la correspondencia de los saldos. \\
-
 \end{xltabular}
 }
 
@@ -541,9 +514,7 @@ Se detallan los requerimientos funcionales del sistema, registrando su numero de
     \toprule
     \textbf{Id. Requerimiento:} REQ009 & \textbf{Clasificación o prioridad:} Alta \\
     \textbf{Nombre Requerimiento:} & Módulo de Reportes e Informes  \\
-    \midrule
     \textbf{No. Func.} & \textbf{Funcionalidad} \\
-    \midrule
     \endhead
 
     % --- Cierres de Tabla ---
@@ -563,7 +534,6 @@ Se detallan los requerimientos funcionales del sistema, registrando su numero de
     004 & Generará el desglose de gastos por representante de ventas en el mes, identificando montos reintegrados y excedentes no reintegrados con sus respectivos totales. \\
     \addlinespace
     005 & Permitirá exportar todos los informes en formatos PDF y Excel aplicando filtros por rangos de fecha, usuario o módulo. \\
-
 \end{xltabular}
 }
 \subsection{Restricciones y Limitaciones del Sistema}
@@ -632,7 +602,6 @@ Al tener un cronograma ya planificado y ser estricto con la fecha de entrega, es
     Compatibilidad & 006 & La aplicación web será completamente funcional en las versiones más recientes de los principales navegadores del mercado (Google Chrome y Microsoft Edge). \\
     \addlinespace
     Integridad & 007 & La base de datos PostgreSQL asegurará el cumplimiento estricto de las propiedades ACID e integridad referencial para evitar inconsistencias en las partidas de diario. \\
-
 \end{xltabular}
 }
 
@@ -692,7 +661,8 @@ La presente sección define la arquitectura y estructura del sistema mediante la
 % ---------------------------------------------------------
 % REQ001
 % ---------------------------------------------------------
-\subsubsection{REQ001: Autenticación, Gestión de Usuarios y Roles}
+\subsubsection{Casos de Uso}
+\paragraph{REQ001: Autenticación, Gestión de Usuarios y Roles}
 Modela el control de acceso, la validación de credenciales seguras, la asignación de perfiles de usuario y la gestión de permisos a nivel de base de datos PostgreSQL.
 
 \begin{figure}[H]
@@ -734,14 +704,12 @@ Modela el control de acceso, la validación de credenciales seguras, la asignaci
 
     % --- Filas de contenido ---
     \textbf{Descripción:} & Este caso de uso valida el acceso seguro al sistema mediante credenciales y asigna permisos específicos según el rol. \\
-    \midrule
     \textbf{Secuencia Normal:} & 
     1. El usuario ingresa sus credenciales en la pantalla de inicio de sesión. \newline
     2. El sistema valida usuario y contraseña (\textit{si son incorrectos, ver Excepción 1}). \newline
     3. El sistema verifica que la cuenta esté activa (\textit{si está inactiva, ver Excepción 2}). \newline
     4. El sistema genera el token de sesión y aplica el rol autorizado. \newline
     5. El sistema muestra el panel principal con los módulos permitidos. \\
-    \midrule
     \textbf{Excepciones:} & 
     \textbf{Excepción 1 (Credenciales incorrectas):} El sistema muestra una advertencia, limpia los campos y retorna al paso 1 de la secuencia normal. \newline
     \textbf{Excepción 2 (Usuario inactivo):} El sistema informa que la cuenta está deshabilitada, finaliza el flujo y conserva al usuario en la pantalla de acceso. \\
@@ -751,7 +719,7 @@ Modela el control de acceso, la validación de credenciales seguras, la asignaci
 % ---------------------------------------------------------
 % REQ002
 % ---------------------------------------------------------
-\subsubsection{REQ002: Importación y Gestión de Archivos SAT (FEL)}
+\paragraph{REQ002: Importación y Gestión de Archivos SAT (FEL)}
 Describe la carga masiva e importación de facturas electrónicas desde los archivos proporcionados por la SAT (XML/Excel), la extracción de metadatos fiscales y la centralización de comprobantes.
 
 
@@ -794,13 +762,11 @@ Describe la carga masiva e importación de facturas electrónicas desde los arch
 
     % --- Filas de contenido ---
     \textbf{Descripción:} & Permite procesar masivamente los reportes mensuales de la SAT, extrayendo metadatos fiscales y centralizando las facturas en la base de datos. \\
-    \midrule
     \textbf{Secuencia Normal:} & 
     1. El usuario selecciona y carga el archivo Excel/XML de la SAT (\textit{si el formato no es válido, ver Excepción 1}). \newline
     2. El sistema extrae NIT, nombre, autorización, fecha, monto, IVA y concepto. \newline
     3. El sistema verifica duplicidad y clasifica las facturas (\textit{si existe duplicidad, ver Excepción 2}). \newline
     4. El usuario confirma la carga y el sistema registra las facturas disponibles para Proveedores, Caja chica o Viáticos. \\
-    \midrule
     \textbf{Excepciones:} & 
     \textbf{1. Formato no válido:} El sistema informa el error y retorna al paso 1 para seleccionar un archivo válido. \newline
     \textbf{2. Factura duplicada:} El sistema omite el registro, continúa en el paso 2 con la siguiente fila y genera el resumen de omisiones. \newline
@@ -811,7 +777,7 @@ Describe la carga masiva e importación de facturas electrónicas desde los arch
 % ---------------------------------------------------------
 % REQ003
 % ---------------------------------------------------------
-\subsubsection{REQ003: Emisión y Control de Cheques Postfechados}
+\paragraph{REQ003: Emisión y Control de Cheques Postfechados}
 Ilustra la gestión de cheques emitidos a fecha futura, la asignación de fechas de cobro, el seguimiento de estados (Emitido, Depositado, Anulado) y la programación en calendario.
 
 \begin{figure}[H]
@@ -853,13 +819,11 @@ Ilustra la gestión de cheques emitidos a fecha futura, la asignación de fechas
 
     % --- Filas de contenido ---
     \textbf{Descripción:} & Automatiza el control de cheques recibidos/emitidos con fecha posterior, ajustando sus fechas de depósito a días hábiles. \\
-    \midrule
     \textbf{Secuencia Normal:} & 
     1. El usuario registra cliente, banco del cheque, banco de depósito, número, monto y fechas (\textit{si faltan datos, ver Excepción 1}). \newline
     2. El sistema verifica que el número de cheque no esté registrado (\textit{si existe, ver Excepción 1}). \newline
     3. El sistema asigna estado Pendiente y ajusta la fecha de depósito a un día hábil. \newline
     4. El sistema guarda el cheque y lo incorpora al calendario (\textit{si es rechazado, ver Excepción 2}). \\
-    \midrule
     \textbf{Excepciones:} & 
     \textbf{1. Cheque duplicado o incompleto:} El sistema informa el problema y retorna al paso 1 para corregir los datos. \newline
     \textbf{2. Cheque rechazado:} El usuario registra recepción del rechazo y una nueva fecha; el flujo retorna al paso 4 para actualizar el calendario. \\
@@ -869,7 +833,7 @@ Ilustra la gestión de cheques emitidos a fecha futura, la asignación de fechas
 % ---------------------------------------------------------
 % REQ004
 % ---------------------------------------------------------
-\subsubsection{REQ004: Creación y Control de Fondo de Caja Chica}
+\paragraph{REQ004: Creación y Control de Fondo de Caja Chica}
 Aborda la asignación de facturas SAT y comprobantes no fiscales (vales/recibos), la ejecución de cálculos contables automatizados y la generación de borradores de partidas de diario.
 
 \begin{figure}[H]
@@ -911,13 +875,11 @@ Aborda la asignación de facturas SAT y comprobantes no fiscales (vales/recibos)
 
     % --- Filas de contenido ---
     \textbf{Descripción:} & Gestiona los desembolsos de caja chica agrupando comprobantes fiscales y vales internos, generando partidas automáticas. \\
-    \midrule
     \textbf{Secuencia Normal:} & 
     1. El auxiliar llama una factura FEL por número o registra un Recibo/otro documento. \newline
     2. El sistema muestra el movimiento y propone una cuenta de nomenclatura (\textit{si no reconoce el concepto, ver Excepción 1}). \newline
     3. El usuario confirma o asigna la cuenta contable y el sistema calcula gastos, IVA y total. \newline
     4. El sistema genera la partida contable y el resumen imprimible de Caja chica. \\
-    \midrule
     \textbf{Excepciones:} & 
     \textbf{1. Factura asignada a otro módulo:} El sistema informa el bloqueo y retorna al paso 1 para seleccionar otro comprobante. \newline
     \textbf{2. Cuenta no reconocida:} Se despliega el selector de nomenclatura; al elegir una cuenta, el flujo retorna al paso 3. \newline
@@ -928,7 +890,7 @@ Aborda la asignación de facturas SAT y comprobantes no fiscales (vales/recibos)
 % ---------------------------------------------------------
 % REQ005
 % ---------------------------------------------------------
-\subsubsection{REQ005: Liquidación y Reintegro de Viáticos}
+\paragraph{REQ005: Liquidación y Reintegro de Viáticos}
 Muestra el flujo de asociación de facturas físicas por colaborador mediante número correlativo, la programación de giras organizadas por semanas calendario y el cálculo de reembolsos.
 
 
@@ -971,13 +933,11 @@ Muestra el flujo de asociación de facturas físicas por colaborador mediante n�
 
     % --- Filas de contenido ---
     \textbf{Descripción:} & Controla las liquidaciones de viáticos de los colaboradores, vinculando sus facturas entregadas con la programación de giras. \\
-    \midrule
     \textbf{Secuencia Normal:} & 
     1. El usuario selecciona colaborador, territorio y semana de gira 1 a 5. \newline
     2. El usuario asigna facturas por número a Viáticos, Movilidad, Actividades o Bonos/otros gastos (\textit{si no se reconoce la cuenta, ver Excepción 1}). \newline
     3. El sistema calcula los gastos de la liquidación y aplica la regla de Movilidad de la primera semana. \newline
     4. El sistema genera la partida semanal o transitoria según la fecha y el estado de reintegro. \\
-    \midrule
     \textbf{Excepciones:} & 
     \textbf{1. Factura no encontrada:} El sistema informa el resultado y retorna al paso 2 para buscar otro número o cargar la factura. \newline
     \textbf{2. Factura asignada a otro módulo:} Se bloquea la vinculación y el flujo retorna al paso 2 para seleccionar otro comprobante. \newline
@@ -988,7 +948,7 @@ Muestra el flujo de asociación de facturas físicas por colaborador mediante n�
 % ---------------------------------------------------------
 % REQ006
 % ---------------------------------------------------------
-\subsubsection{REQ006: Programación de Pagos a Proveedores}
+\paragraph{REQ006: Programación de Pagos a Proveedores}
 Establece la gestión de la ficha del proveedor (días de crédito y retenciones IVA/ISR), la vinculación con facturas de la SAT y el cálculo automático de fechas de vencimiento.
 
 
@@ -1031,13 +991,11 @@ Establece la gestión de la ficha del proveedor (días de crédito y retenciones
 
     % --- Filas de contenido ---
     \textbf{Descripción:} & Administra los compromisos comerciales con proveedores a crédito, calculando vencimientos y reteniendo impuestos según ley. \\
-    \midrule
     \textbf{Secuencia Normal:} & 
     1. El usuario registra NIT, días de crédito, retenciones y cuenta de nomenclatura del proveedor. \newline
     2. El sistema completa los nombres y despliega las facturas del proveedor por mes. \newline
     3. El sistema calcula vencimiento, retenciones y descuentos (\textit{si el vencimiento cruza el mes, ver Excepción 2}). \newline
     4. El usuario genera la partida dentro del mes o la partida transitoria con gastos e IVA en Debe y retenciones/descuentos en Haber. \\
-    \midrule
     \textbf{Excepciones:} & 
     \textbf{1. Proveedor no registrado:} El sistema solicita crear la ficha y retorna al paso 1. \newline
     \textbf{2. Factura previamente pagada o anulada:} El sistema bloquea el procesamiento y retorna al paso 2 para seleccionar otra factura. \newline
@@ -1048,7 +1006,7 @@ Establece la gestión de la ficha del proveedor (días de crédito y retenciones
 % ---------------------------------------------------------
 % REQ007
 % ---------------------------------------------------------
-\subsubsection{REQ007: Módulo de Calendario Dinámico y Programación Operativa}
+\paragraph{REQ007: Módulo de Calendario Dinámico y Programación Operativa}
 Consolida en una interfaz visual e interactiva las fechas de cobro de cheques, vencimientos de proveedores y liquidaciones de viáticos, permitiendo reprogramaciones en tiempo real.
 
 \begin{figure}[H]
@@ -1090,13 +1048,11 @@ Consolida en una interfaz visual e interactiva las fechas de cobro de cheques, v
 
     % --- Filas de contenido ---
     \textbf{Descripción:} & Ofrece una vista consolidada de los compromisos contables del mes con capacidad de edición directa mediante interfaz gráfica. \\
-    \midrule
     \textbf{Secuencia Normal:} & 
     1. El sistema recupera las actividades de cheques, proveedores y viáticos. \newline
     2. El usuario consulta la agenda en vista mensual, semanal o diaria. \newline
     3. El usuario selecciona una actividad y solicita reprogramación (\textit{si cae en día inhábil, ver Excepción 1}). \newline
     4. El sistema guarda la nueva fecha y actualiza la vista del calendario. \\
-    \midrule
     \textbf{Excepciones:} & 
     \textbf{1. Reprogramación en día inhábil:} El sistema propone el día hábil más cercano y retorna al paso 3 para confirmar. \newline
     \textbf{2. Error de conexión:} Se informa el error, se conserva la fecha anterior y se retorna al paso 3 para reintentar. \newline
@@ -1107,7 +1063,7 @@ Consolida en una interfaz visual e interactiva las fechas de cobro de cheques, v
 % ---------------------------------------------------------
 % REQ008
 % ---------------------------------------------------------
-\subsubsection{REQ008: Nomenclatura Contable y Partidas Automáticas}
+\paragraph{REQ008: Nomenclatura Contable y Partidas Automáticas}
 Detalla la estructura del catálogo de cuentas contables, la parametrización de reglas para el Debe y el Haber, y la construcción del borrador de la partida contable.
 
 \begin{figure}[H]
@@ -1149,13 +1105,11 @@ Detalla la estructura del catálogo de cuentas contables, la parametrización de
 
     % --- Filas de contenido ---
     \textbf{Descripción:} & Define la parametrización contable del sistema garantizando la correcta generación de asientos balanceados. \\
-    \midrule
     \textbf{Secuencia Normal:} & 
     1. El administrador registra una cuenta con código, nombre y naturaleza Debe o Haber (\textit{si el código existe, ver Excepción 1}). \newline
     2. El sistema muestra la cuenta activa en el catálogo y la ofrece en los selectores de clasificación. \newline
     3. El usuario asigna cuentas a proveedores, Caja chica o Viáticos. \newline
     4. El sistema genera la partida y verifica que Debe y Haber coincidan (\textit{si no coinciden, ver Excepción 2}). \\
-    \midrule
     \textbf{Excepciones:} & 
     \textbf{1. Código duplicado:} Se bloquea el guardado y el flujo retorna al paso 1 para ingresar otro código. \newline
     \textbf{2. Partida descuadrada (Debe $\neq$ Haber):} El sistema resalta la diferencia y retorna al paso 4 para corregir la clasificación. \newline
@@ -1166,7 +1120,7 @@ Detalla la estructura del catálogo de cuentas contables, la parametrización de
 % ---------------------------------------------------------
 % REQ009
 % ---------------------------------------------------------
-\subsubsection{REQ009: Generación de Reportes Operativos y Financieros}
+\paragraph{REQ009: Generación de Reportes Operativos y Financieros}
 Contempla la extracción y consolidación de reportes de cheques postfechados, proyecciones a proveedores, arqueos de caja chica y gastos de viáticos por colaborador.
 
 \begin{figure}[H]
@@ -1208,13 +1162,11 @@ Contempla la extracción y consolidación de reportes de cheques postfechados, p
 
     % --- Filas de contenido ---
     \textbf{Descripción:} & Permite consultar y exportar resúmenes financieros y operativos filtrados por rangos de fechas o entidades. \\
-    \midrule
     \textbf{Secuencia Normal:} & 
     1. El usuario selecciona el tipo de reporte y sus filtros (\textit{si no hay registros, ver Excepción 1}). \newline
     2. El sistema consulta y consolida la información de los módulos. \newline
     3. El usuario revisa la vista previa. \newline
     4. El usuario imprime o exporta el resultado (\textit{si falla la exportación, ver Excepción 2}). \\
-    \midrule
     \textbf{Excepciones:} & 
     \textbf{1. Sin datos en el rango seleccionado:} El sistema informa la ausencia de registros y retorna al paso 1 para cambiar los filtros. \newline
     \textbf{2. Error de exportación:} Se informa el fallo y retorna al paso 4 para reintentar la impresión o exportación. \\
@@ -1222,7 +1174,8 @@ Contempla la extracción y consolidación de reportes de cheques postfechados, p
 }
 
 
-\subsubsection{Modelo Entidad-Relación de Base de Datos (diagrama)}
+\subsubsection{Base de Datos}
+\paragraph{Modelo Entidad-Relación de Base de Datos (diagrama)}
 El diseño relacional para la base de datos PostgreSQL integra la estructura de tablas, tipos enumerados y restricciones de claves foráneas requeridas para garantizar la integridad referencial de los módulos del sistema.
 
 \begin{figure}[H]
@@ -1296,7 +1249,7 @@ Usuario o correo & Entrada & Vacío & Campo requerido para ingresar el usuario. 
 Contraseña & Entrada protegida & Vacío & Campo requerido para validar el acceso. \\
 Recordarme & Casilla & Desactivada & Conserva la sesión únicamente en un equipo autorizado. \\
 Ingresar al sistema & Botón & Activo & Valida las credenciales y muestra el Panel principal. \\
-\bottomrule
+
 \end{tabular}
 \end{table}
 
@@ -1320,7 +1273,7 @@ Buscar & Entrada & Vacío & Permite localizar información visible. \\
 Indicadores & Tarjetas & Datos demostrativos & Muestran compromisos, vencimientos, facturas y saldo. \\
 Alertas & Panel operativo & Pendientes & Presenta actividades que requieren atención. \\
 Actualizar & Botón & Activo & Refresca la información del panel. \\
-\bottomrule
+
 \end{tabular}
 \end{table}
 
@@ -1344,7 +1297,7 @@ Seleccionar archivo & Botón & Sin archivo & Permite elegir el archivo descargad
 Catálogo centralizado & Tabla & Registros demostrativos & Muestra comprobante, proveedor, fecha, monto y estado. \\
 Editar, Aprobar y Eliminar & Acciones & Según estado & Permiten gestionar una factura autorizada. \\
 Filtrar & Control & Sin filtro & Reduce los registros mostrados. \\
-\bottomrule
+
 \end{tabular}
 \end{table}
 
@@ -1368,7 +1321,7 @@ Registrar bancos & Botón & Activo & Administra bancos del cheque y de depósito
 Nuevo & Botón & Activo & Inicia el registro de un cheque. \\
 Registro de cheques & Tabla & Registros demostrativos & Muestra cliente, bancos, fechas, monto y estado. \\
 Asignación & Botón desplegable & Disponible & Muestra factura, visitador, recibo y días vencidos. \\
-\bottomrule
+
 \end{tabular}
 \end{table}
 
@@ -1394,7 +1347,7 @@ Cuenta contable & Lista desplegable & Sugerida o manual & Permite seleccionar un
 Movimientos & Tabla & Registros demostrativos & Muestra fecha, descripción, documento, nombre, valor y cuenta. \\
 Partida contable & Tabla & Debe y Haber & Muestra gastos, IVA y contrapartida. \\
 Imprimir resumen & Botón & Activo & Abre el resumen imprimible. \\
-\bottomrule
+
 \end{tabular}
 \end{table}
 
@@ -1420,7 +1373,7 @@ Categoría & Lista desplegable & Viáticos & Permite elegir Viáticos, Movilidad
 Bonos / otros gastos & Formulario & Vacío & Registra nombre, descripción y monto. \\
 Generar partida semanal & Botón & Activo & Genera la partida de la liquidación. \\
 Generar cuenta transitoria & Botón & Activo & Agrupa facturas pendientes de pago. \\
-\bottomrule
+
 \end{tabular}
 \end{table}
 
@@ -1444,7 +1397,7 @@ Cuenta contable & Lista desplegable & Asignar cuenta contable & Permite seleccio
 Colaborador & Lista desplegable & María López & Asocia la factura con el colaborador. \\
 Gira & Lista desplegable & S34 - Quetzaltenango & Asocia la factura con la gira. \\
 Guardar asignación & Botón & Activo & Guarda la relación de factura, cuenta y gira. \\
-\bottomrule
+
 \end{tabular}
 \end{table}
 
@@ -1470,7 +1423,7 @@ Cartera de proveedores & Tabla & Registros demostrativos & Muestra crédito, ven
 Desplegar & Botón & Disponible & Muestra las facturas mensuales del proveedor. \\
 Generar partida dentro del mes & Botón & Activo & Genera la partida pagadera en el período. \\
 Generar partida transitoria & Botón & Activo & Genera la partida de facturas pendientes. \\
-\bottomrule
+
 \end{tabular}
 \end{table}
 
@@ -1494,7 +1447,7 @@ Anterior y siguiente & Botones & Activos & Cambian el período mostrado. \\
 Mes & Selector de vista & Mes & Conserva la vista mensual. \\
 Eventos & Calendario & Pagos y cheques & Presenta actividades en la fecha correspondiente. \\
 Actividad & Botón & Activo & Permite registrar una actividad. \\
-\bottomrule
+
 \end{tabular}
 \end{table}
 
@@ -1518,7 +1471,7 @@ Nuevo registro & Botón & Activo & Abre el formulario de código, nombre y natur
 Catálogo de cuentas & Tabla & Registros demostrativos & Muestra código, nombre, naturaleza y estado. \\
 Naturaleza & Selector & Debe o Haber & Define la naturaleza contable de la cuenta. \\
 Opciones & Botón & Disponible & Permite administrar cada cuenta según permisos. \\
-\bottomrule
+
 \end{tabular}
 \end{table}
 
@@ -1541,7 +1494,7 @@ Tipo de reporte & Lista desplegable & Compromisos por vencer & Selecciona la inf
 Rango & Lista desplegable & 01 ago - 31 ago 2026 & Define las fechas de consulta. \\
 Aplicar filtros & Botón & Activo & Actualiza gráficos e indicadores. \\
 Exportar & Botón & Activo & Prepara el reporte para descarga. \\
-\bottomrule
+
 \end{tabular}
 \end{table}
 
@@ -1564,7 +1517,7 @@ Título y fecha & Encabezado & 02 sep 2026 & Identifica el período del resumen.
 Imprimir / guardar PDF & Botón & Activo & Abre las opciones de impresión del navegador. \\
 Detalle de movimientos & Tabla & Registros demostrativos & Incluye fecha, tipo, número, nombre, descripción y monto. \\
 Total de movimientos & Total & Calculado & Permite verificar el importe antes de archivar. \\
-\bottomrule
+
 \end{tabular}
 \end{table}
 
@@ -1639,7 +1592,6 @@ La factibilidad técnica permitió obtener la información necesaria acerca de s
     Base de Datos & Almacenamiento relacional de datos & PostgreSQL \\
     \addlinespace
     Gestor de BD & Administración de la base de datos & pgAdmin 4 \\
-
 \end{xltabular}
 }
 
@@ -1679,7 +1631,6 @@ La factibilidad técnica permitió obtener la información necesaria acerca de s
     Impresoras & Impresora láser estándar para la generación opcional de comprobantes o reportes físicos contables. \\
     \addlinespace
     Servidor & Servidor local o en la nube (AWS / DigitalOcean) con al menos 4 núcleos, 16 GB de RAM y sistema operativo Linux (Ubuntu Server). \\
-
 \end{xltabular}
 }
 
@@ -1749,7 +1700,6 @@ La factibilidad económica evalúa la relación entre los costos involucrados en
     Costos de Software & Licencias de código abierto (PostgreSQL, Angular, Python, FastAPI). & Sin Costo \\
     \addlinespace
     \textbf{Valor Total del Proyecto} & \textbf{Costo de desarrollo asignado al estudiante} & \textbf{Sin Costo} \\
-
 \end{xltabular}
 }
 
@@ -1834,7 +1784,6 @@ El desarrollo e implementación del sistema contable implica ciertos riesgos té
     Seguridad & Accesos no autorizados a la información financiera sensible. & Baja & Alto & Implementar control de acceso basado en roles (RBAC), encriptación de contraseñas y tokens JWT para la sesión de usuario. \\
     \addlinespace
     Planificación & Desfases en las fechas de entrega de los módulos según el cronograma. & Media & Medio & Aplicar el enfoque iterativo e incremental de RUP, evaluando el cumplimiento de hitos clave al finalizar cada fase (Inicio, Elaboración, Construcción y Transición). \\
-
 \end{xltabular}
 }
 \subsection{Recursos del Proyecto}

@@ -5,7 +5,7 @@
 
 El presente capítulo documenta los formularios desarrollados para el Sistema Web de gestión contable, detallando la interfaz operativa, roles de acceso, endpoints de navegación, operaciones del ciclo de vida de datos (CRUD) y las validaciones críticas implementadas en el frontend (Angular) y backend (Python/FastAPI).
 
-\subsection{Formularios por Módulo Operativo}
+\subsubsection{Formularios por Módulo Operativo}
 
 % =========================================================================
 % MÓDULO 1: FACTURAS FEL/SAT
@@ -659,7 +659,7 @@ F-REP-02 & Resumen de Caja chica & Revisar e imprimir los movimientos del fondo 
     \label{fig:cap4_ficha_f_rep_02}
     \includegraphics[width=0.86\linewidth]{capturas_reales/anotadas_formularios/f_rep_02.png}
 \end{figure}
-\subsection{4.2 Fragmentos de Código Fuente}
+\subsection{Fragmentos de Código Fuente}
 \label{sec:cap4_fragmentos_codigo}
 
 De conformidad con los lineamientos metodológicos, en este apartado se documenta el desarrollo técnico del sistema mediante ocho fragmentos representativos y demostrativos de código fuente, preparados para ilustrar la lógica correspondiente a cada módulo. Cada extracto incluye su especificación de módulo, lenguaje utilizado, bloque de código en fuente monoespaciada, descripción funcional y la evidencia correspondiente a la interfaz de usuario real.
@@ -1030,7 +1030,7 @@ def registrar_usuario(usuario: UsuarioCreate, db: Session = Depends(get_db)):
     \end{minipage}
 \end{figure}
 
-\subsection{4.3 Objetos de la Base de Datos}
+\subsection{Objetos de la Base de Datos}
 \label{sec:cap4_objetos_bd}
 
 En esta sección se presenta el inventario lógico de objetos de PostgreSQL definido para el prototipo del sistema web. El inventario comprende tablas, procedimientos almacenados, vistas y disparadores (\textit{triggers}) relacionados con la integridad y automatización de los procesos contables.
@@ -1208,7 +1208,7 @@ A continuación, se presenta el esquema relacional documentado para los módulos
     \end{minipage}
 \end{figure}
 
-\subsection{4.4 Pruebas Realizadas}
+\subsection{Pruebas Realizadas}
 \label{sec:cap4_pruebas_realizadas}
 
 La validación funcional se organizó en diez aspectos de negocio de los módulos Proveedores, Viáticos y Nomenclatura contable. Para cada aspecto se definieron siete pruebas concretas relacionadas con una operación del sistema, por lo que se evaluaron 70 casos en total. Cada tabla contiene el aspecto, la prueba específica, los datos o condición de entrada, el resultado esperado y el resultado obtenido.
@@ -1240,7 +1240,7 @@ ACEP & Confirmar el cumplimiento de la necesidad operativa. & Flujo utilizado po
 \subsubsection{Aspecto 01: Registro de proveedores por NIT}
 La validación del aspecto se realizó mediante siete pruebas específicas. Se aprobaron 7 de 7 casos, equivalente a 100.0\% de aprobación.
 
-\begingroup\fontsize{8}{9}\selectfont\setlength{\tabcolsep}{2pt}
+\begingroup\fontsize{9}{10}\selectfont\setlength{\tabcolsep}{2pt}
 \begin{xltabular}{\linewidth}{@{}p{1.25cm}p{1.25cm}p{1.05cm}p{2.0cm}p{2.0cm}p{2.25cm}p{2.0cm}p{2.0cm}p{1.25cm}@{}}
 \caption{Registro de pruebas del aspecto 01: Registro de proveedores por NIT.}\label{tab:cap4_aspecto_prov_01}\\
 \toprule
@@ -1295,7 +1295,7 @@ Registro de proveedores por NIT & 7 & 7 & 0 & 100.0\%\\
 \subsubsection{Aspecto 02: Cálculo y registro del IVA crédito}
 La validación del aspecto se realizó mediante siete pruebas específicas. Se aprobaron 7 de 7 casos, equivalente a 100.0\% de aprobación.
 
-\begingroup\fontsize{8}{9}\selectfont\setlength{\tabcolsep}{2pt}
+\begingroup\fontsize{9}{10}\selectfont\setlength{\tabcolsep}{2pt}
 \begin{xltabular}{\linewidth}{@{}p{1.25cm}p{1.25cm}p{1.05cm}p{2.0cm}p{2.0cm}p{2.25cm}p{2.0cm}p{2.0cm}p{1.25cm}@{}}
 \caption{Registro de pruebas del aspecto 02: Cálculo y registro del IVA crédito.}\label{tab:cap4_aspecto_prov_02}\\
 \toprule
@@ -1350,7 +1350,7 @@ Cálculo y registro del IVA crédito & 7 & 7 & 0 & 100.0\%\\
 \subsubsection{Aspecto 03: Aplicación de retenciones y cuenta contable}
 La validación del aspecto se realizó mediante siete pruebas específicas. Se aprobaron 6 de 7 casos, equivalente a 85.7\% de aprobación.
 
-\begingroup\fontsize{8}{9}\selectfont\setlength{\tabcolsep}{2pt}
+\begingroup\fontsize{9}{10}\selectfont\setlength{\tabcolsep}{2pt}
 \begin{xltabular}{\linewidth}{@{}p{1.25cm}p{1.25cm}p{1.05cm}p{2.0cm}p{2.0cm}p{2.25cm}p{2.0cm}p{2.0cm}p{1.25cm}@{}}
 \caption{Registro de pruebas del aspecto 03: Aplicación de retenciones y cuenta contable.}\label{tab:cap4_aspecto_prov_03}\\
 \toprule
@@ -1405,7 +1405,7 @@ Aplicación de retenciones y cuenta contable & 7 & 6 & 1 & 85.7\%\\
 \subsubsection{Aspecto 04: Generación de partidas por vencimiento}
 La validación del aspecto se realizó mediante siete pruebas específicas. Se aprobaron 6 de 7 casos, equivalente a 85.7\% de aprobación.
 
-\begingroup\fontsize{8}{9}\selectfont\setlength{\tabcolsep}{2pt}
+\begingroup\fontsize{9}{10}\selectfont\setlength{\tabcolsep}{2pt}
 \begin{xltabular}{\linewidth}{@{}p{1.25cm}p{1.25cm}p{1.05cm}p{2.0cm}p{2.0cm}p{2.25cm}p{2.0cm}p{2.0cm}p{1.25cm}@{}}
 \caption{Registro de pruebas del aspecto 04: Generación de partidas por vencimiento.}\label{tab:cap4_aspecto_prov_04}\\
 \toprule
@@ -1463,7 +1463,7 @@ El módulo de Proveedores obtuvo 24 casos OK de 28, equivalente a 85.7\%. Los me
 \subsubsection{Aspecto 05: Registro de colaboradores y territorios}
 La validación del aspecto se realizó mediante siete pruebas específicas. Se aprobaron 7 de 7 casos, equivalente a 100.0\% de aprobación.
 
-\begingroup\fontsize{8}{9}\selectfont\setlength{\tabcolsep}{2pt}
+\begingroup\fontsize{9}{10}\selectfont\setlength{\tabcolsep}{2pt}
 \begin{xltabular}{\linewidth}{@{}p{1.25cm}p{1.25cm}p{1.05cm}p{2.0cm}p{2.0cm}p{2.25cm}p{2.0cm}p{2.0cm}p{1.25cm}@{}}
 \caption{Registro de pruebas del aspecto 05: Registro de colaboradores y territorios.}\label{tab:cap4_aspecto_via_05}\\
 \toprule
@@ -1518,7 +1518,7 @@ Registro de colaboradores y territorios & 7 & 7 & 0 & 100.0\%\\
 \subsubsection{Aspecto 06: Asignación de gira, semana y categoría}
 La validación del aspecto se realizó mediante siete pruebas específicas. Se aprobaron 7 de 7 casos, equivalente a 100.0\% de aprobación.
 
-\begingroup\fontsize{8}{9}\selectfont\setlength{\tabcolsep}{2pt}
+\begingroup\fontsize{9}{10}\selectfont\setlength{\tabcolsep}{2pt}
 \begin{xltabular}{\linewidth}{@{}p{1.25cm}p{1.25cm}p{1.05cm}p{2.0cm}p{2.0cm}p{2.25cm}p{2.0cm}p{2.0cm}p{1.25cm}@{}}
 \caption{Registro de pruebas del aspecto 06: Asignación de gira, semana y categoría.}\label{tab:cap4_aspecto_via_06}\\
 \toprule
@@ -1573,7 +1573,7 @@ Asignación de gira, semana y categoría & 7 & 7 & 0 & 100.0\%\\
 \subsubsection{Aspecto 07: Liquidación de facturas y generación de partidas}
 La validación del aspecto se realizó mediante siete pruebas específicas. Se aprobaron 5 de 7 casos, equivalente a 71.4\% de aprobación.
 
-\begingroup\fontsize{8}{9}\selectfont\setlength{\tabcolsep}{2pt}
+\begingroup\fontsize{9}{10}\selectfont\setlength{\tabcolsep}{2pt}
 \begin{xltabular}{\linewidth}{@{}p{1.25cm}p{1.25cm}p{1.05cm}p{2.0cm}p{2.0cm}p{2.25cm}p{2.0cm}p{2.0cm}p{1.25cm}@{}}
 \caption{Registro de pruebas del aspecto 07: Liquidación de facturas y generación de partidas.}\label{tab:cap4_aspecto_via_07}\\
 \toprule
@@ -1631,7 +1631,7 @@ El módulo de Viáticos obtuvo 19 casos OK de 21, equivalente a 90.5\%. El regis
 \subsubsection{Aspecto 08: Búsqueda y consulta del catálogo contable}
 La validación del aspecto se realizó mediante siete pruebas específicas. Se aprobaron 7 de 7 casos, equivalente a 100.0\% de aprobación.
 
-\begingroup\fontsize{8}{9}\selectfont\setlength{\tabcolsep}{2pt}
+\begingroup\fontsize{9}{10}\selectfont\setlength{\tabcolsep}{2pt}
 \begin{xltabular}{\linewidth}{@{}p{1.25cm}p{1.25cm}p{1.05cm}p{2.0cm}p{2.0cm}p{2.25cm}p{2.0cm}p{2.0cm}p{1.25cm}@{}}
 \caption{Registro de pruebas del aspecto 08: Búsqueda y consulta del catálogo contable.}\label{tab:cap4_aspecto_nom_08}\\
 \toprule
@@ -1686,7 +1686,7 @@ Búsqueda y consulta del catálogo contable & 7 & 7 & 0 & 100.0\%\\
 \subsubsection{Aspecto 09: Registro y mantenimiento de cuentas}
 La validación del aspecto se realizó mediante siete pruebas específicas. Se aprobaron 6 de 7 casos, equivalente a 85.7\% de aprobación.
 
-\begingroup\fontsize{8}{9}\selectfont\setlength{\tabcolsep}{2pt}
+\begingroup\fontsize{9}{10}\selectfont\setlength{\tabcolsep}{2pt}
 \begin{xltabular}{\linewidth}{@{}p{1.25cm}p{1.25cm}p{1.05cm}p{2.0cm}p{2.0cm}p{2.25cm}p{2.0cm}p{2.0cm}p{1.25cm}@{}}
 \caption{Registro de pruebas del aspecto 09: Registro y mantenimiento de cuentas.}\label{tab:cap4_aspecto_nom_09}\\
 \toprule
@@ -1741,7 +1741,7 @@ Registro y mantenimiento de cuentas & 7 & 6 & 1 & 85.7\%\\
 \subsubsection{Aspecto 10: Naturaleza e integración contable}
 La validación del aspecto se realizó mediante siete pruebas específicas. Se aprobaron 6 de 7 casos, equivalente a 85.7\% de aprobación.
 
-\begingroup\fontsize{8}{9}\selectfont\setlength{\tabcolsep}{2pt}
+\begingroup\fontsize{9}{10}\selectfont\setlength{\tabcolsep}{2pt}
 \begin{xltabular}{\linewidth}{@{}p{1.25cm}p{1.25cm}p{1.05cm}p{2.0cm}p{2.0cm}p{2.25cm}p{2.0cm}p{2.0cm}p{1.25cm}@{}}
 \caption{Registro de pruebas del aspecto 10: Naturaleza e integración contable.}\label{tab:cap4_aspecto_nom_10}\\
 \toprule
@@ -1793,7 +1793,7 @@ Naturaleza e integración contable & 7 & 6 & 1 & 85.7\%\\
 \end{tikzpicture}
 \end{figure}
 
-\subsection{Tablas resumen de resultados por módulo}
+\subsubsection{Tablas resumen de resultados por módulo}
 Las tablas siguientes consolidan los casos evaluados, los casos aprobados, los casos no aprobados y el porcentaje de aprobación de cada módulo. Se presentan por separado de las tablas detalladas de cada aspecto para facilitar la lectura y la elaboración de las gráficas.
 
 \begingroup\fontsize{9}{10}\selectfont\setlength{\tabcolsep}{4pt}
@@ -1832,7 +1832,7 @@ Nomenclatura & 21 & 19 & 2 & 90.5\%\\
 \end{xltabular}
 \endgroup
 
-\subsection{Resultados numéricos para las gráficas}
+\subsubsection{Resultados numéricos para las gráficas}
 
 Los resultados numéricos se presentan en tres tablas, una por cada módulo, conforme a la Plantilla 2 de la guía. Cada fila identifica la métrica, el valor, la unidad y la versión o fecha de medición.
 

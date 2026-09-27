@@ -677,7 +677,7 @@ A continuación, se presenta el fragmento de código encargado de procesar la es
 \begin{minipage}{0.86\linewidth}
 \setstretch{2.0}
 \setlength{\parindent}{0pt}
-\begin{verbatim}
+\begin{Verbatim}[breaklines=true,breakanywhere=true,fontsize=\small,breaksymbolleft={}]
 @router.post("/importar-xml")
 async def importar_xml_fel(file: UploadFile = File(...), db: Session = Depends(get_db)):
     if not file.filename.endswith('.xml'):
@@ -695,7 +695,7 @@ async def importar_xml_fel(file: UploadFile = File(...), db: Session = Depends(g
     db.add(nueva_factura)
     db.commit()
     return {"status": "exito", "uuid": uuid_dte}
-\end{verbatim}
+\end{Verbatim}
 \end{minipage}
 \end{center}
 
@@ -726,7 +726,7 @@ A continuación, se presenta la lógica de validación de fechas y montos en el 
 \begin{minipage}{0.86\linewidth}
 \setstretch{2.0}
 \setlength{\parindent}{0pt}
-\begin{verbatim}
+\begin{Verbatim}[breaklines=true,breakanywhere=true,fontsize=\small,breaksymbolleft={}]
 @router.post("/cheques")
 def crear_cheque(cheque: ChequeCreate, db: Session = Depends(get_db)):
     if cheque.fecha_deposito < cheque.fecha_recepcion:
@@ -740,7 +740,7 @@ def crear_cheque(cheque: ChequeCreate, db: Session = Depends(get_db)):
     db.commit()
     db.refresh(nuevo_cheque)
     return nuevo_cheque
-\end{verbatim}
+\end{Verbatim}
 \end{minipage}
 \end{center}
 
@@ -771,7 +771,7 @@ A continuación, se expone la función encargada de verificar la disponibilidad 
 \begin{minipage}{0.86\linewidth}
 \setstretch{2.0}
 \setlength{\parindent}{0pt}
-\begin{verbatim}
+\begin{Verbatim}[breaklines=true,breakanywhere=true,fontsize=\small,breaksymbolleft={}]
 @router.post("/caja-chica/recibo")
 def registrar_recibo(recibo: ReciboCreate, db: Session = Depends(get_db)):
     fondo = db.query(FondoCajaChica).filter(FondoCajaChica.activo == True).first()
@@ -786,7 +786,7 @@ def registrar_recibo(recibo: ReciboCreate, db: Session = Depends(get_db)):
     db.add(nuevo_movimiento)
     db.commit()
     return nuevo_movimiento
-\end{verbatim}
+\end{Verbatim}
 \end{minipage}
 \end{center}
 
@@ -817,7 +817,7 @@ A continuación, se muestra el método de validación en frontend para restringi
 \begin{minipage}{0.86\linewidth}
 \setstretch{2.0}
 \setlength{\parindent}{0pt}
-\begin{verbatim}
+\begin{Verbatim}[breaklines=true,breakanywhere=true,fontsize=\small,breaksymbolleft={}]
 validarCategoriaGasto(semanaGira: number, categoriaSeleccionada: string): boolean {
   if (categoriaSeleccionada === 'MOVILIDAD' && semanaGira !== 1) {
     this.toastr.warning('La categoria Movilidad solo esta permitida durante la primera semana');
@@ -826,7 +826,7 @@ validarCategoriaGasto(semanaGira: number, categoriaSeleccionada: string): boolea
   }
   return true;
 }
-\end{verbatim}
+\end{Verbatim}
 \end{minipage}
 \end{center}
 
@@ -857,7 +857,7 @@ A continuación, se presenta la función de creación de proveedores con verific
 \begin{minipage}{0.86\linewidth}
 \setstretch{2.0}
 \setlength{\parindent}{0pt}
-\begin{verbatim}
+\begin{Verbatim}[breaklines=true,breakanywhere=true,fontsize=\small,breaksymbolleft={}]
 @router.post("/proveedores")
 def registrar_proveedor(prov: ProveedorCreate, db: Session = Depends(get_db)):
     nit_existente = db.query(Proveedor).filter(Proveedor.nit == prov.nit).first()
@@ -872,7 +872,7 @@ def registrar_proveedor(prov: ProveedorCreate, db: Session = Depends(get_db)):
     db.add(nuevo_prov)
     db.commit()
     return nuevo_prov
-\end{verbatim}
+\end{Verbatim}
 \end{minipage}
 \end{center}
 
@@ -903,7 +903,7 @@ A continuación, se expone el método del cliente que procesa la adición de eve
 \begin{minipage}{0.86\linewidth}
 \setstretch{2.0}
 \setlength{\parindent}{0pt}
-\begin{verbatim}
+\begin{Verbatim}[breaklines=true,breakanywhere=true,fontsize=\small,breaksymbolleft={}]
 agregarEventoCalendario(): void {
   if (this.eventoForm.invalid) {
     this.eventoForm.markAllAsTouched();
@@ -918,7 +918,7 @@ agregarEventoCalendario(): void {
     }
   });
 }
-\end{verbatim}
+\end{Verbatim}
 \end{minipage}
 \end{center}
 
@@ -949,7 +949,7 @@ A continuación, se detalla el fragmento encargado de validar el formato codific
 \begin{minipage}{0.86\linewidth}
 \setstretch{2.0}
 \setlength{\parindent}{0pt}
-\begin{verbatim}
+\begin{Verbatim}[breaklines=true,breakanywhere=true,fontsize=\small,breaksymbolleft={}]
 @router.post("/nomenclatura")
 def crear_cuenta(cuenta: CuentaCreate, db: Session = Depends(get_db)):
     patron_codigo = r'^\d(\.\d+)*$'
@@ -964,7 +964,7 @@ def crear_cuenta(cuenta: CuentaCreate, db: Session = Depends(get_db)):
     db.add(nueva_cuenta)
     db.commit()
     return nueva_cuenta
-\end{verbatim}
+\end{Verbatim}
 \end{minipage}
 \end{center}
 
@@ -995,7 +995,7 @@ A continuación, se presenta un fragmento del procedimiento encargado de cifrar 
 \begin{minipage}{0.86\linewidth}
 \setstretch{2.0}
 \setlength{\parindent}{0pt}
-\begin{verbatim}
+\begin{Verbatim}[breaklines=true,breakanywhere=true,fontsize=\small,breaksymbolleft={}]
 @router.post("/usuarios")
 def registrar_usuario(usuario: UsuarioCreate, db: Session = Depends(get_db)):
     email_existe = db.query(Usuario).filter(Usuario.email == usuario.email).first()
@@ -1012,7 +1012,7 @@ def registrar_usuario(usuario: UsuarioCreate, db: Session = Depends(get_db)):
     db.add(nuevo_usuario)
     db.commit()
     return {"status": "exito", "mensaje": "Usuario creado correctamente"}
-\end{verbatim}
+\end{Verbatim}
 \end{minipage}
 \end{center}
 

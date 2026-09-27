@@ -680,7 +680,7 @@ Para mantener correspondencia entre cada fila de las tablas de resumen y su evid
     \includegraphics[width=0.86\linewidth]{capturas_reales/anotadas_formularios/f_rep_02.png}
 \end{figure}
 
-\subsection{4.2 Fragmentos de Código Fuente}
+\subsection{Fragmentos de Código Fuente}
 \label{sec:cap4_fragmentos_codigo}
 
 De conformidad con los lineamientos metodológicos, en este apartado se documenta el desarrollo técnico del sistema mediante ocho fragmentos representativos y demostrativos de código fuente, preparados para ilustrar la lógica correspondiente a cada módulo. Cada extracto incluye su especificación de módulo, lenguaje utilizado, bloque de código en fuente monoespaciada, descripción funcional y la evidencia correspondiente a la interfaz de usuario real.
@@ -696,27 +696,29 @@ A continuación, se presenta el fragmento de código encargado de procesar la es
 
 \begin{center}
 \begin{minipage}{0.86\linewidth}
-\setstretch{2.0}
 \setlength{\parindent}{0pt}
-\begin{verbatim}
+\setstretch{1.0}
+\begin{minted}[fontsize=\small,breaklines,breakanywhere]{python}
 @router.post("/importar-xml")
 async def importar_xml_fel(file: UploadFile = File(...), db: Session = Depends(get_db)):
     if not file.filename.endswith('.xml'):
         raise HTTPException(status_code=400, detail="Formato de archivo invalido")
-    
+
     content = await file.read()
     tree = ET.fromstring(content)
-    uuid_dte = tree.find(".//{http://www.sat.gob.gt/dte/fel/0.1.0}NumeroAutorizacion").text
-    
+    uuid_dte = tree.find(
+        ".//{http://www.sat.gob.gt/dte/fel/0.1.0}NumeroAutorizacion"
+    ).text
+
     existe = db.query(FacturaFEL).filter(FacturaFEL.uuid == uuid_dte).first()
     if existe:
         raise HTTPException(status_code=400, detail="El DTE ya se encuentra registrado")
-    
+
     nueva_factura = FacturaFEL(uuid=uuid_dte, estado="PENDIENTE")
     db.add(nueva_factura)
     db.commit()
     return {"status": "exito", "uuid": uuid_dte}
-\end{verbatim}
+\end{minted}
 \end{minipage}
 \end{center}
 
@@ -745,23 +747,31 @@ A continuación, se presenta la lógica de validación de fechas y montos en el 
 
 \begin{center}
 \begin{minipage}{0.86\linewidth}
-\setstretch{2.0}
 \setlength{\parindent}{0pt}
-\begin{verbatim}
+\setstretch{1.0}
+\begin{minted}[fontsize=\small,breaklines,breakanywhere]{python}
 @router.post("/cheques")
 def crear_cheque(cheque: ChequeCreate, db: Session = Depends(get_db)):
     if cheque.fecha_deposito < cheque.fecha_recepcion:
-        raise HTTPException(status_code=400, detail="La fecha de deposito debe ser mayor o igual a la de recepcion")
-    
+        raise HTTPException(
+            status_code=400,
+            detail=(
+                "La fecha de deposito debe ser mayor o igual a la de recepcion"
+            ),
+        )
+
     if cheque.monto <= 0:
-        raise HTTPException(status_code=400, detail="El monto del cheque debe ser mayor a cero")
-        
+        raise HTTPException(
+            status_code=400,
+            detail="El monto del cheque debe ser mayor a cero",
+        )
+
     nuevo_cheque = Cheque(**cheque.dict(), estado="PENDIENTE")
     db.add(nuevo_cheque)
     db.commit()
     db.refresh(nuevo_cheque)
     return nuevo_cheque
-\end{verbatim}
+\end{minted}
 \end{minipage}
 \end{center}
 
@@ -790,24 +800,30 @@ A continuación, se expone la función encargada de verificar la disponibilidad 
 
 \begin{center}
 \begin{minipage}{0.86\linewidth}
-\setstretch{2.0}
 \setlength{\parindent}{0pt}
-\begin{verbatim}
+\setstretch{1.0}
+\begin{minted}[fontsize=\small,breaklines,breakanywhere]{python}
 @router.post("/caja-chica/recibo")
 def registrar_recibo(recibo: ReciboCreate, db: Session = Depends(get_db)):
     fondo = db.query(FondoCajaChica).filter(FondoCajaChica.activo == True).first()
     if not fondo:
-        raise HTTPException(status_code=404, detail="No existe un fondo de caja chica activo")
-        
+        raise HTTPException(
+            status_code=404,
+            detail="No existe un fondo de caja chica activo",
+        )
+
     if recibo.monto_total > fondo.saldo_disponible:
-        raise HTTPException(status_code=400, detail="El monto excede el saldo disponible del fondo")
-        
+        raise HTTPException(
+            status_code=400,
+            detail="El monto excede el saldo disponible del fondo",
+        )
+
     fondo.saldo_disponible -= recibo.monto_total
     nuevo_movimiento = MovimientoCaja(**recibo.dict(), fondo_id=fondo.id)
     db.add(nuevo_movimiento)
     db.commit()
     return nuevo_movimiento
-\end{verbatim}
+\end{minted}
 \end{minipage}
 \end{center}
 
@@ -836,18 +852,20 @@ A continuación, se muestra el método de validación en frontend para restringi
 
 \begin{center}
 \begin{minipage}{0.86\linewidth}
-\setstretch{2.0}
 \setlength{\parindent}{0pt}
-\begin{verbatim}
+\setstretch{1.0}
+\begin{minted}[fontsize=\small,breaklines,breakanywhere]{typescript}
 validarCategoriaGasto(semanaGira: number, categoriaSeleccionada: string): boolean {
   if (categoriaSeleccionada === 'MOVILIDAD' && semanaGira !== 1) {
-    this.toastr.warning('La categoria Movilidad solo esta permitida durante la primera semana');
+    this.toastr.warning(
+      'La categoria Movilidad solo esta permitida durante la primera semana'
+    );
     this.formularioAsignacion.get('categoria_gasto')?.setValue('');
     return false;
   }
   return true;
 }
-\end{verbatim}
+\end{minted}
 \end{minipage}
 \end{center}
 
@@ -876,24 +894,31 @@ A continuación, se presenta la función de creación de proveedores con verific
 
 \begin{center}
 \begin{minipage}{0.86\linewidth}
-\setstretch{2.0}
 \setlength{\parindent}{0pt}
-\begin{verbatim}
+\setstretch{1.0}
+\begin{minted}[fontsize=\small,breaklines,breakanywhere]{python}
 @router.post("/proveedores")
 def registrar_proveedor(prov: ProveedorCreate, db: Session = Depends(get_db)):
     nit_existente = db.query(Proveedor).filter(Proveedor.nit == prov.nit).first()
     if nit_existente:
         raise HTTPException(status_code=400, detail="El NIT ingresado ya existe")
-        
-    cuenta = db.query(Nomenclatura).filter(Nomenclatura.id == prov.cuenta_nomenclatura_id).first()
+
+    cuenta = (
+        db.query(Nomenclatura)
+        .filter(Nomenclatura.id == prov.cuenta_nomenclatura_id)
+        .first()
+    )
     if not cuenta:
-        raise HTTPException(status_code=404, detail="La cuenta contable especificada no existe")
-        
+        raise HTTPException(
+            status_code=404,
+            detail="La cuenta contable especificada no existe",
+        )
+
     nuevo_prov = Proveedor(**prov.dict())
     db.add(nuevo_prov)
     db.commit()
     return nuevo_prov
-\end{verbatim}
+\end{minted}
 \end{minipage}
 \end{center}
 
@@ -922,9 +947,9 @@ A continuación, se expone el método del cliente que procesa la adición de eve
 
 \begin{center}
 \begin{minipage}{0.86\linewidth}
-\setstretch{2.0}
 \setlength{\parindent}{0pt}
-\begin{verbatim}
+\setstretch{1.0}
+\begin{minted}[fontsize=\small,breaklines,breakanywhere]{typescript}
 agregarEventoCalendario(): void {
   if (this.eventoForm.invalid) {
     this.eventoForm.markAllAsTouched();
@@ -939,7 +964,7 @@ agregarEventoCalendario(): void {
     }
   });
 }
-\end{verbatim}
+\end{minted}
 \end{minipage}
 \end{center}
 
@@ -968,24 +993,34 @@ A continuación, se detalla el fragmento encargado de validar el formato codific
 
 \begin{center}
 \begin{minipage}{0.86\linewidth}
-\setstretch{2.0}
 \setlength{\parindent}{0pt}
-\begin{verbatim}
+\setstretch{1.0}
+\begin{minted}[fontsize=\small,breaklines,breakanywhere]{python}
 @router.post("/nomenclatura")
 def crear_cuenta(cuenta: CuentaCreate, db: Session = Depends(get_db)):
     patron_codigo = r'^\d(\.\d+)*$'
     if not re.match(patron_codigo, cuenta.codigo_cuenta):
-        raise HTTPException(status_code=400, detail="El formato del codigo contable es invalido")
-        
-    duplicado = db.query(Nomenclatura).filter(Nomenclatura.codigo == cuenta.codigo_cuenta).first()
+        raise HTTPException(
+            status_code=400,
+            detail="El formato del codigo contable es invalido",
+        )
+
+    duplicado = (
+        db.query(Nomenclatura)
+        .filter(Nomenclatura.codigo == cuenta.codigo_cuenta)
+        .first()
+    )
     if duplicado:
-        raise HTTPException(status_code=400, detail="El codigo contable ya fue registrado")
-        
+        raise HTTPException(
+            status_code=400,
+            detail="El codigo contable ya fue registrado",
+        )
+
     nueva_cuenta = Nomenclatura(**cuenta.dict())
     db.add(nueva_cuenta)
     db.commit()
     return nueva_cuenta
-\end{verbatim}
+\end{minted}
 \end{minipage}
 \end{center}
 
@@ -1014,26 +1049,29 @@ A continuación, se presenta un fragmento del procedimiento encargado de cifrar 
 
 \begin{center}
 \begin{minipage}{0.86\linewidth}
-\setstretch{2.0}
 \setlength{\parindent}{0pt}
-\begin{verbatim}
+\setstretch{1.0}
+\begin{minted}[fontsize=\small,breaklines,breakanywhere]{python}
 @router.post("/usuarios")
 def registrar_usuario(usuario: UsuarioCreate, db: Session = Depends(get_db)):
     email_existe = db.query(Usuario).filter(Usuario.email == usuario.email).first()
     if email_existe:
-        raise HTTPException(status_code=400, detail="El correo electronico ya se encuentra registrado")
-        
+        raise HTTPException(
+            status_code=400,
+            detail="El correo electronico ya se encuentra registrado",
+        )
+
     password_hashed = pwd_context.hash(usuario.password)
     nuevo_usuario = Usuario(
         nombre=usuario.nombre,
         email=usuario.email,
         password_hash=password_hashed,
-        rol_id=usuario.rol_id
+        rol_id=usuario.rol_id,
     )
     db.add(nuevo_usuario)
     db.commit()
     return {"status": "exito", "mensaje": "Usuario creado correctamente"}
-\end{verbatim}
+\end{minted}
 \end{minipage}
 \end{center}
 
@@ -1051,7 +1089,7 @@ def registrar_usuario(usuario: UsuarioCreate, db: Session = Depends(get_db)):
     \end{minipage}
 \end{figure}
 
-\subsection{4.3 Objetos de la Base de Datos}
+\subsection{Objetos de la Base de Datos}
 \label{sec:cap4_objetos_bd}
 
 En esta sección se presenta el inventario lógico de objetos de PostgreSQL definido para el prototipo del sistema web. El inventario comprende tablas, procedimientos almacenados, vistas y disparadores (\textit{triggers}) relacionados con la integridad y automatización de los procesos contables.
@@ -1085,23 +1123,23 @@ En esta sección se presenta el inventario lógico de objetos de PostgreSQL defi
     \bottomrule
     \endlastfoot
 
-    \texttt{factura\_fel} & Registro maestro de comprobantes DTE autorizados por la SAT & Facturas FEL/SAT & \texttt{id} (UUID) \\
+    \textnormal{factura\_fel} & Registro maestro de comprobantes DTE autorizados por la SAT & Facturas FEL/SAT & \textnormal{id} (UUID) \\
     \addlinespace
-    \texttt{cheque\_posfechado} & Control de cheques recibidos, fechas de cobro y estados & Cheques Posfechados & \texttt{id} (BIGINT) \\
+    \textnormal{cheque\_posfechado} & Control de cheques recibidos, fechas de cobro y estados & Cheques Posfechados & \textnormal{id} (BIGINT) \\
     \addlinespace
-    \texttt{fondo\_caja\_chica} & Administración de los fondos fijos autorizados & Caja Chica & \texttt{id} (INTEGER) \\
+    \textnormal{fondo\_caja\_chica} & Administración de los fondos fijos autorizados & Caja Chica & \textnormal{id} (INTEGER) \\
     \addlinespace
-    \texttt{movimiento\_caja} & Registro de vales, recibos y egresos de caja chica & Caja Chica & \texttt{id} (BIGINT) \\
+    \textnormal{movimiento\_caja} & Registro de vales, recibos y egresos de caja chica & Caja Chica & \textnormal{id} (BIGINT) \\
     \addlinespace
-    \texttt{gira\_viatico} & Control de asignación de giras semanales y colaboradores & Viáticos & \texttt{id} (INTEGER) \\
+    \textnormal{gira\_viatico} & Control de asignación de giras semanales y colaboradores & Viáticos & \textnormal{id} (INTEGER) \\
     \addlinespace
-    \texttt{proveedor} & Expediente maestro de proveedores y cuentas por pagar & Proveedores & \texttt{id} (INTEGER) \\
+    \textnormal{proveedor} & Expediente maestro de proveedores y cuentas por pagar & Proveedores & \textnormal{id} (INTEGER) \\
     \addlinespace
-    \texttt{evento\_calendario} & Programación de vencimientos, giras y fechas de depósito & Calendario Operativo & \texttt{id} (BIGINT) \\
+    \textnormal{evento\_calendario} & Programación de vencimientos, giras y fechas de depósito & Calendario Operativo & \textnormal{id} (BIGINT) \\
     \addlinespace
-    \texttt{nomenclatura\_cuenta} & Plan maestro de cuentas jerárquicas y estructura contable & Nomenclatura & \texttt{id} (INTEGER) \\
+    \textnormal{nomenclatura\_cuenta} & Plan maestro de cuentas jerárquicas y estructura contable & Nomenclatura & \textnormal{id} (INTEGER) \\
     \addlinespace
-    \texttt{usuario} & Registro de usuarios, credenciales y asignación de roles & Seguridad & \texttt{id} (INTEGER) \\
+    \textnormal{usuario} & Registro de usuarios, credenciales y asignación de roles & Seguridad & \textnormal{id} (INTEGER) \\
 \end{xltabular}
 }
 
@@ -1133,13 +1171,13 @@ En esta sección se presenta el inventario lógico de objetos de PostgreSQL defi
     \bottomrule
     \endlastfoot
 
-    \texttt{sp\_liquidar\_caja\_chica} & Consolida los movimientos vigentes de caja chica y genera el asiento contable de liquidación & \texttt{p\_fondo\_id}, \texttt{p\_usuario\_id} \\
+    \textnormal{sp\_liquidar\_caja\_chica} & Consolida los movimientos vigentes de caja chica y genera el asiento contable de liquidación & \textnormal{p\_fondo\_id}, \textnormal{p\_usuario\_id} \\
     \addlinespace
-    \texttt{sp\_asignar\_factura\_gira} & Vincula comprobantes a giras operativas validando límites semanales por categoría & \texttt{p\_gira\_id}, \texttt{p\_factura\_id}, \texttt{p\_categoria} \\
+    \textnormal{sp\_asignar\_factura\_gira} & Vincula comprobantes a giras operativas validando límites semanales por categoría & \textnormal{p\_gira\_id}, \textnormal{p\_factura\_id}, \textnormal{p\_categoria} \\
     \addlinespace
-    \texttt{sp\_procesar\_carga\_fel} & Inserta masivamente facturas validadas desde archivos XML evitando duplicidad de UUID & \texttt{p\_xml\_data}, \texttt{p\_usuario\_id} \\
+    \textnormal{sp\_procesar\_carga\_fel} & Inserta masivamente facturas validadas desde archivos XML evitando duplicidad de UUID & \textnormal{p\_xml\_data}, \textnormal{p\_usuario\_id} \\
     \addlinespace
-    \texttt{sp\_generar\_cierre\_mes} & Efectúa el balance mensual de sumas y saldos bloqueando modificaciones al período contable & \texttt{p\_anio}, \texttt{p\_mes} \\
+    \textnormal{sp\_generar\_cierre\_mes} & Efectúa el balance mensual de sumas y saldos bloqueando modificaciones al período contable & \textnormal{p\_anio}, \textnormal{p\_mes} \\
 \end{xltabular}
 }
 
@@ -1171,13 +1209,13 @@ En esta sección se presenta el inventario lógico de objetos de PostgreSQL defi
     \bottomrule
     \endlastfoot
 
-    \texttt{vw\_estado\_cheques} & Resumen consolidado de cheques cobrados, pendientes y rechazados con totales por banco & Cheques Posfechados \\
+    \textnormal{vw\_estado\_cheques} & Resumen consolidado de cheques cobrados, pendientes y rechazados con totales por banco & Cheques Posfechados \\
     \addlinespace
-    \texttt{vw\_arqueo\_caja\_chica} & Arqueo en tiempo real indicando asignación inicial, egresos acumulados y disponible & Caja Chica \\
+    \textnormal{vw\_arqueo\_caja\_chica} & Arqueo en tiempo real indicando asignación inicial, egresos acumulados y disponible & Caja Chica \\
     \addlinespace
-    \texttt{vw\_cartera\_proveedores} & Estado de cuenta por proveedor detallando saldo vencido y crédito disponible & Proveedores \\
+    \textnormal{vw\_cartera\_proveedores} & Estado de cuenta por proveedor detallando saldo vencido y crédito disponible & Proveedores \\
     \addlinespace
-    \texttt{vw\_balance\_comprobacion} & Vista acumulativa del saldo deudor y acreedor por cuenta de nomenclatura contable & Reportes \\
+    \textnormal{vw\_balance\_comprobacion} & Vista acumulativa del saldo deudor y acreedor por cuenta de nomenclatura contable & Reportes \\
 \end{xltabular}
 }
 
@@ -1233,7 +1271,7 @@ A continuación, se presenta el esquema relacional documentado para los módulos
     \end{minipage}
 \end{figure}
 
-\subsection{4.4 Pruebas Realizadas}
+\subsection{Pruebas Realizadas}
 \label{sec:cap4_pruebas_realizadas}
 
 La validación funcional se organizó en diez aspectos de negocio de los módulos Proveedores, Viáticos y Nomenclatura contable. Para cada aspecto se definieron siete pruebas concretas relacionadas con una operación del sistema, por lo que se evaluaron 70 casos en total. Cada tabla contiene el aspecto, la prueba específica, los datos o condición de entrada, el resultado esperado y el resultado obtenido.

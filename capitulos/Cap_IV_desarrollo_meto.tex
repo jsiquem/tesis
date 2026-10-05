@@ -1,21 +1,25 @@
 \section{Capítulo IV - Desarrollo de la Metodología}
 \label{cap:capitulo4}
 
+\Needspace{7\baselineskip}
 \subsection{Formularios Creados por Módulo}
 
 El presente capítulo documenta los formularios desarrollados para el Sistema Web de gestión contable, detallando la interfaz operativa, roles de acceso, endpoints de navegación, operaciones del ciclo de vida de datos (CRUD) y las validaciones críticas implementadas en el frontend (Angular) y backend (Python/FastAPI).
 
+\Needspace{7\baselineskip}
 \subsubsection{Formularios por Módulo Operativo}
 
 % =========================================================================
 % MÓDULO 1: FACTURAS FEL/SAT
 % =========================================================================
+\Needspace{7\baselineskip}
 \subsubsection{Módulo: Facturas FEL/SAT}
 
 {
 \small
 \setstretch{1.15}
 \setlength{\parindent}{0pt}
+\Needspace{8\baselineskip}
 \begin{xltabular}{\linewidth}{
     >{\raggedright\arraybackslash}p{1.8cm} 
     >{\raggedright\arraybackslash}p{2.8cm} 
@@ -56,6 +60,7 @@ El presente capítulo documenta los formularios desarrollados para el Sistema We
 \end{xltabular}
 }
 
+\Needspace{5\baselineskip}
 \paragraph{Formulario F-FEL-01: Carga Masiva y Procesamiento FEL}
 \noindent\textbf{Objetivo:} Cargar e importar comprobantes tributarios electrónicos (XML o Excel) verificando la estructura del DTE y evitando la duplicidad de registros. \\[0.3em]
 \textbf{Ubicación / Ruta:} Módulo Facturas FEL $\rightarrow$ Importación (\texttt{/facturas-fel}). \\[0.3em]
@@ -75,6 +80,7 @@ El presente capítulo documenta los formularios desarrollados para el Sistema We
 % =========================================================================
 % MÓDULO 2: CHEQUES POSFECHADOS
 % =========================================================================
+\Needspace{5\baselineskip}
 \paragraph{Formulario F-FEL-02: Catálogo FEL}
 \noindent\textbf{Objetivo:} Consultar, filtrar y revisar las facturas importadas desde la SAT.\\
 \noindent\textbf{Operación:} La pantalla permite ejecutar la operación registrada en la tabla de formularios y conservar el resultado para consulta o seguimiento.\\
@@ -85,6 +91,7 @@ El presente capítulo documenta los formularios desarrollados para el Sistema We
     \label{fig:cap4_ficha_f_fel_02}
     \includegraphics[width=0.86\linewidth]{capturas_reales/anotadas_formularios/f_fel_02.png}
 \end{figure}
+\Needspace{5\baselineskip}
 \paragraph{Formulario F-FEL-03: Clasificación Contable}
 \noindent\textbf{Objetivo:} Asignar una cuenta de nomenclatura a una factura que no fue reconocida automáticamente.\\
 \noindent\textbf{Operación:} La pantalla permite ejecutar la operación registrada en la tabla de formularios y conservar el resultado para consulta o seguimiento.\\
@@ -95,6 +102,7 @@ El presente capítulo documenta los formularios desarrollados para el Sistema We
     \label{fig:cap4_ficha_f_fel_03}
     \includegraphics[width=0.86\linewidth]{capturas_reales/anotadas_formularios/f_fel_03.png}
 \end{figure}
+\Needspace{5\baselineskip}
 \paragraph{Formulario F-FEL-04: Anulación / Borrado}
 \noindent\textbf{Objetivo:} Marcar como anulada una factura duplicada o retirar un comprobante no válido.\\
 \noindent\textbf{Operación:} La pantalla permite ejecutar la operación registrada en la tabla de formularios y conservar el resultado para consulta o seguimiento.\\
@@ -105,12 +113,14 @@ El presente capítulo documenta los formularios desarrollados para el Sistema We
     \label{fig:cap4_ficha_f_fel_04}
     \includegraphics[width=0.86\linewidth]{capturas_reales/anotadas_formularios/f_fel_04.png}
 \end{figure}
+\Needspace{7\baselineskip}
 \subsubsection{Módulo: Cheques Posfechados}
 
 {
 \small
 \setstretch{1.15}
 \setlength{\parindent}{0pt}
+\Needspace{8\baselineskip}
 \begin{xltabular}{\linewidth}{
     >{\raggedright\arraybackslash}p{1.8cm} 
     >{\raggedright\arraybackslash}p{2.8cm} 
@@ -147,6 +157,7 @@ El presente capítulo documenta los formularios desarrollados para el Sistema We
 \end{xltabular}
 }
 
+\Needspace{5\baselineskip}
 \paragraph{Formulario F-CHEQ-01: Gestión Integrada de Cheques Posfechados}
 \noindent\textbf{Objetivo:} Registrar cheques de clientes, asociar banco receptor, dar seguimiento a fechas de depósito y vincular el pago a facturas emitidas. \\[0.3em]
 \textbf{Ubicación / Ruta:} Módulo Cheques $\rightarrow$ Control de Cheques (\texttt{/cheques}). \\[0.3em]
@@ -166,6 +177,7 @@ El presente capítulo documenta los formularios desarrollados para el Sistema We
 % =========================================================================
 % MÓDULO 3: CAJA CHICA
 % =========================================================================
+\Needspace{5\baselineskip}
 \paragraph{Formulario F-CHEQ-02: Registro de Banco}
 \noindent\textbf{Objetivo:} Crear y administrar los bancos emisores y receptores asociados a los cheques.\\
 \noindent\textbf{Operación:} La pantalla permite ejecutar la operación registrada en la tabla de formularios y conservar el resultado para consulta o seguimiento.\\
@@ -176,12 +188,14 @@ El presente capítulo documenta los formularios desarrollados para el Sistema We
     \label{fig:cap4_ficha_f_cheq_02}
     \includegraphics[width=0.86\linewidth]{capturas_reales/anotadas_formularios/f_cheq_02.png}
 \end{figure}
+\Needspace{7\baselineskip}
 \subsubsection{Módulo: Caja Chica}
 
 {
 \small
 \setstretch{1.15}
 \setlength{\parindent}{0pt}
+\Needspace{8\baselineskip}
 \begin{xltabular}{\linewidth}{
     >{\raggedright\arraybackslash}p{1.8cm} 
     >{\raggedright\arraybackslash}p{2.8cm} 
@@ -222,6 +236,7 @@ El presente capítulo documenta los formularios desarrollados para el Sistema We
 \end{xltabular}
 }
 
+\Needspace{5\baselineskip}
 \paragraph{Formulario F-CAJA-02: Registro de Recibo / Egreso de Caja Chica}
 \noindent\textbf{Objetivo:} Registrar egresos del fondo fijo respaldados por vales o recibos internos, sugiriendo o clasificando la cuenta contable de gasto. \\[0.3em]
 \textbf{Ubicación / Ruta:} Módulo Caja Chica $\rightarrow$ Nuevo Recibo (\texttt{/caja-chica}). \\[0.3em]
@@ -241,6 +256,7 @@ El presente capítulo documenta los formularios desarrollados para el Sistema We
 % =========================================================================
 % MÓDULO 4: VIÁTICOS
 % =========================================================================
+\Needspace{5\baselineskip}
 \paragraph{Formulario F-CAJA-01: Asignar Factura FEL}
 \noindent\textbf{Objetivo:} Vincular una factura FEL al fondo activo de Caja Chica.\\
 \noindent\textbf{Operación:} La pantalla permite ejecutar la operación registrada en la tabla de formularios y conservar el resultado para consulta o seguimiento.\\
@@ -251,6 +267,7 @@ El presente capítulo documenta los formularios desarrollados para el Sistema We
     \label{fig:cap4_ficha_f_caja_01}
     \includegraphics[width=0.86\linewidth]{capturas_reales/anotadas_formularios/f_caja_01.png}
 \end{figure}
+\Needspace{5\baselineskip}
 \paragraph{Formulario F-CAJA-03: Generación Partida}
 \noindent\textbf{Objetivo:} Crear y revisar el asiento contable de la liquidación del fondo.\\
 \noindent\textbf{Operación:} La pantalla permite ejecutar la operación registrada en la tabla de formularios y conservar el resultado para consulta o seguimiento.\\
@@ -261,6 +278,7 @@ El presente capítulo documenta los formularios desarrollados para el Sistema We
     \label{fig:cap4_ficha_f_caja_03}
     \includegraphics[width=0.86\linewidth]{capturas_reales/anotadas_formularios/f_caja_03.png}
 \end{figure}
+\Needspace{5\baselineskip}
 \paragraph{Formulario F-CAJA-04: Resumen de Fondo}
 \noindent\textbf{Objetivo:} Consultar e imprimir los movimientos y el resumen del período.\\
 \noindent\textbf{Operación:} La pantalla permite ejecutar la operación registrada en la tabla de formularios y conservar el resultado para consulta o seguimiento.\\
@@ -271,12 +289,14 @@ El presente capítulo documenta los formularios desarrollados para el Sistema We
     \label{fig:cap4_ficha_f_caja_04}
     \includegraphics[width=0.86\linewidth]{capturas_reales/anotadas_formularios/f_caja_04.png}
 \end{figure}
+\Needspace{7\baselineskip}
 \subsubsection{Módulo: Viáticos}
 
 {
 \small
 \setstretch{1.15}
 \setlength{\parindent}{0pt}
+\Needspace{8\baselineskip}
 \begin{xltabular}{\linewidth}{
     >{\raggedright\arraybackslash}p{1.8cm} 
     >{\raggedright\arraybackslash}p{2.8cm} 
@@ -315,6 +335,7 @@ El presente capítulo documenta los formularios desarrollados para el Sistema We
 \end{xltabular}
 }
 
+\Needspace{5\baselineskip}
 \paragraph{Formulario F-VIAT-02: Asignación de Facturas de Viáticos}
 \noindent\textbf{Objetivo:} Asociar un comprobante de gasto a un colaborador, territorio, gira y categoría de viático (Viáticos, Movilidad o Actividades). \\[0.3em]
 \textbf{Ubicación / Ruta:} Viáticos $\rightarrow$ Asignación de facturas (\texttt{/viaticos/asignacion}). \\[0.3em]
@@ -334,6 +355,7 @@ El presente capítulo documenta los formularios desarrollados para el Sistema We
 % =========================================================================
 % MÓDULO 5: PROVEEDORES
 % =========================================================================
+\Needspace{5\baselineskip}
 \paragraph{Formulario F-VIAT-01: Gestión de Giras}
 \noindent\textbf{Objetivo:} Asignar colaborador, territorio y semana operativa a una gira.\\
 \noindent\textbf{Operación:} La pantalla permite ejecutar la operación registrada en la tabla de formularios y conservar el resultado para consulta o seguimiento.\\
@@ -344,6 +366,7 @@ El presente capítulo documenta los formularios desarrollados para el Sistema We
     \label{fig:cap4_ficha_f_viat_01}
     \includegraphics[width=0.86\linewidth]{capturas_reales/anotadas_formularios/f_viat_01.png}
 \end{figure}
+\Needspace{5\baselineskip}
 \paragraph{Formulario F-VIAT-03: Generación Partida}
 \noindent\textbf{Objetivo:} Construir la partida semanal o transitoria de una liquidación.\\
 \noindent\textbf{Operación:} La pantalla permite ejecutar la operación registrada en la tabla de formularios y conservar el resultado para consulta o seguimiento.\\
@@ -354,12 +377,14 @@ El presente capítulo documenta los formularios desarrollados para el Sistema We
     \label{fig:cap4_ficha_f_viat_03}
     \includegraphics[width=0.86\linewidth]{capturas_reales/anotadas_formularios/f_viat_03.png}
 \end{figure}
+\Needspace{7\baselineskip}
 \subsubsection{Módulo: Proveedores}
 
 {
 \small
 \setstretch{1.15}
 \setlength{\parindent}{0pt}
+\Needspace{8\baselineskip}
 \begin{xltabular}{\linewidth}{
     >{\raggedright\arraybackslash}p{1.8cm} 
     >{\raggedright\arraybackslash}p{2.8cm} 
@@ -398,6 +423,7 @@ El presente capítulo documenta los formularios desarrollados para el Sistema We
 \end{xltabular}
 }
 
+\Needspace{5\baselineskip}
 \paragraph{Formulario F-PROV-01: Registro y Configuración de Proveedores}
 \noindent\textbf{Objetivo:} Crear y mantener el registro maestro de proveedores con su NIT, nombre comercial, retenciones autorizadas y cuenta contable por defecto. \\[0.3em]
 \textbf{Ubicación / Ruta:} Módulo Proveedores $\rightarrow$ Nuevo proveedor (\texttt{/proveedores}). \\[0.3em]
@@ -417,6 +443,7 @@ El presente capítulo documenta los formularios desarrollados para el Sistema We
 % =========================================================================
 % MÓDULO 6: CALENDARIO OPERATIVO
 % =========================================================================
+\Needspace{5\baselineskip}
 \paragraph{Formulario F-PROV-02: Cartera y Facturas}
 \noindent\textbf{Objetivo:} Consultar saldos, días de crédito, retenciones e historial de facturas.\\
 \noindent\textbf{Operación:} La pantalla permite ejecutar la operación registrada en la tabla de formularios y conservar el resultado para consulta o seguimiento.\\
@@ -427,6 +454,7 @@ El presente capítulo documenta los formularios desarrollados para el Sistema We
     \label{fig:cap4_ficha_f_prov_02}
     \includegraphics[width=0.86\linewidth]{capturas_reales/anotadas_formularios/f_prov_02.png}
 \end{figure}
+\Needspace{5\baselineskip}
 \paragraph{Formulario F-PROV-03: Generación Partida}
 \noindent\textbf{Objetivo:} Crear la partida dentro del mes o la partida transitoria del proveedor.\\
 \noindent\textbf{Operación:} La pantalla permite ejecutar la operación registrada en la tabla de formularios y conservar el resultado para consulta o seguimiento.\\
@@ -437,12 +465,14 @@ El presente capítulo documenta los formularios desarrollados para el Sistema We
     \label{fig:cap4_ficha_f_prov_03}
     \includegraphics[width=0.86\linewidth]{capturas_reales/anotadas_formularios/f_prov_03.png}
 \end{figure}
+\Needspace{7\baselineskip}
 \subsubsection{Módulo: Calendario Operativo}
 
 {
 \small
 \setstretch{1.15}
 \setlength{\parindent}{0pt}
+\Needspace{8\baselineskip}
 \begin{xltabular}{\linewidth}{
     >{\raggedright\arraybackslash}p{1.8cm} 
     >{\raggedright\arraybackslash}p{2.8cm} 
@@ -479,6 +509,7 @@ El presente capítulo documenta los formularios desarrollados para el Sistema We
 \end{xltabular}
 }
 
+\Needspace{5\baselineskip}
 \paragraph{Formulario F-CAL-02: Programación de Actividades y Eventos}
 \noindent\textbf{Objetivo:} Programar eventos financieros como fechas de depósito de cheques posfechados, vencimiento de facturas de proveedores o inicio de giras. \\[0.3em]
 \textbf{Ubicación / Ruta:} Módulo Calendario $\rightarrow$ Nueva Actividad (\texttt{/calendario}). \\[0.3em]
@@ -498,6 +529,7 @@ El presente capítulo documenta los formularios desarrollados para el Sistema We
 % =========================================================================
 % MÓDULO 7: NOMENCLATURA CONTABLE
 % =========================================================================
+\Needspace{5\baselineskip}
 \paragraph{Formulario F-CAL-01: Vista Calendario}
 \noindent\textbf{Objetivo:} Consultar eventos, vencimientos, pagos, depósitos y giras programadas.\\
 \noindent\textbf{Operación:} La pantalla permite ejecutar la operación registrada en la tabla de formularios y conservar el resultado para consulta o seguimiento.\\
@@ -508,12 +540,14 @@ El presente capítulo documenta los formularios desarrollados para el Sistema We
     \label{fig:cap4_ficha_f_cal_01}
     \includegraphics[width=0.86\linewidth]{capturas_reales/anotadas_formularios/f_cal_01.png}
 \end{figure}
+\Needspace{7\baselineskip}
 \subsubsection{Módulo: Nomenclatura Contable}
 
 {
 \small
 \setstretch{1.15}
 \setlength{\parindent}{0pt}
+\Needspace{8\baselineskip}
 \begin{xltabular}{\linewidth}{
     >{\raggedright\arraybackslash}p{1.8cm} 
     >{\raggedright\arraybackslash}p{2.8cm} 
@@ -550,6 +584,7 @@ El presente capítulo documenta los formularios desarrollados para el Sistema We
 \end{xltabular}
 }
 
+\Needspace{5\baselineskip}
 \paragraph{Formulario F-NOM-02: Formulario de Cuenta Contable}
 \noindent\textbf{Objetivo:} Crear y actualizar la estructura del plan de cuentas (Nomenclatura) indicando el código jerárquico y la naturaleza contable (Debe / Haber). \\[0.3em]
 \textbf{Ubicación / Ruta:} Nomenclatura $\rightarrow$ Nueva Cuenta / Editar (\texttt{/nomenclatura}). \\[0.3em]
@@ -563,6 +598,7 @@ El presente capítulo documenta los formularios desarrollados para el Sistema We
     \label{fig:cap4_ficha_f_nom_02}
     \includegraphics[width=0.86\linewidth]{capturas_reales/anotadas_formularios/f_nom_02.png}
 \end{figure}
+\Needspace{5\baselineskip}
 \paragraph{Formulario F-NOM-01: Catálogo Cuentas}
 \noindent\textbf{Objetivo:} Listar, buscar y filtrar las cuentas contables activas e inactivas.\\
 \noindent\textbf{Operación:} La pantalla permite ejecutar la operación registrada en la tabla de formularios y conservar el resultado para consulta o seguimiento.\\
@@ -573,8 +609,10 @@ El presente capítulo documenta los formularios desarrollados para el Sistema We
     \label{fig:cap4_ficha_f_nom_01}
     \includegraphics[width=0.86\linewidth]{capturas_reales/anotadas_formularios/f_nom_01.png}
 \end{figure}
+\Needspace{7\baselineskip}
 \subsubsection{Módulo: Autenticación y Gestión de Usuarios}
 La Tabla~\ref{tab:cap4_auth_resumen} resume el formulario de acceso y la administración de credenciales y roles.
+\Needspace{8\baselineskip}
 \begin{xltabular}{\linewidth}{p{1.8cm}p{3.0cm}X p{2.5cm}p{1.0cm}p{2.0cm}}
 \caption{Resumen de formularios - Módulo: Autenticación y gestión de usuarios}\label{tab:cap4_auth_resumen}\\
 \toprule
@@ -593,6 +631,7 @@ F-AUTH-02 & Usuarios y roles & Registrar usuarios y asignar permisos de acceso &
 
 \end{xltabular}
 
+\Needspace{5\baselineskip}
 \paragraph{Formulario F-AUTH-01: Inicio de sesión}
 \noindent\textbf{Objetivo:} Validar el usuario y la contraseña antes de permitir el acceso al Panel principal. \textbf{Campos y validaciones:} usuario requerido, contraseña requerida y mensaje controlado para credenciales inválidas. \textbf{Flujo:} ingresar credenciales $\rightarrow$ presionar ``Ingresar al sistema'' $\rightarrow$ validar sesión $\rightarrow$ mostrar el Panel principal.
 
@@ -603,6 +642,7 @@ F-AUTH-02 & Usuarios y roles & Registrar usuarios y asignar permisos de acceso &
     \includegraphics[width=0.96\linewidth]{capturas_reales/anotadas_formularios/f_auth_01.png}
 \end{figure}
 
+\Needspace{5\baselineskip}
 \paragraph{Formulario F-AUTH-02: Usuarios y roles}
 \noindent\textbf{Objetivo:} Registrar usuarios y asignar los permisos correspondientes a cada rol.\\
 \noindent\textbf{Operación:} La pantalla permite ejecutar la operación registrada en la tabla de formularios y conservar el resultado para consulta o seguimiento.\\
@@ -613,8 +653,10 @@ F-AUTH-02 & Usuarios y roles & Registrar usuarios y asignar permisos de acceso &
     \label{fig:cap4_ficha_f_auth_02}
     \includegraphics[width=0.86\linewidth]{capturas_reales/anotadas_formularios/f_auth_02.png}
 \end{figure}
+\Needspace{7\baselineskip}
 \subsubsection{Módulo: Reportes Operativos y Financieros}
 La Tabla~\ref{tab:cap4_reportes_resumen} documenta las funciones de consulta y generación de reportes autorizados.
+\Needspace{8\baselineskip}
 \begin{xltabular}{\linewidth}{p{1.8cm}p{3.0cm}X p{2.5cm}p{1.0cm}p{2.0cm}}
 \caption{Resumen de formularios - Módulo: Reportes operativos y financieros}\label{tab:cap4_reportes_resumen}\\
 \toprule
@@ -633,6 +675,7 @@ F-REP-02 & Resumen de Caja chica & Revisar e imprimir los movimientos del fondo 
 
 \end{xltabular}
 
+\Needspace{5\baselineskip}
 \paragraph{Formulario F-REP-01: Consulta de reportes}
 \noindent\textbf{Objetivo:} Presentar información consolidada para revisión operativa y financiera. \textbf{Campos y validaciones:} período requerido, módulo opcional y estado válido. \textbf{Flujo:} seleccionar filtros $\rightarrow$ consultar $\rightarrow$ revisar resultados $\rightarrow$ imprimir o guardar el reporte autorizado.
 
@@ -642,6 +685,7 @@ F-REP-02 & Resumen de Caja chica & Revisar e imprimir los movimientos del fondo 
     \label{fig:cap4_reportes_pantalla}
     \includegraphics[width=0.96\linewidth]{capturas_reales/anotadas_formularios/f_rep_01.png}
 \end{figure}
+\Needspace{5\baselineskip}
 \paragraph{Formulario F-REP-02: Resumen de Caja chica}
 \noindent\textbf{Objetivo:} Revisar e imprimir los movimientos de Caja Chica desde reportes.\\
 \noindent\textbf{Operación:} La pantalla permite ejecutar la operación registrada en la tabla de formularios y conservar el resultado para consulta o seguimiento.\\
@@ -652,6 +696,7 @@ F-REP-02 & Resumen de Caja chica & Revisar e imprimir los movimientos del fondo 
     \label{fig:cap4_ficha_f_rep_02}
     \includegraphics[width=0.86\linewidth]{capturas_reales/anotadas_formularios/f_rep_02.png}
 \end{figure}
+\Needspace{7\baselineskip}
 \subsection{Fragmentos de Código Fuente}
 \label{sec:cap4_fragmentos_codigo}
 
@@ -660,6 +705,7 @@ De conformidad con los lineamientos metodológicos, en este apartado se document
 % =========================================================================
 % FRAGMENTO 1: FACTURAS FEL (PYTHON/FASTAPI)
 % =========================================================================
+\Needspace{7\baselineskip}
 \subsubsection{Fragmento 1: Procesamiento y Validación de DTE FEL}
 \noindent\textbf{Módulo:} Facturas FEL/SAT \\
 \textbf{Lenguaje:} Python (FastAPI)
@@ -709,6 +755,7 @@ async def importar_xml_fel(file: UploadFile = File(...), db: Session = Depends(g
 % =========================================================================
 % FRAGMENTO 2: CHEQUES POSFECHADOS (PYTHON/FASTAPI)
 % =========================================================================
+\Needspace{7\baselineskip}
 \subsubsection{Fragmento 2: Registro y Validación de Cheques Posfechados}
 \noindent\textbf{Módulo:} Cheques Posfechados \\
 \textbf{Lenguaje:} Python (FastAPI)
@@ -754,6 +801,7 @@ def crear_cheque(cheque: ChequeCreate, db: Session = Depends(get_db)):
 % =========================================================================
 % FRAGMENTO 3: CAJA CHICA (PYTHON/FASTAPI)
 % =========================================================================
+\Needspace{7\baselineskip}
 \subsubsection{Fragmento 3: Control de Disponible y Registro de Egresos}
 \noindent\textbf{Módulo:} Caja Chica \\
 \textbf{Lenguaje:} Python (FastAPI)
@@ -800,6 +848,7 @@ def registrar_recibo(recibo: ReciboCreate, db: Session = Depends(get_db)):
 % =========================================================================
 % FRAGMENTO 4: VIÁTICOS (TYPESCRIPT/ANGULAR)
 % =========================================================================
+\Needspace{7\baselineskip}
 \subsubsection{Fragmento 4: Regla de Asignación por Categoría de Viático}
 \noindent\textbf{Módulo:} Viáticos \\
 \textbf{Lenguaje:} TypeScript (Angular)
@@ -840,6 +889,7 @@ validarCategoriaGasto(semanaGira: number, categoriaSeleccionada: string): boolea
 % =========================================================================
 % FRAGMENTO 5: PROVEEDORES (PYTHON/FASTAPI)
 % =========================================================================
+\Needspace{7\baselineskip}
 \subsubsection{Fragmento 5: Alta de Proveedores y Asociación Contable}
 \noindent\textbf{Módulo:} Proveedores \\
 \textbf{Lenguaje:} Python (FastAPI)
@@ -886,6 +936,7 @@ def registrar_proveedor(prov: ProveedorCreate, db: Session = Depends(get_db)):
 % =========================================================================
 % FRAGMENTO 6: CALENDARIO OPERATIVO (TYPESCRIPT/ANGULAR)
 % =========================================================================
+\Needspace{7\baselineskip}
 \subsubsection{Fragmento 6: Programación Dinámica de Eventos Financieros}
 \noindent\textbf{Módulo:} Calendario Operativo \\
 \textbf{Lenguaje:} TypeScript (Angular)
@@ -932,6 +983,7 @@ agregarEventoCalendario(): void {
 % =========================================================================
 % FRAGMENTO 7: NOMENCLATURA CONTABLE (PYTHON/FASTAPI)
 % =========================================================================
+\Needspace{7\baselineskip}
 \subsubsection{Fragmento 7: Validación de Estructura de Cuentas Contables}
 \noindent\textbf{Módulo:} Nomenclatura Contable \\
 \textbf{Lenguaje:} Python (FastAPI)
@@ -978,6 +1030,7 @@ def crear_cuenta(cuenta: CuentaCreate, db: Session = Depends(get_db)):
 % =========================================================================
 % FRAGMENTO 8: GESTIÓN DE USUARIOS (PYTHON/FASTAPI)
 % =========================================================================
+\Needspace{7\baselineskip}
 \subsubsection{Fragmento 8: Autenticación y Hashing de Credenciales}
 \noindent\textbf{Módulo:} Gestión de Usuarios y Seguridad \\
 \textbf{Lenguaje:} Python (FastAPI)
@@ -1023,17 +1076,20 @@ def registrar_usuario(usuario: UsuarioCreate, db: Session = Depends(get_db)):
     \end{minipage}
 \end{figure}
 
+\Needspace{7\baselineskip}
 \subsection{Objetos de la Base de Datos}
 \label{sec:cap4_objetos_bd}
 
 En esta sección se presenta el inventario lógico de objetos de PostgreSQL definido para el prototipo del sistema web. El inventario comprende tablas, procedimientos almacenados, vistas y disparadores (\textit{triggers}) relacionados con la integridad y automatización de los procesos contables.
 
+\Needspace{7\baselineskip}
 \subsubsection{Listado de Tablas}
 
 {
 \small
 \setstretch{1.15}
 \setlength{\parindent}{0pt}
+\Needspace{8\baselineskip}
 \begin{xltabular}{\linewidth}{
     >{\raggedright\arraybackslash}p{3.2cm} 
     >{\raggedright\arraybackslash}X 
@@ -1076,12 +1132,14 @@ En esta sección se presenta el inventario lógico de objetos de PostgreSQL defi
 \end{xltabular}
 }
 
+\Needspace{7\baselineskip}
 \subsubsection{Listado de Procedimientos Almacenados}
 
 {
 \small
 \setstretch{1.15}
 \setlength{\parindent}{0pt}
+\Needspace{8\baselineskip}
 \begin{xltabular}{\linewidth}{
     >{\raggedright\arraybackslash}p{3.8cm} 
     >{\raggedright\arraybackslash}X 
@@ -1113,12 +1171,14 @@ En esta sección se presenta el inventario lógico de objetos de PostgreSQL defi
 \end{xltabular}
 }
 
+\Needspace{7\baselineskip}
 \subsubsection{Listado de Vistas}
 
 {
 \small
 \setstretch{1.15}
 \setlength{\parindent}{0pt}
+\Needspace{8\baselineskip}
 \begin{xltabular}{\linewidth}{
     >{\raggedright\arraybackslash}p{3.2cm} 
     >{\raggedright\arraybackslash}X 
@@ -1150,12 +1210,14 @@ En esta sección se presenta el inventario lógico de objetos de PostgreSQL defi
 \end{xltabular}
 }
 
+\Needspace{7\baselineskip}
 \subsubsection{Listado de Triggers (Disparadores)}
 
 {
 \small
 \setstretch{1.15}
 \setlength{\parindent}{0pt}
+\Needspace{8\baselineskip}
 \begin{xltabular}{\linewidth}{
     >{\raggedright\arraybackslash}p{3.5cm} 
     >{\raggedright\arraybackslash}p{2.8cm} 
@@ -1185,6 +1247,7 @@ En esta sección se presenta el inventario lógico de objetos de PostgreSQL defi
 \end{xltabular}
 }
 
+\Needspace{7\baselineskip}
 \subsubsection{Esquema Entidad-Relación (Diagrama E-R)}
 
 A continuación, se presenta el esquema relacional documentado para los módulos del sistema, ilustrando las relaciones, llaves primarias y llaves foráneas consideradas en el diseño.
@@ -1201,6 +1264,7 @@ A continuación, se presenta el esquema relacional documentado para los módulos
     \end{minipage}
 \end{figure}
 
+\Needspace{7\baselineskip}
 \subsection{Pruebas Realizadas}
 \label{sec:cap4_pruebas_realizadas}
 
@@ -1208,9 +1272,11 @@ La validación funcional se organizó en diez aspectos de negocio de los módulo
 
 Los resultados fueron consolidados a partir de las tablas individuales. Se obtuvieron 64 casos OK y 6 casos Falló, equivalentes a una efectividad global de 91.4\%. Los casos Falló se conservaron en la evaluación para mostrar las oportunidades de mejora detectadas durante la revisión funcional.
 
+\Needspace{5\baselineskip}
 \paragraph{Clasificación de las pruebas}
 Las pruebas unitarias (U) verifican una regla o función aislada. Las pruebas de integración (INT) comprueban el intercambio de información entre componentes o módulos. Las pruebas de sistema (SIS) recorren una operación completa. Las pruebas de aceptación (ACEP) verifican que el resultado sea comprensible y útil para la necesidad operativa.
 
+\Needspace{8\baselineskip}
 \begin{xltabular}{\linewidth}{p{1.6cm}X p{3.1cm}p{3.1cm}}
 
 \caption{Clasificación de pruebas aplicada al prototipo}\label{tab:cap4_tipos_prueba}\\
@@ -1231,10 +1297,12 @@ SIS & Validar el flujo completo de una operación. & Módulo de extremo a extrem
 ACEP & Confirmar el cumplimiento de la necesidad operativa. & Flujo utilizado por el responsable. & El resultado es comprensible y utilizable.\\\\
 \end{xltabular}
 
+\Needspace{7\baselineskip}
 \subsubsection{Aspecto 01: Registro de proveedores por NIT}
 La validación del aspecto se realizó mediante siete pruebas específicas. Se aprobaron 7 de 7 casos, equivalente a 100.0\% de aprobación.
 
 \begingroup\fontsize{8}{10}\selectfont\renewcommand{\arraystretch}{1.25}\setlength{\tabcolsep}{2pt}
+\Needspace{8\baselineskip}
 \begin{xltabular}{\linewidth}{@{}
 >{\raggedright\arraybackslash}p{1.35cm}
 >{\raggedright\arraybackslash}p{1.25cm}
@@ -1276,6 +1344,7 @@ PROV-01-007 & Proveedores & ACEP & Modificar proveedor existente & Abrir un prov
 \end{xltabular}
 \endgroup
 \begingroup\fontsize{8}{9}\selectfont\setlength{\tabcolsep}{4pt}
+\Needspace{8\baselineskip}
 \begin{xltabular}{\linewidth}{@{}p{4.0cm}p{2.0cm}p{2.0cm}p{2.2cm}p{2.2cm}@{}}
 
 \caption{Resumen de las pruebas del aspecto 01: Registro de proveedores por NIT.}\label{tab:cap4_resumen_aspecto_01}\\
@@ -1298,10 +1367,12 @@ Registro de proveedores por NIT & 7 & 7 & 0 & 100.0\%\\
 \end{tikzpicture}
 \end{figure}
 
+\Needspace{7\baselineskip}
 \subsubsection{Aspecto 02: Cálculo y registro del IVA crédito}
 La validación del aspecto se realizó mediante siete pruebas específicas. Se aprobaron 7 de 7 casos, equivalente a 100.0\% de aprobación.
 
 \begingroup\fontsize{8}{10}\selectfont\renewcommand{\arraystretch}{1.25}\setlength{\tabcolsep}{2pt}
+\Needspace{8\baselineskip}
 \begin{xltabular}{\linewidth}{@{}
 >{\raggedright\arraybackslash}p{1.35cm}
 >{\raggedright\arraybackslash}p{1.25cm}
@@ -1343,6 +1414,7 @@ PROV-02-007 & Proveedores & ACEP & Factura con descuento e IVA & Revisar una fac
 \end{xltabular}
 \endgroup
 \begingroup\fontsize{8}{9}\selectfont\setlength{\tabcolsep}{4pt}
+\Needspace{8\baselineskip}
 \begin{xltabular}{\linewidth}{@{}p{4.0cm}p{2.0cm}p{2.0cm}p{2.2cm}p{2.2cm}@{}}
 
 \caption{Resumen de las pruebas del aspecto 02: Cálculo y registro del IVA crédito.}\label{tab:cap4_resumen_aspecto_02}\\
@@ -1365,10 +1437,12 @@ Cálculo y registro del IVA crédito & 7 & 7 & 0 & 100.0\%\\
 \end{tikzpicture}
 \end{figure}
 
+\Needspace{7\baselineskip}
 \subsubsection{Aspecto 03: Aplicación de retenciones y cuenta contable}
 La validación del aspecto se realizó mediante siete pruebas específicas. Se aprobaron 6 de 7 casos, equivalente a 85.7\% de aprobación.
 
 \begingroup\fontsize{8}{10}\selectfont\renewcommand{\arraystretch}{1.25}\setlength{\tabcolsep}{2pt}
+\Needspace{8\baselineskip}
 \begin{xltabular}{\linewidth}{@{}
 >{\raggedright\arraybackslash}p{1.35cm}
 >{\raggedright\arraybackslash}p{1.25cm}
@@ -1410,6 +1484,7 @@ PROV-03-007 & Proveedores & ACEP & Retención combinada IVA e ISR & Consultar un
 \end{xltabular}
 \endgroup
 \begingroup\fontsize{8}{9}\selectfont\setlength{\tabcolsep}{4pt}
+\Needspace{8\baselineskip}
 \begin{xltabular}{\linewidth}{@{}p{4.0cm}p{2.0cm}p{2.0cm}p{2.2cm}p{2.2cm}@{}}
 
 \caption{Resumen de las pruebas del aspecto 03: Aplicación de retenciones y cuenta contable.}\label{tab:cap4_resumen_aspecto_03}\\
@@ -1432,10 +1507,12 @@ Aplicación de retenciones y cuenta contable & 7 & 6 & 1 & 85.7\%\\
 \end{tikzpicture}
 \end{figure}
 
+\Needspace{7\baselineskip}
 \subsubsection{Aspecto 04: Generación de partidas por vencimiento}
 La validación del aspecto se realizó mediante siete pruebas específicas. Se aprobaron 6 de 7 casos, equivalente a 85.7\% de aprobación.
 
 \begingroup\fontsize{8}{10}\selectfont\renewcommand{\arraystretch}{1.25}\setlength{\tabcolsep}{2pt}
+\Needspace{8\baselineskip}
 \begin{xltabular}{\linewidth}{@{}
 >{\raggedright\arraybackslash}p{1.35cm}
 >{\raggedright\arraybackslash}p{1.25cm}
@@ -1477,6 +1554,7 @@ PROV-04-007 & Proveedores & ACEP & Regeneración sin duplicidad & Volver a consu
 \end{xltabular}
 \endgroup
 \begingroup\fontsize{8}{9}\selectfont\setlength{\tabcolsep}{4pt}
+\Needspace{8\baselineskip}
 \begin{xltabular}{\linewidth}{@{}p{4.0cm}p{2.0cm}p{2.0cm}p{2.2cm}p{2.2cm}@{}}
 
 \caption{Resumen de las pruebas del aspecto 04: Generación de partidas por vencimiento.}\label{tab:cap4_resumen_aspecto_04}\\
@@ -1499,13 +1577,16 @@ Generación de partidas por vencimiento & 7 & 6 & 1 & 85.7\%\\
 \end{tikzpicture}
 \end{figure}
 
+\Needspace{5\baselineskip}
 \paragraph{Interpretación del módulo Proveedores}
 El módulo de Proveedores obtuvo 24 casos OK de 28, equivalente a 85.7\%. Los mejores resultados correspondieron al registro por NIT y al cálculo y registro del IVA crédito. Los dos casos Falló se relacionan con la asignación obligatoria de cuenta contable y el filtrado específico por proveedor, por lo que representan oportunidades de mejora.
 
+\Needspace{7\baselineskip}
 \subsubsection{Aspecto 05: Registro de colaboradores y territorios}
 La validación del aspecto se realizó mediante siete pruebas específicas. Se aprobaron 7 de 7 casos, equivalente a 100.0\% de aprobación.
 
 \begingroup\fontsize{8}{10}\selectfont\renewcommand{\arraystretch}{1.25}\setlength{\tabcolsep}{2pt}
+\Needspace{8\baselineskip}
 \begin{xltabular}{\linewidth}{@{}
 >{\raggedright\arraybackslash}p{1.35cm}
 >{\raggedright\arraybackslash}p{1.25cm}
@@ -1547,6 +1628,7 @@ VIA-05-007 & Viáticos & ACEP & Colaborador sin liquidaciones & Consultar un col
 \end{xltabular}
 \endgroup
 \begingroup\fontsize{8}{9}\selectfont\setlength{\tabcolsep}{4pt}
+\Needspace{8\baselineskip}
 \begin{xltabular}{\linewidth}{@{}p{4.0cm}p{2.0cm}p{2.0cm}p{2.2cm}p{2.2cm}@{}}
 
 \caption{Resumen de las pruebas del aspecto 05: Registro de colaboradores y territorios.}\label{tab:cap4_resumen_aspecto_05}\\
@@ -1569,10 +1651,12 @@ Registro de colaboradores y territorios & 7 & 7 & 0 & 100.0\%\\
 \end{tikzpicture}
 \end{figure}
 
+\Needspace{7\baselineskip}
 \subsubsection{Aspecto 06: Asignación de gira, semana y categoría}
 La validación del aspecto se realizó mediante siete pruebas específicas. Se aprobaron 7 de 7 casos, equivalente a 100.0\% de aprobación.
 
 \begingroup\fontsize{8}{10}\selectfont\renewcommand{\arraystretch}{1.25}\setlength{\tabcolsep}{2pt}
+\Needspace{8\baselineskip}
 \begin{xltabular}{\linewidth}{@{}
 >{\raggedright\arraybackslash}p{1.35cm}
 >{\raggedright\arraybackslash}p{1.25cm}
@@ -1614,6 +1698,7 @@ VIA-06-007 & Viáticos & ACEP & Categoría Actividades & Registrar una operació
 \end{xltabular}
 \endgroup
 \begingroup\fontsize{8}{9}\selectfont\setlength{\tabcolsep}{4pt}
+\Needspace{8\baselineskip}
 \begin{xltabular}{\linewidth}{@{}p{4.0cm}p{2.0cm}p{2.0cm}p{2.2cm}p{2.2cm}@{}}
 
 \caption{Resumen de las pruebas del aspecto 06: Asignación de gira, semana y categoría.}\label{tab:cap4_resumen_aspecto_06}\\
@@ -1636,10 +1721,12 @@ Asignación de gira, semana y categoría & 7 & 7 & 0 & 100.0\%\\
 \end{tikzpicture}
 \end{figure}
 
+\Needspace{7\baselineskip}
 \subsubsection{Aspecto 07: Liquidación de facturas y generación de partidas}
 La validación del aspecto se realizó mediante siete pruebas específicas. Se aprobaron 5 de 7 casos, equivalente a 71.4\% de aprobación.
 
 \begingroup\fontsize{8}{10}\selectfont\renewcommand{\arraystretch}{1.25}\setlength{\tabcolsep}{2pt}
+\Needspace{8\baselineskip}
 \begin{xltabular}{\linewidth}{@{}
 >{\raggedright\arraybackslash}p{1.35cm}
 >{\raggedright\arraybackslash}p{1.25cm}
@@ -1681,6 +1768,7 @@ VIA-07-007 & Viáticos & ACEP & Consulta de cuenta en liquidación & Abrir el de
 \end{xltabular}
 \endgroup
 \begingroup\fontsize{8}{9}\selectfont\setlength{\tabcolsep}{4pt}
+\Needspace{8\baselineskip}
 \begin{xltabular}{\linewidth}{@{}p{4.0cm}p{2.0cm}p{2.0cm}p{2.2cm}p{2.2cm}@{}}
 
 \caption{Resumen de las pruebas del aspecto 07: Liquidación de facturas y generación de partidas.}\label{tab:cap4_resumen_aspecto_07}\\
@@ -1703,13 +1791,16 @@ Liquidación de facturas y generación de partidas & 7 & 5 & 2 & 71.4\%\\
 \end{tikzpicture}
 \end{figure}
 
+\Needspace{5\baselineskip}
 \paragraph{Interpretación del módulo Viáticos}
 El módulo de Viáticos obtuvo 19 casos OK de 21, equivalente a 90.5\%. El registro de colaboradores y la asignación de gira presentaron resultados favorables. Los casos Falló se concentraron en la consulta del resumen y en la generación de la partida semanal, operaciones que requieren validación adicional.
 
+\Needspace{7\baselineskip}
 \subsubsection{Aspecto 08: Búsqueda y consulta del catálogo contable}
 La validación del aspecto se realizó mediante siete pruebas específicas. Se aprobaron 7 de 7 casos, equivalente a 100.0\% de aprobación.
 
 \begingroup\fontsize{8}{10}\selectfont\renewcommand{\arraystretch}{1.25}\setlength{\tabcolsep}{2pt}
+\Needspace{8\baselineskip}
 \begin{xltabular}{\linewidth}{@{}
 >{\raggedright\arraybackslash}p{1.35cm}
 >{\raggedright\arraybackslash}p{1.25cm}
@@ -1751,6 +1842,7 @@ NOM-08-007 & Nomenclatura & ACEP & Mostrar cuentas inactivas & Desactivar Solo a
 \end{xltabular}
 \endgroup
 \begingroup\fontsize{8}{9}\selectfont\setlength{\tabcolsep}{4pt}
+\Needspace{8\baselineskip}
 \begin{xltabular}{\linewidth}{@{}p{4.0cm}p{2.0cm}p{2.0cm}p{2.2cm}p{2.2cm}@{}}
 
 \caption{Resumen de las pruebas del aspecto 08: Búsqueda y consulta del catálogo contable.}\label{tab:cap4_resumen_aspecto_08}\\
@@ -1773,10 +1865,12 @@ Búsqueda y consulta del catálogo contable & 7 & 7 & 0 & 100.0\%\\
 \end{tikzpicture}
 \end{figure}
 
+\Needspace{7\baselineskip}
 \subsubsection{Aspecto 09: Registro y mantenimiento de cuentas}
 La validación del aspecto se realizó mediante siete pruebas específicas. Se aprobaron 6 de 7 casos, equivalente a 85.7\% de aprobación.
 
 \begingroup\fontsize{8}{10}\selectfont\renewcommand{\arraystretch}{1.25}\setlength{\tabcolsep}{2pt}
+\Needspace{8\baselineskip}
 \begin{xltabular}{\linewidth}{@{}
 >{\raggedright\arraybackslash}p{1.35cm}
 >{\raggedright\arraybackslash}p{1.25cm}
@@ -1818,6 +1912,7 @@ NOM-09-007 & Nomenclatura & ACEP & Eliminar cuenta sin movimientos & Eliminar un
 \end{xltabular}
 \endgroup
 \begingroup\fontsize{8}{9}\selectfont\setlength{\tabcolsep}{4pt}
+\Needspace{8\baselineskip}
 \begin{xltabular}{\linewidth}{@{}p{4.0cm}p{2.0cm}p{2.0cm}p{2.2cm}p{2.2cm}@{}}
 
 \caption{Resumen de las pruebas del aspecto 09: Registro y mantenimiento de cuentas.}\label{tab:cap4_resumen_aspecto_09}\\
@@ -1840,10 +1935,12 @@ Registro y mantenimiento de cuentas & 7 & 6 & 1 & 85.7\%\\
 \end{tikzpicture}
 \end{figure}
 
+\Needspace{7\baselineskip}
 \subsubsection{Aspecto 10: Naturaleza e integración contable}
 La validación del aspecto se realizó mediante siete pruebas específicas. Se aprobaron 6 de 7 casos, equivalente a 85.7\% de aprobación.
 
 \begingroup\fontsize{8}{10}\selectfont\renewcommand{\arraystretch}{1.25}\setlength{\tabcolsep}{2pt}
+\Needspace{8\baselineskip}
 \begin{xltabular}{\linewidth}{@{}
 >{\raggedright\arraybackslash}p{1.35cm}
 >{\raggedright\arraybackslash}p{1.25cm}
@@ -1885,6 +1982,7 @@ NOM-10-007 & Nomenclatura & ACEP & Nivel contable & Consultar el nivel de una cu
 \end{xltabular}
 \endgroup
 \begingroup\fontsize{8}{9}\selectfont\setlength{\tabcolsep}{4pt}
+\Needspace{8\baselineskip}
 \begin{xltabular}{\linewidth}{@{}p{4.0cm}p{2.0cm}p{2.0cm}p{2.2cm}p{2.2cm}@{}}
 
 \caption{Resumen de las pruebas del aspecto 10: Naturaleza e integración contable.}\label{tab:cap4_resumen_aspecto_10}\\
@@ -1907,10 +2005,12 @@ Naturaleza e integración contable & 7 & 6 & 1 & 85.7\%\\
 \end{tikzpicture}
 \end{figure}
 
+\Needspace{7\baselineskip}
 \subsubsection{Tablas resumen de resultados por módulo}
 Las tablas siguientes consolidan los casos evaluados, los casos aprobados, los casos no aprobados y el porcentaje de aprobación de cada módulo. Se presentan por separado de las tablas detalladas de cada aspecto para facilitar la lectura y la elaboración de las gráficas.
 
 \begingroup\fontsize{8}{9}\selectfont\setlength{\tabcolsep}{4pt}
+\Needspace{8\baselineskip}
 \begin{xltabular}{\linewidth}{@{}p{3.0cm}p{2.4cm}p{2.4cm}p{2.4cm}p{2.4cm}@{}}
 
 \caption{Tabla resumen de pruebas del módulo Proveedores.}\label{tab:cap4_resumen_proveedores}\\
@@ -1924,6 +2024,7 @@ Proveedores & 28 & 26 & 2 & 92.9\%\\
 \endgroup
 
 \begingroup\fontsize{8}{9}\selectfont\setlength{\tabcolsep}{4pt}
+\Needspace{8\baselineskip}
 \begin{xltabular}{\linewidth}{@{}p{3.0cm}p{2.4cm}p{2.4cm}p{2.4cm}p{2.4cm}@{}}
 
 \caption{Tabla resumen de pruebas del módulo Viáticos.}\label{tab:cap4_resumen_viaticos}\\
@@ -1937,6 +2038,7 @@ Viáticos & 21 & 19 & 2 & 90.5\%\\
 \endgroup
 
 \begingroup\fontsize{8}{9}\selectfont\setlength{\tabcolsep}{4pt}
+\Needspace{8\baselineskip}
 \begin{xltabular}{\linewidth}{@{}p{3.0cm}p{2.4cm}p{2.4cm}p{2.4cm}p{2.4cm}@{}}
 
 \caption{Tabla resumen de pruebas del módulo Nomenclatura.}\label{tab:cap4_resumen_nomenclatura}\\
@@ -1949,11 +2051,13 @@ Nomenclatura & 21 & 19 & 2 & 90.5\%\\
 \end{xltabular}
 \endgroup
 
+\Needspace{7\baselineskip}
 \subsubsection{Resultados numéricos para las gráficas}
 
 Los resultados numéricos se presentan en tres tablas, una por cada módulo, conforme a la Plantilla 2 de la guía. Cada fila identifica la métrica, el valor, la unidad y la versión o fecha de medición.
 
 \begingroup\fontsize{8}{9}\selectfont\setlength{\tabcolsep}{3pt}
+\Needspace{8\baselineskip}
 \begin{xltabular}{\linewidth}{@{}p{3.0cm}p{5.2cm}p{1.5cm}p{1.5cm}p{3.0cm}@{}}
 
 \caption{Resultados numéricos del módulo Proveedores.}\label{tab:cap4_resultados_proveedores}\\
@@ -1977,6 +2081,7 @@ Proveedores & Resultado del módulo & 92.9 & \% & b1 -- 2026-09-21\\
 \endgroup
 
 \begingroup\fontsize{8}{9}\selectfont\setlength{\tabcolsep}{3pt}
+\Needspace{8\baselineskip}
 \begin{xltabular}{\linewidth}{@{}p{3.0cm}p{5.2cm}p{1.5cm}p{1.5cm}p{3.0cm}@{}}
 
 \caption{Resultados numéricos del módulo Viáticos.}\label{tab:cap4_resultados_viaticos}\\
@@ -1999,6 +2104,7 @@ Viáticos & Resultado del módulo & 90.5 & \% & b1 -- 2026-09-21\\
 \endgroup
 
 \begingroup\fontsize{8}{9}\selectfont\setlength{\tabcolsep}{3pt}
+\Needspace{8\baselineskip}
 \begin{xltabular}{\linewidth}{@{}p{3.0cm}p{5.2cm}p{1.5cm}p{1.5cm}p{3.0cm}@{}}
 
 \caption{Resultados numéricos del módulo Nomenclatura.}\label{tab:cap4_resultados_nomenclatura}\\
@@ -2020,6 +2126,7 @@ Nomenclatura & Resultado del módulo & 90.5 & \% & b1 -- 2026-09-21\\
 \end{xltabular}
 \endgroup
 
+\Needspace{5\baselineskip}
 \paragraph{Interpretación del módulo Nomenclatura}
 El módulo de Nomenclatura obtuvo 19 casos OK de 21, equivalente a 90.5\%. La búsqueda del catálogo y la consulta de la naturaleza contable presentaron resultados favorables. Los casos Falló corresponden al guardado y desactivación de cuentas, que requieren una comprobación adicional del comportamiento posterior a la acción.
 

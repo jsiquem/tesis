@@ -227,15 +227,15 @@ Antes de la implementación, el proceso dependía de la consulta de archivos, la
 \centering
 \caption{Comparación del flujo de registro y control de proveedores.}\label{fig:cap5_flujo_proveedores}
 \begin{tikzpicture}[node distance=0.65cm and 0.35cm, every node/.style={font=\scriptsize, align=center}, box/.style={draw, rounded corners, minimum width=2.2cm, minimum height=0.7cm}, arrow/.style={->, thick}]
-\node[box] (a) {Recibir datos\ny documentos};
-\node[box, right=of a] (b) {Revisar archivos\nmanualmente};
-\node[box, right=of b] (c) {Validar NIT y\ncuenta};
-\node[box, right=of c] (d) {Registrar y\ngenerar partida};
+\node[box] (a) {Recibir datos\\y documentos};
+\node[box, right=of a] (b) {Revisar archivos\\manualmente};
+\node[box, right=of b] (c) {Validar NIT y\\cuenta};
+\node[box, right=of c] (d) {Registrar y\\generar partida};
 \draw[arrow] (a)--(b)--(c)--(d);
-\node[box, below=0.7cm of a] (e) {Buscar proveedor\npor NIT};
-\node[box, right=of e] (f) {Validar datos y\nretenciones};
-\node[box, right=of f] (g) {Asignar cuenta\ncontable};
-\node[box, right=of g] (h) {Generar partida\ny consultar cartera};
+\node[box, below=0.7cm of a] (e) {Buscar proveedor\\por NIT};
+\node[box, right=of e] (f) {Validar datos y\\retenciones};
+\node[box, right=of f] (g) {Asignar cuenta\\contable};
+\node[box, right=of g] (h) {Generar partida\\y consultar cartera};
 \draw[arrow] (e)--(f)--(g)--(h);
 \node[left=0.1cm of a, font=\scriptsize\bfseries] {Antes};
 \node[left=0.1cm of e, font=\scriptsize\bfseries] {Después};
@@ -250,15 +250,15 @@ El flujo anterior de Viáticos requería recibir liquidaciones, revisar facturas
 \centering
 \caption{Comparación del flujo de registro y liquidación de viáticos.}\label{fig:cap5_flujo_viaticos}
 \begin{tikzpicture}[node distance=0.65cm and 0.35cm, every node/.style={font=\scriptsize, align=center}, box/.style={draw, rounded corners, minimum width=2.2cm, minimum height=0.7cm}, arrow/.style={->, thick}]
-\node[box] (a) {Recibir\nliquidación};
-\node[box, right=of a] (b) {Revisar facturas\ny hojas};
-\node[box, right=of b] (c) {Consolidar\nvalores};
-\node[box, right=of c] (d) {Preparar partida\nmanual};
+\node[box] (a) {Recibir\\liquidación};
+\node[box, right=of a] (b) {Revisar facturas\\y hojas};
+\node[box, right=of b] (c) {Consolidar\\valores};
+\node[box, right=of c] (d) {Preparar partida\\manual};
 \draw[arrow] (a)--(b)--(c)--(d);
-\node[box, below=0.7cm of a] (e) {Asignar colaborador,\nterritorio y gira};
-\node[box, right=of e] (f) {Clasificar semana\ny categoría};
-\node[box, right=of f] (g) {Asociar facturas\ny validar};
-\node[box, right=of g] (h) {Generar partida\nsemanal};
+\node[box, below=0.7cm of a] (e) {Asignar colaborador,\\territorio y gira};
+\node[box, right=of e] (f) {Clasificar semana\\y categoría};
+\node[box, right=of f] (g) {Asociar facturas\\y validar};
+\node[box, right=of g] (h) {Generar partida\\semanal};
 \draw[arrow] (e)--(f)--(g)--(h);
 \node[left=0.1cm of a, font=\scriptsize\bfseries] {Antes};
 \node[left=0.1cm of e, font=\scriptsize\bfseries] {Después};
@@ -273,15 +273,15 @@ Antes de la implementación, la cuenta contable se buscaba en listados separados
 \centering
 \caption{Comparación del flujo de clasificación mediante nomenclatura contable.}\label{fig:cap5_flujo_nomenclatura}
 \begin{tikzpicture}[node distance=0.65cm and 0.35cm, every node/.style={font=\scriptsize, align=center}, box/.style={draw, rounded corners, minimum width=2.2cm, minimum height=0.7cm}, arrow/.style={->, thick}]
-\node[box] (a) {Recibir concepto\ndel gasto};
-\node[box, right=of a] (b) {Buscar en listado\nseparado};
-\node[box, right=of b] (c) {Copiar código y\nnombre};
+\node[box] (a) {Recibir concepto\\del gasto};
+\node[box, right=of a] (b) {Buscar en listado\\separado};
+\node[box, right=of b] (c) {Copiar código y\\nombre};
 \node[box, right=of c] (d) {Revisar partida};
 \draw[arrow] (a)--(b)--(c)--(d);
-\node[box, below=0.7cm of a] (e) {Seleccionar módulo\ny concepto};
-\node[box, right=of e] (f) {Consultar catálogo\nactivo};
-\node[box, right=of f] (g) {Seleccionar cuenta\nDebe/Haber};
-\node[box, right=of g] (h) {Usar cuenta en\nla partida};
+\node[box, below=0.7cm of a] (e) {Seleccionar módulo\\y concepto};
+\node[box, right=of e] (f) {Consultar catálogo\\activo};
+\node[box, right=of f] (g) {Seleccionar cuenta\\Debe/Haber};
+\node[box, right=of g] (h) {Usar cuenta en\\la partida};
 \draw[arrow] (e)--(f)--(g)--(h);
 \node[left=0.1cm of a, font=\scriptsize\bfseries] {Antes};
 \node[left=0.1cm of e, font=\scriptsize\bfseries] {Después};

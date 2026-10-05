@@ -40,15 +40,15 @@ El módulo de Proveedores permite registrar información mediante NIT, asociar u
 \setlength{\tabcolsep}{4pt}
 \begin{tabularx}{0.94\linewidth}{@{}>{\raggedright\arraybackslash}p{4.2cm}>{\centering\arraybackslash}p{1.6cm}>{\centering\arraybackslash}p{1.8cm}>{\raggedright\arraybackslash}X@{}}
 \toprule
-\textbf{Indicador} & \textbf{Antes} & \textbf{Después} & \textbf{Diferencia}\\
+\textbf{Indicador} & \textbf{Antes} & \textbf{Después} & \textbf{Variación}\\
 \midrule
-TP (minutos) & 180 & 5 & Reducción de 97.2\%\\
-TE (\%) & 30 & 7.1 & Reducción de 22.9 pp\\
-Personal (personas) & 3 & 3 & Sin variación\\
-Insumos (hojas/semana) & 50 & 3 & Reducción de 47 hojas\\
+TP (minutos) & 180 & 5 & -97.2\%\\
+TE (\%) & 30 & 7.1 & -22.9 pp\\
+Personal (personas) & 3 & 3 & 0\\
 \bottomrule
 \end{tabularx}
 \endgroup
+\par\noindent Nota. El consumo de insumos disminuyó de 50 a 3 hojas por semana.
 \end{table}
 
 La reducción del tiempo, de 180 a 5 minutos, se relaciona con la consulta centralizada por NIT, la selección de la cuenta contable y la disponibilidad de datos del proveedor en una misma pantalla. El personal involucrado se mantuvo en tres personas, por lo que la mejora se produjo principalmente en la velocidad, la trazabilidad y la reducción de tareas repetitivas. El consumo de hojas disminuyó de 50 a 3 por semana, debido a que la información se registra y consulta dentro del sistema.
@@ -65,15 +65,15 @@ El módulo de Viáticos organiza colaboradores, territorios, giras, semanas, cat
 \setlength{\tabcolsep}{4pt}
 \begin{tabularx}{0.94\linewidth}{@{}>{\raggedright\arraybackslash}p{4.2cm}>{\centering\arraybackslash}p{1.6cm}>{\centering\arraybackslash}p{1.8cm}>{\raggedright\arraybackslash}X@{}}
 \toprule
-\textbf{Indicador} & \textbf{Antes} & \textbf{Después} & \textbf{Diferencia}\\
+\textbf{Indicador} & \textbf{Antes} & \textbf{Después} & \textbf{Variación}\\
 \midrule
-TP (minutos) & 1\,440 & 480 & Reducción de 66.7\%\\
-TE (\%) & 40 & 9.5 & Reducción de 30.5 pp\\
-Personal (personas) & 3 & 3 & Sin variación\\
-Insumos (u/semana) & 120 & 20 & Reducción de 100 unidades\\
+TP (minutos) & 1\,440 & 480 & -66.7\%\\
+TE (\%) & 40 & 9.5 & -30.5 pp\\
+Personal (personas) & 3 & 3 & 0\\
 \bottomrule
 \end{tabularx}
 \endgroup
+\par\noindent Nota. El consumo de insumos disminuyó de 120 a 20 unidades por semana.
 \end{table}
 
 El resultado muestra que el sistema redujo en dos jornadas laborales el tiempo de procesamiento. La programación de giras, la asociación de facturas y la generación de partidas semanales disminuyeron la necesidad de revisar información en diferentes documentos. El personal involucrado se mantuvo en tres personas, pero con una distribución de actividades más ordenada. El consumo de insumos disminuyó de 120 a 20 unidades por semana.
@@ -90,139 +90,67 @@ El módulo de Nomenclatura contable permite buscar, registrar, modificar, activa
 \setlength{\tabcolsep}{4pt}
 \begin{tabularx}{0.94\linewidth}{@{}>{\raggedright\arraybackslash}p{4.2cm}>{\centering\arraybackslash}p{1.6cm}>{\centering\arraybackslash}p{1.8cm}>{\raggedright\arraybackslash}X@{}}
 \toprule
-\textbf{Indicador} & \textbf{Antes} & \textbf{Después} & \textbf{Diferencia}\\
+\textbf{Indicador} & \textbf{Antes} & \textbf{Después} & \textbf{Variación}\\
 \midrule
-TP (minutos) & 5 & 2 & Reducción de 60.0\%\\
-TE (\%) & 0 & 0 & Sin variación\\
-Personal (personas) & 1 & 1 & Sin variación\\
-Insumos (u/semana) & 0 & 0 & Sin variación\\
+TP (minutos) & 5 & 2 & -60.0\%\\
+TE (\%) & 0 & 0 & 0\\
+Personal (personas) & 1 & 1 & 0\\
 \bottomrule
 \end{tabularx}
 \endgroup
+\par\noindent Nota. El módulo no utilizó insumos adicionales antes ni después de la implementación.
 \end{table}
 
 La mejora principal de este módulo se encuentra en la disponibilidad inmediata del catálogo y en la integración con los formularios de otros módulos. La tasa de errores operativos permaneció en 0\%, al igual que el personal y los insumos utilizados. Esto indica que la contribución del módulo no se relaciona con una reducción de consumibles, sino con la consistencia de la clasificación contable y la disminución del tiempo de consulta.
 
 \subsection{Ilustraciones comparativas}
 
-Las siguientes ilustraciones representan los cuatro indicadores para cada módulo. Las barras permiten observar la diferencia entre la situación anterior y la posterior. La escala se mantiene independiente en cada indicador para evitar que los valores de tiempo o insumos oculten los cambios en errores y personal.
+Las siguientes ilustraciones comparan los tres módulos mediante una gráfica para cada indicador. En cada gráfica, las barras representan los valores registrados antes y después de la incorporación del sistema.
 
 \begin{figure}[H]
 \centering
-\caption{Tiempo de proceso del módulo de Proveedores antes y después.}\label{fig:cap5_tp_proveedores}
+\caption{Tiempo de proceso por módulo antes y después.}\label{fig:cap5_tp_modulos}
 \begin{tikzpicture}
-\begin{axis}[ybar,width=0.72\linewidth,height=5cm,bar width=18pt,ymin=0,ymax=200,ylabel={Minutos},symbolic x coords={Antes,Después},xtick=data,nodes near coords,ymajorgrids=true,grid style=dashed]
-\addplot[fill=gray!55] coordinates {(Antes,180) (Después,5)};
+\begin{axis}[ybar,width=0.82\linewidth,height=6cm,bar width=14pt,ymin=0,ymax=1600,ylabel={Minutos},symbolic x coords={Proveedores,Viáticos,Nomenclatura},xtick=data,x tick label style={font=\scriptsize,rotate=20,anchor=east},nodes near coords,legend style={at={(0.5,1.02)},anchor=south,legend columns=2},ymajorgrids=true,grid style=dashed]
+\addplot[fill=gray!55] coordinates {(Proveedores,180) (Viáticos,1440) (Nomenclatura,5)};
+\addplot[fill=gray!20] coordinates {(Proveedores,5) (Viáticos,480) (Nomenclatura,2)};
+\legend{Antes,Después}
 \end{axis}
 \end{tikzpicture}
 \end{figure}
 
 \begin{figure}[H]
 \centering
-\caption{Tasa de errores del módulo de Proveedores antes y después.}\label{fig:cap5_te_proveedores}
+\caption{Tasa de errores por módulo antes y después.}\label{fig:cap5_te_modulos}
 \begin{tikzpicture}
-\begin{axis}[ybar,width=0.72\linewidth,height=5cm,bar width=18pt,ymin=0,ymax=35,ylabel={Porcentaje},symbolic x coords={Antes,Después},xtick=data,nodes near coords,ymajorgrids=true,grid style=dashed]
-\addplot[fill=gray!55] coordinates {(Antes,30) (Después,7.1)};
+\begin{axis}[ybar,width=0.82\linewidth,height=6cm,bar width=14pt,ymin=0,ymax=45,ylabel={Porcentaje},symbolic x coords={Proveedores,Viáticos,Nomenclatura},xtick=data,x tick label style={font=\scriptsize,rotate=20,anchor=east},nodes near coords,legend style={at={(0.5,1.02)},anchor=south,legend columns=2},ymajorgrids=true,grid style=dashed]
+\addplot[fill=gray!55] coordinates {(Proveedores,30) (Viáticos,40) (Nomenclatura,0)};
+\addplot[fill=gray!20] coordinates {(Proveedores,7.1) (Viáticos,9.5) (Nomenclatura,0)};
+\legend{Antes,Después}
 \end{axis}
 \end{tikzpicture}
 \end{figure}
 
 \begin{figure}[H]
 \centering
-\caption{Personal involucrado en el módulo de Proveedores antes y después.}\label{fig:cap5_personal_proveedores}
+\caption{Personal involucrado por módulo antes y después.}\label{fig:cap5_personal_modulos}
 \begin{tikzpicture}
-\begin{axis}[ybar,width=0.72\linewidth,height=5cm,bar width=18pt,ymin=0,ymax=4,ylabel={Personas},symbolic x coords={Antes,Después},xtick=data,nodes near coords,ymajorgrids=true,grid style=dashed]
-\addplot[fill=gray!55] coordinates {(Antes,3) (Después,3)};
+\begin{axis}[ybar,width=0.82\linewidth,height=6cm,bar width=14pt,ymin=0,ymax=4,ylabel={Personas},symbolic x coords={Proveedores,Viáticos,Nomenclatura},xtick=data,x tick label style={font=\scriptsize,rotate=20,anchor=east},nodes near coords,legend style={at={(0.5,1.02)},anchor=south,legend columns=2},ymajorgrids=true,grid style=dashed]
+\addplot[fill=gray!55] coordinates {(Proveedores,3) (Viáticos,3) (Nomenclatura,1)};
+\addplot[fill=gray!20] coordinates {(Proveedores,3) (Viáticos,3) (Nomenclatura,1)};
+\legend{Antes,Después}
 \end{axis}
 \end{tikzpicture}
 \end{figure}
 
 \begin{figure}[H]
 \centering
-\caption{Insumos utilizados en el módulo de Proveedores antes y después.}\label{fig:cap5_insumos_proveedores}
+\caption{Insumos utilizados por módulo antes y después.}\label{fig:cap5_insumos_modulos}
 \begin{tikzpicture}
-\begin{axis}[ybar,width=0.72\linewidth,height=5cm,bar width=18pt,ymin=0,ymax=60,ylabel={Hojas por semana},symbolic x coords={Antes,Después},xtick=data,nodes near coords,ymajorgrids=true,grid style=dashed]
-\addplot[fill=gray!55] coordinates {(Antes,50) (Después,3)};
-\end{axis}
-\end{tikzpicture}
-\end{figure}
-
-\begin{figure}[H]
-\centering
-\caption{Tiempo de proceso del módulo de Viáticos antes y después.}\label{fig:cap5_tp_viaticos}
-\begin{tikzpicture}
-\begin{axis}[ybar,width=0.72\linewidth,height=5cm,bar width=18pt,ymin=0,ymax=1600,ylabel={Minutos},symbolic x coords={Antes,Después},xtick=data,nodes near coords,ymajorgrids=true,grid style=dashed]
-\addplot[fill=gray!55] coordinates {(Antes,1440) (Después,480)};
-\end{axis}
-\end{tikzpicture}
-\end{figure}
-
-\begin{figure}[H]
-\centering
-\caption{Tasa de errores del módulo de Viáticos antes y después.}\label{fig:cap5_te_viaticos}
-\begin{tikzpicture}
-\begin{axis}[ybar,width=0.72\linewidth,height=5cm,bar width=18pt,ymin=0,ymax=45,ylabel={Porcentaje},symbolic x coords={Antes,Después},xtick=data,nodes near coords,ymajorgrids=true,grid style=dashed]
-\addplot[fill=gray!55] coordinates {(Antes,40) (Después,9.5)};
-\end{axis}
-\end{tikzpicture}
-\end{figure}
-
-\begin{figure}[H]
-\centering
-\caption{Personal involucrado en el módulo de Viáticos antes y después.}\label{fig:cap5_personal_viaticos}
-\begin{tikzpicture}
-\begin{axis}[ybar,width=0.72\linewidth,height=5cm,bar width=18pt,ymin=0,ymax=4,ylabel={Personas},symbolic x coords={Antes,Después},xtick=data,nodes near coords,ymajorgrids=true,grid style=dashed]
-\addplot[fill=gray!55] coordinates {(Antes,3) (Después,3)};
-\end{axis}
-\end{tikzpicture}
-\end{figure}
-
-\begin{figure}[H]
-\centering
-\caption{Insumos utilizados en el módulo de Viáticos antes y después.}\label{fig:cap5_insumos_viaticos}
-\begin{tikzpicture}
-\begin{axis}[ybar,width=0.72\linewidth,height=5cm,bar width=18pt,ymin=0,ymax=130,ylabel={Unidades por semana},symbolic x coords={Antes,Después},xtick=data,nodes near coords,ymajorgrids=true,grid style=dashed]
-\addplot[fill=gray!55] coordinates {(Antes,120) (Después,20)};
-\end{axis}
-\end{tikzpicture}
-\end{figure}
-
-\begin{figure}[H]
-\centering
-\caption{Tiempo de proceso del módulo de Nomenclatura contable antes y después.}\label{fig:cap5_tp_nomenclatura}
-\begin{tikzpicture}
-\begin{axis}[ybar,width=0.72\linewidth,height=5cm,bar width=18pt,ymin=0,ymax=6,ylabel={Minutos},symbolic x coords={Antes,Después},xtick=data,nodes near coords,ymajorgrids=true,grid style=dashed]
-\addplot[fill=gray!55] coordinates {(Antes,5) (Después,2)};
-\end{axis}
-\end{tikzpicture}
-\end{figure}
-
-\begin{figure}[H]
-\centering
-\caption{Tasa de errores del módulo de Nomenclatura contable antes y después.}\label{fig:cap5_te_nomenclatura}
-\begin{tikzpicture}
-\begin{axis}[ybar,width=0.72\linewidth,height=5cm,bar width=18pt,ymin=0,ymax=1,ylabel={Porcentaje},symbolic x coords={Antes,Después},xtick=data,nodes near coords,ymajorgrids=true,grid style=dashed]
-\addplot[fill=gray!55] coordinates {(Antes,0) (Después,0)};
-\end{axis}
-\end{tikzpicture}
-\end{figure}
-
-\begin{figure}[H]
-\centering
-\caption{Personal involucrado en el módulo de Nomenclatura contable antes y después.}\label{fig:cap5_personal_nomenclatura}
-\begin{tikzpicture}
-\begin{axis}[ybar,width=0.72\linewidth,height=5cm,bar width=18pt,ymin=0,ymax=2,ylabel={Personas},symbolic x coords={Antes,Después},xtick=data,nodes near coords,ymajorgrids=true,grid style=dashed]
-\addplot[fill=gray!55] coordinates {(Antes,1) (Después,1)};
-\end{axis}
-\end{tikzpicture}
-\end{figure}
-
-\begin{figure}[H]
-\centering
-\caption{Insumos utilizados en el módulo de Nomenclatura contable antes y después.}\label{fig:cap5_insumos_nomenclatura}
-\begin{tikzpicture}
-\begin{axis}[ybar,width=0.72\linewidth,height=5cm,bar width=18pt,ymin=0,ymax=1,ylabel={Unidades por semana},symbolic x coords={Antes,Después},xtick=data,nodes near coords,ymajorgrids=true,grid style=dashed]
-\addplot[fill=gray!55] coordinates {(Antes,0) (Después,0)};
+\begin{axis}[ybar,width=0.82\linewidth,height=6cm,bar width=14pt,ymin=0,ymax=130,ylabel={Unidades por semana},symbolic x coords={Proveedores,Viáticos,Nomenclatura},xtick=data,x tick label style={font=\scriptsize,rotate=20,anchor=east},nodes near coords,legend style={at={(0.5,1.02)},anchor=south,legend columns=2},ymajorgrids=true,grid style=dashed]
+\addplot[fill=gray!55] coordinates {(Proveedores,50) (Viáticos,120) (Nomenclatura,0)};
+\addplot[fill=gray!20] coordinates {(Proveedores,3) (Viáticos,20) (Nomenclatura,0)};
+\legend{Antes,Después}
 \end{axis}
 \end{tikzpicture}
 \end{figure}

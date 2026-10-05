@@ -226,7 +226,7 @@ Antes de la implementación, el proceso dependía de la consulta de archivos, la
 \begin{figure}[H]
 \centering
 \caption{Comparación del flujo de registro y control de proveedores.}\label{fig:cap5_flujo_proveedores}
-\begin{tikzpicture}[node distance=0.65cm and 0.35cm, every node/.style={font=\scriptsize, align=center}, box/.style={draw, rounded corners, minimum width=2.2cm, minimum height=0.7cm}, arrow/.style={->, thick}]
+\begin{tikzpicture}[node distance=0.65cm and 0.35cm, every node/.style={font=\scriptsize, align=center}, box/.style={draw, rounded corners, minimum width=2.2cm, minimum height=0.7cm}, arrow/.style={-{Stealth}, thick}]
 \node[box] (a) {Recibir datos y documentos};
 \node[box, right=of a] (b) {Revisar archivos manualmente};
 \node[box, right=of b] (c) {Validar NIT y cuenta};
@@ -249,7 +249,7 @@ El flujo anterior de Viáticos requería recibir liquidaciones, revisar facturas
 \begin{figure}[H]
 \centering
 \caption{Comparación del flujo de registro y liquidación de viáticos.}\label{fig:cap5_flujo_viaticos}
-\begin{tikzpicture}[node distance=0.65cm and 0.35cm, every node/.style={font=\scriptsize, align=center}, box/.style={draw, rounded corners, minimum width=2.2cm, minimum height=0.7cm}, arrow/.style={->, thick}]
+\begin{tikzpicture}[node distance=0.65cm and 0.35cm, every node/.style={font=\scriptsize, align=center}, box/.style={draw, rounded corners, minimum width=2.2cm, minimum height=0.7cm}, arrow/.style={-{Stealth}, thick}]
 \node[box] (a) {Recibir liquidación};
 \node[box, right=of a] (b) {Revisar facturas y hojas};
 \node[box, right=of b] (c) {Consolidar valores};
@@ -272,7 +272,7 @@ Antes de la implementación, la cuenta contable se buscaba en listados separados
 \begin{figure}[H]
 \centering
 \caption{Comparación del flujo de clasificación mediante nomenclatura contable.}\label{fig:cap5_flujo_nomenclatura}
-\begin{tikzpicture}[node distance=0.65cm and 0.35cm, every node/.style={font=\scriptsize, align=center}, box/.style={draw, rounded corners, minimum width=2.2cm, minimum height=0.7cm}, arrow/.style={->, thick}]
+\begin{tikzpicture}[node distance=0.65cm and 0.35cm, every node/.style={font=\scriptsize, align=center}, box/.style={draw, rounded corners, minimum width=2.2cm, minimum height=0.7cm}, arrow/.style={-{Stealth}, thick}]
 \node[box] (a) {Recibir concepto del gasto};
 \node[box, right=of a] (b) {Buscar en listado separado};
 \node[box, right=of b] (c) {Copiar código y nombre};

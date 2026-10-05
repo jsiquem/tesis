@@ -45,6 +45,7 @@ El módulo de Proveedores permite registrar información mediante NIT, asociar u
 TP (minutos) & 180 & 5 & -97.2\%\\
 TE (\%) & 30 & 7.1 & -22.9 pp\\
 Personal (personas) & 3 & 3 & 0\\
+Insumos (hojas/semana) & 50 & 3 & -47\\
 \bottomrule
 \end{tabularx}
 \endgroup
@@ -70,6 +71,7 @@ El módulo de Viáticos organiza colaboradores, territorios, giras, semanas, cat
 TP (minutos) & 1\,440 & 480 & -66.7\%\\
 TE (\%) & 40 & 9.5 & -30.5 pp\\
 Personal (personas) & 3 & 3 & 0\\
+Insumos (u/semana) & 120 & 20 & -100\\
 \bottomrule
 \end{tabularx}
 \endgroup
@@ -95,6 +97,7 @@ El módulo de Nomenclatura contable permite buscar, registrar, modificar, activa
 TP (minutos) & 5 & 2 & -60.0\%\\
 TE (\%) & 0 & 0 & 0\\
 Personal (personas) & 1 & 1 & 0\\
+Insumos (u/semana) & 0 & 0 & 0\\
 \bottomrule
 \end{tabularx}
 \endgroup
@@ -105,54 +108,30 @@ La mejora principal de este módulo se encuentra en la disponibilidad inmediata 
 
 \subsection{Ilustraciones comparativas}
 
-Las siguientes ilustraciones comparan los tres módulos mediante una gráfica para cada indicador. En cada gráfica, las barras representan los valores registrados antes y después de la incorporación del sistema.
+Las siguientes ilustraciones comparan los tres módulos mediante una gráfica para cada indicador. Las imágenes presentan un formato de barras agrupadas similar al utilizado en Word, con valores visibles y las categorías Antes y Después.
 
 \begin{figure}[H]
 \centering
 \caption{Tiempo de proceso por módulo antes y después.}\label{fig:cap5_tp_modulos}
-\begin{tikzpicture}
-\begin{axis}[ybar,width=0.82\linewidth,height=6cm,bar width=14pt,ymin=0,ymax=1600,ylabel={Minutos},symbolic x coords={Proveedores,Viáticos,Nomenclatura},xtick=data,x tick label style={font=\scriptsize,rotate=20,anchor=east},nodes near coords,legend style={at={(0.5,1.02)},anchor=south,legend columns=2},ymajorgrids=true,grid style=dashed]
-\addplot[fill=gray!55] coordinates {(Proveedores,180) (Viáticos,1440) (Nomenclatura,5)};
-\addplot[fill=gray!20] coordinates {(Proveedores,5) (Viáticos,480) (Nomenclatura,2)};
-\legend{Antes,Después}
-\end{axis}
-\end{tikzpicture}
+\includegraphics[width=0.86\linewidth]{graficas_capitulo_v/tp_modulos.png}
 \end{figure}
 
 \begin{figure}[H]
 \centering
 \caption{Tasa de errores por módulo antes y después.}\label{fig:cap5_te_modulos}
-\begin{tikzpicture}
-\begin{axis}[ybar,width=0.82\linewidth,height=6cm,bar width=14pt,ymin=0,ymax=45,ylabel={Porcentaje},symbolic x coords={Proveedores,Viáticos,Nomenclatura},xtick=data,x tick label style={font=\scriptsize,rotate=20,anchor=east},nodes near coords,legend style={at={(0.5,1.02)},anchor=south,legend columns=2},ymajorgrids=true,grid style=dashed]
-\addplot[fill=gray!55] coordinates {(Proveedores,30) (Viáticos,40) (Nomenclatura,0)};
-\addplot[fill=gray!20] coordinates {(Proveedores,7.1) (Viáticos,9.5) (Nomenclatura,0)};
-\legend{Antes,Después}
-\end{axis}
-\end{tikzpicture}
+\includegraphics[width=0.86\linewidth]{graficas_capitulo_v/te_modulos.png}
 \end{figure}
 
 \begin{figure}[H]
 \centering
 \caption{Personal involucrado por módulo antes y después.}\label{fig:cap5_personal_modulos}
-\begin{tikzpicture}
-\begin{axis}[ybar,width=0.82\linewidth,height=6cm,bar width=14pt,ymin=0,ymax=4,ylabel={Personas},symbolic x coords={Proveedores,Viáticos,Nomenclatura},xtick=data,x tick label style={font=\scriptsize,rotate=20,anchor=east},nodes near coords,legend style={at={(0.5,1.02)},anchor=south,legend columns=2},ymajorgrids=true,grid style=dashed]
-\addplot[fill=gray!55] coordinates {(Proveedores,3) (Viáticos,3) (Nomenclatura,1)};
-\addplot[fill=gray!20] coordinates {(Proveedores,3) (Viáticos,3) (Nomenclatura,1)};
-\legend{Antes,Después}
-\end{axis}
-\end{tikzpicture}
+\includegraphics[width=0.86\linewidth]{graficas_capitulo_v/personal_modulos.png}
 \end{figure}
 
 \begin{figure}[H]
 \centering
 \caption{Insumos utilizados por módulo antes y después.}\label{fig:cap5_insumos_modulos}
-\begin{tikzpicture}
-\begin{axis}[ybar,width=0.82\linewidth,height=6cm,bar width=14pt,ymin=0,ymax=130,ylabel={Unidades por semana},symbolic x coords={Proveedores,Viáticos,Nomenclatura},xtick=data,x tick label style={font=\scriptsize,rotate=20,anchor=east},nodes near coords,legend style={at={(0.5,1.02)},anchor=south,legend columns=2},ymajorgrids=true,grid style=dashed]
-\addplot[fill=gray!55] coordinates {(Proveedores,50) (Viáticos,120) (Nomenclatura,0)};
-\addplot[fill=gray!20] coordinates {(Proveedores,3) (Viáticos,20) (Nomenclatura,0)};
-\legend{Antes,Después}
-\end{axis}
-\end{tikzpicture}
+\includegraphics[width=0.86\linewidth]{graficas_capitulo_v/insumos_modulos.png}
 \end{figure}
 
 \subsection{Flujos de procesos}

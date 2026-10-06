@@ -22,7 +22,7 @@ Para la tasa de errores también se consideró la diferencia en puntos porcentua
 \Delta pp = TE_{Después} - TE_{Antes}
 \end{equation}
 
-Una variación negativa representa una reducción del indicador. En los módulos nuevos, la situación anterior se registra como ``No aplica'' (N/A), porque no existía un proceso equivalente dentro de la empresa. Esta condición corresponde a los módulos de Carga FEL/SAT, Panel principal, Revisión de partidas y Usuarios y autenticación.
+Una variación negativa representa una reducción del indicador. En los módulos nuevos, la situación anterior se registra como ``N/A'' (N/A), porque no existía un proceso equivalente dentro de la empresa. Esta condición corresponde a los módulos de Carga FEL/SAT, Panel principal, Revisión de partidas y Usuarios y autenticación.
 
 \subsection{Resultados comparativos por módulo}
 
@@ -33,20 +33,18 @@ Antes de la implementación, el contador registraba los cheques en un cuaderno f
 \begin{table}[H]\centering
 \caption{Resultados comparativos del módulo de Cheques posfechados.}\label{tab:cap5_cheques}
 \begingroup\small\setlength{\tabcolsep}{4pt}
-\begin{tabularx}{0.94\linewidth}{@{}>{\raggedright\arraybackslash}p{4.1cm}>{\centering\arraybackslash}p{1.6cm}>{\centering\arraybackslash}p{1.8cm}>{\raggedright\arraybackslash}X@{}}
+\begin{tabularx}{0.96\linewidth}{@{}>{\raggedright\arraybackslash}p{4.0cm}>{\centering\arraybackslash}p{1.45cm}>{\centering\arraybackslash}p{1.55cm}>{\raggedright\arraybackslash}X@{}}
 \toprule
 \textbf{Indicador} & \textbf{Antes} & \textbf{Después} & \textbf{Variación}\\
 \midrule
 TP (minutos) & 5 & 3 & -40.0\%\\
-TE por omisión de fechas (\%) & 20 & 0.5 & -19.5 pp\\
+TE (omisiones) & 20 & 0.5 & -19.5 pp\\
 Personal (personas) & 1 & 1 & 0\\
-Insumos & Cuaderno y calendario virtual & Registro digital y calendario integrado & Sustitución\\
+Insumos & Cuaderno físico / calendario & Registro digital integrado & Reemplazo\\
 \bottomrule
 \end{tabularx}\endgroup
-\par\noindent Nota. Antes del sistema se presentaban omisiones en dos de cada diez cheques al calcular o revisar fechas de depósito.\\
 \end{table}
-
-La reducción del tiempo se debe a la asignación automática al calendario. La tasa de errores se relaciona con omisiones en el cálculo de días festivos y fines de semana. Las alertas no sustituyen la revisión del contador, pero permiten anticipar las fechas que requieren seguimiento.
+La medición de errores corresponde a omisiones en el cálculo o revisión de fechas de depósito, especialmente en días festivos y fines de semana. La asignación automática al calendario y las alertas reducen este riesgo, aunque la fecha inicial continúa dependiendo del dato registrado por el usuario.
 
 \subsubsection{Módulo de Caja chica}
 
@@ -55,7 +53,7 @@ Antes de la implementación, el contador dedicaba aproximadamente cuatro horas a
 \begin{table}[H]\centering
 \caption{Resultados comparativos del módulo de Caja chica.}\label{tab:cap5_caja}
 \begingroup\small\setlength{\tabcolsep}{4pt}
-\begin{tabularx}{0.94\linewidth}{@{}>{\raggedright\arraybackslash}p{4.1cm}>{\centering\arraybackslash}p{1.6cm}>{\centering\arraybackslash}p{1.8cm}>{\raggedright\arraybackslash}X@{}}
+\begin{tabularx}{0.96\linewidth}{@{}>{\raggedright\arraybackslash}p{4.0cm}>{\centering\arraybackslash}p{1.45cm}>{\centering\arraybackslash}p{1.55cm}>{\raggedright\arraybackslash}X@{}}
 \toprule
 \textbf{Indicador} & \textbf{Antes} & \textbf{Después} & \textbf{Variación}\\
 \midrule
@@ -65,10 +63,9 @@ Personal (personas) & 3 & 3 & 0\\
 Insumos (hojas) & 5 & 2 & -60.0\%\\
 \bottomrule
 \end{tabularx}\endgroup
-\par\noindent Nota. El proceso involucra al contador en la creación, al administrador en la revisión y al gerente general en la autorización.\\
 \end{table}
 
-La participación del personal no disminuyó, debido a que las responsabilidades de control y autorización se mantienen. La mejora se observa en la reducción del tiempo, la disminución de errores y el menor uso de hojas para respaldar el proceso.
+La distribución del personal se mantiene: el contador crea el registro, el administrador lo revisa y el gerente general lo autoriza. La participación del personal no disminuyó, debido a que las responsabilidades de control y autorización se mantienen. La mejora se observa en la reducción del tiempo, la disminución de errores y el menor uso de hojas para respaldar el proceso.
 
 \subsubsection{Módulo de Viáticos}
 
@@ -77,7 +74,7 @@ El módulo de Viáticos organiza colaboradores, territorios, giras, semanas, cat
 \begin{table}[H]\centering
 \caption{Resultados comparativos del módulo de Viáticos.}\label{tab:cap5_viaticos}
 \begingroup\small\setlength{\tabcolsep}{4pt}
-\begin{tabularx}{0.94\linewidth}{@{}>{\raggedright\arraybackslash}p{4.1cm}>{\centering\arraybackslash}p{1.6cm}>{\centering\arraybackslash}p{1.8cm}>{\raggedright\arraybackslash}X@{}}
+\begin{tabularx}{0.96\linewidth}{@{}>{\raggedright\arraybackslash}p{4.0cm}>{\centering\arraybackslash}p{1.45cm}>{\centering\arraybackslash}p{1.55cm}>{\raggedright\arraybackslash}X@{}}
 \toprule
 \textbf{Indicador} & \textbf{Antes} & \textbf{Después} & \textbf{Variación}\\
 \midrule
@@ -98,7 +95,7 @@ Antes de la implementación, el registro y la revisión de proveedores requería
 \begin{table}[H]\centering
 \caption{Resultados comparativos del módulo de Proveedores.}\label{tab:cap5_proveedores}
 \begingroup\small\setlength{\tabcolsep}{4pt}
-\begin{tabularx}{0.94\linewidth}{@{}>{\raggedright\arraybackslash}p{4.1cm}>{\centering\arraybackslash}p{1.6cm}>{\centering\arraybackslash}p{1.8cm}>{\raggedright\arraybackslash}X@{}}
+\begin{tabularx}{0.96\linewidth}{@{}>{\raggedright\arraybackslash}p{4.0cm}>{\centering\arraybackslash}p{1.45cm}>{\centering\arraybackslash}p{1.55cm}>{\raggedright\arraybackslash}X@{}}
 \toprule
 \textbf{Indicador} & \textbf{Antes} & \textbf{Después} & \textbf{Variación}\\
 \midrule
@@ -119,20 +116,19 @@ Antes de la implementación, los compromisos se escribían manualmente y la info
 \begin{table}[H]\centering
 \caption{Resultados comparativos del módulo de Calendario operativo.}\label{tab:cap5_calendario}
 \begingroup\small\setlength{\tabcolsep}{4pt}
-\begin{tabularx}{0.94\linewidth}{@{}>{\raggedright\arraybackslash}p{4.1cm}>{\centering\arraybackslash}p{1.6cm}>{\centering\arraybackslash}p{1.8cm}>{\raggedright\arraybackslash}X@{}}
+\begin{tabularx}{0.96\linewidth}{@{}>{\raggedright\arraybackslash}p{4.0cm}>{\centering\arraybackslash}p{1.45cm}>{\centering\arraybackslash}p{1.55cm}>{\raggedright\arraybackslash}X@{}}
 \toprule
 \textbf{Indicador} & \textbf{Antes} & \textbf{Después} & \textbf{Variación}\\
 \midrule
 TP (minutos) & 10 & 0.05 & -99.5\%\\
 TE (\%) & 10 & 0.5 & -9.5 pp\\
 Personal (personas) & 1 & 1 & 0\\
-Insumos & No aplica & No aplica & No aplica\\
+Insumos & N/A & N/A & N/A\\
 \bottomrule
 \end{tabularx}\endgroup
-\par\noindent Nota. El valor posterior de 0.05 minutos equivale aproximadamente a tres segundos.\\
 \end{table}
 
-La automatización evita duplicar el registro de fechas y disminuye las omisiones de compromisos. El personal continúa revisando la información, pero ya no debe transcribir manualmente cada actividad.
+El valor posterior equivale aproximadamente a tres segundos. La automatización evita duplicar el registro de fechas y disminuye las omisiones de compromisos. El personal continúa revisando la información, pero ya no debe transcribir manualmente cada actividad.
 
 \subsubsection{Módulo de Nomenclatura contable}
 
@@ -141,14 +137,14 @@ La Nomenclatura contable permite consultar, registrar, modificar, activar y desa
 \begin{table}[H]\centering
 \caption{Resultados comparativos del módulo de Nomenclatura contable.}\label{tab:cap5_nomenclatura}
 \begingroup\small\setlength{\tabcolsep}{4pt}
-\begin{tabularx}{0.94\linewidth}{@{}>{\raggedright\arraybackslash}p{4.1cm}>{\centering\arraybackslash}p{1.6cm}>{\centering\arraybackslash}p{1.8cm}>{\raggedright\arraybackslash}X@{}}
+\begin{tabularx}{0.96\linewidth}{@{}>{\raggedright\arraybackslash}p{4.0cm}>{\centering\arraybackslash}p{1.45cm}>{\centering\arraybackslash}p{1.55cm}>{\raggedright\arraybackslash}X@{}}
 \toprule
 \textbf{Indicador} & \textbf{Antes} & \textbf{Después} & \textbf{Variación}\\
 \midrule
 TP (minutos) & 5 & 2 & -60.0\%\\
 TE (\%) & 0 & 0 & 0 pp\\
 Personal (personas) & 1 & 1 & 0\\
-Insumos & No aplica & No aplica & No aplica\\
+Insumos & N/A & N/A & N/A\\
 \bottomrule
 \end{tabularx}\endgroup
 \end{table}
@@ -162,7 +158,7 @@ Antes de la implementación, el contador consolidaba la información y preparaba
 \begin{table}[H]\centering
 \caption{Resultados comparativos del módulo de Reportes operativos y financieros.}\label{tab:cap5_reportes}
 \begingroup\small\setlength{\tabcolsep}{4pt}
-\begin{tabularx}{0.94\linewidth}{@{}>{\raggedright\arraybackslash}p{4.1cm}>{\centering\arraybackslash}p{1.6cm}>{\centering\arraybackslash}p{1.8cm}>{\raggedright\arraybackslash}X@{}}
+\begin{tabularx}{0.96\linewidth}{@{}>{\raggedright\arraybackslash}p{4.0cm}>{\centering\arraybackslash}p{1.45cm}>{\centering\arraybackslash}p{1.55cm}>{\raggedright\arraybackslash}X@{}}
 \toprule
 \textbf{Indicador} & \textbf{Antes} & \textbf{Después} & \textbf{Variación}\\
 \midrule
@@ -174,6 +170,7 @@ Insumos (hojas) & 10 & 2 & -80.0\%\\
 \end{tabularx}\endgroup
 \end{table}
 
+\Needspace{4\baselineskip}
 El personal no disminuyó porque el contador continúa consultando y validando la información. La mejora consiste en eliminar la consolidación manual, reducir el tiempo de generación y disminuir los errores derivados de trasladar datos entre documentos.
 
 \subsection{Módulos nuevos sin comparación histórica}
@@ -199,7 +196,7 @@ La incorporación de estos módulos amplía el alcance del sistema. Aunque no se
 
 \subsection{Ilustraciones comparativas}
 
-Las siguientes ilustraciones reúnen los siete módulos que cuentan con una situación anterior y posterior medible. En el caso de los insumos, únicamente se representan los módulos que utilizan valores cuantificables; Calendario y Nomenclatura se registran como no aplicables.
+Las siguientes ilustraciones reúnen los siete módulos que cuentan con una situación anterior y posterior medible. En el caso de los insumos, únicamente se representan los módulos que utilizan valores cuantificables; Calendario y Nomenclatura se registran como N/A.
 
 \begin{figure}[H]\centering
 \caption{Tiempo de proceso por módulo antes y después.}\label{fig:cap5_tp_modulos}
@@ -232,12 +229,12 @@ La Tabla~\ref{tab:cap5_resumen} integra los resultados de los siete módulos con
 \toprule
 \textbf{Módulo} & \textbf{Resultados observados} & \textbf{Estado}\\
 \midrule
-Cheques & TP -40.0\%; TE -19.5 pp; personal sin variación; sustitución del cuaderno físico por registro digital. & Cumple\\
+Cheques & TP -40.0\%; TE -19.5 pp; personal sin variación; reemplazo del cuaderno físico. & Cumple\\
 Caja chica & TP -87.5\%; TE -19 pp; insumos -60.0\%; personal sin variación. & Cumple\\
 Viáticos & TP -66.7\%; TE -30.5 pp; insumos -83.3\%; personal sin variación. & Cumple\\
 Proveedores & TP -97.2\%; TE -22.9 pp; insumos -94.0\%; personal sin variación. & Cumple\\
-Calendario & TP -99.5\%; TE -9.5 pp; personal sin variación; insumos no aplican. & Cumple\\
-Nomenclatura & TP -60.0\%; TE, personal e insumos sin variación o no aplicables. & Cumple\\
+Calendario & TP -99.5\%; TE -9.5 pp; personal sin variación; insumos N/A. & Cumple\\
+Nomenclatura & TP -60.0\%; TE y personal sin variación; insumos N/A. & Cumple\\
 Reportes & TP -91.7\%; TE -28 pp; insumos -80.0\%; personal sin variación. & Cumple\\
 \bottomrule
 \end{tabularx}\endgroup

@@ -1,16 +1,14 @@
 \section{Capítulo V - Análisis de resultados}
 
-Este capítulo presenta el análisis de los resultados obtenidos con el sistema propuesto, denominado Controla, cuyo título es: Desarrollo de una aplicación web para el control de cheques, caja chica, viáticos y alertas de pagos a proveedores en una distribuidora farmacéutica utilizando Angular, Python y PostgreSQL. El análisis compara la situación anterior con la situación posterior a la incorporación de las funcionalidades del sistema.
+Este capítulo presenta el análisis de los resultados obtenidos con el sistema propuesto, denominado Controla, cuyo título es: Desarrollo de una aplicación web para el control de cheques, caja chica, viáticos y alertas de pagos a proveedores en una distribuidora farmacéutica utilizando Angular, Python y PostgreSQL. El análisis compara los procesos que ya se realizaban en la empresa antes de la implementación con la forma en que se ejecutan después de incorporar el sistema.
 
-La comparación no se limita a indicar si el sistema funciona. Se examinan los cambios observados en el tiempo de proceso, la tasa de errores, el personal involucrado y el consumo de insumos. También se interpretan los nuevos flujos de trabajo y se relacionan los resultados con la hipótesis de investigación.
+La comparación considera el tiempo de proceso, la tasa de errores, el personal involucrado y los insumos utilizados. Además, se describen los módulos nuevos que no contaban con un proceso equivalente previo y, por esa razón, se analizan mediante sus funciones y aportes operativos, sin asignarles una comparación numérica artificial.
 
 \subsection{Metodología de comparación}
 
-El objetivo de esta comparación fue identificar los cambios producidos en los módulos de Proveedores, Viáticos y Nomenclatura contable. Para cada módulo se analizaron cuatro indicadores: tiempo de proceso, tasa de errores, personal involucrado e insumos consumidos por semana.
+La medición se realizó sobre los procesos operativos que contaban con una forma de trabajo previa. Se utilizaron cuatro indicadores. El tiempo de proceso (TP) representa el tiempo requerido para completar la operación principal. La tasa de errores (TE) corresponde a la proporción de registros con errores, omisiones o inconsistencias. El personal representa la cantidad de personas que participan directamente en el proceso. Los insumos corresponden a hojas, cuadernos u otros materiales consumibles.
 
-El tiempo de proceso (TP) representa el tiempo promedio requerido para completar la operación principal del módulo. La tasa de errores (TE) representa la proporción de incidencias observadas durante la ejecución del proceso. El indicador Personal corresponde al promedio de personas que participan directamente en la operación. El indicador Insumos corresponde a materiales o servicios consumibles que deben reponerse, como hojas, formularios, sobres o comunicaciones operativas; no incluye personas, tiempo ni activos fijos.
-
-La comparación se realizó tomando como referencia cuatro semanas de operación antes de la aplicación y cuatro semanas después de la incorporación del sistema. Los datos se obtuvieron mediante la recopilación de los procesos observados, los registros de operación y las pruebas funcionales realizadas. Para expresar los tiempos en una unidad común, los períodos de Viáticos se normalizaron a minutos utilizando una jornada laboral de ocho horas: tres días equivalen a 1\,440 minutos y un día equivale a 480 minutos.
+Los tiempos se expresan en minutos para facilitar la comparación. En Viáticos se utilizó una jornada laboral de ocho horas; por tanto, tres días corresponden a 1\,440 minutos y un día corresponde a 480 minutos. En Calendario, los tres segundos posteriores a la implementación se expresan como 0.05 minutos únicamente para la gráfica comparativa.
 
 La variación porcentual se calculó mediante la siguiente expresión:
 
@@ -18,229 +16,241 @@ La variación porcentual se calculó mediante la siguiente expresión:
 \Delta\% = \frac{Después - Antes}{Antes}\times 100
 \end{equation}
 
-Para la tasa de errores se utilizó además la diferencia en puntos porcentuales:
+Para la tasa de errores también se consideró la diferencia en puntos porcentuales:
 
 \begin{equation}
 \Delta pp = TE_{Después} - TE_{Antes}
 \end{equation}
 
-En los casos en que el valor disminuye, la variación negativa representa una mejora. La tasa posterior del módulo de Proveedores se relaciona con dos casos no aprobados de 28 pruebas, equivalentes a 7.1\%. En Viáticos se relaciona con dos casos no aprobados de 21 pruebas, equivalentes a 9.5\%. En Nomenclatura no se observaron errores operativos durante la comparación del proceso normal, por lo que se registró una tasa de 0\% antes y después. Esta medición operativa corresponde al comportamiento normal observado durante la comparación.
+Una variación negativa representa una reducción del indicador. En los módulos nuevos, la situación anterior se registra como ``No aplica'' (N/A), porque no existía un proceso equivalente dentro de la empresa. Esta condición corresponde a los módulos de Carga FEL/SAT, Panel principal, Revisión de partidas y Usuarios y autenticación.
 
-\subsection{Resultados por módulo}
+\subsection{Resultados comparativos por módulo}
 
-\subsubsection{Módulo de Proveedores}
+\subsubsection{Módulo de Cheques posfechados}
 
-El módulo de Proveedores permite registrar información mediante NIT, asociar una cuenta de nomenclatura, configurar retenciones y generar partidas mensuales o transitorias. Antes de la solución, el registro y la revisión de la información requerían consolidar datos de diferentes archivos y verificar manualmente la cuenta contable y las condiciones de pago.
+Antes de la implementación, el contador registraba los cheques en un cuaderno físico y utilizaba un calendario virtual separado para consultar las fechas de depósito. También debía calcular manualmente los días hábiles, fines de semana y días festivos. El registro de un cheque y su asignación posterior al calendario requería cinco minutos. Después, el sistema asigna automáticamente el cheque al calendario y genera las alertas correspondientes, por lo que el tiempo disminuyó a tres minutos.
 
-\begin{table}[H]
-\centering
-\caption{Resultados comparativos del módulo de Proveedores.}\label{tab:cap5_proveedores}
-\begingroup
-\small
-\setlength{\tabcolsep}{4pt}
-\begin{tabularx}{0.94\linewidth}{@{}>{\raggedright\arraybackslash}p{4.2cm}>{\centering\arraybackslash}p{1.6cm}>{\centering\arraybackslash}p{1.8cm}>{\raggedright\arraybackslash}X@{}}
+\begin{table}[H]\centering
+\caption{Resultados comparativos del módulo de Cheques posfechados.}\label{tab:cap5_cheques}
+\begingroup\small\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{0.94\linewidth}{@{}>{\raggedright\arraybackslash}p{4.1cm}>{\centering\arraybackslash}p{1.6cm}>{\centering\arraybackslash}p{1.8cm}>{\raggedright\arraybackslash}X@{}}
 \toprule
 \textbf{Indicador} & \textbf{Antes} & \textbf{Después} & \textbf{Variación}\\
 \midrule
-TP (minutos) & 180 & 5 & -97.2\%\\
-TE (\%) & 30 & 7.1 & -22.9 pp\\
-Personal (personas) & 3 & 3 & 0\\
-Insumos (hojas/semana) & 50 & 3 & -47\\
+TP (minutos) & 5 & 3 & -40.0\%\\
+TE por omisión de fechas (\%) & 20 & 0.5 & -19.5 pp\\
+Personal (personas) & 1 & 1 & 0\\
+Insumos & Cuaderno y calendario virtual & Registro digital y calendario integrado & Sustitución\\
 \bottomrule
-\end{tabularx}
-\endgroup
-\par\noindent Nota. El consumo de insumos disminuyó de 50 a 3 hojas por semana.
+\end{tabularx}\endgroup
+\par\noindent Nota. Antes del sistema se presentaban omisiones en dos de cada diez cheques al calcular o revisar fechas de depósito.\\
 \end{table}
 
-La reducción del tiempo, de 180 a 5 minutos, se relaciona con la consulta centralizada por NIT, la selección de la cuenta contable y la disponibilidad de datos del proveedor en una misma pantalla. El personal involucrado se mantuvo en tres personas, por lo que la mejora se produjo principalmente en la velocidad, la trazabilidad y la reducción de tareas repetitivas. El consumo de hojas disminuyó de 50 a 3 por semana, debido a que la información se registra y consulta dentro del sistema.
+La reducción del tiempo se debe a la asignación automática al calendario. La tasa de errores se relaciona con omisiones en el cálculo de días festivos y fines de semana. Las alertas no sustituyen la revisión del contador, pero permiten anticipar las fechas que requieren seguimiento.
+
+\subsubsection{Módulo de Caja chica}
+
+Antes de la implementación, el contador dedicaba aproximadamente cuatro horas al registro de facturas, cálculo de valores, ajuste de cuentas y preparación de la liquidación. Posteriormente, el administrador revisaba la información y el gerente general autorizaba el resultado. Con el sistema, las facturas FEL pueden asignarse al fondo, los recibos pueden registrarse, las cuentas pueden clasificarse y la partida puede generarse desde el mismo flujo.
+
+\begin{table}[H]\centering
+\caption{Resultados comparativos del módulo de Caja chica.}\label{tab:cap5_caja}
+\begingroup\small\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{0.94\linewidth}{@{}>{\raggedright\arraybackslash}p{4.1cm}>{\centering\arraybackslash}p{1.6cm}>{\centering\arraybackslash}p{1.8cm}>{\raggedright\arraybackslash}X@{}}
+\toprule
+\textbf{Indicador} & \textbf{Antes} & \textbf{Después} & \textbf{Variación}\\
+\midrule
+TP (minutos) & 240 & 30 & -87.5\%\\
+TE (\%) & 20 & 1 & -19 pp\\
+Personal (personas) & 3 & 3 & 0\\
+Insumos (hojas) & 5 & 2 & -60.0\%\\
+\bottomrule
+\end{tabularx}\endgroup
+\par\noindent Nota. El proceso involucra al contador en la creación, al administrador en la revisión y al gerente general en la autorización.\\
+\end{table}
+
+La participación del personal no disminuyó, debido a que las responsabilidades de control y autorización se mantienen. La mejora se observa en la reducción del tiempo, la disminución de errores y el menor uso de hojas para respaldar el proceso.
 
 \subsubsection{Módulo de Viáticos}
 
-El módulo de Viáticos organiza colaboradores, territorios, giras, semanas, categorías de gasto, liquidaciones y partidas contables. Antes de la solución, el proceso podía extenderse durante tres días laborales debido a la recepción de documentos, la revisión manual y la consolidación de la liquidación. Después de la incorporación del sistema, el proceso se redujo a un día laboral.
+El módulo de Viáticos organiza colaboradores, territorios, giras, semanas, categorías, liquidaciones y partidas. Antes de la implementación, el contador recibía los documentos, registraba manualmente las facturas, revisaba los gastos y consolidaba la información durante tres días laborales. Después, el proceso se completa en un día laboral mediante formularios integrados y generación de partidas.
 
-\begin{table}[H]
-\centering
+\begin{table}[H]\centering
 \caption{Resultados comparativos del módulo de Viáticos.}\label{tab:cap5_viaticos}
-\begingroup
-\small
-\setlength{\tabcolsep}{4pt}
-\begin{tabularx}{0.94\linewidth}{@{}>{\raggedright\arraybackslash}p{4.2cm}>{\centering\arraybackslash}p{1.6cm}>{\centering\arraybackslash}p{1.8cm}>{\raggedright\arraybackslash}X@{}}
+\begingroup\small\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{0.94\linewidth}{@{}>{\raggedright\arraybackslash}p{4.1cm}>{\centering\arraybackslash}p{1.6cm}>{\centering\arraybackslash}p{1.8cm}>{\raggedright\arraybackslash}X@{}}
 \toprule
 \textbf{Indicador} & \textbf{Antes} & \textbf{Después} & \textbf{Variación}\\
 \midrule
 TP (minutos) & 1\,440 & 480 & -66.7\%\\
 TE (\%) & 40 & 9.5 & -30.5 pp\\
 Personal (personas) & 3 & 3 & 0\\
-Insumos (u/semana) & 120 & 20 & -100\\
+Insumos (unidades/semana) & 120 & 20 & -83.3\%\\
 \bottomrule
-\end{tabularx}
-\endgroup
-\par\noindent Nota. El consumo de insumos disminuyó de 120 a 20 unidades por semana.
+\end{tabularx}\endgroup
 \end{table}
 
-El resultado muestra que el sistema redujo en dos jornadas laborales el tiempo de procesamiento. La programación de giras, la asociación de facturas y la generación de partidas semanales disminuyeron la necesidad de revisar información en diferentes documentos. El personal involucrado se mantuvo en tres personas, pero con una distribución de actividades más ordenada. El consumo de insumos disminuyó de 120 a 20 unidades por semana.
+La reducción de dos jornadas laborales se relaciona con la organización de los colaboradores, la asociación de facturas, la clasificación de categorías y la generación de partidas semanales. El personal se mantuvo constante, pero sus actividades quedaron distribuidas dentro de un flujo único.
+
+\subsubsection{Módulo de Proveedores}
+
+Antes de la implementación, el registro y la revisión de proveedores requerían consultar archivos separados, verificar el NIT, revisar las condiciones de pago y asignar manualmente la cuenta contable. Después, el sistema centraliza la información, permite asociar la nomenclatura, configura retenciones y genera partidas mensuales o transitorias.
+
+\begin{table}[H]\centering
+\caption{Resultados comparativos del módulo de Proveedores.}\label{tab:cap5_proveedores}
+\begingroup\small\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{0.94\linewidth}{@{}>{\raggedright\arraybackslash}p{4.1cm}>{\centering\arraybackslash}p{1.6cm}>{\centering\arraybackslash}p{1.8cm}>{\raggedright\arraybackslash}X@{}}
+\toprule
+\textbf{Indicador} & \textbf{Antes} & \textbf{Después} & \textbf{Variación}\\
+\midrule
+TP (minutos) & 180 & 5 & -97.2\%\\
+TE (\%) & 30 & 7.1 & -22.9 pp\\
+Personal (personas) & 3 & 3 & 0\\
+Insumos (hojas/semana) & 50 & 3 & -94.0\%\\
+\bottomrule
+\end{tabularx}\endgroup
+\end{table}
+
+El cambio principal se observa en la consulta por NIT, la disponibilidad de datos en una misma pantalla y la generación de partidas con cuentas de gasto, IVA, retenciones y contrapartidas. El personal se mantuvo en tres personas porque las actividades de registro, revisión y autorización continúan siendo necesarias.
+
+\subsubsection{Módulo de Calendario operativo}
+
+Antes de la implementación, los compromisos se escribían manualmente y la información debía trasladarse a un calendario virtual. El registro requería aproximadamente diez minutos. Después, el sistema crea automáticamente el evento cuando se registra el cheque, la factura o la actividad correspondiente, y el proceso tarda aproximadamente tres segundos.
+
+\begin{table}[H]\centering
+\caption{Resultados comparativos del módulo de Calendario operativo.}\label{tab:cap5_calendario}
+\begingroup\small\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{0.94\linewidth}{@{}>{\raggedright\arraybackslash}p{4.1cm}>{\centering\arraybackslash}p{1.6cm}>{\centering\arraybackslash}p{1.8cm}>{\raggedright\arraybackslash}X@{}}
+\toprule
+\textbf{Indicador} & \textbf{Antes} & \textbf{Después} & \textbf{Variación}\\
+\midrule
+TP (minutos) & 10 & 0.05 & -99.5\%\\
+TE (\%) & 10 & 0.5 & -9.5 pp\\
+Personal (personas) & 1 & 1 & 0\\
+Insumos & No aplica & No aplica & No aplica\\
+\bottomrule
+\end{tabularx}\endgroup
+\par\noindent Nota. El valor posterior de 0.05 minutos equivale aproximadamente a tres segundos.\\
+\end{table}
+
+La automatización evita duplicar el registro de fechas y disminuye las omisiones de compromisos. El personal continúa revisando la información, pero ya no debe transcribir manualmente cada actividad.
 
 \subsubsection{Módulo de Nomenclatura contable}
 
-El módulo de Nomenclatura contable permite buscar, registrar, modificar, activar y desactivar cuentas, además de ofrecerlas como opciones de clasificación para Proveedores y Viáticos. El proceso presentó el menor tiempo de operación antes de la implementación, porque se trataba de consultas puntuales; aun así, la centralización redujo el tiempo de cinco a dos minutos.
+La Nomenclatura contable permite consultar, registrar, modificar, activar y desactivar cuentas. Antes, la consulta de una cuenta requería revisar listados separados y tardaba aproximadamente cinco minutos. Después, el catálogo se consulta directamente desde el sistema en aproximadamente dos minutos.
 
-\begin{table}[H]
-\centering
+\begin{table}[H]\centering
 \caption{Resultados comparativos del módulo de Nomenclatura contable.}\label{tab:cap5_nomenclatura}
-\begingroup
-\small
-\setlength{\tabcolsep}{4pt}
-\begin{tabularx}{0.94\linewidth}{@{}>{\raggedright\arraybackslash}p{4.2cm}>{\centering\arraybackslash}p{1.6cm}>{\centering\arraybackslash}p{1.8cm}>{\raggedright\arraybackslash}X@{}}
+\begingroup\small\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{0.94\linewidth}{@{}>{\raggedright\arraybackslash}p{4.1cm}>{\centering\arraybackslash}p{1.6cm}>{\centering\arraybackslash}p{1.8cm}>{\raggedright\arraybackslash}X@{}}
 \toprule
 \textbf{Indicador} & \textbf{Antes} & \textbf{Después} & \textbf{Variación}\\
 \midrule
 TP (minutos) & 5 & 2 & -60.0\%\\
-TE (\%) & 0 & 0 & 0\\
+TE (\%) & 0 & 0 & 0 pp\\
 Personal (personas) & 1 & 1 & 0\\
-Insumos (u/semana) & 0 & 0 & 0\\
+Insumos & No aplica & No aplica & No aplica\\
 \bottomrule
-\end{tabularx}
-\endgroup
-\par\noindent Nota. El módulo no utilizó insumos adicionales antes ni después de la implementación.
+\end{tabularx}\endgroup
 \end{table}
 
-La mejora principal de este módulo se encuentra en la disponibilidad inmediata del catálogo y en la integración con los formularios de otros módulos. La tasa de errores operativos permaneció en 0\%, al igual que el personal y los insumos utilizados. Esto indica que la contribución del módulo no se relaciona con una reducción de consumibles, sino con la consistencia de la clasificación contable y la disminución del tiempo de consulta.
+El aporte principal de este módulo es la centralización del catálogo y la integración de las cuentas con Proveedores, Viáticos y Caja chica. La mejora se expresa en el tiempo de consulta y en la disponibilidad de una cuenta contable consistente para las partidas.
+
+\subsubsection{Módulo de Reportes operativos y financieros}
+
+Antes de la implementación, el contador consolidaba la información y preparaba los reportes en aproximadamente dos horas. Después, los datos se incorporan al reporte durante el registro de las operaciones y la consulta o generación del informe tarda aproximadamente diez minutos.
+
+\begin{table}[H]\centering
+\caption{Resultados comparativos del módulo de Reportes operativos y financieros.}\label{tab:cap5_reportes}
+\begingroup\small\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{0.94\linewidth}{@{}>{\raggedright\arraybackslash}p{4.1cm}>{\centering\arraybackslash}p{1.6cm}>{\centering\arraybackslash}p{1.8cm}>{\raggedright\arraybackslash}X@{}}
+\toprule
+\textbf{Indicador} & \textbf{Antes} & \textbf{Después} & \textbf{Variación}\\
+\midrule
+TP (minutos) & 120 & 10 & -91.7\%\\
+TE (\%) & 30 & 2 & -28 pp\\
+Personal (personas) & 1 & 1 & 0\\
+Insumos (hojas) & 10 & 2 & -80.0\%\\
+\bottomrule
+\end{tabularx}\endgroup
+\end{table}
+
+El personal no disminuyó porque el contador continúa consultando y validando la información. La mejora consiste en eliminar la consolidación manual, reducir el tiempo de generación y disminuir los errores derivados de trasladar datos entre documentos.
+
+\subsection{Módulos nuevos sin comparación histórica}
+
+La Carga FEL/SAT, el Panel principal, la Revisión de partidas y Usuarios y autenticación se incorporaron como funcionalidades nuevas. Debido a que no existía un proceso equivalente previo, su resultado se analiza a partir de las funciones disponibles y del control que agregan al sistema.
+
+\begin{table}[H]\centering
+\caption{Módulos nuevos y aportes funcionales.}\label{tab:cap5_modulos_nuevos}
+\begingroup\small\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{0.94\linewidth}{@{}p{3.5cm}X X@{}}
+\toprule
+\textbf{Módulo} & \textbf{Funcionalidades evaluadas} & \textbf{Aporte al proceso}\\
+\midrule
+Carga FEL/SAT & Importación, consulta, validación y asignación de facturas & Reduce la digitación y facilita la distribución hacia Caja chica y Viáticos.\\
+Panel principal & Acceso a módulos, resumen de pendientes y consulta inicial & Centraliza la visualización de la operación y facilita el acceso a las funciones.\\
+Revisión de partidas & Consulta de cuentas, Debe, Haber, retenciones y contrapartidas & Permite verificar la consistencia de los asientos antes de continuar con el proceso.\\
+Usuarios y autenticación & Inicio de sesión, roles y permisos & Restringe el acceso a las funciones según el perfil del usuario.\\
+\bottomrule
+\end{tabularx}\endgroup
+\end{table}
+
+La incorporación de estos módulos amplía el alcance del sistema. Aunque no se calcula una reducción histórica para ellos, su funcionamiento permite controlar actividades que antes no estaban centralizadas en una aplicación web.
 
 \subsection{Ilustraciones comparativas}
 
-Las siguientes ilustraciones comparan los tres módulos mediante una gráfica para cada indicador. Las imágenes presentan un formato de barras agrupadas similar al utilizado en Word, con valores visibles y las categorías Antes y Después.
+Las siguientes ilustraciones reúnen los siete módulos que cuentan con una situación anterior y posterior medible. En el caso de los insumos, únicamente se representan los módulos que utilizan valores cuantificables; Calendario y Nomenclatura se registran como no aplicables.
 
-\begin{figure}[H]
-\centering
+\begin{figure}[H]\centering
 \caption{Tiempo de proceso por módulo antes y después.}\label{fig:cap5_tp_modulos}
-\includegraphics[width=0.86\linewidth]{graficas_capitulo_v/tp_modulos.png}
+\includegraphics[width=0.92\linewidth]{graficas_capitulo_v/tp_modulos.png}
 \end{figure}
 
-\begin{figure}[H]
-\centering
+\begin{figure}[H]\centering
 \caption{Tasa de errores por módulo antes y después.}\label{fig:cap5_te_modulos}
-\includegraphics[width=0.86\linewidth]{graficas_capitulo_v/te_modulos.png}
+\includegraphics[width=0.92\linewidth]{graficas_capitulo_v/te_modulos.png}
 \end{figure}
 
-\begin{figure}[H]
-\centering
+\begin{figure}[H]\centering
 \caption{Personal involucrado por módulo antes y después.}\label{fig:cap5_personal_modulos}
-\includegraphics[width=0.86\linewidth]{graficas_capitulo_v/personal_modulos.png}
+\includegraphics[width=0.92\linewidth]{graficas_capitulo_v/personal_modulos.png}
 \end{figure}
 
-\begin{figure}[H]
-\centering
+\begin{figure}[H]\centering
 \caption{Insumos utilizados por módulo antes y después.}\label{fig:cap5_insumos_modulos}
-\includegraphics[width=0.86\linewidth]{graficas_capitulo_v/insumos_modulos.png}
+\includegraphics[width=0.92\linewidth]{graficas_capitulo_v/insumos_modulos.png}
 \end{figure}
 
-\subsection{Flujos de procesos}
+\subsection{Evaluación resumida de los módulos comparables}
 
-La comparación de los flujos permite observar cómo se modificó la secuencia de actividades. Antes de la solución, la información se recibía en documentos separados, se trasladaba entre personas y se consolidaba manualmente. Después, el sistema centraliza los registros, aplica validaciones y genera información disponible para las etapas siguientes.
+La Tabla~\ref{tab:cap5_resumen} integra los resultados de los siete módulos con medición antes y después. Las reducciones de tiempo, errores e insumos representan mejoras, mientras que la ausencia de variación en el personal indica que el sistema optimizó las tareas sin eliminar las responsabilidades de control.
 
-\subsubsection{Registro y control de proveedores}
-
-Antes de la implementación, el proceso dependía de la consulta de archivos, la verificación manual del NIT y la revisión posterior de la cuenta contable. Después de la implementación, la búsqueda por NIT, la asignación de nomenclatura y la generación de partidas se realizan dentro de un flujo integrado.
-
-\begin{figure}[H]
-\centering
-\caption{Comparación del flujo de registro y control de proveedores.}\label{fig:cap5_flujo_proveedores}
-\begin{tikzpicture}[node distance=0.65cm and 0.35cm, every node/.style={font=\scriptsize, align=center}, box/.style={draw, rounded corners, minimum width=2.2cm, minimum height=0.7cm}, arrow/.style={-{Stealth}, thick}]
-\node[box] (a) {Recibir datos y documentos};
-\node[box, right=of a] (b) {Revisar archivos manualmente};
-\node[box, right=of b] (c) {Validar NIT y cuenta};
-\node[box, right=of c] (d) {Registrar y generar partida};
-\draw[arrow] (a)--(b)--(c)--(d);
-\node[box, below=0.7cm of a] (e) {Buscar proveedor por NIT};
-\node[box, right=of e] (f) {Validar datos y retenciones};
-\node[box, right=of f] (g) {Asignar cuenta contable};
-\node[box, right=of g] (h) {Generar partida y consultar cartera};
-\draw[arrow] (e)--(f)--(g)--(h);
-\node[left=0.1cm of a, font=\scriptsize\bfseries] {Antes};
-\node[left=0.1cm of e, font=\scriptsize\bfseries] {Después};
-\end{tikzpicture}
-\end{figure}
-
-\subsubsection{Registro y liquidación de viáticos}
-
-El flujo anterior de Viáticos requería recibir liquidaciones, revisar facturas, consultar asignaciones y consolidar los valores antes de generar una partida. El flujo posterior organiza colaboradores, territorios, semanas y categorías, y permite asociar la información de la liquidación con las partidas correspondientes.
-
-\begin{figure}[H]
-\centering
-\caption{Comparación del flujo de registro y liquidación de viáticos.}\label{fig:cap5_flujo_viaticos}
-\begin{tikzpicture}[node distance=0.65cm and 0.35cm, every node/.style={font=\scriptsize, align=center}, box/.style={draw, rounded corners, minimum width=2.2cm, minimum height=0.7cm}, arrow/.style={-{Stealth}, thick}]
-\node[box] (a) {Recibir liquidación};
-\node[box, right=of a] (b) {Revisar facturas y hojas};
-\node[box, right=of b] (c) {Consolidar valores};
-\node[box, right=of c] (d) {Preparar partida manual};
-\draw[arrow] (a)--(b)--(c)--(d);
-\node[box, below=0.7cm of a] (e) {Asignar colaborador, territorio y gira};
-\node[box, right=of e] (f) {Clasificar semana y categoría};
-\node[box, right=of f] (g) {Asociar facturas y validar};
-\node[box, right=of g] (h) {Generar partida semanal};
-\draw[arrow] (e)--(f)--(g)--(h);
-\node[left=0.1cm of a, font=\scriptsize\bfseries] {Antes};
-\node[left=0.1cm of e, font=\scriptsize\bfseries] {Después};
-\end{tikzpicture}
-\end{figure}
-
-\subsubsection{Clasificación mediante nomenclatura contable}
-
-Antes de la implementación, la cuenta contable se buscaba en listados separados y podía copiarse manualmente en el documento de respaldo. Después de la implementación, el catálogo se consulta desde el sistema y sus cuentas se ofrecen como opciones en los formularios de Proveedores y Viáticos.
-
-\begin{figure}[H]
-\centering
-\caption{Comparación del flujo de clasificación mediante nomenclatura contable.}\label{fig:cap5_flujo_nomenclatura}
-\begin{tikzpicture}[node distance=0.65cm and 0.35cm, every node/.style={font=\scriptsize, align=center}, box/.style={draw, rounded corners, minimum width=2.2cm, minimum height=0.7cm}, arrow/.style={-{Stealth}, thick}]
-\node[box] (a) {Recibir concepto del gasto};
-\node[box, right=of a] (b) {Buscar en listado separado};
-\node[box, right=of b] (c) {Copiar código y nombre};
-\node[box, right=of c] (d) {Revisar partida};
-\draw[arrow] (a)--(b)--(c)--(d);
-\node[box, below=0.7cm of a] (e) {Seleccionar módulo y concepto};
-\node[box, right=of e] (f) {Consultar catálogo activo};
-\node[box, right=of f] (g) {Seleccionar cuenta Debe/Haber};
-\node[box, right=of g] (h) {Usar cuenta en la partida};
-\draw[arrow] (e)--(f)--(g)--(h);
-\node[left=0.1cm of a, font=\scriptsize\bfseries] {Antes};
-\node[left=0.1cm of e, font=\scriptsize\bfseries] {Después};
-\end{tikzpicture}
-\end{figure}
-
-\subsection{Evaluación resumida de los módulos}
-
-La Tabla~\ref{tab:cap5_resumen} integra los cuatro indicadores solicitados para los tres módulos. La lectura de las diferencias debe considerar que una reducción del TP, la TE o los insumos representa una mejora. En el caso del personal, la ausencia de variación indica que la solución optimizó las actividades sin modificar la cantidad de participantes.
-
-\begin{table}[H]
-\centering
+\begin{table}[H]\centering
 \caption{Resumen comparativo de resultados por módulo.}\label{tab:cap5_resumen}
-\begingroup
-\small
-\setlength{\tabcolsep}{4pt}
-\begin{tabularx}{0.94\linewidth}{@{}>{\raggedright\arraybackslash}p{2.6cm}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X>{\centering\arraybackslash}p{1.6cm}@{}}
+\begingroup\small\setlength{\tabcolsep}{3pt}
+\begin{tabularx}{0.96\linewidth}{@{}p{2.7cm}X p{1.7cm}@{}}
 \toprule
-\textbf{Módulo} & \textbf{Resultados observados} & \textbf{Causa principal de la mejora} & \textbf{Estado}\\
+\textbf{Módulo} & \textbf{Resultados observados} & \textbf{Estado}\\
 \midrule
-Proveedores & TP: reducción de 97.2\%; TE: reducción de 22.9 pp; insumos: reducción de 47 hojas por semana; personal sin variación. & Consulta por NIT, centralización de datos, selección de cuenta y generación de partidas. & Cumple\\
-Viáticos & TP: reducción de 66.7\%; TE: reducción de 30.5 pp; insumos: reducción de 100 unidades por semana; personal sin variación. & Organización de colaboradores, giras, categorías, liquidaciones y partidas semanales. & Cumple\\
-Nomenclatura & TP: reducción de 60.0\%; TE, personal e insumos sin variación. & Catálogo centralizado e integración de cuentas con Proveedores y Viáticos. & Cumple\\
+Cheques & TP -40.0\%; TE -19.5 pp; personal sin variación; sustitución del cuaderno físico por registro digital. & Cumple\\
+Caja chica & TP -87.5\%; TE -19 pp; insumos -60.0\%; personal sin variación. & Cumple\\
+Viáticos & TP -66.7\%; TE -30.5 pp; insumos -83.3\%; personal sin variación. & Cumple\\
+Proveedores & TP -97.2\%; TE -22.9 pp; insumos -94.0\%; personal sin variación. & Cumple\\
+Calendario & TP -99.5\%; TE -9.5 pp; personal sin variación; insumos no aplican. & Cumple\\
+Nomenclatura & TP -60.0\%; TE, personal e insumos sin variación o no aplicables. & Cumple\\
+Reportes & TP -91.7\%; TE -28 pp; insumos -80.0\%; personal sin variación. & Cumple\\
 \bottomrule
-\end{tabularx}
-\endgroup
+\end{tabularx}\endgroup
 \end{table}
 
-En conjunto, los resultados muestran que el principal efecto del sistema fue reducir el tiempo de ejecución y el uso de insumos. La cantidad de personas se mantuvo constante porque los procesos aún requieren revisión y autorización del personal responsable. La permanencia del personal no contradice la mejora; indica que el sistema funciona como herramienta de apoyo para las personas que ya participan en el proceso.
+En conjunto, los mayores efectos se observaron en el Calendario, Proveedores, Reportes y Caja chica, debido a la eliminación de registros duplicados, la centralización de información y la generación automática de resultados. Viáticos presentó una mejora relevante por la reducción de días de procesamiento. Cheques redujo las omisiones relacionadas con fechas y Nomenclatura disminuyó el tiempo de consulta.
 
-\subsection{Evaluación de la hipótesis}
+Los módulos nuevos complementan estas mejoras mediante la importación de facturas, la consulta general del estado operativo, la revisión de partidas y el control de acceso. Su aporte se expresa en la incorporación de controles que no se encontraban centralizados en la operación anterior.
 
-La hipótesis de trabajo plantea que la implementación de un sistema complementario de control contable contribuye a mejorar la eficiencia, el control y la precisión en la gestión de documentos contables. Con base en la comparación realizada, la hipótesis se cumple de manera favorable.
+\subsection{Análisis global}
 
-En el módulo de Proveedores, el tiempo de proceso disminuyó de 180 a 5 minutos, lo que representa una reducción de 97.2\%. La tasa de errores disminuyó de 30\% a 7.1\%, equivalente a una reducción de 22.9 puntos porcentuales. Además, el consumo de hojas pasó de 50 a 3 por semana. Estos cambios se relacionan con la consulta por NIT, la centralización de la información, la asignación de la cuenta de nomenclatura y la generación integrada de partidas.
+Los resultados muestran que el sistema Controla mejora los procesos administrativos y contables al reducir tiempos de ejecución, errores e insumos en los módulos que contaban con un proceso anterior. La cantidad de personas se mantuvo constante en los módulos evaluados porque las funciones de registro, revisión y autorización continúan siendo necesarias.
 
-En el módulo de Viáticos, el proceso se redujo de tres días laborales a un día laboral, de 1\,440 a 480 minutos, equivalente a una reducción de 66.7\%. La tasa de errores disminuyó de 40\% a 9.5\%, es decir, 30.5 puntos porcentuales. El consumo de insumos se redujo de 120 a 20 unidades por semana. Esta mejora se explica por la organización de colaboradores, territorios, giras, semanas, categorías y liquidaciones en un mismo flujo.
+La hipótesis se considera respaldada por la reducción observada en los tiempos de Proveedores, Viáticos, Caja chica, Cheques, Calendario, Nomenclatura y Reportes. También se observó una disminución en las tasas de error de los procesos medidos. En los módulos nuevos, la evidencia corresponde a las funciones implementadas y a los controles que incorporan al sistema.
 
-En el módulo de Nomenclatura contable, el tiempo de consulta o registro disminuyó de cinco a dos minutos, equivalente a una reducción de 60.0\%. La tasa de errores operativos permaneció en 0\%, debido a que no se observaron errores en la ejecución normal del proceso. La cantidad de personas y los insumos también permanecieron sin variación. El aporte principal de este módulo fue garantizar que las cuentas estén disponibles desde un catálogo centralizado y puedan reutilizarse en los módulos de Proveedores y Viáticos.
-
-Los resultados funcionales obtenidos complementan este análisis. En las pruebas de Proveedores se aprobaron 26 de 28 casos, en Viáticos 19 de 21 y en Nomenclatura 19 de 21, para un total de 64 aprobados de 70 y un resultado de 91.4\%. La existencia de seis casos que requieren revisión no invalida la hipótesis; por el contrario, muestra que la evaluación permitió identificar aspectos concretos para una etapa posterior de mejora.
-
-En conclusión, la hipótesis se cumple porque el sistema redujo los tiempos de proceso en los tres módulos, disminuyó la tasa de errores en Proveedores y Viáticos, redujo el consumo de insumos y fortaleció la trazabilidad de la información contable. La solución no eliminó la participación del personal, pero sí organizó sus actividades y redujo tareas manuales. Por ello, el sistema Controla constituye una herramienta de apoyo que mejora el control operativo y proporciona una base para continuar optimizando los procesos de la distribuidora farmacéutica.
+En conclusión, Controla permite centralizar la información, automatizar actividades repetitivas, generar alertas, clasificar cuentas contables y producir reportes con menor esfuerzo operativo. La solución no reemplaza las responsabilidades del personal, sino que mejora la forma en que estas se ejecutan y facilita la revisión de los resultados.

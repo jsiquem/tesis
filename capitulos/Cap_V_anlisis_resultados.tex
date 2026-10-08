@@ -2,11 +2,13 @@
 
 Este capítulo presenta el análisis de los resultados obtenidos con el sistema propuesto, cuyo título es: Desarrollo de una aplicación web para el control de cheques, caja chica, viáticos y alertas de pagos a proveedores en una distribuidora farmacéutica utilizando Angular, Python y PostgreSQL. El análisis compara los procesos que ya se realizaban en la empresa antes de la implementación con la forma en que se ejecutan después de incorporar el sistema.
 
-La comparación considera el tiempo de proceso, la tasa de errores, el personal involucrado y los insumos utilizados. Además, se describen los módulos nuevos que no contaban con un proceso equivalente previo y, por esa razón, se analizan mediante sus funciones y aportes operativos, sin asignarles una comparación numérica artificial.
+La comparación considera el tiempo de proceso, la tasa de errores, el personal involucrado y los insumos utilizados. Además, se describen los módulos nuevos que no contaban con un proceso equivalente previo y, por esa razón, se analizan mediante sus funciones y aportes operativos, sin asignarles una comparación numérica artificial. La medición se organizó en un período de cuatro semanas antes de la implementación y cuatro semanas después de la incorporación del sistema propuesto.
 
 \subsection*{Metodología de comparación}
 
-La medición se realizó sobre los procesos operativos que contaban con una forma de trabajo previa. Se utilizaron cuatro indicadores. El tiempo de proceso (TP) representa el tiempo requerido para completar la operación principal. La tasa de errores (TE) corresponde a la proporción de registros con errores, omisiones o inconsistencias. El personal representa la cantidad de personas que participan directamente en el proceso. Los insumos corresponden a hojas, cuadernos u otros materiales consumibles.
+La medición se realizó sobre los procesos operativos que contaban con una forma de trabajo previa. Se utilizaron cuatro indicadores. El tiempo de proceso (TP) representa el tiempo requerido para completar la operación principal. La tasa de errores (TE) corresponde a la proporción de registros con errores, omisiones o inconsistencias. El personal representa la cantidad de personas que participan directamente en el proceso. Los insumos corresponden a materiales consumibles o servicios que se utilizan y deben reponerse durante la operación, como papel, etiquetas, timbres fiscales, mensajes SMS, rollos térmicos y sobres; no incluyen el tiempo, el personal ni los activos fijos.
+
+Las fuentes de información fueron las bitácoras del sistema, los registros de Recursos Humanos y los registros administrativos del área de compras y telefonía. Estas fuentes permitieron contrastar los tiempos, errores, participación del personal y consumo de insumos observados en ambos períodos.
 
 Los tiempos se expresan en minutos para facilitar la comparación. En Viáticos se utilizó una jornada laboral de ocho horas; por tanto, tres días corresponden a 1\,440 minutos y un día corresponde a 480 minutos. En Calendario, los tres segundos posteriores a la implementación se expresan como 0.05 minutos únicamente para la gráfica comparativa.
 
@@ -22,7 +24,7 @@ Para la tasa de errores también se consideró la diferencia en puntos porcentua
 \Delta pp = TE_{Después} - TE_{Antes}
 \end{equation}
 
-Una variación negativa representa una reducción del indicador. En los módulos nuevos, la situación anterior se registra como ``N/A'' (N/A), porque no existía un proceso equivalente dentro de la empresa. Esta condición corresponde a los módulos de Carga FEL/SAT, Panel principal, Revisión de partidas y Usuarios y autenticación.
+Una variación negativa representa una reducción del indicador. En los módulos nuevos, la situación anterior se registra como ``N/A'', porque no existía un proceso equivalente dentro de la empresa. Esta condición corresponde a los módulos de Carga FEL/SAT, Panel principal, Revisión de partidas y Usuarios y autenticación.
 
 \subsection{Resultados por módulo}
 

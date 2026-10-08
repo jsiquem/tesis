@@ -46,8 +46,8 @@ El presente capítulo documenta los formularios desarrollados para el Sistema We
     \endfoot
 
     % --- Cierre final ---
-    \bottomrule
-    \endlastfoot
+\bottomrule
+\endlastfoot
 
     % --- Filas de datos ---
     F-FEL-01 & Carga Masiva FEL & Importar archivos XML/Excel autorizados por la SAT & Admin, Auxiliar (\textrm{importar\_fel}) & C & \textrm{/facturas-fel} \\
@@ -147,8 +147,8 @@ El presente capítulo documenta los formularios desarrollados para el Sistema We
     \endfoot
 
     % --- Cierre final ---
-    \bottomrule
-    \endlastfoot
+\bottomrule
+\endlastfoot
 
     % --- Filas de datos ---
     F-CHEQ-01 & Control de Cheques & Registrar, consultar, actualizar estado y vincular a factura & Admin, Tesorero, Contador (\textrm{gestion\_cheques}) & CRUD & \textrm{/cheques} \\
@@ -222,8 +222,8 @@ El presente capítulo documenta los formularios desarrollados para el Sistema We
     \endfoot
 
     % --- Cierre final ---
-    \bottomrule
-    \endlastfoot
+\bottomrule
+\endlastfoot
 
     % --- Filas de datos ---
     F-CAJA-01 & Asignar Factura FEL & Vincular factura FEL al fondo de Caja Chica & Admin, Operativo (\textrm{caja\_asigna\_fel}) & C & \textrm{/caja-chica} \\
@@ -323,8 +323,8 @@ El presente capítulo documenta los formularios desarrollados para el Sistema We
     \endfoot
 
     % --- Cierre final ---
-    \bottomrule
-    \endlastfoot
+\bottomrule
+\endlastfoot
 
     % --- Filas de datos ---
     F-VIAT-01 & Gestión de Giras & Asignar territorio, colaborador y semana operativa & Admin, Encargado (\textrm{giras\_crear}) & C/U & \textrm{/viaticos} \\
@@ -411,8 +411,8 @@ El presente capítulo documenta los formularios desarrollados para el Sistema We
     \endfoot
 
     % --- Cierre final ---
-    \bottomrule
-    \endlastfoot
+\bottomrule
+\endlastfoot
 
     % --- Filas de datos ---
     F-PROV-01 & Registro Proveedor & Alta por NIT, datos comerciales y condiciones de pago & Admin, Compras, Contador (\textrm{proveedores\_crear}) & C/U & \textrm{/proveedores} \\
@@ -499,8 +499,8 @@ El presente capítulo documenta los formularios desarrollados para el Sistema We
     \endfoot
 
     % --- Cierre final ---
-    \bottomrule
-    \endlastfoot
+\bottomrule
+\endlastfoot
 
     % --- Filas de datos ---
     F-CAL-01 & Vista Calendario & Consultar eventos, pagos, depósitos y giras & Todos (\textrm{calendario\_ver}) & R & \textrm{/calendario} \\
@@ -574,8 +574,8 @@ El presente capítulo documenta los formularios desarrollados para el Sistema We
     \endfoot
 
     % --- Cierre final ---
-    \bottomrule
-    \endlastfoot
+\bottomrule
+\endlastfoot
 
     % --- Filas de datos ---
     F-NOM-01 & Catálogo Cuentas & Listar, buscar y filtrar catálogo de cuentas & Admin, Contador (\textrm{nomenclatura\_ver}) & R & \textrm{/nomenclatura} \\
@@ -1108,9 +1108,8 @@ En esta sección se presenta el inventario lógico de objetos de PostgreSQL defi
     \endhead
 
     \endfoot
-
-    \bottomrule
-    \endlastfoot
+\bottomrule
+\endlastfoot
 
     \textrm{factura\_fel} & Registro maestro de comprobantes DTE autorizados por la SAT & Facturas FEL/SAT & \textrm{id} (UUID) \\
     \addlinespace
@@ -1157,9 +1156,8 @@ En esta sección se presenta el inventario lógico de objetos de PostgreSQL defi
     \endhead
 
     \endfoot
-
-    \bottomrule
-    \endlastfoot
+\bottomrule
+\endlastfoot
 
     \textrm{sp\_liquidar\_caja\_chica} & Consolida los movimientos vigentes de caja chica y genera el asiento contable de liquidación & \textrm{p\_fondo\_id}, \textrm{p\_usuario\_id} \\
     \addlinespace
@@ -1196,9 +1194,8 @@ En esta sección se presenta el inventario lógico de objetos de PostgreSQL defi
     \endhead
 
     \endfoot
-
-    \bottomrule
-    \endlastfoot
+\bottomrule
+\endlastfoot
 
     \textrm{vw\_estado\_cheques} & Resumen consolidado de cheques cobrados, pendientes y rechazados con totales por banco & Cheques Posfechados \\
     \addlinespace
@@ -1235,9 +1232,8 @@ En esta sección se presenta el inventario lógico de objetos de PostgreSQL defi
     \endhead
 
     \endfoot
-
-    \bottomrule
-    \endlastfoot
+\bottomrule
+\endlastfoot
 
     \textrm{trg\_actualiza\_saldo\_caja} & \textrm{movimiento\_caja} (AFTER INSERT) & Descuenta automáticamente el valor del recibo registrado del saldo disponible del fondo fijo. \\
     \addlinespace

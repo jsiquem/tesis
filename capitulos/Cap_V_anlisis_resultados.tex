@@ -4,7 +4,7 @@ Este capítulo presenta el análisis de los resultados obtenidos con el sistema 
 
 La comparación considera el tiempo de proceso, la tasa de errores, el personal involucrado y los insumos utilizados. Además, se describen los módulos nuevos que no contaban con un proceso equivalente previo y, por esa razón, se analizan mediante sus funciones y aportes operativos, sin asignarles una comparación numérica artificial.
 
-\subsection{Metodología de comparación}
+\subsection*{Metodología de comparación}
 
 La medición se realizó sobre los procesos operativos que contaban con una forma de trabajo previa. Se utilizaron cuatro indicadores. El tiempo de proceso (TP) representa el tiempo requerido para completar la operación principal. La tasa de errores (TE) corresponde a la proporción de registros con errores, omisiones o inconsistencias. El personal representa la cantidad de personas que participan directamente en el proceso. Los insumos corresponden a hojas, cuadernos u otros materiales consumibles.
 
@@ -24,7 +24,7 @@ Para la tasa de errores también se consideró la diferencia en puntos porcentua
 
 Una variación negativa representa una reducción del indicador. En los módulos nuevos, la situación anterior se registra como ``N/A'' (N/A), porque no existía un proceso equivalente dentro de la empresa. Esta condición corresponde a los módulos de Carga FEL/SAT, Panel principal, Revisión de partidas y Usuarios y autenticación.
 
-\subsection{Resultados comparativos por módulo}
+\subsection{Resultados por módulo}
 
 \subsubsection{Módulo de Cheques posfechados}
 
@@ -173,7 +173,7 @@ Insumos (hojas) & 10 & 2 & -80.0\%\\
 \Needspace{4\baselineskip}
 El personal no disminuyó porque el contador continúa consultando y validando la información. La mejora consiste en eliminar la consolidación manual, reducir el tiempo de generación y disminuir los errores derivados de trasladar datos entre documentos.
 
-\subsection{Módulos nuevos sin comparación histórica}
+\subsubsection{Módulos nuevos sin comparación histórica}
 
 La Carga FEL/SAT, el Panel principal, la Revisión de partidas y Usuarios y autenticación se incorporaron como funcionalidades nuevas. Debido a que no existía un proceso equivalente previo, su resultado se analiza a partir de las funciones disponibles y del control que agregan al sistema.
 
@@ -218,7 +218,47 @@ Las siguientes ilustraciones reúnen los siete módulos que cuentan con una situ
 \includegraphics[width=0.92\linewidth]{graficas_capitulo_v/insumos_modulos.png}
 \end{figure}
 
-\subsection{Evaluación resumida de los módulos comparables}
+\subsection{Flujos de procesos}
+
+La comparación de los flujos permite observar cómo el sistema propuesto reduce la transcripción manual, incorpora validaciones y concentra la información para su revisión. Se presentan tres procesos representativos: proveedores, caja chica y viáticos.
+
+\begin{figure}[H]
+\centering
+\caption{Flujo del registro de proveedores.}\label{fig:cap5_flujo_proveedores}
+\begin{tikzpicture}[node distance=0.45cm and 0.45cm, every node/.style={font=\small, align=center}, box/.style={draw, rounded corners, minimum width=2.4cm, minimum height=0.75cm}, arrow/.style={-Latex}]
+\node[box] (a) {Recibir documentos};
+\node[box, right=of a] (b) {Verificar NIT};
+\node[box, right=of b] (c) {Registrar proveedor};
+\node[box, right=of c] (d) {Generar partida};
+\draw[arrow] (a)--(b)--(c)--(d);
+\end{tikzpicture}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\caption{Flujo del proceso de caja chica.}\label{fig:cap5_flujo_caja}
+\begin{tikzpicture}[node distance=0.45cm and 0.45cm, every node/.style={font=\small, align=center}, box/.style={draw, rounded corners, minimum width=2.4cm, minimum height=0.75cm}, arrow/.style={-Latex}]
+\node[box] (a) {Cargar factura};
+\node[box, right=of a] (b) {Asignar cuenta};
+\node[box, right=of b] (c) {Revisar movimiento};
+\node[box, right=of c] (d) {Generar resumen};
+\draw[arrow] (a)--(b)--(c)--(d);
+\end{tikzpicture}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\caption{Flujo del proceso de viáticos.}\label{fig:cap5_flujo_viaticos}
+\begin{tikzpicture}[node distance=0.45cm and 0.45cm, every node/.style={font=\small, align=center}, box/.style={draw, rounded corners, minimum width=2.4cm, minimum height=0.75cm}, arrow/.style={-Latex}]
+\node[box] (a) {Registrar colaborador};
+\node[box, right=of a] (b) {Asociar gira};
+\node[box, right=of b] (c) {Validar facturas};
+\node[box, right=of c] (d) {Generar partida};
+\draw[arrow] (a)--(b)--(c)--(d);
+\end{tikzpicture}
+\end{figure}
+
+\subsection{Evaluación de los módulos}
 
 La Tabla~\ref{tab:cap5_resumen} integra los resultados de los siete módulos con medición antes y después. Las reducciones de tiempo, errores e insumos representan mejoras, mientras que la ausencia de variación en el personal indica que el sistema optimizó las tareas sin eliminar las responsabilidades de control.
 
@@ -244,7 +284,7 @@ En conjunto, los mayores efectos se observaron en el Calendario, Proveedores, Re
 
 Los módulos nuevos complementan estas mejoras mediante la importación de facturas, la consulta general del estado operativo, la revisión de partidas y el control de acceso. Su aporte se expresa en la incorporación de controles que no se encontraban centralizados en la operación anterior.
 
-\subsection{Análisis global}
+\subsection{Evaluación de la hipótesis}
 
 Los resultados muestran que el sistema propuesto mejora los procesos administrativos y contables al reducir tiempos de ejecución, errores e insumos en los módulos que contaban con un proceso anterior. La cantidad de personas se mantuvo constante en los módulos evaluados porque las funciones de registro, revisión y autorización continúan siendo necesarias.
 

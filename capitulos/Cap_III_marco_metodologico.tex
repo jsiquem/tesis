@@ -62,12 +62,11 @@ El análisis de estos documentos de base resulta indispensable para asegurar que
     \endhead
 
     % --- Cierre al final de las páginas intermedias ---
-    \bottomrule
     \endfoot
 
     % --- Cierre final de la tabla ---
     \bottomrule
-    \endlastfoot
+\endlastfoot
 
     % --- Filas de datos ---
     Hoja de cálculo & Cheques Postfechados & Documento donde se llevan los registros de los cheques para ser depositados en fechas específicas. & 03/04/2026 \\
@@ -113,12 +112,11 @@ Al no tener estos servicios dentro del software actual, la información se encue
     \endhead
 
     % --- Cierre en la página intermedia ---
-    \bottomrule
     \endfoot
 
     % --- Cierre final de la tabla ---
     \bottomrule
-    \endlastfoot
+\endlastfoot
 
     % --- Filas de contenido ---
     \textquestiondown Cuál es el problema? & Ineficiencia y falta de control en la gestión de cheques postfechados, caja chica, viáticos y facturas de proveedores debido al uso de registros en papel y hojas de cálculo manuales. \\
@@ -162,11 +160,10 @@ Se detallan los requerimientos funcionales del sistema, registrando su numero de
     \endhead
 
     % --- Cierres de Tabla ---
-    \bottomrule
     \endfoot
 
     \bottomrule
-    \endlastfoot
+\endlastfoot
 
     % --- Filas de Contenido ---
     001 & Permitirá el acceso a los usuarios autorizados del sistema. \\
@@ -208,11 +205,10 @@ Se detallan los requerimientos funcionales del sistema, registrando su numero de
     \endhead
 
     % --- Cierres de Tabla ---
-    \bottomrule
     \endfoot
 
     \bottomrule
-    \endlastfoot
+\endlastfoot
 
     % --- Filas de Contenido ---
     001 & Permitirá la carga masiva del archivo de Excel con el reporte mensual de facturas emitidas y recibidas desde la plataforma de la SAT. \\
@@ -252,11 +248,10 @@ Se detallan los requerimientos funcionales del sistema, registrando su numero de
     \endhead
 
     % --- Cierres de Tabla ---
-    \bottomrule
     \endfoot
 
     \bottomrule
-    \endlastfoot
+\endlastfoot
 
     % --- Filas de Contenido ---
     001 & Permitirá registrar cheques con cliente, banco del cheque, banco de depósito, número de cheque, monto, fecha de recepción y fecha de depósito.  \\
@@ -298,11 +293,10 @@ Se detallan los requerimientos funcionales del sistema, registrando su numero de
     \endhead
 
     % --- Cierres de Tabla ---
-    \bottomrule
     \endfoot
 
     \bottomrule
-    \endlastfoot
+\endlastfoot
 
     % --- Filas de Contenido ---
     001 & Permitirá llamar facturas FEL/SAT mediante el número de factura y registrar manualmente Recibos/otros documentos con nombre, descripción, fecha y monto. \\
@@ -342,11 +336,10 @@ Se detallan los requerimientos funcionales del sistema, registrando su numero de
     \endhead
 
     % --- Cierres de Tabla ---
-    \bottomrule
     \endfoot
 
     \bottomrule
-    \endlastfoot
+\endlastfoot
 
     % --- Filas de Contenido ---
     001 & Permitirá vincular facturas FEL/SAT al colaborador mediante el número de factura y asignar manualmente una cuenta de nomenclatura cuando el concepto no sea reconocido. \\
@@ -386,11 +379,10 @@ Se detallan los requerimientos funcionales del sistema, registrando su numero de
     \endhead
 
     % --- Cierres de Tabla ---
-    \bottomrule
     \endfoot
 
     \bottomrule
-    \endlastfoot
+\endlastfoot
 
     % --- Filas de Contenido ---
     001 & Permitirá registrar proveedores por NIT, completar automáticamente el nombre comercial y de registro, indicar días de crédito, cuenta de nomenclatura, Retención IVA y Retención ISR. \\
@@ -430,11 +422,10 @@ Se detallan los requerimientos funcionales del sistema, registrando su numero de
     \endhead
 
     % --- Cierres de Tabla ---
-    \bottomrule
     \endfoot
 
     \bottomrule
-    \endlastfoot
+\endlastfoot
 
     % --- Filas de Contenido ---
     001 & Unificará en una vista de calendario los depósitos de cheques, vencimientos de proveedores y giras de viáticos. \\
@@ -474,11 +465,10 @@ Se detallan los requerimientos funcionales del sistema, registrando su numero de
     \endhead
 
     % --- Cierres de Tabla ---
-    \bottomrule
     \endfoot
 
     \bottomrule
-    \endlastfoot
+\endlastfoot
 
     % --- Filas de Contenido ---
     001 & Permitirá registrar cuentas mediante código, nombre y naturaleza Debe o Haber, además de consultar y actualizar su estado. \\
@@ -518,11 +508,10 @@ Se detallan los requerimientos funcionales del sistema, registrando su numero de
     \endhead
 
     % --- Cierres de Tabla ---
-    \bottomrule
     \endfoot
 
     \bottomrule
-    \endlastfoot
+\endlastfoot
 
     % --- Filas de Contenido ---
     001 & Generará reportes de cheques, facturas FEL, Caja chica, Viáticos, Proveedores y nomenclatura con sus datos principales. \\
@@ -582,11 +571,10 @@ Al tener un cronograma ya planificado y ser estricto con la fecha de entrega, es
     \endhead
 
     % --- Cierres de Tabla ---
-    \bottomrule
     \endfoot
 
     \bottomrule
-    \endlastfoot
+\endlastfoot
 
     % --- Filas de Contenido ---
     Seguridad & 001 & El sistema implementará autenticación de usuarios mediante tokens JWT, cifrado de contraseñas con el algoritmo bcrypt y comunicación cifrada bajo el protocolo HTTPS. \\
@@ -695,12 +683,11 @@ Modela el control de acceso, la validación de credenciales seguras, la asignaci
     \endhead
 
     % --- Cierre en página intermedia ---
-    \bottomrule
     \endfoot
 
     % --- Cierre final ---
     \bottomrule
-    \endlastfoot
+\endlastfoot
 
     % --- Filas de contenido ---
     \textbf{Descripción:} & Este caso de uso valida el acceso seguro al sistema mediante credenciales y asigna permisos específicos según el rol. \\
@@ -753,12 +740,11 @@ Describe la carga masiva e importación de facturas electrónicas desde los arch
     \endhead
 
     % --- Cierre en página intermedia ---
-    \bottomrule
     \endfoot
 
     % --- Cierre final ---
     \bottomrule
-    \endlastfoot
+\endlastfoot
 
     % --- Filas de contenido ---
     \textbf{Descripción:} & Permite procesar masivamente los reportes mensuales de la SAT, extrayendo metadatos fiscales y centralizando las facturas en la base de datos. \\
@@ -810,12 +796,11 @@ Ilustra la gestión de cheques emitidos a fecha futura, la asignación de fechas
     \endhead
 
     % --- Cierre en página intermedia ---
-    \bottomrule
     \endfoot
 
     % --- Cierre final ---
     \bottomrule
-    \endlastfoot
+\endlastfoot
 
     % --- Filas de contenido ---
     \textbf{Descripción:} & Automatiza el control de cheques recibidos/emitidos con fecha posterior, ajustando sus fechas de depósito a días hábiles. \\
@@ -866,12 +851,11 @@ Aborda la asignación de facturas SAT y comprobantes no fiscales (vales/recibos)
     \endhead
 
     % --- Cierre en página intermedia ---
-    \bottomrule
     \endfoot
 
     % --- Cierre final ---
     \bottomrule
-    \endlastfoot
+\endlastfoot
 
     % --- Filas de contenido ---
     \textbf{Descripción:} & Gestiona los desembolsos de caja chica agrupando comprobantes fiscales y vales internos, generando partidas automáticas. \\
@@ -924,12 +908,11 @@ Muestra el flujo de asociación de facturas físicas por colaborador mediante n�
     \endhead
 
     % --- Cierre en página intermedia ---
-    \bottomrule
     \endfoot
 
     % --- Cierre final ---
     \bottomrule
-    \endlastfoot
+\endlastfoot
 
     % --- Filas de contenido ---
     \textbf{Descripción:} & Controla las liquidaciones de viáticos de los colaboradores, vinculando sus facturas entregadas con la programación de giras. \\
@@ -982,12 +965,11 @@ Establece la gestión de la ficha del proveedor (días de crédito y retenciones
     \endhead
 
     % --- Cierre en página intermedia ---
-    \bottomrule
     \endfoot
 
     % --- Cierre final ---
     \bottomrule
-    \endlastfoot
+\endlastfoot
 
     % --- Filas de contenido ---
     \textbf{Descripción:} & Administra los compromisos comerciales con proveedores a crédito, calculando vencimientos y reteniendo impuestos según ley. \\
@@ -1039,12 +1021,11 @@ Consolida en una interfaz visual e interactiva las fechas de cobro de cheques, v
     \endhead
 
     % --- Cierre en página intermedia ---
-    \bottomrule
     \endfoot
 
     % --- Cierre final ---
     \bottomrule
-    \endlastfoot
+\endlastfoot
 
     % --- Filas de contenido ---
     \textbf{Descripción:} & Ofrece una vista consolidada de los compromisos contables del mes con capacidad de edición directa mediante interfaz gráfica. \\
@@ -1096,12 +1077,11 @@ Detalla la estructura del catálogo de cuentas contables, la parametrización de
     \endhead
 
     % --- Cierre en página intermedia ---
-    \bottomrule
     \endfoot
 
     % --- Cierre final ---
     \bottomrule
-    \endlastfoot
+\endlastfoot
 
     % --- Filas de contenido ---
     \textbf{Descripción:} & Define la parametrización contable del sistema garantizando la correcta generación de asientos balanceados. \\
@@ -1153,12 +1133,11 @@ Contempla la extracción y consolidación de reportes de cheques postfechados, p
     \endhead
 
     % --- Cierre en página intermedia ---
-    \bottomrule
     \endfoot
 
     % --- Cierre final ---
     \bottomrule
-    \endlastfoot
+\endlastfoot
 
     % --- Filas de contenido ---
     \textbf{Descripción:} & Permite consultar y exportar resúmenes financieros y operativos filtrados por rangos de fechas o entidades. \\
@@ -1571,12 +1550,11 @@ La factibilidad técnica permitió obtener la información necesaria acerca de s
     \endhead
 
     % --- Cierre en página intermedia ---
-    \bottomrule
     \endfoot
 
     % --- Cierre final ---
     \bottomrule
-    \endlastfoot
+\endlastfoot
 
     % --- Filas de datos ---
     Lenguaje de Programación & Código fuente del sistema & Python (Backend) / TypeScript (Frontend) \\
@@ -1618,12 +1596,11 @@ La factibilidad técnica permitió obtener la información necesaria acerca de s
     \endhead
 
     % --- Cierre en página intermedia ---
-    \bottomrule
     \endfoot
 
     % --- Cierre final ---
     \bottomrule
-    \endlastfoot
+\endlastfoot
 
     % --- Filas de datos ---
     Equipo de cómputo & Computadoras con procesador Core i3 o superior, 8 GB de memoria RAM, conexión a internet y navegador web actualizado (Google Chrome o Microsoft Edge). \\
@@ -1683,12 +1660,11 @@ La factibilidad económica evalúa la relación entre los costos involucrados en
     \endhead
 
     % --- Cierre en página intermedia ---
-    \bottomrule
     \endfoot
 
     % --- Cierre final ---
     \bottomrule
-    \endlastfoot
+\endlastfoot
 
     % --- Filas de datos ---
     Costo de Personal & Equipo de trabajo para el desarrollo del proyecto. & Sin Costo \\
@@ -1767,12 +1743,11 @@ El desarrollo e implementación del sistema contable implica ciertos riesgos té
     \endhead
 
     % --- Cierre en página intermedia ---
-    \bottomrule
     \endfoot
 
     % --- Cierre final ---
     \bottomrule
-    \endlastfoot
+\endlastfoot
 
     % --- Filas de datos ---
     Técnico & Cambios en la estructura de los archivos XML/Excel emitidos por la SAT. & Media & Alto & Diseñar un módulo de lectura dinámico e implementar validadores de esquemas XML flexibles con manejo claro de excepciones. \\

@@ -89,13 +89,20 @@ La siguiente tabla presenta una referencia mínima para el ambiente del servidor
 \toprule
 \textbf{Componente} & \textbf{Configuración mínima} & \textbf{Configuración recomendada}\\
 \midrule
+\endfirsthead
+\toprule
+\textbf{Componente} & \textbf{Configuración mínima} & \textbf{Configuración recomendada}\\
+\midrule
+\endhead
+\endfoot
+\bottomrule
+\endlastfoot
 Procesador & 1 núcleo virtual de 64 bits & 2 núcleos virtuales o físicos dedicados\\
 Memoria RAM & 2 GB disponibles & 4 GB o superior\\
 Almacenamiento & 10 GB libres para aplicación, logs y configuración & 30 GB libres en unidad de estado sólido\\
 Base de datos & PostgreSQL configurado con respaldo periódico & PostgreSQL con almacenamiento separado y monitoreo\\
 Red & Conexión estable para atender las solicitudes del sistema & Enlace institucional con monitoreo de disponibilidad\\
 Respaldo & Copia periódica de la base de datos & Copia automática externa y prueba de restauración\\
-\bottomrule
 \end{longtable}
 
 \textit{Nota.} Los valores son de referencia para la instalación y deben ajustarse al crecimiento de usuarios, documentos y registros contables.

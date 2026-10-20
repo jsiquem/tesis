@@ -60,7 +60,18 @@ El frontend se comunica con el backend mediante HTTPS y cargas JSON. El backend 
 \subsubsection{Módulos funcionales}
 
 \begin{longtable}{p{0.24\linewidth}p{0.68\linewidth}}
+\caption{Módulos funcionales y responsabilidades técnicas.}\label{tab:B_modulos_responsabilidades}\\
+\toprule
 \textbf{Módulo} & \textbf{Responsabilidad técnica} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Módulo} & \textbf{Responsabilidad técnica} \\
+\midrule
+\endhead
+\endfoot
+\bottomrule
+\endlastfoot
 Login & Autenticar al usuario, emitir el token de sesión y aplicar permisos por rol. \\
 Facturas FEL/SAT & Recibir XML o Excel, validar estructura, detectar duplicados, guardar comprobantes y permitir clasificación contable. \\
 Cheques & Registrar cliente, bancos, fechas, estado, recepción de rechazo y asignación de factura. \\
@@ -185,7 +196,18 @@ Los respaldos de PostgreSQL deben incluir al menos una copia completa y copias d
 \subsubsection{Matriz mínima de pruebas técnicas}
 
 \begin{longtable}{p{0.25\linewidth}p{0.34\linewidth}p{0.29\linewidth}}
+\caption{Matriz mínima de pruebas técnicas.}\label{tab:B_matriz_pruebas_tecnicas}\\
+\toprule
 \textbf{Módulo} & \textbf{Prueba} & \textbf{Resultado esperado} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Módulo} & \textbf{Prueba} & \textbf{Resultado esperado} \\
+\midrule
+\endhead
+\endfoot
+\bottomrule
+\endlastfoot
 Login & Credenciales válidas e inválidas & Acceso autorizado o mensaje controlado. \\
 FEL/SAT & XML duplicado o con error & Rechazo, aviso y conservación de trazabilidad. \\
 Cheques & Cambio de estado y asignación & Estado, fechas y detalle de factura consistentes. \\
@@ -215,12 +237,19 @@ El mantenimiento incluye actualizar dependencias de Angular y Python, revisar lo
 \toprule
 \textbf{Prueba} & \textbf{Resultado esperado} & \textbf{Responsable}\\
 \midrule
+\endfirsthead
+\toprule
+\textbf{Prueba} & \textbf{Resultado esperado} & \textbf{Responsable}\\
+\midrule
+\endhead
+\endfoot
+\bottomrule
+\endlastfoot
 Conexión a PostgreSQL & El backend establece conexión y registra el resultado sin exponer credenciales. & Técnico\\
 Autenticación & Angular envía la solicitud al backend Python y recibe una respuesta controlada. & Técnico\\
 Importación FEL & El sistema valida el archivo y evita duplicados. & Auxiliar\\
 Partida contable & Debe y Haber coinciden antes de guardar el registro. & Contador\\
 Respaldo & La copia puede restaurarse en un ambiente de prueba. & Técnico\\
-\bottomrule
 \end{longtable}
 
 \subsubsection{Gestión de logs y errores}
